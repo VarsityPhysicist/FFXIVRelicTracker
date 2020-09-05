@@ -1,0 +1,178 @@
+﻿<UserControl x:Class="FFXIVRelicTracker.ARR.Novus.NovusView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker.ARR.Novus"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/ArrDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infuse Sphere Scroll(s) with 75 materia total"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion may fail and destroy materia at advanced levels"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion failing does not destroy alexandrite"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions may be spread across five separate stats"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions start at Tier I materia"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="As more infusions in a stat are completed, the required Tier increases"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+                <ComboBox   x:Name="ArrNovusJob"
+                                                ItemsSource="{Binding   Path=AvailableNovusJobs}" 
+                                                SelectedItem="{Binding Path=CurrentNovus}"
+                                    />
+                <Border HorizontalAlignment="Center">
+                    <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentNovus}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Visibility="{Binding NonPLDNovus, Converter={StaticResource b2v}}" Orientation="Vertical" >
+                <StackPanel  Orientation="Horizontal" >
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeCount}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeMax}"/>
+                    <StackPanel>
+                        <Button Style="{StaticResource FFXIVButton}" Content="Increment" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeCount}"/>
+
+                        <Button Style="{StaticResource FFXIVButton}" Content="Decrement" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeCount}"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
+                </StackPanel>           
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
+                </StackPanel>
+            </StackPanel>
+            <Grid Visibility="{Binding PLDNovus, Converter={StaticResource b2v}}" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Curtana:"/>
+                <Grid Grid.Column="0" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeSwordCount}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeSwordMax}"/>
+                        <StackPanel>
+                            <Button Style="{StaticResource FFXIVButton}" Content="Increment" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeSwordCount}"/>
+
+                            <Button Style="{StaticResource FFXIVButton}" Content="Decrement" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeSwordCount}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="6"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
+                    </StackPanel>
+                </Grid>
+                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource LeftTextBlock}" Text="Holy Shield:"/>
+                <Grid Grid.Column="1" Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeShieldCount}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeShieldMax}"/>
+                        <StackPanel>
+                            <Button Style="{StaticResource FFXIVButton}" Content="Increment" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeShieldCount}"/>
+
+                            <Button Style="{StaticResource FFXIVButton}" Content="Decrement" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeShieldCount}"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="3"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="4"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="5"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="6"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
+                    </StackPanel>
+                </Grid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

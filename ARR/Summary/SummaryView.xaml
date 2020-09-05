@@ -1,0 +1,163 @@
+﻿<UserControl x:Class="FFXIVRelicTracker.ARR.Summary.SummaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker.ARR.Summary"
+             xmlns:converters="clr-namespace:FFXIVRelicTracker.Helpers.Converters"
+             mc:Ignorable="d" 
+             VerticalAlignment="Stretch">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/ArrDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="20">
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text="Selected Character: "/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text="{Binding SelectedCharacter}"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text=" ARR Progress"/>
+            </StackPanel>
+        
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="PLD" Grid.Row="1"   Grid.Column="1"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WAR" Grid.Row="1"   Grid.Column="2"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WHM" Grid.Row="1"   Grid.Column="3"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SCH" Grid.Row="1"   Grid.Column="4"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MNK" Grid.Row="1"   Grid.Column="5"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRG" Grid.Row="1"   Grid.Column="6"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="NIN" Grid.Row="1"   Grid.Column="7"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BRD" Grid.Row="1"   Grid.Column="8"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BLM" Grid.Row="1"   Grid.Column="9"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SMN" Grid.Row="1"   Grid.Column="10"/>
+
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Relic"  Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Zenith"  Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Atma"  Grid.Row="4" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Animus"  Grid.Row="5" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Novus"  Grid.Row="6" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Nexus"  Grid.Row="7" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Zodiac Brave"  Grid.Row="8" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Zodiac Zeta"  Grid.Row="9" Grid.Column="0"/>
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="1" x:Name="PLD_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.PLD.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="1" x:Name="PLD_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.PLD.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="1" x:Name="PLD_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.PLD.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="1" x:Name="PLD_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.PLD.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="1" x:Name="PLD_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.PLD.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="1" x:Name="PLD_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.PLD.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="1" x:Name="PLD_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.PLD.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="1" x:Name="PLD_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.PLD.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="2" x:Name="WAR_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WAR.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="2" x:Name="WAR_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WAR.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="2" x:Name="WAR_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WAR.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="2" x:Name="WAR_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WAR.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="2" x:Name="WAR_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WAR.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="2" x:Name="WAR_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WAR.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="2" x:Name="WAR_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WAR.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="2" x:Name="WAR_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WAR.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="3" x:Name="WHM_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WHM.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="3" x:Name="WHM_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WHM.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="3" x:Name="WHM_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WHM.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="3" x:Name="WHM_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WHM.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="3" x:Name="WHM_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WHM.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="3" x:Name="WHM_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WHM.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="3" x:Name="WHM_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WHM.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="3" x:Name="WHM_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.WHM.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="4" x:Name="SCH_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SCH.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="4" x:Name="SCH_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SCH.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="4" x:Name="SCH_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SCH.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="4" x:Name="SCH_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SCH.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="4" x:Name="SCH_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SCH.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="4" x:Name="SCH_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SCH.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="4" x:Name="SCH_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SCH.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="4" x:Name="SCH_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SCH.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="5" x:Name="MNK_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.MNK.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="5" x:Name="MNK_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.MNK.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="5" x:Name="MNK_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.MNK.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="5" x:Name="MNK_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.MNK.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="5" x:Name="MNK_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.MNK.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="5" x:Name="MNK_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.MNK.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="5" x:Name="MNK_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.MNK.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="5" x:Name="MNK_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.MNK.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="6" x:Name="DRG_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.DRG.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="6" x:Name="DRG_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.DRG.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="6" x:Name="DRG_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.DRG.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="6" x:Name="DRG_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.DRG.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="6" x:Name="DRG_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.DRG.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="6" x:Name="DRG_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.DRG.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="6" x:Name="DRG_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.DRG.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="6" x:Name="DRG_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.DRG.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="7" x:Name="NIN_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.NIN.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="7" x:Name="NIN_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.NIN.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="7" x:Name="NIN_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.NIN.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="7" x:Name="NIN_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.NIN.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="7" x:Name="NIN_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.NIN.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="7" x:Name="NIN_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.NIN.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="7" x:Name="NIN_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.NIN.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="7" x:Name="NIN_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.NIN.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="8" x:Name="BRD_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BRD.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="8" x:Name="BRD_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BRD.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="8" x:Name="BRD_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BRD.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="8" x:Name="BRD_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BRD.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="8" x:Name="BRD_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BRD.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="8" x:Name="BRD_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BRD.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="8" x:Name="BRD_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BRD.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="8" x:Name="BRD_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BRD.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="9" x:Name="BLM_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BLM.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="9" x:Name="BLM_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BLM.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="9" x:Name="BLM_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BLM.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="9" x:Name="BLM_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BLM.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="9" x:Name="BLM_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BLM.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="9" x:Name="BLM_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BLM.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="9" x:Name="BLM_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BLM.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="9" x:Name="BLM_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.BLM.Zeta.Progress}" />
+
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="2" Grid.Column="10" x:Name="SMN_Relic" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SMN.Relic.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="3" Grid.Column="10" x:Name="SMN_Zenith" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SMN.Zenith.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="4" Grid.Column="10" x:Name="SMN_Atma" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SMN.Atma.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="5" Grid.Column="10" x:Name="SMN_Animus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SMN.Animus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="6" Grid.Column="10" x:Name="SMN_Novus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SMN.Novus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="7" Grid.Column="10" x:Name="SMN_Nexus" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SMN.Nexus.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="8" Grid.Column="10" x:Name="SMN_Braves" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SMN.Braves.Progress}" />
+            <Button Style="{StaticResource ArrSummaryButton}" Grid.Row="9" Grid.Column="10" x:Name="SMN_Zeta" Content="{Binding Path=SelectedCharacter.ArrProgress.Arr.SMN.Zeta.Progress}" />
+
+        </Grid>
+    </ScrollViewer>
+</UserControl>

@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="ARR\ArrMaps\CentralShroud.png" />
+    <None Remove="ARR\ArrMaps\CentralThanalan.png" />
+    <None Remove="ARR\ArrMaps\CoerthasCentralHighlands.png" />
+    <None Remove="ARR\ArrMaps\EasternLaNoscea.png" />
+    <None Remove="ARR\ArrMaps\EasternThanalan.png" />
+    <None Remove="ARR\ArrMaps\EastShroud.png" />
+    <None Remove="ARR\ArrMaps\LowerLaNoscea.png" />
+    <None Remove="ARR\ArrMaps\MiddleLaNoscea.png" />
+    <None Remove="ARR\ArrMaps\MorDhona.png" />
+    <None Remove="ARR\ArrMaps\NorthernThanalan.png" />
+    <None Remove="ARR\ArrMaps\NorthShroud.png" />
+    <None Remove="ARR\ArrMaps\OuterLaNoscea.png" />
+    <None Remove="ARR\ArrMaps\SouthernThanalan.png" />
+    <None Remove="ARR\ArrMaps\SouthShroud.png" />
+    <None Remove="ARR\ArrMaps\UpperLaNoscea.png" />
+    <None Remove="ARR\ArrMaps\WesternLaNoscea.png" />
+    <None Remove="ARR\ArrMaps\WesternThanalan.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="ARR\ArrMaps\CentralShroud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\CentralThanalan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\CoerthasCentralHighlands.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\EasternLaNoscea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\EasternThanalan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\EastShroud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\LowerLaNoscea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\MiddleLaNoscea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\MorDhona.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\NorthernThanalan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\NorthShroud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\OuterLaNoscea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\SouthernThanalan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\SouthShroud.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\UpperLaNoscea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\WesternLaNoscea.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="ARR\ArrMaps\WesternThanalan.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
+  </ItemGroup>
+
+</Project>

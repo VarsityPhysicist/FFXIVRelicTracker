@@ -1,0 +1,81 @@
+﻿<Window x:Class="FFXIVRelicTracker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FFXIVRelicTracker"
+        xmlns:helper="clr-namespace:FFXIVRelicTracker.Helpers"
+        xmlns:viewmodels="clr-namespace:FFXIVRelicTracker.ViewModels"
+        xmlns:views="clr-namespace:FFXIVRelicTracker.Views"
+        mc:Ignorable="d"
+        Name="mainWindow"
+        Title="MainWindow" Height="450" Width="800"
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None"    AllowsTransparency="True" WindowStartupLocation="CenterOwner"    Background="Transparent">
+
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.Close"
+                        Executed="CloseCommandHandler"/>
+    </Window.CommandBindings>
+    
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/MainMenuDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Border  Background="#313131"  BorderThickness="1" CornerRadius="10" helper:EnableDragHelper.EnableDrag="True">
+        <Border Margin="1" Background="#313131" BorderBrush="#725e38"  BorderThickness="1" CornerRadius="10">
+            <Border  Background="#313131" BorderBrush="#957a4c"  BorderThickness="1" CornerRadius="10">
+                <Border  Background="#313131" BorderBrush="#a28e66"  BorderThickness="1" CornerRadius="10">
+                    <Border  Background="#313131" BorderBrush="#413b2f"  BorderThickness="1" CornerRadius="10">
+
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition MaxWidth="5"/>
+                                <ColumnDefinition />
+                                <ColumnDefinition MaxWidth="5"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition MaxHeight="5"/>
+                                <RowDefinition/>
+                                <RowDefinition MaxHeight="5"/>
+                            </Grid.RowDefinitions>
+                            <DockPanel  Grid.Row="1" Grid.Column="1">
+                                <Border BorderThickness="2,0,0,0" DockPanel.Dock="Right" Style="{StaticResource GoldLeftBar}">
+
+                                    <DockPanel HorizontalAlignment="Right" DockPanel.Dock="Right">
+                                        <StackPanel DockPanel.Dock="Top"  Orientation="Vertical">
+                                            <Button Style="{StaticResource FFXIVButton}"  Command="ApplicationCommands.Close" Content="Close Window" />
+                                            <ItemsControl ItemsSource="{Binding PageViewModels}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Button Style="{StaticResource FFXIVButton}"  Content="{Binding Name}"
+                                                            Command="{Binding DataContext.ChangePageCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                                            CommandParameter="{Binding }"
+                                                            Margin="2,5"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.Resources>
+                                                    <DataTemplate  DataType="{x:Type viewmodels:MainMenuViewModel}">
+                                                        <views:MainMenuView />
+                                                    </DataTemplate>
+                                                    <DataTemplate DataType="{x:Type viewmodels:ArrViewModel}">
+                                                        <views:ArrView />
+                                                    </DataTemplate>
+                                                </ItemsControl.Resources>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                    </DockPanel>
+                                </Border>
+                                <ContentControl HorizontalAlignment="Left" Content="{Binding CurrentPageViewModel}" />
+                            </DockPanel>
+                        </Grid>
+                    </Border>
+                </Border>
+            </Border>
+        </Border>
+    </Border>
+</Window>

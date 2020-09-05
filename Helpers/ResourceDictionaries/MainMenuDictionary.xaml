@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FFXIVRelicTracker.Helpers"
+                    xmlns:viewmodels="clr-namespace:FFXIVRelicTracker.ViewModels"
+                    xmlns:views="clr-namespace:FFXIVRelicTracker.Views">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate  DataType="{x:Type viewmodels:MainMenuViewModel}">
+        <views:MainMenuView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type viewmodels:ArrViewModel}">
+        <views:ArrView />
+    </DataTemplate>
+    
+</ResourceDictionary>

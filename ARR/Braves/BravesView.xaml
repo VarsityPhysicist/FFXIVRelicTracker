@@ -1,0 +1,377 @@
+﻿<UserControl x:Class="FFXIVRelicTracker.ARR.Braves.BravesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker.ARR.Braves"
+             mc:Ignorable="d" 
+             d:DesignHeight="820.665" d:DesignWidth="789.595">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/ArrDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <ScrollViewer   HorizontalScrollBarVisibility="Auto"    VerticalScrollBarVisibility="Auto">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                    <RowDefinition  Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Active Zodiac Braves:"/>
+                    <ComboBox   x:Name="ArrRelicJob"
+                                            ItemsSource="{Binding   Path=AvailableBravesJobs}" 
+                                            SelectedItem="{Binding Path=CurrentBraves}"
+                                />
+                    <Border HorizontalAlignment="Center">
+                        <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentBraves}"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="5">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Gil:" Margin="0,0,5,0"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemainingGil, StringFormat='{}{0:N0}'}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="5">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Seals:" Margin="0,0,5,0"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemainingSeals, StringFormat='{}{0:N0}'}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="5">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Poetics:" Margin="0,0,5,0"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemainingPoetics, StringFormat='{}{0:N0}'}"/>
+                </StackPanel>
+
+                <TextBlock Grid.Row="1" Style="{StaticResource LeftTextBlock}"  Text="Complete the following quests:"/>
+
+                <Border Grid.Column="0" Grid.Row="4" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>
+                <Border Grid.Column="0" Grid.Row="5" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>
+                <Border Grid.Column="0" Grid.Row="6" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>
+                <Border Grid.Column="0" Grid.Row="7" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>
+                <Border Grid.Column="0" Grid.Row="8" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>
+
+                <TextBlock Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="0" Text="Quest:"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="3" Text="NPC:"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="5" Text="Requires:"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="7" Text="Cost/Location:"/>
+
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="4"    Grid.Column="0" Text="A Ponze of Flesh"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="5"    Grid.Column="0" Text="A Treasured Mother"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="6"    Grid.Column="0" Text="Labor of Love"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="7"    Grid.Column="0" Text="Method in His Malice"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="8"    Grid.Column="0" Text="His Dark Materia"/>
+
+                <CheckBox IsChecked="{Binding FirstQuest}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"/>
+                <CheckBox IsChecked="{Binding SecondQuest}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
+                <CheckBox IsChecked="{Binding ThirdQuest}" Grid.Row="6" Grid.Column="1" VerticalAlignment="Center"/>
+                <CheckBox IsChecked="{Binding FourthQuest}" Grid.Row="7" Grid.Column="1" VerticalAlignment="Center"/>
+                <CheckBox IsChecked="{Binding FifthQuest}" Grid.Row="8" Grid.Column="1" VerticalAlignment="Center"/>
+
+                <StackPanel  Margin="0,10" Visibility="{Binding FirstQuest, Converter={StaticResource Ob2v}}" Grid.Row="4" Grid.Column="3">
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Papana"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Margin="10,0,0,0"  Text="(Mor Dhona (22-7))"/>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding SecondQuest, Converter={StaticResource Ob2v}}" Grid.Row="5" Grid.Column="3">
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Brangwine"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Margin="10,0,0,0" Text="(Mor Dhona (21-6))"/>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding ThirdQuest, Converter={StaticResource Ob2v}}" Grid.Row="6" Grid.Column="3">
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Guiding Star"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Margin="10,0,0,0" Text="(Mor Dhona (21-6))"/>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding FourthQuest, Converter={StaticResource Ob2v}}" Grid.Row="7" Grid.Column="3">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Adkin"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Margin="10,0,0,0" Text="(Central Thanalan (23-13))"/>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding FifthQuest, Converter={StaticResource Ob2v}}" Grid.Row="8" Grid.Column="3">
+                    <TextBlock Style="{StaticResource LeftTextBlock}"   Text="Gerolt"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Margin="10,0,0,0" Text="(North Shroud (30-20))"/>
+                </StackPanel>
+
+
+                <StackPanel  Margin="0,10" Visibility="{Binding FirstQuest, Converter={StaticResource Ob2v}}"  Grid.Row="4"    Grid.Column="5" >
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Bombard Core"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Sacred Spring Water"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Bronze Lae Crystal"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Horn of the Beast"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Gobmachine Bangplate"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Narasimha Hide"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Sickle Fang"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Furnace Ring(HQ)"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Perfect Firewood(HQ)"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding SecondQuest, Converter={StaticResource Ob2v}}" Grid.Row="5"    Grid.Column="5" >
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Bombard Core"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Sacred Spring Water"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Brass Kettle"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Lost Treasure of Amdapor Keep"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Lost Treasure of Pharos Sirius"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Lost Treasure of Tama-Tara Deepcroft (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Lost Treasure of Stone Vigil (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Tailor-Made Eel Pie (HQ)"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Perfect Cloth (HQ)"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding ThirdQuest, Converter={StaticResource Ob2v}}"  Grid.Row="6"    Grid.Column="5" >
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Allagan Resin"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Vale Bubo"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Voidweave"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Amdapor Vellum"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Indigo Pearl"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Perfect Mortar (HQ)"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Perfect Pestle (HQ)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Bombard Core"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Sacred Spring Water"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding FourthQuest, Converter={StaticResource Ob2v}}" Grid.Row="7"    Grid.Column="5" >
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Tonberry King Blood"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Royal Gigant Blood"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Kraken Blood"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Vicegerent Blood"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Perfect Vellum (HQ)"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Perfect Ponze (HQ)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Bombard Core"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Sacred Spring Water"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Furite Sand"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding FifthQuest, Converter={StaticResource Ob2v}}"  Grid.Row="8"   Grid.Column="5">
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Book of Skylight"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Flawless Alexandrite"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Zodium"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Zodiac Scroll"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel Margin="0,10" Visibility="{Binding FirstQuest, Converter={StaticResource Ob2v}}"  Grid.Row="4"    Grid.Column="7" >
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="20,000 Company Seals"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="200 Allagan Tomestones of Poetics"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="100,000 Gil"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Dzemael Darkhold"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Brayflox's Longstop (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Halatali (Hard)"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Snowcloak"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="GSM crafted"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="CRP crafted"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel Margin="0,10" Visibility="{Binding SecondQuest, Converter={StaticResource Ob2v}}" Grid.Row="5"    Grid.Column="7" >
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="20,000 Company Seals"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="200 Allagan Tomestones of Poetics"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="100,000 Gil"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Amdapor Keep"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Pharos Sirius"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Tama-Tara Deepcroft (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stone Vigil (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="CUL crafted"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="WVR crafted"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel  Margin="0,10" Visibility="{Binding ThirdQuest, Converter={StaticResource Ob2v}}" Grid.Row="6"    Grid.Column="7" >
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="100,000 Gil"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Aurum Vale"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Haukke Manor (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Amdapor Keep"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Sastasha (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="ARM crafted"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="BSM crafted"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="20,000 Company Seals"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="200 Allagan Tomestones of Poetics"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel Margin="0,10"  Visibility="{Binding FourthQuest, Converter={StaticResource Ob2v}}" Grid.Row="7"    Grid.Column="7" >
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Wanderer's Palace"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Copperbell Mines (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Hullbreaker Isle"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Sunken Temple of Qarn (Hard)"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="LTW crafted"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="ALC crafted"/>
+                        </StackPanel>
+                    </Border>
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="20,000 Company Seals"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="200 Allagan Tomestones of Poetics"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="100,000 Gil"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+                <StackPanel Margin="0,10" Visibility="{Binding FifthQuest, Converter={StaticResource Ob2v}}"  Grid.Row="8"   Grid.Column="7">
+                    <Border>
+                        <StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Quest: A Ponze of Flesh"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Quest: A Treasured Mother"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Quest: Labour of Love"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Quest: Method in His Malice"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

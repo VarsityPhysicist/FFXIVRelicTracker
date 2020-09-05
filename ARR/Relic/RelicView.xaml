@@ -1,0 +1,151 @@
+﻿<UserControl x:Class="FFXIVRelicTracker.ARR.Relic.RelicView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker.ARR.Relic"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/ArrDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel  Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Display Relic information for:"/>
+                <ComboBox   x:Name="ArrRelicJob"
+                                                ItemsSource="{Binding   Path=AvailableRelicJobs}" 
+                                                SelectedIndex="{Binding Path=RelicIndex}"
+                                                SelectedItem="{Binding Path=CurrentRelic}"
+                                    />
+                <Border HorizontalAlignment="Center">
+                    <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentRelic}"/>
+                </Border>
+            </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible"  Visibility="{Binding Path=RelicVisibility}">
+            <StackPanel  MaxWidth="300" Visibility="{Binding Path=RelicVisibility}">
+                <Border>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Stage 1: Broken Weapon"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"  x:Name="BrokenTravelDestination"    Text="{Binding  Path=RelicDestination}" Padding="10,0,0,0"/>
+                    </StackPanel>
+                </Border>
+                <Border>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Stage 2: Class Weapon"/>
+                        <WrapPanel Orientation="Horizontal" Margin="10,0,0,0">
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Acquire a "  />
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding   Path=RelicClassWeapon}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text=" and meld three "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding  Path=RelicMateria}"/>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 3: Alumina Salts"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"  Padding="10,0,0,0" Text="Complete A Relic Reborn: The Chimera to obtain Alumina Salts" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+                <Border>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 4: Interview with the Padjal"/>
+                        <WrapPanel Orientation="Horizontal"  Margin="10,0,0,0">
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Complete Amdapor Keep as a "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"   Text="{Binding  Path=SelectedItem, ElementName=ArrRelicJob}"/>
+                        </WrapPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"   Padding="10,0,0,0" Text="(You may run this unsynced)" FontStyle="Italic"/>
+                </StackPanel>
+                </Border>
+                <Border>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 5: Beastmen Hunt"/>
+                        <WrapPanel Orientation="Vertical" Margin="10,0,0,0">
+                            <TextBlock Style="{StaticResource LeftTextBlock}"   Text="Defeat 8 of the following beastmen:"/>
+                            <StackPanel Margin="10,0,0,0">
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen1}"/>
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen2}"/>
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen3}"/>
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 6: Hydra"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"   Padding="10,0,0,0"  Text="With your Unfinished Relic equiped, complete A Relic Reborn: The Hydra" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+                <Border>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"   Text="Stage 7: Primals"/>
+                        <WrapPanel  Orientation="Vertical"  Margin="10,0,0,0">
+                            <WrapPanel Orientation="Horizontal">
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="As a "/>
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding  Path=SelectedItem, ElementName=ArrRelicJob}"/>
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text=" defeat the following primals:" />
+                            </WrapPanel>
+                            <StackPanel Margin="10,0,0,0">
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Ifrit"/>
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Garuda"/>
+                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Titan"/>
+                            </StackPanel>
+                        </WrapPanel>
+                    </StackPanel>
+                </Border>
+                <Border>
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 8:Radz-at-Han Quenching Oil"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}"  Padding="10,0,0,0" Text="Exchange 15 Allagan Tomestones of Poetics for one Radz-at-Han Quenching Oil from Auriana in MorDhona" TextWrapping="Wrap"/>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+        <Viewbox    Grid.RowSpan="2"   Grid.Column="1" VerticalAlignment="Top"   MaxWidth="800" HorizontalAlignment="Left">
+                <Canvas  Height="300" Width="300"       x:Name="ArrBrokenMapCanvas" Visibility="{Binding Path=RelicVisibility}">
+                    <Canvas.Resources>
+                        <Style TargetType="Rectangle">
+                            <Setter Property="Fill" Value="OrangeRed"/>
+                            <Setter Property="RadiusX"  Value="20"/>
+                            <Setter Property="RadiusY"  Value="20"/>
+                            <Setter Property="Width"  Value="20"/>
+                            <Setter Property="Height"  Value="20"/>
+                            <Setter Property="Canvas.Left">
+                                <Setter.Value>
+                                    <MultiBinding   Converter="{StaticResource  CanvasConvertX}">
+                                        <Binding    Path="ActualWidth" ElementName="ArrBrokenMapCanvas"/>
+                                        <Binding    Path="RelicPoint"/>
+                                        <Binding    Path="Width"   RelativeSource="{RelativeSource Self}"/>
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Canvas.Top">
+                                <Setter.Value>
+                                    <MultiBinding   Converter="{StaticResource  CanvasConvertY}">
+                                        <Binding    Path="ActualHeight" ElementName="ArrBrokenMapCanvas"/>
+                                        <Binding    Path="RelicPoint"/>
+                                        <Binding    Path="Height"   RelativeSource="{RelativeSource Self}"/>
+                                    </MultiBinding>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Canvas.Resources>
+                    <Image  Source="{Binding  Path=RelicMap}"  Height="{Binding Path=ActualHeight, ElementName=ArrBrokenMapCanvas}"  Width="{Binding Path=ActualWidth, ElementName=ArrBrokenMapCanvas}"  Stretch="Fill">
+                    </Image>
+                    <Rectangle  x:Name="TestRect1" Opacity="0.2"/>
+                    <Rectangle  x:Name="TestRect2" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
+                </Canvas>
+            </Viewbox>
+        </Grid>
+</UserControl>

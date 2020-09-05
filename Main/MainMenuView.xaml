@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="FFXIVRelicTracker.Views.MainMenuView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewmodels="clr-namespace:FFXIVRelicTracker.ViewModels"
+        xmlns:local="clr-namespace:FFXIVRelicTracker.Views"
+        mc:Ignorable="d"
+            VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+    <UserControl.Resources>
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <StackPanel Margin="10" >
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource BaseTextBlock}" VerticalAlignment="Center" Text="Selected Character:" Margin="0,0,10,0"/>
+            <ComboBox  VerticalAlignment="Center" MinWidth="250"  Width="auto"   x:Name="charactersCB"   
+                                        ItemsSource="{Binding CharacterList, Mode=TwoWay}"    
+                                        SelectedItem="{Binding SelectedCharacter}"
+                                        />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <Button Style="{StaticResource FFXIVButton}" x:Name="saveBtn"    Content="Save"             Command="{Binding Path=SaveCommand}"/>
+            <Button Style="{StaticResource FFXIVButton}" x:Name="loadBtn"    Content="Load"             Command="{Binding LoadCommand}"/>
+            <Button Style="{StaticResource FFXIVButton}" x:Name="addBtn"     Content="Add Character"     Command="{Binding AddCommand}"/>
+            <Button Style="{StaticResource FFXIVButton}" x:Name="removeBtn"  Content="Remove Character"  Command="{Binding   Path=RemoveCommand}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Style="{StaticResource BaseTextBlock}"  Text="Display ARR?"  Margin="0,0,10,0"/>
+
+            <CheckBox   Grid.Column="1" IsChecked="{Binding Path=SelectedCharacter.TrackARR, Mode=TwoWay}"/>
+        </StackPanel>
+        <Grid   Width="auto">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            
+        </Grid>
+    </StackPanel>
+</UserControl>

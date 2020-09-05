@@ -1,0 +1,74 @@
+﻿<UserControl x:Class="FFXIVRelicTracker.ARR.Nexus.NexusView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker.ARR.Nexus"
+             xmlns:helpers="clr-namespace:FFXIVRelicTracker.Helpers"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/ArrDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox   x:Name="ArrNovusJob"
+                                                    ItemsSource="{Binding   Path=AvailableNexusJobs}" 
+                                                    SelectedItem="{Binding Path=CurrentNexus}"
+                                        />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentNexus}"/>
+            </Border>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Complete ARR activities (unsynced acceptable) with Soulglazed Weapon equipped to earn Light"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Every two hours, one random light giving event (Dungeon, Trial, etc.) gives additional Light until the next event is selected"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Current Light:" Margin="0,0,5,0"/>
+                <TextBox MinWidth="50" Text="{Binding CurrentLightString}" Margin="0,0,5,0"
+                         helpers:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
+                         Style="{StaticResource BaseTextBox}" />
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding LightError}"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <TextBlock Grid.Row="2" Style="{StaticResource RightTextBlock}" Text="Feeble Light: "/>
+        <TextBlock Grid.Row="3" Style="{StaticResource RightTextBlock}" Text="Gentle Light: "/>
+        <TextBlock Grid.Row="4" Style="{StaticResource RightTextBlock}" Text="Bright Light: "/>
+        <TextBlock Grid.Row="5" Style="{StaticResource RightTextBlock}" Text="Brilliant Light: "/>
+        <TextBlock Grid.Row="6" Style="{StaticResource RightTextBlock}" Text="Blinding Light: "/>
+        <TextBlock Grid.Row="7" Style="{StaticResource RightTextBlock}" Text="Newborn Star: "/>
+
+        <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="8 points" CommandParameter="8"/>
+        <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="16 points" CommandParameter="16"/>
+        <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="32 points" CommandParameter="32"/>
+        <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="48 points" CommandParameter="48"/>
+        <Button Grid.Row="6" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="96 points" CommandParameter="96"/>
+        <Button Grid.Row="7" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="128 points" CommandParameter="128"/>
+
+        <TextBlock Grid.Row="8"/>
+        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="9" Grid.ColumnSpan="3" Text="Reccomendation: Run 'The Tam-Tara Deepcroft' (Brilliant Light) 42 times"/>
+    </Grid>
+</UserControl>
