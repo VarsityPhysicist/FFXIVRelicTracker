@@ -23,22 +23,6 @@ namespace FFXIVRelicTracker.ARR.Animus
         internal bool completedDungeon2;
         internal bool completedDungeon3;
 
-
-        internal BoolObject completedFate1 = new BoolObject();
-        internal BoolObject completedFate2 = new BoolObject();
-        internal BoolObject completedFate3 = new BoolObject();
-
-        internal bool completedCreature1;
-        internal bool completedCreature2;
-        internal bool completedCreature3;
-        internal bool completedCreature4;
-        internal bool completedCreature5;
-        internal bool completedCreature6;
-        internal bool completedCreature7;
-        internal bool completedCreature8;
-        internal bool completedCreature9;
-        internal bool completedCreature10;
-
         internal bool possibleChecked1;
         internal bool possibleChecked2;
         internal bool possibleChecked3;
@@ -72,94 +56,13 @@ namespace FFXIVRelicTracker.ARR.Animus
         internal string possibleMap9;
         internal string possibleMap10;
 
-        internal Visibility creatureVisibility1;
-        internal string creatureActive1;
-        internal double creatureX1;
-        internal double creatureY1;
-        internal Visibility creatureVisibility2;
-        internal string creatureActive2;
-        internal Visibility creatureVisibility3;
-        internal string creatureActive3;
-        internal Visibility creatureVisibility4;
-        internal string creatureActive4;
-        internal Visibility creatureVisibility5;
-        internal string creatureActive5;
-        internal double creatureY5;
-        internal double creatureX5;
-        internal double creatureY4;
-        internal double creatureX4;
-        internal double creatureY3;
-        internal double creatureX3;
-        internal double creatureY2;
-        internal double creatureX2;
-        internal Visibility fateVisibility1;
-        internal string fateActive1;
-        internal double fateX1;
-        internal double fateY1;
-        internal Visibility leveVisibility1;
-        internal string leveActive1;
-        internal double leveX1;
-        internal double leveY1;
         internal string selectedAnimusMap;
         internal string selectedAnimusImage;
-        internal PointF levePoint3;
-        internal PointF levePoint2;
-        internal PointF levePoint1;
-        internal string leveType3;
-        internal string leveType2;
-        internal string leveType1;
-        internal string levePerson3;
-        internal string levePerson2;
-        internal string levePerson1;
-        internal string leveMap3;
-        internal string leveMap2;
-        internal string leveMap1;
-        internal string leveName3;
-        internal string leveName2;
-        internal string leveName1;
-        internal string creature1;
-        internal string creature2;
-        internal string creature3;
-        internal string creature4;
-        internal string creature5;
-        internal string creature6;
-        internal string creature7;
-        internal string creature8;
-        internal string creature9;
-        internal string creature10;
-        internal string creatureMap1;
-        internal string creatureMap2;
-        internal string creatureMap3;
-        internal string creatureMap4;
-        internal string creatureMap5;
-        internal string creatureMap6;
-        internal string creatureMap7;
-        internal string creatureMap8;
-        internal string creatureMap9;
-        internal string creatureMap10;
-        internal PointF creaturePoint1;
-        internal PointF creaturePoint2;
-        internal PointF creaturePoint3;
-        internal PointF creaturePoint4;
-        internal PointF creaturePoint5;
-        internal PointF creaturePoint6;
-        internal PointF creaturePoint7;
-        internal PointF creaturePoint8;
-        internal PointF creaturePoint9;
-        internal PointF creaturePoint10;
+       
         internal string dungeon1;
         internal string dungeon2;
         internal string dungeon3;
-        internal string fateName1;
-        internal string fateName2;
-        internal string fateName3;
-        internal string fateMap1;
-        internal string fateMap2;
-        internal string fateMap3;
-        internal PointF fatePoint1;
-        internal PointF fatePoint2;
-        internal PointF fatePoint3;
-        //internal ObservableCollection<string> animusBooks;
+        
         internal bool skyFire1Book;
         internal bool skyFire2Book;
         internal bool skyFall1Book;
@@ -181,6 +84,21 @@ namespace FFXIVRelicTracker.ARR.Animus
         internal AnimusObject Fate3 = new AnimusObject();
 
         internal AnimusObject DisplayFate = new AnimusObject();
+
+        internal AnimusObject Creature1 = new AnimusObject();
+        internal AnimusObject Creature2 = new AnimusObject();
+        internal AnimusObject Creature3 = new AnimusObject();
+        internal AnimusObject Creature4 = new AnimusObject();
+        internal AnimusObject Creature5 = new AnimusObject();
+        internal AnimusObject Creature6 = new AnimusObject();
+        internal AnimusObject Creature7 = new AnimusObject();
+        internal AnimusObject Creature8 = new AnimusObject();
+        internal AnimusObject Creature9 = new AnimusObject();
+        internal AnimusObject Creature10 = new AnimusObject();
+
+        internal AnimusObject DisplayCreature1 = new AnimusObject();
+        internal AnimusObject DisplayCreature2 = new AnimusObject();
+        internal AnimusObject DisplayCreature3 = new AnimusObject();
 
 
         internal ObservableCollection<string> animusBooks = new ObservableCollection<string>

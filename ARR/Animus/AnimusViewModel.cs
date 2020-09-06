@@ -18,6 +18,7 @@ namespace FFXIVRelicTracker.ARR.Animus
 {
     public class AnimusViewModel : ObservableObject, IPageViewModel
     {
+        private ArrWeapon arrWeapon;
         private IEventAggregator iEventAggregator;
         private Character selectedCharacter;
         private AnimusModel animusModel;
@@ -35,6 +36,7 @@ namespace FFXIVRelicTracker.ARR.Animus
 
         private List<AnimusObject> LeveList = new List<AnimusObject>();
         private List<AnimusObject> FateList = new List<AnimusObject>();
+        private List<AnimusObject> CreatureList = new List<AnimusObject>();
 
         private List<AnimusObject> ObjectList = new List<AnimusObject>();
 
@@ -62,21 +64,8 @@ namespace FFXIVRelicTracker.ARR.Animus
                 animusModel = value;
                 OnPropertyChanged(nameof(AnimusModel));
 
-                LeveList = new List<AnimusObject>
-                {
-                    Leve1, Leve2, Leve3
-                }; 
-                
-                FateList = new List<AnimusObject>
-                {
-                    Fate1, Fate2, Fate3
-                };
+                InitializeLists();
 
-                ObjectList = new List<AnimusObject>
-                {
-                    Leve1, Leve2, Leve3,
-                    Fate1, Fate2, Fate3
-                };
             }
         }
 
@@ -93,7 +82,6 @@ namespace FFXIVRelicTracker.ARR.Animus
                     AnimusModel = SelectedCharacter.ArrProgress.AnimusModel;
                     AnimusBooks = animusModel.animusBooks;
                     ArrWeapon = SelectedCharacter.ArrProgress.Arr;
-
                 }
             }
         }
@@ -110,14 +98,18 @@ namespace FFXIVRelicTracker.ARR.Animus
         {
             get { return AnimusModel.selectedAnimusMap; }
             set
-            {
+            {               
+                
+                AnimusModel.selectedAnimusMap = value;
+                ReassignPoints();
                 if (value == null)
-                { SelectedAnimusImage = null; }
+                { 
+                    HideLocations();
+                    SelectedAnimusImage = null; 
+                }
                 else { SelectedAnimusImage = ArrInfo.ArrMapImages[value]; }
 
-                AnimusModel.selectedAnimusMap = value;
 
-                ReassignPoints();
 
                 OnPropertyChanged(nameof(SelectedAnimusMap));
             }
@@ -176,6 +168,8 @@ namespace FFXIVRelicTracker.ARR.Animus
                 }
                 else
                 {
+                    HideLocations();
+
                     ShowBookItems = false;
                 }
             }
@@ -222,21 +216,65 @@ namespace FFXIVRelicTracker.ARR.Animus
 
         #region Animus Objects
 
+        #region Leves
         public AnimusObject DisplayLeve { get { return animusModel.DisplayLeve; } set { animusModel.DisplayLeve = value; OnPropertyChanged(nameof(DisplayLeve)); } }
-
 
         public AnimusObject Leve1 { get { return animusModel.Leve1; } set { animusModel.Leve1 = value; OnPropertyChanged(nameof(Leve1)); } }
         public AnimusObject Leve2 { get { return animusModel.Leve2; } set { animusModel.Leve2 = value; OnPropertyChanged(nameof(Leve2)); } }
         public AnimusObject Leve3 { get { return animusModel.Leve3; } set { animusModel.Leve3 = value; OnPropertyChanged(nameof(Leve3)); } }
+        #endregion
 
-
+        #region Fates
         public AnimusObject DisplayFate { get { return animusModel.DisplayFate; } set { animusModel.DisplayFate = value; OnPropertyChanged(nameof(DisplayFate)); } }
-
 
         public AnimusObject Fate1 { get { return animusModel.Fate1; } set { animusModel.Fate1 = value; OnPropertyChanged(nameof(Fate1)); } }
         public AnimusObject Fate2 { get { return animusModel.Fate2; } set { animusModel.Fate2 = value; OnPropertyChanged(nameof(Fate2)); } }
         public AnimusObject Fate3 { get { return animusModel.Fate3; } set { animusModel.Fate3 = value; OnPropertyChanged(nameof(Fate3)); } }
+        #endregion
 
+        #region Creatures
+        public AnimusObject DisplayCreature1 { get { return animusModel.DisplayCreature1; } set { animusModel.DisplayCreature1 = value; OnPropertyChanged(nameof(DisplayCreature1)); } }
+        public AnimusObject DisplayCreature2 { get { return animusModel.DisplayCreature2; } set { animusModel.DisplayCreature2 = value; OnPropertyChanged(nameof(DisplayCreature2)); } }
+        public AnimusObject DisplayCreature3 { get { return animusModel.DisplayCreature3; } set { animusModel.DisplayCreature3 = value; OnPropertyChanged(nameof(DisplayCreature3)); } }
+
+        public AnimusObject Creature1 { get { return animusModel.Creature1; } set { animusModel.Creature1 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature1)); } }
+        public AnimusObject Creature2 { get { return animusModel.Creature2; } set { animusModel.Creature2 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature2)); } }
+        public AnimusObject Creature3 { get { return animusModel.Creature3; } set { animusModel.Creature3 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature3)); } }
+        public AnimusObject Creature4 { get { return animusModel.Creature4; } set { animusModel.Creature4 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature4)); } }
+        public AnimusObject Creature5 { get { return animusModel.Creature5; } set { animusModel.Creature5 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature5)); } }
+        public AnimusObject Creature6 { get { return animusModel.Creature6; } set { animusModel.Creature6 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature6)); } }
+        public AnimusObject Creature7 { get { return animusModel.Creature7; } set { animusModel.Creature7 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature7)); } }
+        public AnimusObject Creature8 { get { return animusModel.Creature8; } set { animusModel.Creature8 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature8)); } }
+        public AnimusObject Creature9 { get { return animusModel.Creature9; } set { animusModel.Creature9 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature9)); } }
+        public AnimusObject Creature10 { get { return animusModel.Creature10; } set { animusModel.Creature10 = value; ReCheckMaps(); OnPropertyChanged(nameof(Creature10)); } }
+        #endregion
+
+        #region Bools
+        public bool CompletedDungeon1 { get { return animusModel.completedDungeon1; } set { animusModel.completedDungeon1 = value; OnPropertyChanged(nameof(CompletedDungeon1)); } }
+        public bool CompletedDungeon2 { get { return animusModel.completedDungeon2; } set { animusModel.completedDungeon2 = value; OnPropertyChanged(nameof(CompletedDungeon2)); } }
+        public bool CompletedDungeon3 { get { return animusModel.completedDungeon3; } set { animusModel.completedDungeon3 = value; OnPropertyChanged(nameof(CompletedDungeon3)); } }
+
+        public bool CreatureBool1 { get { return Creature1.Completed.Bool; } set { Creature1.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool1)); } }
+        public bool CreatureBool2 { get { return Creature2.Completed.Bool; } set { Creature2.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool2)); } }
+        public bool CreatureBool3 { get { return Creature3.Completed.Bool; } set { Creature3.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool3)); } }
+        public bool CreatureBool4 { get { return Creature4.Completed.Bool; } set { Creature4.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool4)); } }
+        public bool CreatureBool5 { get { return Creature5.Completed.Bool; } set { Creature5.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool5)); } }
+        public bool CreatureBool6 { get { return Creature6.Completed.Bool; } set { Creature6.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool6)); } }
+        public bool CreatureBool7 { get { return Creature7.Completed.Bool; } set { Creature7.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool7)); } }
+        public bool CreatureBool8 { get { return Creature8.Completed.Bool; } set { Creature8.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool8)); } }
+        public bool CreatureBool9 { get { return Creature9.Completed.Bool; } set { Creature9.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool9)); } }
+        public bool CreatureBool10 { get { return Creature10.Completed.Bool; } set { Creature10.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool10)); } }
+
+        public bool FateBool1 { get { return Fate1.Completed.Bool; } set { Fate1.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(FateBool1)); } }
+        public bool FateBool2 { get { return Fate2.Completed.Bool; } set { Fate2.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(FateBool2)); } }
+        public bool FateBool3 { get { return Fate3.Completed.Bool; } set { Fate3.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(FateBool3)); } }
+
+        public bool LeveBool1 { get { return Leve1.Completed.Bool; } set { Leve1.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(LeveBool1)); } }
+        public bool LeveBool2 { get { return Leve2.Completed.Bool; } set { Leve2.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(LeveBool2)); } }
+        public bool LeveBool3 { get { return Leve3.Completed.Bool; } set { Leve3.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(LeveBool3)); } }
+
+
+        #endregion
         #endregion
 
 
@@ -251,51 +289,6 @@ namespace FFXIVRelicTracker.ARR.Animus
         public bool SkyWind1Book { get { return animusModel.skyWind1Book; } set { animusModel.skyWind1Book = value; ChangedBookStatus(nameof(SkyWind1Book), value); OnPropertyChanged(nameof(SkyWind1Book)); } }
         public bool SkyEarth1Book { get { return animusModel.skyEarth1Book; } set { animusModel.skyEarth1Book = value; ChangedBookStatus(nameof(SkyEarth1Book), value); OnPropertyChanged(nameof(SkyEarth1Book)); } }
 
-        #region Creature Points on Map
-
-        #region Fate Point Parameters
-        public Visibility FateVisibility1 { get { return animusModel.fateVisibility1; } set { animusModel.fateVisibility1 = value; OnPropertyChanged(nameof(FateVisibility1)); } }
-        public string FateActive1 { get { return animusModel.fateActive1; } set { animusModel.fateActive1 = value; OnPropertyChanged(nameof(FateActive1)); } }
-        public double FateX1 { get { return animusModel.fateX1; } set { animusModel.fateX1 = value; OnPropertyChanged(nameof(FateX1)); } }
-        public double FateY1 { get { return animusModel.fateY1; } set { animusModel.fateY1 = value; OnPropertyChanged(nameof(FateY1)); } }
-        #endregion
-
-        #region Creature 1
-        public Visibility CreatureVisibility1 { get { return animusModel.creatureVisibility1; } set { animusModel.creatureVisibility1 = value; OnPropertyChanged(nameof(CreatureVisibility1)); } }
-        public string CreatureActive1 { get { return animusModel.creatureActive1; } set { animusModel.creatureActive1 = value; OnPropertyChanged(nameof(CreatureActive1)); } }
-        public double CreatureX1 { get { return animusModel.creatureX1; } set { animusModel.creatureX1 = value; OnPropertyChanged(nameof(CreatureX1)); } }
-        public double CreatureY1 { get { return animusModel.creatureY1; } set { animusModel.creatureY1 = value; OnPropertyChanged(nameof(CreatureY1)); } }
-        #endregion
-
-        #region Creature 2
-        public Visibility CreatureVisibility2 { get { return animusModel.creatureVisibility2; } set { animusModel.creatureVisibility2 = value; OnPropertyChanged(nameof(CreatureVisibility2)); } }
-        public string CreatureActive2 { get { return animusModel.creatureActive2; } set { animusModel.creatureActive2 = value; OnPropertyChanged(nameof(CreatureActive2)); } }
-        public double CreatureX2 { get { return animusModel.creatureX2; } set { animusModel.creatureX2 = value; OnPropertyChanged(nameof(CreatureX2)); } }
-        public double CreatureY2 { get { return animusModel.creatureY2; } set { animusModel.creatureY2 = value; OnPropertyChanged(nameof(CreatureY2)); } }
-        #endregion
-
-        #region Creature 3
-        public Visibility CreatureVisibility3 { get { return animusModel.creatureVisibility3; } set { animusModel.creatureVisibility3 = value; OnPropertyChanged(nameof(CreatureVisibility3)); } }
-        public string CreatureActive3 { get { return animusModel.creatureActive3; } set { animusModel.creatureActive3 = value; OnPropertyChanged(nameof(CreatureActive3)); } }
-        public double CreatureX3 { get { return animusModel.creatureX3; } set { animusModel.creatureX3 = value; OnPropertyChanged(nameof(CreatureX3)); } }
-        public double CreatureY3 { get { return animusModel.creatureY3; } set { animusModel.creatureY3 = value; OnPropertyChanged(nameof(CreatureY3)); } }
-        #endregion
-
-        #region Creature 4
-        public Visibility CreatureVisibility4 { get { return animusModel.creatureVisibility4; } set { animusModel.creatureVisibility4 = value; OnPropertyChanged(nameof(CreatureVisibility4)); } }
-        public string CreatureActive4 { get { return animusModel.creatureActive4; } set { animusModel.creatureActive4 = value; OnPropertyChanged(nameof(CreatureActive4)); } }
-        public double CreatureX4 { get { return animusModel.creatureX4; } set { animusModel.creatureX4 = value; OnPropertyChanged(nameof(CreatureX4)); } }
-        public double CreatureY4 { get { return animusModel.creatureY4; } set { animusModel.creatureY4 = value; OnPropertyChanged(nameof(CreatureY4)); } }
-        #endregion
-
-        #region Creature 5
-        public Visibility CreatureVisibility5 { get { return animusModel.creatureVisibility5; } set { animusModel.creatureVisibility5 = value; OnPropertyChanged(nameof(CreatureVisibility5)); } }
-        public string CreatureActive5 { get { return animusModel.creatureActive5; } set { animusModel.creatureActive5 = value; OnPropertyChanged(nameof(CreatureActive5)); } }
-        public double CreatureX5 { get { return animusModel.creatureX5; } set { animusModel.creatureX5 = value; OnPropertyChanged(nameof(CreatureX5)); } }
-        public double CreatureY5 { get { return animusModel.creatureY5; } set { animusModel.creatureY5 = value; OnPropertyChanged(nameof(CreatureY5)); } }
-        #endregion
-
-        #endregion
 
         public List<string> Leves { get { return animusModel.leves; } set { animusModel.leves = value; OnPropertyChanged(nameof(Leves)); } }
         public List<string> Fates { get { return animusModel.fates; } set { animusModel.fates = value; OnPropertyChanged(nameof(Fates)); } }
@@ -305,24 +298,14 @@ namespace FFXIVRelicTracker.ARR.Animus
         public List<string> ObservableUniqueMaps { get { return animusModel.observableUniqueMaps; } set { animusModel.observableUniqueMaps = value; OnPropertyChanged(nameof(ObservableUniqueMaps)); } }
         public List<string> ObservableAllMaps { get { return animusModel.observableAllMaps; } set { animusModel.observableAllMaps = value; OnPropertyChanged(nameof(ObservableAllMaps)); } }
 
-        public bool CompletedDungeon1 { get { return animusModel.completedDungeon1; } set { animusModel.completedDungeon1 = value; OnPropertyChanged(nameof(CompletedDungeon1)); } }
-        public bool CompletedDungeon2 { get { return animusModel.completedDungeon2; } set { animusModel.completedDungeon2 = value; OnPropertyChanged(nameof(CompletedDungeon2)); } }
-        public bool CompletedDungeon3 { get { return animusModel.completedDungeon3; } set { animusModel.completedDungeon3 = value; OnPropertyChanged(nameof(CompletedDungeon3)); } }
 
-        public BoolObject CompletedFate1 { get { return animusModel.completedFate1; } set { animusModel.completedFate1 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedFate1)); } }
-        public BoolObject CompletedFate2 { get { return animusModel.completedFate2; } set { animusModel.completedFate2 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedFate2)); } }
-        public BoolObject CompletedFate3 { get { return animusModel.completedFate3; } set { animusModel.completedFate3 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedFate3)); } }
 
-        public bool CompletedCreature1 { get { return animusModel.completedCreature1; } set { animusModel.completedCreature1 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature1)); } }
-        public bool CompletedCreature2 { get { return animusModel.completedCreature2; } set { animusModel.completedCreature2 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature2)); } }
-        public bool CompletedCreature3 { get { return animusModel.completedCreature3; } set { animusModel.completedCreature3 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature3)); } }
-        public bool CompletedCreature4 { get { return animusModel.completedCreature4; } set { animusModel.completedCreature4 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature4)); } }
-        public bool CompletedCreature5 { get { return animusModel.completedCreature5; } set { animusModel.completedCreature5 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature5)); } }
-        public bool CompletedCreature6 { get { return animusModel.completedCreature6; } set { animusModel.completedCreature6 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature6)); } }
-        public bool CompletedCreature7 { get { return animusModel.completedCreature7; } set { animusModel.completedCreature7 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature7)); } }
-        public bool CompletedCreature8 { get { return animusModel.completedCreature8; } set { animusModel.completedCreature8 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature8)); } }
-        public bool CompletedCreature9 { get { return animusModel.completedCreature9; } set { animusModel.completedCreature9 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature9)); } }
-        public bool CompletedCreature10 { get { return animusModel.completedCreature10; } set { animusModel.completedCreature10 = value; ReCheckMaps(); OnPropertyChanged(nameof(CompletedCreature10)); } }
+
+        #region RadioButton Properties
+
+        private List<bool> CheckedButtonList;
+        private List<bool> VisibilityButtonList;
+        private List<string> MapButtonList;
 
         public bool PossibleChecked1 { get { return animusModel.possibleChecked1; } set { animusModel.possibleChecked1 = value; OnPropertyChanged(nameof(PossibleChecked1)); } }
         public bool PossibleChecked2 { get { return animusModel.possibleChecked2; } set { animusModel.possibleChecked2 = value; OnPropertyChanged(nameof(PossibleChecked2)); } }
@@ -357,6 +340,7 @@ namespace FFXIVRelicTracker.ARR.Animus
         public string PossibleMap9 { get { return animusModel.possibleMap9; } set { animusModel.possibleMap9 = value; OnPropertyChanged(nameof(PossibleMap9)); } }
         public string PossibleMap10 { get { return animusModel.possibleMap10; } set { animusModel.possibleMap10 = value; OnPropertyChanged(nameof(PossibleMap10)); } }
 
+        #endregion
         #region Animus Per Book properties
 
         private List<string> CreatureNames;
@@ -375,63 +359,94 @@ namespace FFXIVRelicTracker.ARR.Animus
         private List<string> LeveMaps;
         private List<PointF> LevePoints;
 
-        public string Creature1 { get { return animusModel.creature1; } set { animusModel.creature1 = value; OnPropertyChanged(nameof(Creature1)); } }
-        public string Creature2 { get { return animusModel.creature2; } set { animusModel.creature2 = value; OnPropertyChanged(nameof(Creature2)); } }
-        public string Creature3 { get { return animusModel.creature3; } set { animusModel.creature3 = value; OnPropertyChanged(nameof(Creature3)); } }
-        public string Creature4 { get { return animusModel.creature4; } set { animusModel.creature4 = value; OnPropertyChanged(nameof(Creature4)); } }
-        public string Creature5 { get { return animusModel.creature5; } set { animusModel.creature5 = value; OnPropertyChanged(nameof(Creature5)); } }
-        public string Creature6 { get { return animusModel.creature6; } set { animusModel.creature6 = value; OnPropertyChanged(nameof(Creature6)); } }
-        public string Creature7 { get { return animusModel.creature7; } set { animusModel.creature7 = value; OnPropertyChanged(nameof(Creature7)); } }
-        public string Creature8 { get { return animusModel.creature8; } set { animusModel.creature8 = value; OnPropertyChanged(nameof(Creature8)); } }
-        public string Creature9 { get { return animusModel.creature9; } set { animusModel.creature9 = value; OnPropertyChanged(nameof(Creature9)); } }
-        public string Creature10 { get { return animusModel.creature10; } set { animusModel.creature10 = value; OnPropertyChanged(nameof(Creature10)); } }
-
-
-        public string CreatureMap1 { get { return animusModel.creatureMap1; } set { animusModel.creatureMap1 = value; OnPropertyChanged(nameof(CreatureMap1)); } }
-        public string CreatureMap2 { get { return animusModel.creatureMap2; } set { animusModel.creatureMap2 = value; OnPropertyChanged(nameof(CreatureMap2)); } }
-        public string CreatureMap3 { get { return animusModel.creatureMap3; } set { animusModel.creatureMap3 = value; OnPropertyChanged(nameof(CreatureMap3)); } }
-        public string CreatureMap4 { get { return animusModel.creatureMap4; } set { animusModel.creatureMap4 = value; OnPropertyChanged(nameof(CreatureMap4)); } }
-        public string CreatureMap5 { get { return animusModel.creatureMap5; } set { animusModel.creatureMap5 = value; OnPropertyChanged(nameof(CreatureMap5)); } }
-        public string CreatureMap6 { get { return animusModel.creatureMap6; } set { animusModel.creatureMap6 = value; OnPropertyChanged(nameof(CreatureMap6)); } }
-        public string CreatureMap7 { get { return animusModel.creatureMap7; } set { animusModel.creatureMap7 = value; OnPropertyChanged(nameof(CreatureMap7)); } }
-        public string CreatureMap8 { get { return animusModel.creatureMap8; } set { animusModel.creatureMap8 = value; OnPropertyChanged(nameof(CreatureMap8)); } }
-        public string CreatureMap9 { get { return animusModel.creatureMap9; } set { animusModel.creatureMap9 = value; OnPropertyChanged(nameof(CreatureMap9)); } }
-        public string CreatureMap10 { get { return animusModel.creatureMap10; } set { animusModel.creatureMap10 = value; OnPropertyChanged(nameof(CreatureMap10)); } }
-
-
-        public PointF CreaturePoint1 { get { return animusModel.creaturePoint1; } set { animusModel.creaturePoint1 = value; OnPropertyChanged(nameof(CreaturePoint1)); } }
-        public PointF CreaturePoint2 { get { return animusModel.creaturePoint2; } set { animusModel.creaturePoint2 = value; OnPropertyChanged(nameof(CreaturePoint2)); } }
-        public PointF CreaturePoint3 { get { return animusModel.creaturePoint3; } set { animusModel.creaturePoint3 = value; OnPropertyChanged(nameof(CreaturePoint3)); } }
-        public PointF CreaturePoint4 { get { return animusModel.creaturePoint4; } set { animusModel.creaturePoint4 = value; OnPropertyChanged(nameof(CreaturePoint4)); } }
-        public PointF CreaturePoint5 { get { return animusModel.creaturePoint5; } set { animusModel.creaturePoint5 = value; OnPropertyChanged(nameof(CreaturePoint5)); } }
-        public PointF CreaturePoint6 { get { return animusModel.creaturePoint6; } set { animusModel.creaturePoint6 = value; OnPropertyChanged(nameof(CreaturePoint6)); } }
-        public PointF CreaturePoint7 { get { return animusModel.creaturePoint7; } set { animusModel.creaturePoint7 = value; OnPropertyChanged(nameof(CreaturePoint7)); } }
-        public PointF CreaturePoint8 { get { return animusModel.creaturePoint8; } set { animusModel.creaturePoint8 = value; OnPropertyChanged(nameof(CreaturePoint8)); } }
-        public PointF CreaturePoint9 { get { return animusModel.creaturePoint9; } set { animusModel.creaturePoint9 = value; OnPropertyChanged(nameof(CreaturePoint9)); } }
-        public PointF CreaturePoint10 { get { return animusModel.creaturePoint10; } set { animusModel.creaturePoint10 = value; OnPropertyChanged(nameof(CreaturePoint10)); } }
-
-
         public string Dungeon1 { get { return animusModel.dungeon1; } set { animusModel.dungeon1 = value; OnPropertyChanged(nameof(Dungeon1)); } }
         public string Dungeon2 { get { return animusModel.dungeon2; } set { animusModel.dungeon2 = value; OnPropertyChanged(nameof(Dungeon2)); } }
         public string Dungeon3 { get { return animusModel.dungeon3; } set { animusModel.dungeon3 = value; OnPropertyChanged(nameof(Dungeon3)); } }
-
-
-        public string FateName1 { get { return animusModel.fateName1; } set { animusModel.fateName3 = value; OnPropertyChanged(nameof(FateName1)); } }
-        public string FateName2 { get { return animusModel.fateName2; } set { animusModel.fateName2 = value; OnPropertyChanged(nameof(FateName2)); } }
-        public string FateName3 { get { return animusModel.fateName3; } set { animusModel.fateName1 = value; OnPropertyChanged(nameof(FateName3)); } }
-
-        public string FateMap1 { get { return animusModel.fateMap1; } set { animusModel.fateMap3 = value; OnPropertyChanged(nameof(FateMap1)); } }
-        public string FateMap2 { get { return animusModel.fateMap2; } set { animusModel.fateMap2 = value; OnPropertyChanged(nameof(FateMap2)); } }
-        public string FateMap3 { get { return animusModel.fateMap3; } set { animusModel.fateMap1 = value; OnPropertyChanged(nameof(FateMap3)); } }
-
-        public PointF FatePoint1 { get { return animusModel.fatePoint1; } set { animusModel.fatePoint3 = value; OnPropertyChanged(nameof(FatePoint1)); } }
-        public PointF FatePoint2 { get { return animusModel.fatePoint2; } set { animusModel.fatePoint2 = value; OnPropertyChanged(nameof(FatePoint2)); } }
-        public PointF FatePoint3 { get { return animusModel.fatePoint3; } set { animusModel.fatePoint1 = value; OnPropertyChanged(nameof(FatePoint3)); } }
 
         #endregion
         #endregion
 
         #region Methods
+        private void InitializeLists()
+        {
+
+            LeveList = new List<AnimusObject>
+                {
+                    Leve1, Leve2, Leve3
+                };
+
+            FateList = new List<AnimusObject>
+                {
+                    Fate1, Fate2, Fate3
+                };
+
+            CreatureList = new List<AnimusObject>
+                {
+                    Creature1, Creature2, Creature3, Creature4, Creature5,
+                    Creature6, Creature7, Creature8, Creature9, Creature10
+                };
+
+            ObjectList = new List<AnimusObject>
+                {
+                    Leve1, Leve2, Leve3,
+                    Fate1, Fate2, Fate3,
+
+                    Creature1, Creature2, Creature3, Creature4, Creature5,
+                    Creature6, Creature7, Creature8, Creature9, Creature10
+                };
+
+            CheckedButtonList = new List<bool>
+                {
+                    PossibleChecked1,
+                    PossibleChecked2,
+                    PossibleChecked3,
+                    PossibleChecked4,
+                    PossibleChecked5,
+                    PossibleChecked6,
+                    PossibleChecked7,
+                    PossibleChecked8,
+                    PossibleChecked9,
+                    PossibleChecked10
+                };
+
+            VisibilityButtonList = new List<bool>
+                {
+                    PossibleVisibility1,
+                    PossibleVisibility2,
+                    PossibleVisibility3,
+                    PossibleVisibility4,
+                    PossibleVisibility5,
+                    PossibleVisibility6,
+                    PossibleVisibility7,
+                    PossibleVisibility8,
+                    PossibleVisibility9,
+                    PossibleVisibility10
+                };
+
+            MapButtonList = new List<string>
+                {
+                    PossibleMap1,
+                    PossibleMap2,
+                    PossibleMap3,
+                    PossibleMap4,
+                    PossibleMap5,
+                    PossibleMap6,
+                    PossibleMap7,
+                    PossibleMap8,
+                    PossibleMap9,
+                    PossibleMap10
+                };
+        }
+
+        private void HideLocations()
+        {
+            DisplayCreature1.Completed.Bool = true;
+            DisplayCreature2.Completed.Bool = true;
+            DisplayCreature3.Completed.Bool = true;
+
+            DisplayFate.Completed.Bool = true;
+            DisplayLeve.Completed.Bool = true;
+        }
 
         private void ResetBooks()
         {
@@ -449,16 +464,16 @@ namespace FFXIVRelicTracker.ARR.Animus
         {
             ClearMaps();
 
-            CompletedCreature1 = false;
-            CompletedCreature2 = false;
-            CompletedCreature3 = false;
-            CompletedCreature4 = false;
-            CompletedCreature5 = false;
-            CompletedCreature6 = false;
-            CompletedCreature7 = false;
-            CompletedCreature8 = false;
-            CompletedCreature9 = false;
-            CompletedCreature10 = false;
+            Creature1.Completed.Bool = false;
+            Creature2.Completed.Bool = false;
+            Creature3.Completed.Bool = false;
+            Creature4.Completed.Bool = false;
+            Creature5.Completed.Bool = false;
+            Creature6.Completed.Bool = false;
+            Creature7.Completed.Bool = false;
+            Creature8.Completed.Bool = false;
+            Creature9.Completed.Bool = false;
+            Creature10.Completed.Bool = false;
 
             CompletedDungeon1 = false;
             CompletedDungeon2 = false;
@@ -490,47 +505,27 @@ namespace FFXIVRelicTracker.ARR.Animus
 
         public void ReassignPoints()
         {
+
+            DisplayCreature1 = new AnimusObject(true);
+            DisplayCreature2 = new AnimusObject(true);
+            DisplayCreature3 = new AnimusObject(true);
+
+            DisplayLeve = new AnimusObject(true);
+
+            DisplayFate = new AnimusObject(true);
+
             #region Set Fates
 
-            DisplayFate = new AnimusObject();
-
-            foreach (AnimusObject leve in FateList)
+            foreach (AnimusObject fate in FateList)
             {
-                if (leve.Map == SelectedAnimusMap)
+                if (fate.Map == SelectedAnimusMap)
                 {
-                    DisplayFate = leve;
+                    DisplayFate = fate;
                 }
-            }
-
-            FateVisibility1 = Visibility.Visible;
-
-            if (FateMap1 == SelectedAnimusMap & !CompletedFate1.Bool)
-            {
-                FateActive1 = FateName1;
-                FateX1 = (800 * FatePoint1.X / 42) - 15;
-                FateY1 = (790 * FatePoint1.Y / 42) - 15;
-            }
-            else if (FateMap2 == SelectedAnimusMap & !CompletedFate2.Bool)
-            {
-                FateActive1 = FateName2;
-                FateX1 = 800 * FatePoint2.X / 42 - 15;
-                FateY1 = 800 * FatePoint2.Y / 42 - 15;
-            }
-            else if (FateMap3 == SelectedAnimusMap & !CompletedFate3.Bool)
-            {
-                FateActive1 = FateName3;
-                FateX1 = 800 * FatePoint3.X / 42 - 15;
-                FateY1 = 800 * FatePoint3.Y / 42 - 15;
-            }
-            else
-            {
-                FateVisibility1 = Visibility.Hidden;
             }
 
             #endregion
             #region Set Leves
-
-            DisplayLeve = new AnimusObject();
 
             foreach(AnimusObject leve in LeveList)
             {
@@ -541,156 +536,21 @@ namespace FFXIVRelicTracker.ARR.Animus
             }
 
             #endregion
-
-            UnassignPoints();
-
             #region Set Creatures
 
-            List<string> tempX = new List<string>
+            foreach (AnimusObject creature in CreatureList)
             {
-                nameof(CreatureX1),
-                nameof(CreatureX2),
-                nameof(CreatureX3),
-                nameof(CreatureX4),
-                nameof(CreatureX5)
-            };
-
-            List<string> tempY = new List<string>
-            {
-                nameof(CreatureY1),
-                nameof(CreatureY2),
-                nameof(CreatureY3),
-                nameof(CreatureY4),
-                nameof(CreatureY5)
-            };
-
-            List<string> tempVisibility = new List<string>
-            {
-                nameof(CreatureVisibility1),
-                nameof(CreatureVisibility2),
-                nameof(CreatureVisibility3),
-                nameof(CreatureVisibility4),
-                nameof(CreatureVisibility5)
-            };
-
-            List<string> tempActive = new List<string>
-            {
-                nameof(CreatureActive1),
-                nameof(CreatureActive2),
-                nameof(CreatureActive3),
-                nameof(CreatureActive4),
-                nameof(CreatureActive5)
-            };
-
-            List<string> tempCreatureMaps = new List<string>
-            {
-                nameof(CreatureMap1),
-                nameof(CreatureMap2),
-                nameof(CreatureMap3),
-                nameof(CreatureMap4),
-                nameof(CreatureMap5),
-                nameof(CreatureMap6),
-                nameof(CreatureMap7),
-                nameof(CreatureMap8),
-                nameof(CreatureMap9),
-                nameof(CreatureMap10)
-            };
-
-            List<string> tempCreatureNames = new List<string>
-            {
-                nameof(Creature1),
-                nameof(Creature2),
-                nameof(Creature3),
-                nameof(Creature4),
-                nameof(Creature5),
-                nameof(Creature6),
-                nameof(Creature7),
-                nameof(Creature8),
-                nameof(Creature9),
-                nameof(Creature10)
-            };
-
-            List<string> tempPoints = new List<string>
-            {
-                nameof(CreaturePoint1),
-                nameof(CreaturePoint2),
-                nameof(CreaturePoint3),
-                nameof(CreaturePoint4),
-                nameof(CreaturePoint5),
-                nameof(CreaturePoint6),
-                nameof(CreaturePoint7),
-                nameof(CreaturePoint8),
-                nameof(CreaturePoint9),
-                nameof(CreaturePoint10)
-            };
-
-            List<string> tempBools = new List<string>
-            {
-                nameof(CompletedCreature1),
-                nameof(CompletedCreature2),
-                nameof(CompletedCreature3),
-                nameof(CompletedCreature4),
-                nameof(CompletedCreature5),
-                nameof(CompletedCreature6),
-                nameof(CompletedCreature7),
-                nameof(CompletedCreature8),
-                nameof(CompletedCreature9),
-                nameof(CompletedCreature10)
-            };
-
-            while (tempCreatureMaps.Count > 0)
-            {
-                PropertyInfo creatureMap = typeof(AnimusViewModel).GetProperty(tempCreatureMaps[0]);
-                string checkMap = (string)creatureMap.GetValue(this);
-                if (checkMap == SelectedAnimusMap)
+                if (creature.Map == SelectedAnimusMap)
                 {
-                    PropertyInfo creaturePoint = typeof(AnimusViewModel).GetProperty(tempPoints[0]);
-                    PointF selectPoint = (PointF)creaturePoint.GetValue(this);
-
-                    PropertyInfo creatureName = typeof(AnimusViewModel).GetProperty(tempCreatureNames[0]);
-                    string selectName = (string)creatureName.GetValue(this);
-
-                    PropertyInfo creatureComplete = typeof(AnimusViewModel).GetProperty(tempBools[0]);
-                    bool selectBool = (bool)creatureComplete.GetValue(this);
-
-                    for (int i = 0; i <= 4; i++)
-                    {
-                        PropertyInfo plotPointX = typeof(AnimusViewModel).GetProperty(tempX[i]);
-                        PropertyInfo plotPointY = typeof(AnimusViewModel).GetProperty(tempY[i]);
-
-                        PropertyInfo plotName = typeof(AnimusViewModel).GetProperty(tempActive[i]);
-
-
-
-                        PropertyInfo plotVisibility = typeof(AnimusViewModel).GetProperty(tempVisibility[i]);
-                        Visibility selectVisibility = (Visibility)plotVisibility.GetValue(this);
-
-                        double tempDbl = (double)plotPointX.GetValue(this);
-                        if (tempDbl == (double)0)
-                        {
-
-                            plotPointX.SetValue(this, 800 * selectPoint.X / 42 - 15);
-                            plotPointY.SetValue(this, 790 * selectPoint.Y / 42 - 15);
-                            if (!selectBool)
-                            {
-                                plotVisibility.SetValue(this, Visibility.Visible);
-                            }
-                            else { plotVisibility.SetValue(this, Visibility.Hidden); }
-                            plotName.SetValue(this, selectName);
-                            break;
-                        }
-                    }
+                    if (DisplayCreature1.Name == null) {DisplayCreature1 = creature; }
+                    else if(DisplayCreature2.Name == null) { DisplayCreature2 = creature; }
+                    else if(DisplayCreature3.Name == null) { DisplayCreature3 = creature; }
+                    else { throw new Exception(); }
                 }
-                tempCreatureMaps.RemoveAt(0);
-                tempCreatureNames.RemoveAt(0);
-                tempPoints.RemoveAt(0);
-                tempBools.RemoveAt(0);
             }
-
             AssignItems();
 
             #endregion
-
         }
 
         private void ChangedBookStatus(string book, bool newStatus)
@@ -756,33 +616,7 @@ namespace FFXIVRelicTracker.ARR.Animus
             }
 
         }
-        private void UnassignPoints()
-        {
-            CreatureX1 = 0;
-            CreatureX2 = 0;
-            CreatureX3 = 0;
-            CreatureX4 = 0;
-            CreatureX5 = 0;
 
-            CreatureY1 = 0;
-            CreatureY2 = 0;
-            CreatureY3 = 0;
-            CreatureY4 = 0;
-            CreatureY5 = 0;
-
-            CreatureVisibility1 = Visibility.Hidden;
-            CreatureVisibility2 = Visibility.Hidden;
-            CreatureVisibility3 = Visibility.Hidden;
-            CreatureVisibility4 = Visibility.Hidden;
-            CreatureVisibility5 = Visibility.Hidden;
-
-            CreatureActive1 = null;
-            CreatureActive2 = null;
-            CreatureActive3 = null;
-            CreatureActive4 = null;
-            CreatureActive5 = null;
-
-        }
 
         public void AssignItems()
         {
@@ -942,38 +776,38 @@ namespace FFXIVRelicTracker.ARR.Animus
 
             #region Assign all after sorting
 
-            Creature1 = sortedCreatureNames[0];
-            Creature2 = sortedCreatureNames[1];
-            Creature3 = sortedCreatureNames[2];
-            Creature4 = sortedCreatureNames[3];
-            Creature5 = sortedCreatureNames[4];
-            Creature6 = sortedCreatureNames[5];
-            Creature7 = sortedCreatureNames[6];
-            Creature8 = sortedCreatureNames[7];
-            Creature9 = sortedCreatureNames[8];
-            Creature10 = sortedCreatureNames[9];
+            Creature1.Name = sortedCreatureNames[0];
+            Creature2.Name = sortedCreatureNames[1];
+            Creature3.Name = sortedCreatureNames[2];
+            Creature4.Name = sortedCreatureNames[3];
+            Creature5.Name = sortedCreatureNames[4];
+            Creature6.Name = sortedCreatureNames[5];
+            Creature7.Name = sortedCreatureNames[6];
+            Creature8.Name = sortedCreatureNames[7];
+            Creature9.Name = sortedCreatureNames[8];
+            Creature10.Name = sortedCreatureNames[9];
 
-            CreatureMap1 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[0])];
-            CreatureMap2 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[1])];
-            CreatureMap3 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[2])];
-            CreatureMap4 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[3])];
-            CreatureMap5 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[4])];
-            CreatureMap6 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[5])];
-            CreatureMap7 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[6])];
-            CreatureMap8 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[7])];
-            CreatureMap9 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[8])];
-            CreatureMap10 = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[9])];
+            Creature1.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[0])];
+            Creature2.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[1])];
+            Creature3.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[2])];
+            Creature4.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[3])];
+            Creature5.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[4])];
+            Creature6.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[5])];
+            Creature7.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[6])];
+            Creature8.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[7])];
+            Creature9.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[8])];
+            Creature10.Map = CreatureMaps[CreatureNames.IndexOf(sortedCreatureNames[9])];
 
-            CreaturePoint1 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[0])];
-            CreaturePoint2 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[1])];
-            CreaturePoint3 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[2])];
-            CreaturePoint4 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[3])];
-            CreaturePoint5 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[4])];
-            CreaturePoint6 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[5])];
-            CreaturePoint7 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[6])];
-            CreaturePoint8 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[7])];
-            CreaturePoint9 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[8])];
-            CreaturePoint10 = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[9])];
+            Creature1.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[0])];
+            Creature2.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[1])];
+            Creature3.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[2])];
+            Creature4.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[3])];
+            Creature5.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[4])];
+            Creature6.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[5])];
+            Creature7.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[6])];
+            Creature8.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[7])];
+            Creature9.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[8])];
+            Creature10.PointF = CreaturePoints[CreatureNames.IndexOf(sortedCreatureNames[9])];
 
             Dungeons.Sort();
 
@@ -981,22 +815,18 @@ namespace FFXIVRelicTracker.ARR.Animus
             Dungeon2 = Dungeons[1];
             Dungeon3 = Dungeons[2];
 
-            FateName1 = sortedFateNames[0];
-            FateName2 = sortedFateNames[1];
-            FateName3 = sortedFateNames[2];
+            Fate1.Name = sortedFateNames[0];
+            Fate2.Name = sortedFateNames[1];
+            Fate3.Name = sortedFateNames[2];
 
-            CompletedFate1.Name = sortedFateNames[0];
-            CompletedFate2.Name = sortedFateNames[1];
-            CompletedFate3.Name = sortedFateNames[2];
+            Fate1.Map = FateMaps[FateNames.IndexOf(sortedFateNames[0])];
+            Fate2.Map = FateMaps[FateNames.IndexOf(sortedFateNames[1])];
+            Fate3.Map = FateMaps[FateNames.IndexOf(sortedFateNames[2])];
 
+            Fate1.PointF = FatePoints[FateNames.IndexOf(sortedFateNames[0])];
+            Fate2.PointF = FatePoints[FateNames.IndexOf(sortedFateNames[1])];
+            Fate3.PointF = FatePoints[FateNames.IndexOf(sortedFateNames[2])];
 
-            FateMap1 = FateMaps[FateNames.IndexOf(sortedFateNames[0])];
-            FateMap2 = FateMaps[FateNames.IndexOf(sortedFateNames[1])];
-            FateMap3 = FateMaps[FateNames.IndexOf(sortedFateNames[2])];
-
-            FatePoint1 = FatePoints[FateNames.IndexOf(sortedFateNames[0])];
-            FatePoint2 = FatePoints[FateNames.IndexOf(sortedFateNames[1])];
-            FatePoint3 = FatePoints[FateNames.IndexOf(sortedFateNames[2])];
 
             Leve1.Name = sortedLeveNames[0];
             Leve2.Name = sortedLeveNames[1];
@@ -1042,24 +872,13 @@ namespace FFXIVRelicTracker.ARR.Animus
 
             ObservableAllMaps = new List<string>();
 
-            if (!CompletedCreature1) { ObservableAllMaps.Add(CreatureMap1); }
-            if (!CompletedCreature2) { ObservableAllMaps.Add(CreatureMap2); }
-            if (!CompletedCreature3) { ObservableAllMaps.Add(CreatureMap3); }
-            if (!CompletedCreature4) { ObservableAllMaps.Add(CreatureMap4); }
-            if (!CompletedCreature5) { ObservableAllMaps.Add(CreatureMap5); }
-            if (!CompletedCreature6) { ObservableAllMaps.Add(CreatureMap6); }
-            if (!CompletedCreature7) { ObservableAllMaps.Add(CreatureMap7); }
-            if (!CompletedCreature8) { ObservableAllMaps.Add(CreatureMap8); }
-            if (!CompletedCreature9) { ObservableAllMaps.Add(CreatureMap9); }
-            if (!CompletedCreature10) { ObservableAllMaps.Add(CreatureMap10); }
-
-            if (!Leve1.Completed.Bool) { ObservableAllMaps.Add(Leve1.Map); }
-            if (!Leve2.Completed.Bool) { ObservableAllMaps.Add(Leve2.Map); }
-            if (!Leve3.Completed.Bool) { ObservableAllMaps.Add(Leve3.Map); }
-
-            if (!CompletedFate1.Bool) { ObservableAllMaps.Add(FateMap1); }
-            if (!CompletedFate2.Bool) { ObservableAllMaps.Add(FateMap2); }
-            if (!CompletedFate3.Bool) { ObservableAllMaps.Add(FateMap3); }
+            foreach(AnimusObject obj in ObjectList)
+            {
+                if (!obj.Completed.Bool)
+                {
+                    ObservableAllMaps.Add(obj.Map);
+                }
+            }
 
             ObservableUniqueMaps = GetUniqueInList(ObservableAllMaps);
 
@@ -1069,6 +888,14 @@ namespace FFXIVRelicTracker.ARR.Animus
 
             //if (oldBook != newBook | CurrentBook == null)
             {
+
+                //only works if map visibilities are store in a reference object
+                for(int i = 0; i < tempcount; i++)
+                {
+                    MapButtonList[i] = ObservableUniqueMaps[i];
+                    VisibilityButtonList[i] = true;
+                }
+
                 PossibleMap1 = ObservableUniqueMaps[0]; PossibleVisibility1 = true;
                 PossibleMap2 = ObservableUniqueMaps[1]; PossibleVisibility2 = true;
                 PossibleMap3 = ObservableUniqueMaps[2]; PossibleVisibility3 = true;
@@ -1132,24 +959,13 @@ namespace FFXIVRelicTracker.ARR.Animus
 
             ObservableAllMaps = new List<string>();
 
-            if (!CompletedCreature1) { ObservableAllMaps.Add(CreatureMap1); }
-            if (!CompletedCreature2) { ObservableAllMaps.Add(CreatureMap2); }
-            if (!CompletedCreature3) { ObservableAllMaps.Add(CreatureMap3); }
-            if (!CompletedCreature4) { ObservableAllMaps.Add(CreatureMap4); }
-            if (!CompletedCreature5) { ObservableAllMaps.Add(CreatureMap5); }
-            if (!CompletedCreature6) { ObservableAllMaps.Add(CreatureMap6); }
-            if (!CompletedCreature7) { ObservableAllMaps.Add(CreatureMap7); }
-            if (!CompletedCreature8) { ObservableAllMaps.Add(CreatureMap8); }
-            if (!CompletedCreature9) { ObservableAllMaps.Add(CreatureMap9); }
-            if (!CompletedCreature10) { ObservableAllMaps.Add(CreatureMap10); }
-
-            if (!Leve1.Completed.Bool) { ObservableAllMaps.Add(Leve1.Map); }
-            if (!Leve2.Completed.Bool) { ObservableAllMaps.Add(Leve2.Map); }
-            if (!Leve3.Completed.Bool) { ObservableAllMaps.Add(Leve3.Map); }
-
-            if (!CompletedFate1.Bool) { ObservableAllMaps.Add(FateMap1); }
-            if (!CompletedFate2.Bool) { ObservableAllMaps.Add(FateMap2); }
-            if (!CompletedFate3.Bool) { ObservableAllMaps.Add(FateMap3); }
+            foreach (AnimusObject obj in ObjectList)
+            {
+                if (!obj.Completed.Bool)
+                {
+                    ObservableAllMaps.Add(obj.Map);
+                }
+            }
 
             ObservableUniqueMaps = GetUniqueInList(ObservableAllMaps);
 
@@ -1205,8 +1021,22 @@ namespace FFXIVRelicTracker.ARR.Animus
                 else { SelectedAnimusMap = null; }
                 UnCheckAnimusRadioButtons();
             }
-            else if (tempcount > initialMaps) { SelectedAnimusMap = ObservableUniqueMaps[0]; }
-            ReassignPoints();
+
+            else if (tempcount > initialMaps)
+            {
+                if (SelectedAnimusMap != null)
+                {
+                    AssignRadioButtons();
+                }
+                else { SelectedAnimusMap = ObservableUniqueMaps[0];  }
+               
+            }
+            else { AssignRadioButtons(); }
+            if (SelectedAnimusMap != null)
+            {
+                ReassignPoints();
+            }
+            
         }
         private List<string> SortArrMaps(List<string> inputMap)
         {
@@ -1268,6 +1098,21 @@ namespace FFXIVRelicTracker.ARR.Animus
             }
             return tempUniqueMaps;
         }
+
+        private void AssignRadioButtons()
+        {
+            PossibleChecked1 = PossibleMap1 == SelectedAnimusMap;
+            PossibleChecked2 = PossibleMap2 == SelectedAnimusMap;
+            PossibleChecked3 = PossibleMap3 == SelectedAnimusMap;
+            PossibleChecked4 = PossibleMap4 == SelectedAnimusMap;
+            PossibleChecked5 = PossibleMap5 == SelectedAnimusMap;
+            PossibleChecked6 = PossibleMap6 == SelectedAnimusMap;
+            PossibleChecked7 = PossibleMap7 == SelectedAnimusMap;
+            PossibleChecked8 = PossibleMap8 == SelectedAnimusMap;
+            PossibleChecked9 = PossibleMap9 == SelectedAnimusMap;
+            PossibleChecked10 = PossibleMap10 == SelectedAnimusMap;
+        }
+
         #endregion
 
         #region Commands
@@ -1302,7 +1147,32 @@ namespace FFXIVRelicTracker.ARR.Animus
         }
         #endregion
 
-            #region Change Displayed Map
+        #region Checkbox Command
+        private ICommand _CompleteButton;
+
+        public ICommand CheckboxButton
+        {
+            get
+            {
+                if (_CompleteButton == null)
+                {
+                    _CompleteButton = new RelayCommand(
+                        param => this.CheckboxCommand(),
+                        param => this.CheckboxCan()
+                        );
+                }
+                return _CompleteButton;
+            }
+        }
+        private bool CheckboxCan() { return true; }
+
+        private void CheckboxCommand()
+        {
+            ReCheckMaps();
+        }
+        #endregion
+
+        #region Change Displayed Map
         private ICommand _AnimusRadioButton;
         public ICommand AnimusRadioButton
         {
@@ -1319,25 +1189,15 @@ namespace FFXIVRelicTracker.ARR.Animus
 
         private void PickMap(object param)
         {
-            string mapSelection = (string)param;
-
-            PossibleChecked1 = PossibleMap1 == mapSelection;
-            PossibleChecked2 = PossibleMap2 == mapSelection;
-            PossibleChecked3 = PossibleMap3 == mapSelection;
-            PossibleChecked4 = PossibleMap4 == mapSelection;
-            PossibleChecked5 = PossibleMap5 == mapSelection;
-            PossibleChecked6 = PossibleMap6 == mapSelection;
-            PossibleChecked7 = PossibleMap7 == mapSelection;
-            PossibleChecked8 = PossibleMap8 == mapSelection;
-            PossibleChecked9 = PossibleMap9 == mapSelection;
-            PossibleChecked10 = PossibleMap10 == mapSelection;
-
             SelectedAnimusMap = (string)param;
+            AssignRadioButtons();
         }
 
+        #endregion
+
+        #region Click Map
+
         private ICommand _AnimusMapClick;
-        private ArrWeapon arrWeapon;
-        private ICommand _CompleteButton;
 
         public ICommand AnimusMapClick
         {
@@ -1366,7 +1226,9 @@ namespace FFXIVRelicTracker.ARR.Animus
                     animusObject1.Completed.Bool = true;
                 }
             }
-            ReassignPoints();
+            ReCheckMaps();
+            if (SelectedAnimusImage != null) {ReassignPoints(); }
+            
 
         }
 

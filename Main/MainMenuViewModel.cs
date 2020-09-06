@@ -112,15 +112,13 @@ namespace FFXIVRelicTracker.ViewModels
             AddCharacterWindow AddingWindow = sender as AddCharacterWindow;
 
             string Name = AddingWindow.NewChar.Text;
+            string Server = AddingWindow.NewServer.Text;
 
-            if (Name == "" | (ComboBoxItem)AddingWindow.NewServer.SelectedItem == null)
+            if (Name == "" | Server == null)
             {
                 return;
             }
-            string name = AddingWindow.NewChar.Text;
-            string server = ((ComboBoxItem)AddingWindow.NewServer.SelectedItem).Content.ToString();
-
-            AddCharacter(name, server);
+            AddCharacter(Name, Server);
         }
 
         private void AddCharacter(string name, string server)

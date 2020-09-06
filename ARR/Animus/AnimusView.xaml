@@ -163,38 +163,41 @@
                                             </Grid.RowDefinitions>
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Text="Defeat 3 each of the following Beastmen:"/>
 
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature1, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature1}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature2, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature2}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature3, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature3}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="7" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature4, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature4}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="9" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature5, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature5}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="11" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature6, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature6}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="13" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature7, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature7}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="15" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature8, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature8}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="17" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature9, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature9}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="19" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature10, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature10}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1"  Grid.Column="1" TextDecorations="{Binding Path=Creature1.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature1.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3"  Grid.Column="1" TextDecorations="{Binding Path=Creature2.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature2.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5"  Grid.Column="1" TextDecorations="{Binding Path=Creature3.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature3.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="7"  Grid.Column="1" TextDecorations="{Binding Path=Creature4.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature4.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="9"  Grid.Column="1" TextDecorations="{Binding Path=Creature5.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature5.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="11" Grid.Column="1" TextDecorations="{Binding Path=Creature6.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature6.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="13" Grid.Column="1" TextDecorations="{Binding Path=Creature7.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature7.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="15" Grid.Column="1" TextDecorations="{Binding Path=Creature8.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature8.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="17" Grid.Column="1" TextDecorations="{Binding Path=Creature9.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature9.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="19" Grid.Column="1" TextDecorations="{Binding Path=Creature10.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Creature10.Name}"/>
 
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature1, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap1}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature2, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap2}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature3, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap3}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="8" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature4, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap4}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="10" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature5, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap5}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="12" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature6, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap6}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="14" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature7, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap7}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="16" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature8, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap8}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="18" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature9, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap9}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="20" Grid.Column="1" TextDecorations="{Binding Path=CompletedCreature10, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=CreatureMap10}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2"  Grid.Column="1" TextDecorations="{Binding Path=Creature1.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature1.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4"  Grid.Column="1" TextDecorations="{Binding Path=Creature2.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature2.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6"  Grid.Column="1" TextDecorations="{Binding Path=Creature3.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature3.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="8"  Grid.Column="1" TextDecorations="{Binding Path=Creature4.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature4.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="10" Grid.Column="1" TextDecorations="{Binding Path=Creature5.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature5.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="12" Grid.Column="1" TextDecorations="{Binding Path=Creature6.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature6.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="14" Grid.Column="1" TextDecorations="{Binding Path=Creature7.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature7.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="16" Grid.Column="1" TextDecorations="{Binding Path=Creature8.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature8.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="18" Grid.Column="1" TextDecorations="{Binding Path=Creature9.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature9.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="20" Grid.Column="1" TextDecorations="{Binding Path=Creature10.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature10.Map}"/>
 
-                                            <CheckBox   Grid.Row="1"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature1}"/>
-                                            <CheckBox   Grid.Row="3"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature2}"/>
-                                            <CheckBox   Grid.Row="5"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature3}"/>
-                                            <CheckBox   Grid.Row="7"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature4}"/>
-                                            <CheckBox   Grid.Row="9"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature5}"/>
-                                            <CheckBox   Grid.Row="11"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature6}"/>
-                                            <CheckBox   Grid.Row="13"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature7}"/>
-                                            <CheckBox   Grid.Row="15"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature8}"/>
-                                            <CheckBox   Grid.Row="17"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature9}"/>
-                                            <CheckBox   Grid.Row="19"    Grid.Column="2"   IsChecked="{Binding Path=CompletedCreature10}"/>
+                                            <CheckBox   Grid.Row="1"      Grid.Column="2"   IsChecked="{Binding CreatureBool1}"/>
+                                            <CheckBox   Grid.Row="3"      Grid.Column="2"   IsChecked="{Binding CreatureBool2}"/>
+                                            <CheckBox   Grid.Row="5"      Grid.Column="2"   IsChecked="{Binding CreatureBool3}"/>
+                                            <CheckBox   Grid.Row="7"      Grid.Column="2"   IsChecked="{Binding CreatureBool4}"/>
+                                            <CheckBox   Grid.Row="9"      Grid.Column="2"   IsChecked="{Binding CreatureBool5}"/>
+                                            <CheckBox   Grid.Row="11"     Grid.Column="2"   IsChecked="{Binding CreatureBool6}"/>
+                                            <CheckBox   Grid.Row="13"     Grid.Column="2"   IsChecked="{Binding CreatureBool7}"/>
+                                            <CheckBox   Grid.Row="15"     Grid.Column="2"   IsChecked="{Binding CreatureBool8}"/>
+                                            <CheckBox   Grid.Row="17"     Grid.Column="2"   IsChecked="{Binding CreatureBool9}"/>
+                                            <CheckBox   Grid.Row="19"     Grid.Column="2"   IsChecked="{Binding CreatureBool10}"/>
+
+
+
                                         </Grid>
                                     </Border>
                                 </Border>
@@ -224,18 +227,18 @@
                                             </Grid.RowDefinitions>
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"  Text="Complete the following FATEs:"/>
 
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5"    Grid.Column="1"   TextDecorations="{Binding Path=CompletedFate1, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=FateName1}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3"    Grid.Column="1"   TextDecorations="{Binding Path=CompletedFate2, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=FateName2}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1"    Grid.Column="1"   TextDecorations="{Binding Path=CompletedFate3, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=FateName3}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5"    Grid.Column="1"   TextDecorations="{Binding Path=Fate3.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Fate3.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3"    Grid.Column="1"   TextDecorations="{Binding Path=Fate2.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Fate2.Name}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1"    Grid.Column="1"   TextDecorations="{Binding Path=Fate1.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Fate1.Name}"/>
 
 
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6"    Grid.Column="1"   TextDecorations="{Binding Path=CompletedFate1, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=FateMap1}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4"    Grid.Column="1"   TextDecorations="{Binding Path=CompletedFate2, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=FateMap2}"/>
-                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2"    Grid.Column="1"   TextDecorations="{Binding Path=CompletedFate3, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=FateMap3}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6"    Grid.Column="1"   TextDecorations="{Binding Path=Fate3.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Fate3.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4"    Grid.Column="1"   TextDecorations="{Binding Path=Fate2.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Fate2.Map}"/>
+                                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2"    Grid.Column="1"   TextDecorations="{Binding Path=Fate1.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Fate1.Map}"/>
 
-                                            <CheckBox Grid.Row="5"    Grid.Column="2"   IsChecked="{Binding Path=CompletedFate1}"/>
-                                            <CheckBox Grid.Row="3"    Grid.Column="2"   IsChecked="{Binding Path=CompletedFate2}"/>
-                                            <CheckBox Grid.Row="1"    Grid.Column="2"   IsChecked="{Binding Path=CompletedFate3}"/>
+                                            <CheckBox Grid.Row="5"    Grid.Column="2"   IsChecked="{Binding Path=FateBool1}"/>
+                                            <CheckBox Grid.Row="3"    Grid.Column="2"   IsChecked="{Binding Path=FateBool2}"/>
+                                            <CheckBox Grid.Row="1"    Grid.Column="2"   IsChecked="{Binding Path=FateBool3}"/>
                                         </Grid>
                                     </Border>
                                 </Border>
@@ -288,9 +291,9 @@
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="8"      Grid.Column="1"   TextDecorations="{Binding Path=Leve2.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Leve2.Type}"/>
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="12"     Grid.Column="1"   TextDecorations="{Binding Path=Leve3.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Leve3.Type}"/>
 
-                                            <CheckBox   Grid.Row="1"    Grid.Column="2"   IsChecked="{Binding Leve1.Completed.Bool}"/>
-                                            <CheckBox   Grid.Row="5"    Grid.Column="2"   IsChecked="{Binding Leve2.Completed.Bool}"/>
-                                            <CheckBox   Grid.Row="9"    Grid.Column="2"   IsChecked="{Binding Leve3.Completed.Bool}"/>
+                                            <CheckBox   Grid.Row="1"    Grid.Column="2"   IsChecked="{Binding LeveBool1}"/>
+                                            <CheckBox   Grid.Row="5"    Grid.Column="2"   IsChecked="{Binding LeveBool2}"/>
+                                            <CheckBox   Grid.Row="9"    Grid.Column="2"   IsChecked="{Binding LeveBool3}"/>
 
                                         </Grid>
                                     </Border>
@@ -313,7 +316,7 @@
 
                         <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2"   Margin="0,0,10,0" Grid.Row="10" Grid.Column="4" Text="Available Maps:"/>
 
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}" Content="{Binding Path=PossibleMap1}"  Visibility="{Binding Path=PossibleVisibility1,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked1}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap1}"  Grid.Row="11"    Grid.Column="4" />
+                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap1}"  Visibility="{Binding Path=PossibleVisibility1,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked1}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap1}"  Grid.Row="11"    Grid.Column="4" />
                         <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap2}"  Visibility="{Binding Path=PossibleVisibility2,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked2}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap2}"  Grid.Row="12"    Grid.Column="4" />
                         <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap3}"  Visibility="{Binding Path=PossibleVisibility3,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked3}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap3}"  Grid.Row="13"    Grid.Column="4" />
                         <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap4}"  Visibility="{Binding Path=PossibleVisibility4,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked4}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap4}"  Grid.Row="14"    Grid.Column="4" />
@@ -368,30 +371,40 @@
                     </Canvas.Resources>
                     <Image   Source="{Binding  Path=SelectedAnimusImage}"  >
                     </Image>
-                    <Rectangle  Visibility="{Binding Path=FateVisibility1}"  Canvas.Top="{Binding Path=FateY1}"  Canvas.Left="{Binding Path=FateX1}" Fill="Purple" Opacity=".4"/>
-                    <Rectangle  Visibility="{Binding Path=FateVisibility1}"  Canvas.Top="{Binding Path=FateY1}"  Canvas.Left="{Binding Path=FateX1}" Fill="Transparent"  Stroke="Purple"  StrokeDashArray="4 4"  />
 
 
 
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility1}"  Canvas.Top="{Binding Path=CreatureY1}"  Canvas.Left="{Binding Path=CreatureX1}" Opacity=".2" />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility1}"  Canvas.Top="{Binding Path=CreatureY1}"  Canvas.Left="{Binding Path=CreatureX1}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility2}"  Canvas.Top="{Binding Path=CreatureY2}"  Canvas.Left="{Binding Path=CreatureX2}" Opacity=".2" />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility2}"  Canvas.Top="{Binding Path=CreatureY2}"  Canvas.Left="{Binding Path=CreatureX2}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility3}"  Canvas.Top="{Binding Path=CreatureY3}"  Canvas.Left="{Binding Path=CreatureX3}" Opacity=".2" />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility3}"  Canvas.Top="{Binding Path=CreatureY3}"  Canvas.Left="{Binding Path=CreatureX3}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility4}"  Canvas.Top="{Binding Path=CreatureY4}"  Canvas.Left="{Binding Path=CreatureX4}" Opacity=".2" />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility4}"  Canvas.Top="{Binding Path=CreatureY4}"  Canvas.Left="{Binding Path=CreatureX4}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility5}"  Canvas.Top="{Binding Path=CreatureY5}"  Canvas.Left="{Binding Path=CreatureX5}" Opacity=".2" />
-                    <Rectangle  Visibility="{Binding Path=CreatureVisibility5}"  Canvas.Top="{Binding Path=CreatureY5}"  Canvas.Left="{Binding Path=CreatureX5}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
+
+                    <Rectangle Visibility="{Binding Path=DisplayCreature1.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature1.Y}"  Canvas.Left="{Binding Path=DisplayCreature1.X}" Opacity=".2" />
+                    <Rectangle Visibility="{Binding Path=DisplayCreature1.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature1.Y}"  Canvas.Left="{Binding Path=DisplayCreature1.X}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
+                    <Rectangle Visibility="{Binding Path=DisplayCreature2.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature2.Y}"  Canvas.Left="{Binding Path=DisplayCreature2.X}" Opacity=".2" />
+                    <Rectangle Visibility="{Binding Path=DisplayCreature2.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature2.Y}"  Canvas.Left="{Binding Path=DisplayCreature2.X}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
+                    <Rectangle Visibility="{Binding Path=DisplayCreature3.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature3.Y}"  Canvas.Left="{Binding Path=DisplayCreature3.X}" Opacity=".2" />
+                    <Rectangle Visibility="{Binding Path=DisplayCreature3.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature3.Y}"  Canvas.Left="{Binding Path=DisplayCreature3.X}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
+
+                    <Rectangle  Visibility="{Binding Path=DisplayFate.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayFate.Y}"  Canvas.Left="{Binding Path=DisplayFate.X}" Fill="Purple" Opacity=".2" />
+                    <Rectangle  Visibility="{Binding Path=DisplayFate.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayFate.Y}"  Canvas.Left="{Binding Path=DisplayFate.X}" Fill="Transparent"  Stroke="Purple"  StrokeDashArray="4 4"  />
 
                     <Rectangle  Visibility="{Binding Path=DisplayLeve.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayLeve.Y}"  Canvas.Left="{Binding Path=DisplayLeve.X}" Fill="Blue" Opacity=".2" />
                     <Rectangle  Visibility="{Binding Path=DisplayLeve.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayLeve.Y}"  Canvas.Left="{Binding Path=DisplayLeve.X}" Fill="Transparent"  Stroke="Blue"  StrokeDashArray="4 4"  />
+
+                    <Button ToolTip="{Binding DisplayCreature1.Name}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding DisplayCreature1}"  
+                            Visibility="{Binding Path=DisplayCreature1.Completed.Bool, Converter={StaticResource Ob2v}}"  
+                            Canvas.Top="{Binding Path=DisplayCreature1.Y}"  Canvas.Left="{Binding Path=DisplayCreature1.X}" />
+                    <Button ToolTip="{Binding DisplayCreature2.Name}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding DisplayCreature2}"  
+                            Visibility="{Binding Path=DisplayCreature2.Completed.Bool, Converter={StaticResource Ob2v}}"  
+                            Canvas.Top="{Binding Path=DisplayCreature2.Y}"  Canvas.Left="{Binding Path=DisplayCreature2.X}" />
+                    <Button ToolTip="{Binding DisplayCreature3.Name}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding DisplayCreature3}"  
+                            Visibility="{Binding Path=DisplayCreature3.Completed.Bool, Converter={StaticResource Ob2v}}"  
+                            Canvas.Top="{Binding Path=DisplayCreature3.Y}"  Canvas.Left="{Binding Path=DisplayCreature3.X}" />
 
                     <Button ToolTip="{Binding DisplayLeve.Name}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding DisplayLeve}"  
                             Visibility="{Binding Path=DisplayLeve.Completed.Bool, Converter={StaticResource Ob2v}}"  
                             Canvas.Top="{Binding Path=DisplayLeve.Y}"  Canvas.Left="{Binding Path=DisplayLeve.X}" />
 
-                    <Button ToolTip="{Binding FateActive1}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding FateActive1}" Visibility="{Binding Path=FateVisibility1}"  Canvas.Top="{Binding Path=FateY1}"  Canvas.Left="{Binding Path=FateX1}" />
+                    <Button ToolTip="{Binding DisplayFate.Name}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding DisplayFate}"  
+                            Visibility="{Binding Path=DisplayFate.Completed.Bool, Converter={StaticResource Ob2v}}"  
+                            Canvas.Top="{Binding Path=DisplayFate.Y}"  Canvas.Left="{Binding Path=DisplayFate.X}" />
 
                     <Button ToolTip="{Binding CreatureActive1}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding CreatureActive1}" Visibility="{Binding Path=CreatureVisibility1}"  Canvas.Top="{Binding Path=CreatureY1}"  Canvas.Left="{Binding Path=CreatureX1}" />
                     <Button ToolTip="{Binding CreatureActive2}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding CreatureActive2}" Visibility="{Binding Path=CreatureVisibility2}"  Canvas.Top="{Binding Path=CreatureY2}"  Canvas.Left="{Binding Path=CreatureX2}" />

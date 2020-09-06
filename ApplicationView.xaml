@@ -26,7 +26,7 @@
         </ResourceDictionary>
     </Window.Resources>
 
-    <Border  Background="#313131"  BorderThickness="1" CornerRadius="10" helper:EnableDragHelper.EnableDrag="True">
+    <Border  Background="#313131"  BorderThickness="1" CornerRadius="10">
         <Border Margin="1" Background="#313131" BorderBrush="#725e38"  BorderThickness="1" CornerRadius="10">
             <Border  Background="#313131" BorderBrush="#957a4c"  BorderThickness="1" CornerRadius="10">
                 <Border  Background="#313131" BorderBrush="#a28e66"  BorderThickness="1" CornerRadius="10">
@@ -40,15 +40,30 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition MaxHeight="5"/>
+                                <RowDefinition Height="auto"/>
                                 <RowDefinition/>
                                 <RowDefinition MaxHeight="5"/>
                             </Grid.RowDefinitions>
-                            <DockPanel  Grid.Row="1" Grid.Column="1">
+                            <Border BorderBrush="#535053" BorderThickness="0,0,0,2"  Grid.Row="1" Grid.Column="1"  helper:EnableDragHelper.EnableDrag="True">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="FFXIVRelicTracker" VerticalAlignment="Center"/>
+                                    <TextBlock Grid.Column="1"/>
+                                    <Button  Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"  Command="ApplicationCommands.Close" Content="Close Window" />
+                                </Grid>
+                            </Border>
+                            
+                            
+
+                            <DockPanel  Grid.Row="2" Grid.Column="1">
                                 <Border BorderThickness="2,0,0,0" DockPanel.Dock="Right" Style="{StaticResource GoldLeftBar}">
 
                                     <DockPanel HorizontalAlignment="Right" DockPanel.Dock="Right">
                                         <StackPanel DockPanel.Dock="Top"  Orientation="Vertical">
-                                            <Button Style="{StaticResource FFXIVButton}"  Command="ApplicationCommands.Close" Content="Close Window" />
                                             <ItemsControl ItemsSource="{Binding PageViewModels}">
                                                 <ItemsControl.ItemTemplate>
                                                     <DataTemplate>

@@ -32,7 +32,6 @@
         </Setter>
     </Style>
 
-
     <!--<Style TargetType="Control">
             <Setter Property="Foreground" Value ="#c2b7a0"/>
         </Style>-->

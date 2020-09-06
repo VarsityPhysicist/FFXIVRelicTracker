@@ -19,13 +19,15 @@ namespace FFXIVRelicTracker.ARR.Animus
 
         public AnimusObject()
         {
-            //Completed.Bool = true;
+        }
+        public AnimusObject(bool boolean)
+        {
+            this.Completed.Bool = boolean;
         }
         public AnimusObject(AnimusObject animusObject)
         {
             this.Name = animusObject.Name;
             this.Completed = animusObject.Completed;
-            //this.Visibility = animusObject.Visibility;
             this.PointF = animusObject.PointF;
             this.Map = animusObject.Map;
             this.Person = animusObject.Person;
@@ -83,26 +85,6 @@ namespace FFXIVRelicTracker.ARR.Animus
                 completed = value;
                 OnPropertyChanged(nameof(Completed));
             }
-        }
-
-        public Visibility Visibility
-        {
-            get
-            {
-                switch (completed.Bool)
-                {
-                    case true:
-                        return Visibility.Collapsed;
-                    case false:
-                        return Visibility.Visible;
-                }
-            }
-
-            //set
-            //{
-            //    visibility = value;
-            //    OnPropertyChanged(nameof(Visibility));
-            //}
         }
 
         public PointF PointF
