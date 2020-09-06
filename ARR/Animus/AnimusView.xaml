@@ -367,9 +367,6 @@
                     <Image   Source="{Binding  Path=SelectedAnimusImage}"  >
                     </Image>
 
-
-
-
                     <Rectangle Visibility="{Binding Path=DisplayCreature1.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature1.Y}"  Canvas.Left="{Binding Path=DisplayCreature1.X}" Opacity=".2" />
                     <Rectangle Visibility="{Binding Path=DisplayCreature1.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature1.Y}"  Canvas.Left="{Binding Path=DisplayCreature1.X}" Fill="Transparent"  Stroke="OrangeRed"  StrokeDashArray="4 4"  />
                     <Rectangle Visibility="{Binding Path=DisplayCreature2.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature2.Y}"  Canvas.Left="{Binding Path=DisplayCreature2.X}" Opacity=".2" />

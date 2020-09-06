@@ -13,188 +13,550 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition/>
-        </Grid.RowDefinitions>
-        <StackPanel>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infuse Sphere Scroll(s) with 75 materia total"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion may fail and destroy materia at advanced levels"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion failing does not destroy alexandrite"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions may be spread across five separate stats"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions start at Tier I materia"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="As more infusions in a stat are completed, the required Tier increases"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-                <ComboBox   x:Name="ArrNovusJob"
-                                                ItemsSource="{Binding   Path=AvailableNovusJobs}" 
-                                                SelectedItem="{Binding Path=CurrentNovus}"
-                                    />
-                <Border HorizontalAlignment="Center">
-                    <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentNovus}"/>
-                </Border>
-            </StackPanel>
-            <StackPanel Visibility="{Binding NonPLDNovus, Converter={StaticResource b2v}}" Orientation="Vertical" >
-                <StackPanel  Orientation="Horizontal" >
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeCount}"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeMax}"/>
-                    <StackPanel>
-                        <Button Style="{StaticResource incrementButton}" Content="+"  Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeCount}"/>
-
-                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeCount}"/>
-                    </StackPanel>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
-                </StackPanel>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
-                </StackPanel>           
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
-                </StackPanel>
-            </StackPanel>
-            <Grid Visibility="{Binding PLDNovus, Converter={StaticResource b2v}}" >
+        <ScrollViewer   HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid Margin="10,0,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Curtana:"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MateriaSwordSum}"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="53"/>
-                    <StackPanel>
-                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=MateriaSwordSum}"/>
-
-                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=MateriaSwordSum}"/>
-                    </StackPanel>
+                <StackPanel>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infuse Sphere Scroll(s) with 75 materia total"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion may fail and destroy materia at advanced levels"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion failing does not destroy alexandrite"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions may be spread across five separate stats"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions start at Tier I materia"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="As more infusions in a stat are completed, the required materia tier increases"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"/>
                 </StackPanel>
-                
-                <Grid Grid.Column="0" Grid.Row="1">
+                <Grid Grid.Row="1">
                     <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeSwordCount}"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeSwordMax}"/>
-                        <StackPanel>
-                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeSwordCount}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+                        <ComboBox   x:Name="ArrNovusJob"
+                                            ItemsSource="{Binding   Path=AvailableNovusJobs}" 
+                                            SelectedItem="{Binding Path=CurrentNovus}"
+                                />
+                        <Border HorizontalAlignment="Center">
+                            <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentNovus}"/>
+                        </Border>
+                    </StackPanel>
 
-                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeSwordCount}"/>
+                    <StackPanel Grid.Row="1" Visibility="{Binding NonPLDNovus, Converter={StaticResource b2v}}" Orientation="Vertical" >
+
+                        <StackPanel Visibility="{Binding ShowContent, Converter={StaticResource b2v}}" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding WeaponName}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=":"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MateriaSum}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="75"/>
+                            <StackPanel>
+                                <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="MateriaSum"/>
+
+                                <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="MateriaSum"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="2"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="3"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="4"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="5"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="6"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
-                    </StackPanel>
-                </Grid>
-                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Holy Shield:"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MateriaShieldSum}"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="22"/>
-                    <StackPanel>
-                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=MateriaSwordSum}"/>
 
-                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=MateriaSwordSum}"/>
-                    </StackPanel>
-                </StackPanel>
-                <Grid Grid.Column="1" Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-                    <StackPanel Grid.Row="0" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeShieldCount}"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeShieldMax}"/>
-                        <StackPanel>
-                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeShieldCount}"/>
+                        <Grid Visibility="{Binding KnownWeapon, Converter={StaticResource b2v}}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
 
-                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeShieldCount}"/>
+                            <Border Margin="0,0,0,0"   Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="HeavenEyeCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="HeavenEyeCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuickarmCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuickarmMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="QuickarmCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="QuickarmCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageAimCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageAimMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="SavageAimCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="SavageAimCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding PietyCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding PietyMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="PietyCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="PietyCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageMightCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageMightMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="SavageMightCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="SavageMightCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuicktongueCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuicktongueMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="QuicktongueCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="QuicktongueCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <Border  Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding BattledanceCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding BattledanceMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="BattledanceCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="BattledanceCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Grid>
+
+
+                    </StackPanel>
+                    <Grid Grid.Row="1" Visibility="{Binding PLDNovus, Converter={StaticResource b2v}}" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Curtana:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MateriaSwordSum}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="53"/>
+                            <StackPanel>
+                                <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="MateriaSwordSum"/>
+
+                                <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="MateriaSwordSum"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
-                    <StackPanel Grid.Row="1"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="2"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="3"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="4"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="5"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
-                    </StackPanel>
-                    <StackPanel Grid.Row="6"  Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
-                    </StackPanel>
+
+                        <Grid Grid.Column="0" Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Margin="0,0,0,0"   Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeSwordCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeSwordMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="HeavenEyeSwordCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="HeavenEyeSwordCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuickarmSwordCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuickarmSwordMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="QuickarmSwordCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="QuickarmSwordCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageAimSwordCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageAimSwordMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="SavageAimSwordCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="SavageAimSwordCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding PietySwordCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding PietySwordMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="PietySwordCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="PietySwordCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageMightSwordCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageMightSwordMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="SavageMightSwordCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="SavageMightSwordCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuicktongueSwordCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuicktongueSwordMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="QuicktongueSwordCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="QuicktongueSwordCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <Border  Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding BattledanceSwordCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding BattledanceSwordMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="BattledanceSwordCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="BattledanceSwordCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Grid>
+
+
+                        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Holy Shield:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MateriaShieldSum}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="22"/>
+                            <StackPanel>
+                                <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="MateriaShieldSum"/>
+
+                                <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="MateriaShieldSum"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <Grid Grid.Column="1" Grid.Row="1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Margin="0,0,0,0"   Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Heavens' Eye Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeShieldCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeShieldMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="HeavenEyeShieldCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="HeavenEyeShieldCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quickarm Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuickarmShieldCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuickarmShieldMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="QuickarmShieldCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="QuickarmShieldCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Aim Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageAimShieldCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageAimShieldMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="SavageAimShieldCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="SavageAimShieldCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Piety Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding PietyShieldCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding PietyShieldMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="PietyShieldCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="PietyShieldCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Savage Might Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageMightShieldCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SavageMightShieldMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="SavageMightShieldCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="SavageMightShieldCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                            <Border  Grid.Column="0" Grid.Row="5" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quicktongue Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuicktongueShieldCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding QuicktongueShieldMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="QuicktongueShieldCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="QuicktongueShieldCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                            <Border  Grid.Column="0" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource GoldBorder }">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding BattledanceShieldCount}"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding BattledanceShieldMax}"/>
+                                    </StackPanel>
+                                    <StackPanel Grid.Row="0" Grid.Column="1">
+                                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="BattledanceShieldCount"/>
+                                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="BattledanceShieldCount"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </Grid>
+                    </Grid>
                 </Grid>
             </Grid>
-        </StackPanel>
+        </ScrollViewer>
+
     </Grid>
+
+    
 </UserControl>

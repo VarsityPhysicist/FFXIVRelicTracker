@@ -32,9 +32,14 @@
         </Setter>
     </Style>
 
-    <!--<Style TargetType="Control">
-            <Setter Property="Foreground" Value ="#c2b7a0"/>
-        </Style>-->
+    <Style x:Key="GoldBorder" TargetType="Border">
+        <Setter Property="BorderBrush" Value="#a27e4e"/>
+        <Setter Property="CornerRadius" Value="5"/>
+        <Setter Property="Padding" Value="1"/>
+        <Setter Property="BorderThickness" Value="2"/>
+        <Setter Property="Margin" Value="0,-2,0,0"/>
+    </Style>
+
     <Style x:Key="BaseTextBlock" TargetType="TextBlock">
         <Setter Property="Foreground" Value ="#a0a0a0"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>

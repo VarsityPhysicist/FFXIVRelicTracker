@@ -66,6 +66,20 @@ namespace FFXIVRelicTracker.Models.ARR
              {"BLM",Tuple.Create(0,0,0,0,0,0,0) },
              {"SMN",Tuple.Create(0,0,0,0,0,0,0) }
         };
+
+        public static Dictionary<string, string> WeaponNames = new Dictionary<string, string>
+        {
+            {"PLD","" },
+            {"WAR","Bravura" },
+            {"WHM","Thyrus" },
+            {"SCH", "Omnilex" },
+            {"MNK", "Sphairai" },
+            {"DRG", "Gae Bolg" },
+            {"NIN", "Yoshimitsu" },
+            {"BRD", "Artemis Bow" },
+            {"BLM", "Stardust Rod" },
+            {"SMN", "The Veil of Wiyu" }
+        };
         #endregion
 
         #region Relic

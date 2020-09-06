@@ -6,6 +6,7 @@ using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Reflection;
 using System.Text;
 using System.Windows.Input;
 
@@ -59,6 +60,10 @@ namespace FFXIVRelicTracker.ARR.Novus
                 }
             }
         }
+        private List<string> knownWeapons=new List<string>
+        {
+            "PLD","DRG"
+        };
         public ArrWeapon ArrWeapon
         {
             get { return arrWeapon; }
@@ -110,17 +115,23 @@ namespace FFXIVRelicTracker.ARR.Novus
             {
                 novusModel.CurrentNovus = value;
                 OnPropertyChanged(nameof(CurrentNovus));
-                
+
+                ShowContent = false;
 
                 if (value != null)
                 {
                     if (value == "PLD")
                     {
+                        ShowContent = false;
                         PLDNovus = true;
                         NonPLDNovus = false;
                     }
                     else
                     {
+                        if (knownWeapons.Contains(value)) { KnownWeapon = true; }
+                        WeaponName = ArrInfo.WeaponNames[value];
+                        
+                        ShowContent = true;
                         PLDNovus = false;
                         NonPLDNovus = true;
                     }
@@ -128,6 +139,8 @@ namespace FFXIVRelicTracker.ARR.Novus
                 }
             }
         }
+
+
 
         #endregion
 
@@ -153,7 +166,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.HeavenEyeSwordCount; }
             set
             {
-                if (value <= 0 & value <= HeavenEyeSwordMax)
+                if (value >= 0 & value <= HeavenEyeSwordMax)
                 {
                     novusModel.HeavenEyeSwordCount = value;
                     OnPropertyChanged(nameof(HeavenEyeSwordCount));
@@ -168,7 +181,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.QuickarmSwordCount; }
             set
             {
-                if (value <= 0 & value <= QuickarmSwordMax)
+                if (value >= 0 & value <= QuickarmSwordMax)
                 {
                     novusModel.QuickarmSwordCount = value;
                     OnPropertyChanged(nameof(QuickarmSwordCount));
@@ -183,7 +196,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.SavageAimSwordCount; }
             set
             {
-                if (value <= 0 & value <= SavageAimSwordMax)
+                if (value >= 0 & value <= SavageAimSwordMax)
                 {
                     novusModel.SavageAimSwordCount = value;
                     OnPropertyChanged(nameof(SavageAimSwordCount));
@@ -198,7 +211,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.PietySwordCount; }
             set
             {
-                if (value <= 0 & value <= PietySwordMax)
+                if (value >= 0 & value <= PietySwordMax)
                 {
                     novusModel.PietySwordCount = value;
                     OnPropertyChanged(nameof(PietySwordCount));
@@ -212,7 +225,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.SavageMightSwordCount; }
             set
             {
-                if (value <= 0 & value <= SavageMightSwordMax)
+                if (value >= 0 & value <= SavageMightSwordMax)
                 {
                     novusModel.SavageMightSwordCount = value;
                     OnPropertyChanged(nameof(SavageMightSwordCount));
@@ -227,7 +240,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.QuicktongueSwordCount; }
             set
             {
-                if (value <= 0 & value <= QuicktongueSwordMax)
+                if (value >= 0 & value <= QuicktongueSwordMax)
                 {
                     novusModel.QuicktongueSwordCount = value;
                     OnPropertyChanged(nameof(QuicktongueSwordCount));
@@ -242,7 +255,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.BattledanceSwordCount; }
             set
             {
-                if (value <= 0 & value <= BattledanceSwordMax)
+                if (value >= 0 & value <= BattledanceSwordMax)
                 {
                     novusModel.BattledanceSwordCount = value;
                     OnPropertyChanged(nameof(BattledanceSwordCount));
@@ -308,7 +321,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.HeavenEyeShieldCount; }
             set
             {
-                if (value <= 0 & value <= HeavenEyeShieldMax)
+                if (value >= 0 & value <= HeavenEyeShieldMax)
                 {
                     novusModel.HeavenEyeShieldCount = value;
                     OnPropertyChanged(nameof(HeavenEyeShieldCount));
@@ -323,7 +336,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.QuickarmShieldCount; }
             set
             {
-                if (value <= 0 & value <= QuickarmShieldMax)
+                if (value >= 0 & value <= QuickarmShieldMax)
                 {
                     novusModel.QuickarmShieldCount = value;
                     OnPropertyChanged(nameof(QuickarmShieldCount));
@@ -338,7 +351,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.SavageAimShieldCount; }
             set
             {
-                if (value <= 0 & value <= SavageAimShieldMax)
+                if (value >= 0 & value <= SavageAimShieldMax)
                 {
                     novusModel.SavageAimShieldCount = value;
                     OnPropertyChanged(nameof(SavageAimShieldCount));
@@ -353,7 +366,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.PietyShieldCount; }
             set
             {
-                if (value <= 0 & value <= PietyShieldMax)
+                if (value >= 0 & value <= PietyShieldMax)
                 {
                     novusModel.PietyShieldCount = value;
                     OnPropertyChanged(nameof(PietyShieldCount));
@@ -367,7 +380,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.SavageMightShieldCount; }
             set
             {
-                if (value <= 0 & value <= SavageMightShieldMax)
+                if (value >= 0 & value <= SavageMightShieldMax)
                 {
                     novusModel.SavageMightShieldCount = value;
                     OnPropertyChanged(nameof(SavageMightShieldCount));
@@ -382,7 +395,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.QuicktongueShieldCount; }
             set
             {
-                if (value <= 0 & value <= QuicktongueShieldMax)
+                if (value >= 0 & value <= QuicktongueShieldMax)
                 {
                     novusModel.QuicktongueShieldCount = value;
                     OnPropertyChanged(nameof(QuicktongueShieldCount));
@@ -397,7 +410,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.BattledanceShieldCount; }
             set
             {
-                if (value <= 0 & value <= BattledanceShieldMax)
+                if (value >= 0 & value <= BattledanceShieldMax)
                 {
                     novusModel.BattledanceShieldCount = value;
                     OnPropertyChanged(nameof(BattledanceShieldCount));
@@ -465,7 +478,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.HeavenEyeCount; }
             set
             {
-                if (value <= 0 & value <= HeavenEyeMax)
+                if (value >= 0 & value <= HeavenEyeMax)
                 {
                     novusModel.HeavenEyeCount = value;
                     OnPropertyChanged(nameof(HeavenEyeCount));
@@ -480,7 +493,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.QuickarmCount; }
             set
             {
-                if (value <= 0 & value <= QuickarmMax)
+                if (value >= 0 & value <= QuickarmMax)
                 {
                     novusModel.QuickarmCount = value;
                     OnPropertyChanged(nameof(QuickarmCount));
@@ -495,7 +508,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.SavageAimCount; }
             set
             {
-                if (value <= 0 & value <= SavageAimMax)
+                if (value >= 0 & value <= SavageAimMax)
                 {
                     novusModel.SavageAimCount = value;
                     OnPropertyChanged(nameof(SavageAimCount));
@@ -510,7 +523,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.PietyCount; }
             set
             {
-                if (value <= 0 & value <= PietyMax)
+                if (value >= 0 & value <= PietyMax)
                 {
                     novusModel.PietyCount = value;
                     OnPropertyChanged(nameof(PietyCount));
@@ -524,7 +537,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.SavageMightCount; }
             set
             {
-                if (value <= 0 & value <= SavageMightMax)
+                if (value >= 0 & value <= SavageMightMax)
                 {
                     novusModel.SavageMightCount = value;
                     OnPropertyChanged(nameof(SavageMightCount));
@@ -539,7 +552,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.QuicktongueCount; }
             set
             {
-                if (value <= 0 & value <= QuicktongueMax)
+                if (value >= 0 & value <= QuicktongueMax)
                 {
                     novusModel.QuicktongueCount = value;
                     OnPropertyChanged(nameof(QuicktongueCount));
@@ -554,7 +567,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.BattledanceCount; }
             set
             {
-                if (value <= 0 & value <= BattledanceMax)
+                if (value >= 0 & value <= BattledanceMax)
                 {
                     novusModel.BattledanceCount = value;
                     OnPropertyChanged(nameof(BattledanceCount));
@@ -571,7 +584,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.HeavenEyeMax; }
             set
             {
-                if (value <= 0 & value <= 44)
+                if (value >= 0 & value <= 44)
                 {
                     novusModel.HeavenEyeMax = value;
                     OnPropertyChanged(nameof(HeavenEyeMax));
@@ -586,7 +599,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.QuickarmMax; }
             set
             {
-                if (value <= 0 & value <= 44)
+                if (value >= 0 & value <= 44)
                 {
                     novusModel.QuickarmMax = value;
                     OnPropertyChanged(nameof(QuickarmMax));
@@ -601,7 +614,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.SavageAimMax; }
             set
             {
-                if (value <= 0 & value <= 44)
+                if (value >= 0 & value <= 44)
                 {
                     novusModel.SavageAimMax = value;
                     OnPropertyChanged(nameof(SavageAimMax));
@@ -616,7 +629,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.PietyMax; }
             set
             {
-                if (value <= 0 & value <= 23)
+                if (value >= 0 & value <= 23)
                 {
                     novusModel.PietyMax = value;
                     OnPropertyChanged(nameof(PietyMax));
@@ -630,7 +643,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.SavageMightMax; }
             set
             {
-                if (value <= 0 & value <= 31)
+                if (value >= 0 & value <= 31)
                 {
                     novusModel.SavageMightMax = value;
                     OnPropertyChanged(nameof(SavageMightMax));
@@ -645,7 +658,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.QuicktongueMax; }
             set
             {
-                if (value <= 0 & value <= 44)
+                if (value >= 0 & value <= 44)
                 {
                     novusModel.QuicktongueMax = value;
                     OnPropertyChanged(nameof(QuicktongueMax));
@@ -660,7 +673,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.BattledanceMax; }
             set
             {
-                if (value <= 0 & value <= 44)
+                if (value >= 0 & value <= 44)
                 {
                     novusModel.BattledanceMax = value;
                     OnPropertyChanged(nameof(BattledanceMax));
@@ -674,6 +687,36 @@ namespace FFXIVRelicTracker.ARR.Novus
 
         #endregion
         #endregion
+
+        public string WeaponName
+        {
+            get { return novusModel.WeaponName; }
+            set
+            {
+                novusModel.WeaponName = value;
+                OnPropertyChanged(nameof(WeaponName));
+            }
+        }
+
+        public bool KnownWeapon
+        {
+            get { return novusModel.KnownWeapon; }
+            set
+            {
+                novusModel.KnownWeapon = value;
+                OnPropertyChanged(nameof(KnownWeapon));
+            }
+        }
+
+        public bool ShowContent
+        {
+            get { return novusModel.ShowContent; }
+            set
+            {
+                novusModel.ShowContent = value;
+                OnPropertyChanged(nameof(ShowContent));
+            }
+        }
 
         #endregion
 
@@ -745,21 +788,32 @@ namespace FFXIVRelicTracker.ARR.Novus
         private ICommand _IncrementButton;
         private ICommand _DecrementButton;
         private ObservableCollection<string> availableNovusJobs;
-        public ICommand IncremenButton
+        public ICommand IncrementButton
         {
             get
             {
                 if (_IncrementButton == null)
                 {
                     _IncrementButton = new RelayCommand(
-                        param => this.IncrementCommand(param)
+                        param => this.IncrementCommand(param,true)                        
                         );
                 }
                 return _IncrementButton;
             }
         }
-
-        private void IncrementCommand(object param)
+        public ICommand DencrementButton
+        {
+            get
+            {
+                if (_DecrementButton == null)
+                {
+                    _DecrementButton = new RelayCommand(
+                        param => this.IncrementCommand(param, false));
+                }
+                return _DecrementButton;
+            }
+        }
+        private void IncrementCommand(object param, bool add)
         {
 
             //use reflection to refer back to the in sum being targeted
@@ -767,15 +821,19 @@ namespace FFXIVRelicTracker.ARR.Novus
 
             string sum = (string)param;
 
+            Type classType = typeof(NovusViewModel);
 
+            PropertyInfo CommandTarget = classType.GetProperty(sum);
 
-            ArrStages arrStages = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentNovus)];
-            arrStages.Novus.Progress = ArrProgress.States.Completed;
-            ResetCounts();
-            LoadAvailableJobs();
-            PLDNovus = false;
-            NonPLDNovus = false;
-
+            switch (add)
+            {
+                case true:
+                    CommandTarget.SetValue(this, (int)CommandTarget.GetValue(this) + 1);
+                    break;
+                case false:
+                    CommandTarget.SetValue(this, (int)CommandTarget.GetValue(this) - 1);
+                    break;
+            }
         }
 
         #region Complete Button

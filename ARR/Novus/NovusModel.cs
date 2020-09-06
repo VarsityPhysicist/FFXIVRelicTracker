@@ -49,5 +49,8 @@ namespace FFXIVRelicTracker.ARR.Novus
         internal int QuickarmShieldCount;
         internal int HeavenEyeShieldCount;
         internal int MateriaShieldSum;
+        internal string WeaponName;
+        internal bool KnownWeapon;
+        internal bool ShowContent=false;
     }
 }
