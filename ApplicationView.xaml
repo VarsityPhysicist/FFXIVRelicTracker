@@ -56,13 +56,29 @@
                                     <Button  Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"  Command="ApplicationCommands.Close" Content="Close Window" />
                                 </Grid>
                             </Border>
-                            
-                            
 
                             <DockPanel  Grid.Row="2" Grid.Column="1">
                                 <Border BorderThickness="2,0,0,0" DockPanel.Dock="Right" Style="{StaticResource GoldLeftBar}">
 
                                     <DockPanel HorizontalAlignment="Right" DockPanel.Dock="Right">
+                                        <StackPanel DockPanel.Dock="Top"  Orientation="Vertical">
+                                            <ItemsControl ItemsSource="{Binding MenuViewModels}">
+                                                <ItemsControl.ItemTemplate>
+                                                    <DataTemplate>
+                                                        <Button Style="{StaticResource FFXIVButton}"  Content="{Binding Name}"
+                                                            Command="{Binding DataContext.MainMenuPageCommand, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"
+                                                            CommandParameter="{Binding }"
+                                                            Margin="2,5"/>
+                                                    </DataTemplate>
+                                                </ItemsControl.ItemTemplate>
+                                                <ItemsControl.Resources>
+                                                    <DataTemplate  DataType="{x:Type viewmodels:MainMenuViewModel}">
+                                                        <views:MainMenuView />
+                                                    </DataTemplate>
+                                                </ItemsControl.Resources>
+                                            </ItemsControl>
+                                        </StackPanel>
+                                        
                                         <StackPanel DockPanel.Dock="Top"  Orientation="Vertical">
                                             <ItemsControl ItemsSource="{Binding PageViewModels}">
                                                 <ItemsControl.ItemTemplate>
@@ -74,9 +90,6 @@
                                                     </DataTemplate>
                                                 </ItemsControl.ItemTemplate>
                                                 <ItemsControl.Resources>
-                                                    <DataTemplate  DataType="{x:Type viewmodels:MainMenuViewModel}">
-                                                        <views:MainMenuView />
-                                                    </DataTemplate>
                                                     <DataTemplate DataType="{x:Type viewmodels:ArrViewModel}">
                                                         <views:ArrView />
                                                     </DataTemplate>

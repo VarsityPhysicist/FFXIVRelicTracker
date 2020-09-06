@@ -51,11 +51,10 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return selectedCharacter; }
             set
             {
-                selectedCharacter = value;
-                NovusModel = selectedCharacter.ArrProgress.NovusModel;
-                OnPropertyChanged(nameof(SelectedCharacter));
                 if (value != null)
                 {
+                    selectedCharacter = value;
+                    NovusModel = selectedCharacter.ArrProgress.NovusModel;
                     ArrWeapon = SelectedCharacter.ArrProgress.Arr;
                 }
             }
@@ -743,8 +742,43 @@ namespace FFXIVRelicTracker.ARR.Novus
 
         #region Commands
         private ICommand _CompleteButton;
+        private ICommand _IncrementButton;
+        private ICommand _DecrementButton;
         private ObservableCollection<string> availableNovusJobs;
+        public ICommand IncremenButton
+        {
+            get
+            {
+                if (_IncrementButton == null)
+                {
+                    _IncrementButton = new RelayCommand(
+                        param => this.IncrementCommand(param)
+                        );
+                }
+                return _IncrementButton;
+            }
+        }
 
+        private void IncrementCommand(object param)
+        {
+
+            //use reflection to refer back to the in sum being targeted
+            // make increment and decrement use the same method, but attach a bool to trigger addition or subtraction
+
+            string sum = (string)param;
+
+
+
+            ArrStages arrStages = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentNovus)];
+            arrStages.Novus.Progress = ArrProgress.States.Completed;
+            ResetCounts();
+            LoadAvailableJobs();
+            PLDNovus = false;
+            NonPLDNovus = false;
+
+        }
+
+        #region Complete Button
         public ICommand CompleteButton
         {
             get
@@ -772,6 +806,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             NonPLDNovus = false;
 
         }
+        #endregion
         #endregion
     }
 }

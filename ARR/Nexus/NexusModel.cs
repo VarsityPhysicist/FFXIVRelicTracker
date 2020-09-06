@@ -8,12 +8,10 @@ namespace FFXIVRelicTracker.ARR.Nexus
     {
         internal string CurrentNexus;
         internal int CurrentLight;
-
+        internal string NexusActivity;
         public NexusModel()
         {
 
         }
-
-        public string NexusActivity { get; internal set; }
     }
 }

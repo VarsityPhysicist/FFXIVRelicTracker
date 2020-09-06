@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Windows;
@@ -43,14 +44,10 @@ namespace FFXIVRelicTracker.ViewModels
             set
             {
                 selectedCharacter = value;
+                CommandManager.InvalidateRequerySuggested();
                 CharacterInt = CharacterList.IndexOf(SelectedCharacter);
                 OnPropertyChanged(nameof(SelectedCharacter));
-                if (value != null)
-                {
-                    //Publish event:
-                    this._eventAggregator.GetEvent<PubSubEvent<Character>>().Publish(this.SelectedCharacter);
-                }
-                
+                this._eventAggregator.GetEvent<PubSubEvent<Character>>().Publish(this.SelectedCharacter);
             }
         }
 
@@ -154,7 +151,8 @@ namespace FFXIVRelicTracker.ViewModels
         private void RemoveObject()
         {
             characterList.RemoveAt(CharacterInt);
-            OnPropertyChanged(nameof(selectedCharacter));
+            if (characterList.Count == 0) { SelectedCharacter = null; }
+            //OnPropertyChanged(nameof(selectedCharacter));
         }
 
         #endregion
@@ -178,15 +176,15 @@ namespace FFXIVRelicTracker.ViewModels
 
         private bool CanLoad()
         {
-            return true;
+            return File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.xml"); 
         }
 
         private ObservableCollection<Character> tempCharacterList;
         private void LoadObject()
         {
             CharacterList = new ObservableCollection<Character>();
-            tempCharacterList = XmlHelper.FromXmlFile<ObservableCollection<Character>>(@"D:\Characters.xml");
-            foreach(Character oldCharacter in tempCharacterList)
+            tempCharacterList = XmlHelper.FromXmlFile<ObservableCollection<Character>>(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.xml");
+            foreach (Character oldCharacter in tempCharacterList)
             {
                 Character newCharacter = new Character(oldCharacter);
                 CharacterList.Add(newCharacter);
@@ -219,7 +217,7 @@ namespace FFXIVRelicTracker.ViewModels
         }
         private void SaveObject()
         {
-            XmlHelper.ToXmlFile(CharacterList, @"D:\Characters.xml");
+            XmlHelper.ToXmlFile(CharacterList, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.xml");
         }
         #endregion
     }

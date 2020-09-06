@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker.ViewModels;
+﻿using FFXIVRelicTracker.Models.Helpers;
+using FFXIVRelicTracker.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -19,7 +20,7 @@ namespace FFXIVRelicTracker
             base.OnStartup(e);
 
             MainWindow app = new MainWindow();
-            ApplicationViewModel context = new ApplicationViewModel();
+            ApplicationViewModel context = new ApplicationViewModel(Event.EventInstance.EventAggregator);
             app.DataContext = context;
             app.Show();
         }

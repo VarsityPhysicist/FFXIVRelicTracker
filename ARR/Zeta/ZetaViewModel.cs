@@ -36,7 +36,7 @@ namespace FFXIVRelicTracker.ARR.Zeta
         }
 
         #region Properties
-        public string Name => "Zeta";
+        public string Name => "Zodiac Zeta";
 
         public ZetaModel ZetaModel
         {
@@ -378,7 +378,7 @@ namespace FFXIVRelicTracker.ARR.Zeta
             }
         }
 
-        private bool CanAdd() { return CurrentZeta != null; }
+        private bool CanAdd() { return true; }
         private void AddCommand(object param)
         {
             CurrentLight += Int32.Parse((string)param);

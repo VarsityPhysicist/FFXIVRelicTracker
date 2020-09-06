@@ -54,11 +54,10 @@ namespace FFXIVRelicTracker.ARR.Relic
             get { return selectedCharacter; }
             set
             {
-                selectedCharacter = value;
-                RelicModel = selectedCharacter.ArrProgress.RelicModel;
-                OnPropertyChanged(nameof(SelectedCharacter));
                 if (value != null)
                 {
+                    selectedCharacter = value;
+                    RelicModel = selectedCharacter.ArrProgress.RelicModel;
                     ArrWeapon = SelectedCharacter.ArrProgress.Arr;
                     LoadAvailableJobs();
                 }

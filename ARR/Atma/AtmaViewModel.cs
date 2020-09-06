@@ -49,13 +49,11 @@ namespace FFXIVRelicTracker.ARR.Atma
             get { return selectedCharacter; }
             set
             {
-                selectedCharacter = value;
-                AtmaModel = SelectedCharacter.ArrProgress.AtmaModel;
-                OnPropertyChanged(nameof(SelectedCharacter));
                 if (value != null)
                 {
+                    selectedCharacter = value;
+                    AtmaModel = SelectedCharacter.ArrProgress.AtmaModel;
                     ArrWeapon = SelectedCharacter.ArrProgress.Arr;
-
                 }
             }
         }

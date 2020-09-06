@@ -49,9 +49,9 @@
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeMax}"/>
                     <StackPanel>
-                        <Button Style="{StaticResource FFXIVButton}" Content="Increment" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeCount}"/>
+                        <Button Style="{StaticResource incrementButton}" Content="+"  Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeCount}"/>
 
-                        <Button Style="{StaticResource FFXIVButton}" Content="Decrement" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeCount}"/>
+                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeCount}"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
@@ -82,7 +82,19 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Curtana:"/>
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Curtana:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MateriaSwordSum}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="53"/>
+                    <StackPanel>
+                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=MateriaSwordSum}"/>
+
+                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=MateriaSwordSum}"/>
+                    </StackPanel>
+                </StackPanel>
+                
                 <Grid Grid.Column="0" Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -103,9 +115,9 @@
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeSwordMax}"/>
                         <StackPanel>
-                            <Button Style="{StaticResource FFXIVButton}" Content="Increment" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeSwordCount}"/>
+                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeSwordCount}"/>
 
-                            <Button Style="{StaticResource FFXIVButton}" Content="Decrement" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeSwordCount}"/>
+                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeSwordCount}"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Row="1"  Orientation="Horizontal">
@@ -127,7 +139,17 @@
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="Battledance Materia:"/>
                     </StackPanel>
                 </Grid>
-                <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource LeftTextBlock}" Text="Holy Shield:"/>
+                <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Holy Shield:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MateriaShieldSum}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="22"/>
+                    <StackPanel>
+                        <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=MateriaSwordSum}"/>
+
+                        <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=MateriaSwordSum}"/>
+                    </StackPanel>
+                </StackPanel>
                 <Grid Grid.Column="1" Grid.Row="1">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -148,9 +170,9 @@
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="/"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding HeavenEyeShieldMax}"/>
                         <StackPanel>
-                            <Button Style="{StaticResource FFXIVButton}" Content="Increment" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeShieldCount}"/>
+                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="{Binding Path=HeavenEyeShieldCount}"/>
 
-                            <Button Style="{StaticResource FFXIVButton}" Content="Decrement" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeShieldCount}"/>
+                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="{Binding Path=HeavenEyeShieldCount}"/>
                         </StackPanel>
                     </StackPanel>
                     <StackPanel Grid.Row="1"  Orientation="Horizontal">

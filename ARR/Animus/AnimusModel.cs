@@ -100,6 +100,9 @@ namespace FFXIVRelicTracker.ARR.Animus
         internal AnimusObject DisplayCreature2 = new AnimusObject();
         internal AnimusObject DisplayCreature3 = new AnimusObject();
 
+        internal string CurrentBook;
+        internal string CurrentAnimus;
+
 
         internal ObservableCollection<string> animusBooks = new ObservableCollection<string>
             {
@@ -118,7 +121,6 @@ namespace FFXIVRelicTracker.ARR.Animus
         {
 
         }
-        public string CurrentBook { get; internal set; }
-        public string CurrentAnimus { get; internal set; }
+
     }
 }

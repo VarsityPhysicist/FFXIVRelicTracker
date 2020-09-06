@@ -12,6 +12,10 @@ namespace FFXIVRelicTracker.Models.ARR
     public class ArrWeapon :ObservableObject,IEnumerable
     {
         #region Enumeration
+        public void Add(System.Object Obj)
+        {
+
+        }
         public IEnumerator GetEnumerator()
         {
             return new JobEnumerator(this);

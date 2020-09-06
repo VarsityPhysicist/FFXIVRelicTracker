@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker.Models.Helpers;
+﻿using FFXIVRelicTracker.Models.ARR;
+using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace FFXIVRelicTracker.ARR.ARR
 {
+
     public class ArrStages : ObservableObject
     {
         private string name;
@@ -18,7 +20,13 @@ namespace FFXIVRelicTracker.ARR.ARR
                 OnPropertyChanged(nameof(Name));
             }
         }
+
+        public ArrStages()
+        {
+
+        }
         public ArrStages(string name)
+            :this()
         {
 
             this.Name = name;

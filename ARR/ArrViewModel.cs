@@ -150,9 +150,9 @@ namespace FFXIVRelicTracker.ViewModels
 		public string Name { get { return "ARR View"; } }
 
         private Character selectedCharacter;
-		private IEventAggregator iEventAggregator;
+        private IEventAggregator iEventAggregator;
 
-		public Character SelectedCharacter
+        public Character SelectedCharacter
         {
             get { return selectedCharacter; }
             set

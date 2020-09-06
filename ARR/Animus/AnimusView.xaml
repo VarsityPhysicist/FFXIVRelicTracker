@@ -33,7 +33,6 @@
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
                     <ComboBox   x:Name="ArrAnimusJob"
                                                 ItemsSource="{Binding   Path=AvailableAnimusJobs}" 
-                                                SelectedIndex="{Binding Path=AnimusIndex}"
                                                 SelectedItem="{Binding Path=CurrentAnimus}"
                                     />
                     <Border HorizontalAlignment="Center">
@@ -185,7 +184,7 @@
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="18" Grid.Column="1" TextDecorations="{Binding Path=Creature9.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature9.Map}"/>
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="20" Grid.Column="1" TextDecorations="{Binding Path=Creature10.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature10.Map}"/>
 
-                                            <CheckBox   Grid.Row="1"      Grid.Column="2"   IsChecked="{Binding CreatureBool1}"/>
+                                            <CheckBox Command="{Binding CheckboxButton}"  Grid.Row="1"      Grid.Column="2"   IsChecked="{Binding CreatureBool1}"/>
                                             <CheckBox   Grid.Row="3"      Grid.Column="2"   IsChecked="{Binding CreatureBool2}"/>
                                             <CheckBox   Grid.Row="5"      Grid.Column="2"   IsChecked="{Binding CreatureBool3}"/>
                                             <CheckBox   Grid.Row="7"      Grid.Column="2"   IsChecked="{Binding CreatureBool4}"/>
@@ -350,20 +349,16 @@
                             <Setter Property="Canvas.Left">
                                 <Setter.Value>
                                     <MultiBinding   Converter="{StaticResource  CanvasConvertX}">
-                                        <Binding    Path="ActualWidth" ElementName="ArrBrokenMapCanvas"/>
-                                        <Binding    Path="RelicPoint"/>
+                                        <Binding    Path="ActualWidth" ElementName="ArrAnimusCanvas"/>
                                         <Binding    Path="Width"   RelativeSource="{RelativeSource Self}"/>
-                                        <Binding    Path="Name"   RelativeSource="{RelativeSource Self}"/>
                                     </MultiBinding>
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="Canvas.Top">
                                 <Setter.Value>
                                     <MultiBinding   Converter="{StaticResource  CanvasConvertY}">
-                                        <Binding    Path="ActualHeight" ElementName="ArrBrokenMapCanvas"/>
-                                        <Binding    Path="RelicPoint"/>
+                                        <Binding    Path="ActualHeight" ElementName="ArrAnimusCanvas"/>
                                         <Binding    Path="Height"   RelativeSource="{RelativeSource Self}"/>
-                                        <Binding    Path="Name"   RelativeSource="{RelativeSource Self}"/>
                                     </MultiBinding>
                                 </Setter.Value>
                             </Setter>
@@ -405,14 +400,6 @@
                     <Button ToolTip="{Binding DisplayFate.Name}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding DisplayFate}"  
                             Visibility="{Binding Path=DisplayFate.Completed.Bool, Converter={StaticResource Ob2v}}"  
                             Canvas.Top="{Binding Path=DisplayFate.Y}"  Canvas.Left="{Binding Path=DisplayFate.X}" />
-
-                    <Button ToolTip="{Binding CreatureActive1}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding CreatureActive1}" Visibility="{Binding Path=CreatureVisibility1}"  Canvas.Top="{Binding Path=CreatureY1}"  Canvas.Left="{Binding Path=CreatureX1}" />
-                    <Button ToolTip="{Binding CreatureActive2}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding CreatureActive2}" Visibility="{Binding Path=CreatureVisibility2}"  Canvas.Top="{Binding Path=CreatureY2}"  Canvas.Left="{Binding Path=CreatureX2}" />
-                    <Button ToolTip="{Binding CreatureActive3}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding CreatureActive3}" Visibility="{Binding Path=CreatureVisibility3}"  Canvas.Top="{Binding Path=CreatureY3}"  Canvas.Left="{Binding Path=CreatureX3}" />
-                    <Button ToolTip="{Binding CreatureActive4}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding CreatureActive4}" Visibility="{Binding Path=CreatureVisibility4}"  Canvas.Top="{Binding Path=CreatureY4}"  Canvas.Left="{Binding Path=CreatureX4}" />
-                    <Button ToolTip="{Binding CreatureActive5}" Command="{Binding AnimusMapClick}" CommandParameter="{Binding CreatureActive5}" Visibility="{Binding Path=CreatureVisibility5}"  Canvas.Top="{Binding Path=CreatureY5}"  Canvas.Left="{Binding Path=CreatureX5}" />
-
-
                 </Canvas>
             </Grid>
         </ScrollViewer>

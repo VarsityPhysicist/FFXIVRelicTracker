@@ -8,17 +8,10 @@ namespace FFXIVRelicTracker.Helpers
     public class BoolObject : ObservableObject
     {
         private bool internalBool;
-        internal string Name;
         public BoolObject()
         {
             internalBool = false;
         }
-        public BoolObject(string name) 
-            :this()
-        {
-            Name = name;
-        }
-
         public bool Bool
         {
             get { return internalBool; }

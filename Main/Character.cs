@@ -7,7 +7,6 @@ using System.Text;
 
 namespace FFXIVRelicTracker.Models
 {
-    [Serializable]
     public class Character : ObservableObject
     {
         private string name;

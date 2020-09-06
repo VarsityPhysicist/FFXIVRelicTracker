@@ -241,7 +241,7 @@ namespace FFXIVRelicTracker.ARR.Nexus
             }
         }
 
-        private bool CanAdd() { return CurrentNexus != null; }
+        private bool CanAdd() { return true; }
         private void AddCommand(object param)
         {
             CurrentLight += Int32.Parse((string)param);

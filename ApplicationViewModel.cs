@@ -20,33 +20,62 @@ namespace FFXIVRelicTracker.ViewModels
         #region Fields
 
         private ICommand _changePageCommand;
+        private ICommand _MainMenuCommand;
 
         private IPageViewModel _currentPageViewModel;
         private List<IPageViewModel> _pageViewModels;
 
         #endregion
         #region Constructors
-        public ApplicationViewModel()
+        public ApplicationViewModel(IEventAggregator iEventAggregator)
         {
 
+            this.iEventAggregator = iEventAggregator;
+            SubscriptionToken subscriptionToken =
+                                    this
+                                        .iEventAggregator
+                                        .GetEvent<PubSubEvent<Character>>()
+                                        .Subscribe((details) =>
+                                        {
+                                            this.SelectedCharacter = details;
+                                        });
+
             // Add available pages
-            PageViewModels.Add(new MainMenuViewModel(Event.EventInstance.EventAggregator));
+            MenuViewModels.Add(new MainMenuViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new ArrViewModel(Event.EventInstance.EventAggregator));
             
             // Set starting page
-            CurrentPageViewModel = PageViewModels[0];
+            CurrentPageViewModel = MenuViewModels[0];
 
         }
         #endregion
 
 
         #region Properties / Commands
+        private IEventAggregator iEventAggregator;
+        private Character SelectedCharacter;
+        private List<IPageViewModel> _menuViewModels;
 
         private void performMainCloseButtonCommand(object Parameter)
         {
             Window objWindow = Parameter as Window;
             objWindow.Close();
         }
+
+        public ICommand MainMenuPageCommand
+        {
+            get
+            {
+                if (_MainMenuCommand == null)
+                {
+                    _MainMenuCommand = new RelayCommand(
+                        p => ChangeViewModel((IPageViewModel)p));
+                }
+
+                return _MainMenuCommand;
+            }
+        }
+
 
         public ICommand ChangePageCommand
         {
@@ -56,7 +85,7 @@ namespace FFXIVRelicTracker.ViewModels
                 {
                     _changePageCommand = new RelayCommand(
                         p => ChangeViewModel((IPageViewModel)p),
-                        p => p is IPageViewModel);
+                        p => p is IPageViewModel & SelectedCharacter!=null);
                 }
 
                 return _changePageCommand;
@@ -71,6 +100,17 @@ namespace FFXIVRelicTracker.ViewModels
                     _pageViewModels = new List<IPageViewModel>();
 
                 return _pageViewModels;
+            }
+        }
+
+        public List<IPageViewModel> MenuViewModels
+        {
+            get
+            {
+                if (_menuViewModels == null)
+                    _menuViewModels = new List<IPageViewModel>();
+
+                return _menuViewModels;
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FFXIVRelicTracker.ARR.ARR;
+using System;
 using System.IO;
 using System.Text;
 using System.Xml;
@@ -67,7 +68,9 @@ namespace FFXIVRelicTracker.Models
         /// </summary>
         public static void ToXmlFile(Object obj, string filePath)
         {
-            var xs = new XmlSerializer(obj.GetType());
+            Type[] types = new Type[] { typeof(ArrStages) };
+
+            var xs = new XmlSerializer(obj.GetType(), types);
             var ns = new XmlSerializerNamespaces();
             var ws = new XmlWriterSettings { Indent = true, NewLineOnAttributes = NewLineOnAttributes, OmitXmlDeclaration = true };
             ns.Add("", "");

@@ -30,9 +30,9 @@ namespace FFXIVRelicTracker.ARR.Relic
         internal string RelicBeastmen2;
         internal string RelicBeastmen3;
         internal string RelicMap;
+        internal PointF RelicPoint;
         internal string RelicMateria;
         internal ObservableCollection<string> availableRelicJobs= new ObservableCollection<string>();
 
-        public PointF RelicPoint { get; internal set; }
     }
 }
