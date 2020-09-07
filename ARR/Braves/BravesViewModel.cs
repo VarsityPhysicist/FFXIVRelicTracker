@@ -1,6 +1,5 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
@@ -59,7 +58,7 @@ namespace FFXIVRelicTracker.ARR.Braves
                 if (value != null)
                 {
                     BravesModel = SelectedCharacter.ArrProgress.BravesModel;
-                    ArrWeapon = SelectedCharacter.ArrProgress.Arr;
+                    ArrWeapon = SelectedCharacter.ArrProgress.ArrWeapon;
                     CalculateTotals();
                 }
             }
@@ -219,15 +218,11 @@ namespace FFXIVRelicTracker.ARR.Braves
             AvailableBravesJobs = new ObservableCollection<string>();
             {
 
-                foreach (ArrStages job in ArrWeapon)
+                foreach (ArrJobs job in ArrWeapon.JobList)
                 {
-                    if (job.Nexus.Progress == ArrProgress.States.Completed & job.Braves.Progress != ArrProgress.States.Completed)
+                    if (job.Braves.Progress != ArrProgress.States.Completed)
                     {
                         AvailableBravesJobs.Add(job.Name);
-                        if (job.Braves.Progress == ArrProgress.States.Initiated)
-                        {
-                            CurrentBraves = job.Name;
-                        }
                     }
                 }
             }
@@ -259,8 +254,12 @@ namespace FFXIVRelicTracker.ARR.Braves
         private void CompleteCommand(object param)
         {
 
-            ArrStages arrStages = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentBraves)];
-            arrStages.Braves.Progress = ArrProgress.States.Completed;
+            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentBraves)];
+
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Braves,true);
+
+
+
             ResetBools();
             LoadAvailableJobs();
         }

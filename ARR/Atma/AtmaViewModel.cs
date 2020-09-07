@@ -1,6 +1,5 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
@@ -53,7 +52,7 @@ namespace FFXIVRelicTracker.ARR.Atma
                 {
                     selectedCharacter = value;
                     AtmaModel = SelectedCharacter.ArrProgress.AtmaModel;
-                    ArrWeapon = SelectedCharacter.ArrProgress.Arr;
+                    ArrWeapon = SelectedCharacter.ArrProgress.ArrWeapon;
                 }
             }
         }
@@ -80,7 +79,7 @@ namespace FFXIVRelicTracker.ARR.Atma
         private void CountAtma()
         {
             int atmaCount = 0;
-            foreach (ArrStages job in arrWeapon)
+            foreach (ArrJobs job in arrWeapon.JobList)
             {
                 if (job.Atma.Progress != ArrProgress.States.Completed)
                 {

@@ -1,6 +1,5 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
@@ -58,17 +57,17 @@ namespace FFXIVRelicTracker.ARR.Relic
                 {
                     selectedCharacter = value;
                     RelicModel = selectedCharacter.ArrProgress.RelicModel;
-                    ArrWeapon = SelectedCharacter.ArrProgress.Arr;
+                    ArrWeapon = SelectedCharacter.ArrProgress.ArrWeapon;
                     LoadAvailableJobs();
                 }
             }
         }
         public string CurrentRelic
         {
-            get { return relicModel.currentRelic; }
+            get { return relicModel.CurrentRelic; }
             set
             {
-                relicModel.currentRelic = value;
+                relicModel.CurrentRelic = value;
                 
                 if (value != null)
                 {
@@ -98,10 +97,10 @@ namespace FFXIVRelicTracker.ARR.Relic
         }
         public int RelicIndex
         {
-            get { return relicModel.relicIndex; }
+            get { return relicModel.RelicIndex; }
             set
             {
-                relicModel.relicIndex = value;
+                relicModel.RelicIndex = value;
                 OnPropertyChanged(nameof(RelicIndex));
             }
         }
@@ -212,10 +211,10 @@ namespace FFXIVRelicTracker.ARR.Relic
         }
         public List<ArrProgress> JobRelics
         {
-            get { return relicModel.jobRelics; }
+            get { return relicModel.JobRelics; }
             set
             {
-                relicModel.jobRelics = value;
+                relicModel.JobRelics = value;
                 OnPropertyChanged(nameof(JobRelics));
             }
         }
@@ -225,7 +224,7 @@ namespace FFXIVRelicTracker.ARR.Relic
             AvailableRelicJobs=new ObservableCollection<string>();
             {
 
-                foreach(ArrStages job in arrWeapon)
+                foreach(ArrJobs job in arrWeapon.JobList)
                 {
                     if (job.Relic.Progress != ArrProgress.States.Completed)
                     {
@@ -259,9 +258,10 @@ namespace FFXIVRelicTracker.ARR.Relic
         private bool RelicCan() { return CurrentRelic!=null; }
         private void RelicCommand(object param)
         {
-            string values = param.ToString();
-            ArrStages arrStages = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(values)];
-            arrStages.Relic.Progress = ArrProgress.States.Completed;
+            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentRelic)];
+
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Relic, true);
+
             AvailableRelicJobs.RemoveAt(RelicIndex);
             RelicIndex = 0;
         }

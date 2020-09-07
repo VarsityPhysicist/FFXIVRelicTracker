@@ -1,6 +1,5 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
@@ -56,7 +55,7 @@ namespace FFXIVRelicTracker.ARR.Novus
                 {
                     selectedCharacter = value;
                     NovusModel = selectedCharacter.ArrProgress.NovusModel;
-                    ArrWeapon = SelectedCharacter.ArrProgress.Arr;
+                    ArrWeapon = SelectedCharacter.ArrProgress.ArrWeapon;
                 }
             }
         }
@@ -767,15 +766,11 @@ namespace FFXIVRelicTracker.ARR.Novus
             AvailableNovusJobs = new ObservableCollection<string>();
             {
 
-                foreach (ArrStages job in ArrWeapon)
+                foreach (ArrJobs job in ArrWeapon.JobList)
                 {
-                    if (job.Animus.Progress == ArrProgress.States.Completed & job.Novus.Progress != ArrProgress.States.Completed)
+                    if (job.Novus.Progress != ArrProgress.States.Completed)
                     {
                         AvailableNovusJobs.Add(job.Name);
-                        if (job.Novus.Progress == ArrProgress.States.Initiated)
-                        {
-                            CurrentNovus = job.Name;
-                        }
                     }
                 }
             }
@@ -815,10 +810,6 @@ namespace FFXIVRelicTracker.ARR.Novus
         }
         private void IncrementCommand(object param, bool add)
         {
-
-            //use reflection to refer back to the in sum being targeted
-            // make increment and decrement use the same method, but attach a bool to trigger addition or subtraction
-
             string sum = (string)param;
 
             Type classType = typeof(NovusViewModel);
@@ -856,8 +847,10 @@ namespace FFXIVRelicTracker.ARR.Novus
         private void CompleteCommand(object param)
         {
 
-            ArrStages arrStages = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentNovus)];
-            arrStages.Novus.Progress = ArrProgress.States.Completed;
+            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentNovus)];
+
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Novus, true);
+
             ResetCounts();
             LoadAvailableJobs();
             PLDNovus = false;

@@ -4,6 +4,7 @@ using System.Text;
 
 namespace FFXIVRelicTracker.ARR.Novus
 {
+    
     public class NovusModel
     {
         public NovusModel()

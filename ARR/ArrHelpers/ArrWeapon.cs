@@ -1,4 +1,4 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿
 using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections;
@@ -7,50 +7,32 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
 
-namespace FFXIVRelicTracker.Models.ARR
+namespace FFXIVRelicTracker.ARR.ArrHelpers
 {
-    public class ArrWeapon :ObservableObject,IEnumerable
+    public class ArrWeapon :ObservableObject//, IEnumerable
     {
         #region Enumeration
-        public void Add(System.Object Obj)
-        {
+        //public void Add(System.Object Obj)
+        //{
 
-        }
-        public IEnumerator GetEnumerator()
-        {
-            return new JobEnumerator(this);
-        }
+        //}
+        //public IEnumerator GetEnumerator()
+        //{
+        //    return new JobEnumerator(this);
+        //}
+
+
 
         #endregion
 
         public ArrWeapon()
         {
-            PLD = new ArrStages("PLD");
-            WAR = new ArrStages("WAR");
-            WHM = new ArrStages("WHM");
-            SCH = new ArrStages("SCH");
-            MNK = new ArrStages("MNK");
-            DRG = new ArrStages("DRG");
-            NIN = new ArrStages("NIN");
-            BRD = new ArrStages("BRD");
-            BLM = new ArrStages("BLM");
-            SMN = new ArrStages("SMN");
+        }
 
-            JobList = new List<ArrStages>
-            {
-               PLD,
-               WAR,
-               WHM,
-               SCH,
-               MNK,
-               DRG,
-               NIN,
-               BRD,
-               BLM,
-               SMN
-            };
+        #region Fields
 
-            JobListString = new List<string>
+        public List<ArrJobs> JobList = new List<ArrJobs>();
+        public List<string> JobListString = new List<string>
             {
                "PLD",
                "WAR",
@@ -63,28 +45,22 @@ namespace FFXIVRelicTracker.Models.ARR
                "BLM",
                "SMN"
             };
-        }
 
-        #region Fields
-
-        public List<ArrStages> JobList;
-        public List<string> JobListString;
-
-        private ArrStages pld;
-        private ArrStages war;
-        private ArrStages whm;
-        private ArrStages sch;
-        private ArrStages mnk;
-        private ArrStages drg;
-        private ArrStages nin;
-        private ArrStages brd;
-        private ArrStages blm;
-        private ArrStages smn;
+        private ArrJobs pld= new ArrJobs("PLD");
+        private ArrJobs war= new ArrJobs("WAR");
+        private ArrJobs whm= new ArrJobs("WHM");
+        private ArrJobs sch= new ArrJobs("SCH");
+        private ArrJobs mnk= new ArrJobs("MNK");
+        private ArrJobs drg= new ArrJobs("DRG");
+        private ArrJobs nin= new ArrJobs("NIN");
+        private ArrJobs brd= new ArrJobs("BRD");
+        private ArrJobs blm= new ArrJobs("BLM");
+        private ArrJobs smn = new ArrJobs("SMN");
 
         #endregion
 
         #region Properties
-        public ArrStages PLD
+        public ArrJobs PLD
         {
             get { return pld; }
             set
@@ -97,7 +73,7 @@ namespace FFXIVRelicTracker.Models.ARR
             }
         }
 
-        public ArrStages WAR
+        public ArrJobs WAR
         {
             get{return war;}
             set
@@ -106,7 +82,7 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(WAR));
                 }
         }
-        public ArrStages WHM
+        public ArrJobs WHM
         {
             get{return whm;}
             set
@@ -115,7 +91,7 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(WHM));
                 }
         }
-        public ArrStages SCH
+        public ArrJobs SCH
         {
             get{return sch;}
             set
@@ -124,7 +100,7 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(SCH));
                 }
         }
-        public ArrStages MNK
+        public ArrJobs MNK
         {
             get{return mnk;}
             set
@@ -133,7 +109,7 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(MNK));
                 }
         }
-        public ArrStages DRG
+        public ArrJobs DRG
         {
             get{return drg;}
             set
@@ -142,7 +118,7 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(DRG));
                 }
         }
-        public ArrStages NIN
+        public ArrJobs NIN
         {
             get{return nin;}
             set
@@ -151,7 +127,7 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(NIN));
                 }
         }
-        public ArrStages BRD
+        public ArrJobs BRD
         {
             get{return brd;}
             set
@@ -160,7 +136,7 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(BRD));
                 }
         }
-        public ArrStages BLM
+        public ArrJobs BLM
         {
             get{return blm;}
             set
@@ -169,7 +145,7 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(BLM));
                 }
         }
-        public ArrStages SMN
+        public ArrJobs SMN
         {
             get { return smn; }
             set
@@ -178,6 +154,10 @@ namespace FFXIVRelicTracker.Models.ARR
                 OnPropertyChanged(nameof(SMN));
             }
         }
+
+        public int Count => ((ICollection<ArrJobs>)JobList).Count;
+
+        public bool IsReadOnly => ((ICollection<ArrJobs>)JobList).IsReadOnly;
         #endregion
     }
 

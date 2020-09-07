@@ -1,10 +1,10 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -55,9 +55,6 @@ namespace FFXIVRelicTracker.ARR.Summary
 
         public string Name {get{return "Summary";}}
 
-
-
-
         #region ArrButton Command
         private ICommand _ArrButton;
         public ICommand ArrButton
@@ -80,76 +77,13 @@ namespace FFXIVRelicTracker.ARR.Summary
         {
             Object[] values = (object[])param;
 
-            ArrStages tempStage= SummaryModel.JobDictionary[(string)values[0]].Key;
-            ArrProgress tempProgress= SummaryModel.JobDictionary[(string)values[0]].Value;
+            string jobInfo = (string)values[0];
 
-            int StageIndex = tempStage.StageList.IndexOf(tempProgress);
+            ArrJobs tempJob = SummaryModel.JobDictionary[jobInfo].Key;
+            ArrProgress tempProgress= SummaryModel.JobDictionary[jobInfo].Value;
 
-            if (tempProgress.Progress == ArrProgress.States.NA)
-            {
-                CompletePreviousStages(tempStage, StageIndex);
-                this.eventAggregator.GetEvent<PubSubEvent<ArrWeapon>>().Publish(SelectedCharacter.ArrProgress.Arr);
-            }
-            else if (tempProgress.Progress == ArrProgress.States.Completed)
-            {
-                InCompleteFollowingStages(tempStage, StageIndex);
-                this.eventAggregator.GetEvent<PubSubEvent<ArrWeapon>>().Publish(SelectedCharacter.ArrProgress.Arr);
-                return;
-            }
-            if (tempProgress.Progress == ArrProgress.States.Initiated)
-            {
-                tempProgress.Progress = ArrProgress.States.Completed;
-                this.eventAggregator.GetEvent<PubSubEvent<ArrWeapon>>().Publish(SelectedCharacter.ArrProgress.Arr);
-            }
-            else
-            {
-                switch (StageIndex)
-                {
-                    case 0:
-                    case 3:
-                    case 6:
-                    case 5:
-                    case 7:
-                        tempProgress.Progress++;
-                        if (tempProgress.Progress == ArrProgress.States.Initiated) { IncompleteOtherJobs(tempStage, StageIndex); }
-                        break;
-                    case 1:
-                    case 2:
-                    case 4:
-                        tempProgress.Progress = ArrProgress.States.Completed;
-                        this.eventAggregator.GetEvent<PubSubEvent<ArrWeapon>>().Publish(SelectedCharacter.ArrProgress.Arr);
-                        break;
-                }
-            }
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempProgress);
 
-        }
-
-        private void IncompleteOtherJobs(ArrStages tempStage, int StageIndex)
-        {
-            foreach(ArrStages Job in SelectedCharacter.ArrProgress.Arr.JobList)
-            {
-                if (Job != tempStage)
-                {
-                    ArrProgress stage = Job.StageList[StageIndex];
-                    if (stage.Progress == ArrProgress.States.Initiated) { stage.Progress = ArrProgress.States.NA; }
-                }
-            }
-        }
-
-        private void InCompleteFollowingStages(ArrStages tempStage, int stageIndex)
-        {
-            for (int i = stageIndex; i < tempStage.StageList.Count; i++)
-            {
-                tempStage.StageList[i].Progress = ArrProgress.States.NA;
-            }
-        }
-
-        private void CompletePreviousStages(ArrStages tempStage, int stageIndex)
-        {
-            for(int i=0;i<stageIndex; i++)
-            {
-                tempStage.StageList[i].Progress = ArrProgress.States.Completed;
-            }
         }
 
         #endregion

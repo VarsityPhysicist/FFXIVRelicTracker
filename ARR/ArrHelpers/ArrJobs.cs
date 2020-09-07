@@ -1,14 +1,14 @@
-﻿using FFXIVRelicTracker.Models.ARR;
-using FFXIVRelicTracker.Models.Helpers;
+﻿using FFXIVRelicTracker.Models.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml.Serialization;
 
-namespace FFXIVRelicTracker.ARR.ARR
+namespace FFXIVRelicTracker.ARR.ArrHelpers
 {
-
-    public class ArrStages : ObservableObject
+    public class ArrJobs : ObservableObject
     {
         private string name;
         public string Name
@@ -20,48 +20,40 @@ namespace FFXIVRelicTracker.ARR.ARR
                 OnPropertyChanged(nameof(Name));
             }
         }
-
-        public ArrStages()
+        public ArrJobs()
         {
-
+            
         }
-        public ArrStages(string name)
+
+        internal List<string> StageListString=new List<string>()
+        {
+           "Relic",
+           "Zenith",
+           "Atma",
+           "Animus",
+           "Novus",
+           "Nexus",
+           "Braves",
+           "Zeta"
+        };
+
+        public ArrJobs(string name)
             :this()
         {
-
+                     
             this.Name = name;
 
-            Relic = new ArrProgress();
-            Zenith = new ArrProgress();
-            Atma = new ArrProgress();
-            Animus = new ArrProgress();
-            Novus = new ArrProgress();
-            Nexus = new ArrProgress();
-            Braves = new ArrProgress();
-            Zeta = new ArrProgress();
-
-            StageList = new List<ArrProgress>
-            {
-                Relic,
-                Zenith,
-                Atma,
-                Animus,
-                Novus,
-                Nexus,
-                Braves,
-                Zeta
-            };
         }
-        public List<ArrProgress> StageList;
+        public List<ArrProgress> StageList = new List<ArrProgress>();
 
-        private ArrProgress relic;
-        private ArrProgress zenith;
-        private ArrProgress atma;
-        private ArrProgress animus;
-        private ArrProgress novus;
-        private ArrProgress nexus;
-        private ArrProgress braves;
-        private ArrProgress zeta;
+        private ArrProgress relic = new ArrProgress();
+        private ArrProgress zenith = new ArrProgress();
+        private ArrProgress atma = new ArrProgress();
+        private ArrProgress animus = new ArrProgress();
+        private ArrProgress novus = new ArrProgress();
+        private ArrProgress nexus = new ArrProgress();
+        private ArrProgress braves = new ArrProgress();
+        private ArrProgress zeta = new ArrProgress();
 
         public ArrProgress Relic
         {

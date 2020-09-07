@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker.Models;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
+using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
 using FFXIVRelicTracker.Views;
 using Prism.Events;
@@ -9,6 +10,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -45,6 +47,12 @@ namespace FFXIVRelicTracker.ViewModels
             {
                 selectedCharacter = value;
                 CommandManager.InvalidateRequerySuggested();
+
+                if (value != null)
+                {
+                    ConfigureARRLists();
+                }
+
                 CharacterInt = CharacterList.IndexOf(SelectedCharacter);
                 OnPropertyChanged(nameof(SelectedCharacter));
                 this._eventAggregator.GetEvent<PubSubEvent<Character>>().Publish(this.SelectedCharacter);
@@ -72,6 +80,52 @@ namespace FFXIVRelicTracker.ViewModels
                 OnPropertyChanged(nameof(CharacterList));
             }
         }
+
+        #region Configure Job Lists
+        //Job list provides an easy way of accessing the individual models for tracking progress
+        //Re-instantiating them here is required as loading the character list unlinks the 
+            //objects within the list from the objects they're supposed to refer to
+
+        private void ConfigureARRLists()
+        {
+            List<ArrJobs> arrStages = new List<ArrJobs>()
+            {
+                selectedCharacter.ArrProgress.ArrWeapon.PLD,
+                selectedCharacter.ArrProgress.ArrWeapon.WAR,
+                selectedCharacter.ArrProgress.ArrWeapon.WHM,
+                selectedCharacter.ArrProgress.ArrWeapon.SCH,
+                selectedCharacter.ArrProgress.ArrWeapon.MNK,
+                selectedCharacter.ArrProgress.ArrWeapon.DRG,
+                selectedCharacter.ArrProgress.ArrWeapon.NIN,
+                selectedCharacter.ArrProgress.ArrWeapon.BRD,
+                selectedCharacter.ArrProgress.ArrWeapon.BLM,
+                selectedCharacter.ArrProgress.ArrWeapon.SMN
+            };
+
+            selectedCharacter.ArrProgress.ArrWeapon.JobList = arrStages;
+
+            foreach(ArrJobs job in selectedCharacter.ArrProgress.ArrWeapon.JobList)
+            {
+                List<ArrProgress> arrProgresses = new List<ArrProgress>()
+                {
+                    job.Relic,
+                    job.Zenith,
+                    job.Atma,
+                    job.Animus,
+                    job.Novus,
+                    job.Nexus,
+                    job.Braves,
+                    job.Zeta
+                };
+
+                job.StageList = arrProgresses;
+            }
+
+        }
+
+
+
+        #endregion
 
 
         #region Add Character
@@ -183,7 +237,11 @@ namespace FFXIVRelicTracker.ViewModels
         private void LoadObject()
         {
             CharacterList = new ObservableCollection<Character>();
-            tempCharacterList = XmlHelper.FromXmlFile<ObservableCollection<Character>>(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.xml");
+
+            string jsonString;
+            jsonString = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.txt");
+            tempCharacterList = JsonSerializer.Deserialize<ObservableCollection<Character>>(jsonString);
+
             foreach (Character oldCharacter in tempCharacterList)
             {
                 Character newCharacter = new Character(oldCharacter);
@@ -217,7 +275,9 @@ namespace FFXIVRelicTracker.ViewModels
         }
         private void SaveObject()
         {
-            XmlHelper.ToXmlFile(CharacterList, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.xml");
+            string jsonString;
+            jsonString = JsonSerializer.Serialize(CharacterList);
+            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.txt", jsonString);
         }
         #endregion
     }

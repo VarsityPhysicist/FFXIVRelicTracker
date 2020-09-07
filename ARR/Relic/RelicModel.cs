@@ -1,4 +1,4 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
@@ -10,20 +10,18 @@ using System.Windows;
 
 namespace FFXIVRelicTracker.ARR.Relic
 {
+    
     public class RelicModel : ObservableObject
     {
 
         public RelicModel()
         {
-            //jobRelics = new List<ArrProgress>();
-            //jobRelicStates = new List<ArrProgress.States>();
         }
 
-        internal Visibility RelicVisibility = Visibility.Hidden;
-
-        internal List<ArrProgress> jobRelics;
-        internal int relicIndex;
-        internal string currentRelic;
+        internal Visibility relicVisibility = Visibility.Hidden;
+        internal List<ArrProgress> JobRelics;
+        internal int RelicIndex;
+        internal string CurrentRelic;
         internal string RelicDestination;
         internal string RelicClassWeapon;
         internal string RelicBeastmen1;
@@ -33,6 +31,20 @@ namespace FFXIVRelicTracker.ARR.Relic
         internal PointF RelicPoint;
         internal string RelicMateria;
         internal ObservableCollection<string> availableRelicJobs= new ObservableCollection<string>();
+
+        public Visibility RelicVisibility { get { return relicVisibility; } set { relicVisibility = value; OnPropertyChanged(nameof(RelicVisibility)); } }
+        //public List<ArrProgress> JobRelics;
+        //public int RelicIndex;
+        //public string CurrentRelic;
+        //public string RelicDestination;
+        //public string RelicClassWeapon;
+        //public string RelicBeastmen1;
+        //public string RelicBeastmen2;
+        //public string RelicBeastmen3;
+        //public string RelicMap;
+        //public PointF RelicPoint;
+        //public string RelicMateria;
+        //public ObservableCollection<string> availableRelicJobs = new ObservableCollection<string>();
 
     }
 }

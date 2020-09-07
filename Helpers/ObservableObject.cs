@@ -7,7 +7,7 @@ using System.Xml.Serialization;
 
 namespace FFXIVRelicTracker.Models.Helpers
 {
-    [Serializable]
+    
     public abstract class ObservableObject : INotifyPropertyChanged
     {
         #region Debugging Aides

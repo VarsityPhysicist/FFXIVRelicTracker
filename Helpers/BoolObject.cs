@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FFXIVRelicTracker.Helpers
 {
+    
     public class BoolObject : ObservableObject
     {
         private bool internalBool;

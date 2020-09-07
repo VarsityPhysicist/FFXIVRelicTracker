@@ -1,11 +1,11 @@
 ﻿using FFXIVRelicTracker.ARR.Animus;
+using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.ARR.Atma;
 using FFXIVRelicTracker.ARR.Braves;
 using FFXIVRelicTracker.ARR.Nexus;
 using FFXIVRelicTracker.ARR.Novus;
 using FFXIVRelicTracker.ARR.Relic;
 using FFXIVRelicTracker.ARR.Zeta;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ namespace FFXIVRelicTracker.Models
 {
     public class ArrModel:ObservableObject
     {
-        private ArrWeapon arr;
+        private ArrWeapon arrWeapon;
         private RelicModel relicModel;
         private AtmaModel atmaModel;
         private AnimusModel animusModel;
@@ -29,7 +29,7 @@ namespace FFXIVRelicTracker.Models
 
         public ArrModel()
         {
-            Arr = new ArrWeapon();
+            ArrWeapon = new ArrWeapon();
             RelicModel = new RelicModel();
             AtmaModel = new AtmaModel();
             AnimusModel = new AnimusModel();
@@ -38,15 +38,15 @@ namespace FFXIVRelicTracker.Models
             BravesModel = new BravesModel();
             ZetaModel = new ZetaModel();
         }
-        public ArrWeapon Arr
+        public ArrWeapon ArrWeapon
         {
-            get { return arr; }
+            get { return arrWeapon; }
             set
             {
                 if(value!=null)
                 {
-                    arr = value;
-                    OnPropertyChanged(nameof(Arr));
+                    arrWeapon = value;
+                    OnPropertyChanged(nameof(ArrWeapon));
                 }
             }
         }

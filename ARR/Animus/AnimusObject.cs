@@ -8,6 +8,7 @@ using System.Windows;
 
 namespace FFXIVRelicTracker.ARR.Animus
 {
+    
     public class AnimusObject :ObservableObject
     {
         private string name;

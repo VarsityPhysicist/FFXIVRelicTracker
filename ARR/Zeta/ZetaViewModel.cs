@@ -1,7 +1,6 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Helpers;
 using FFXIVRelicTracker.Models;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
@@ -59,7 +58,7 @@ namespace FFXIVRelicTracker.ARR.Zeta
                 if (value != null)
                 {
                     zetaModel = SelectedCharacter.ArrProgress.ZetaModel;
-                    ArrWeapon = SelectedCharacter.ArrProgress.Arr;
+                    ArrWeapon = SelectedCharacter.ArrProgress.ArrWeapon;
                 }
             }
         }
@@ -328,15 +327,11 @@ namespace FFXIVRelicTracker.ARR.Zeta
             AvailableZetaJobs = new ObservableCollection<string>();
             {
 
-                foreach (ArrStages job in ArrWeapon)
+                foreach (ArrJobs job in ArrWeapon.JobList)
                 {
-                    if (job.Braves.Progress == ArrProgress.States.Completed & job.Zeta.Progress != ArrProgress.States.Completed)
+                    if (job.Zeta.Progress != ArrProgress.States.Completed)
                     {
                         AvailableZetaJobs.Add(job.Name);
-                        if (job.Zeta.Progress == ArrProgress.States.Initiated)
-                        {
-                            CurrentZeta = job.Name;
-                        }
                     }
                 }
             }
@@ -407,8 +402,10 @@ namespace FFXIVRelicTracker.ARR.Zeta
         private void CompleteCommand(object param)
         {
 
-            ArrStages arrStages = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentZeta)];
-            arrStages.Zeta.Progress = ArrProgress.States.Completed;
+            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentZeta)];
+
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Zeta, true);
+
             ResetBools();
             LoadAvailableJobs();
         }

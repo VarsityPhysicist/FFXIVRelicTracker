@@ -5,6 +5,7 @@ using System.Text;
 
 namespace FFXIVRelicTracker.ARR.Braves
 {
+    
     public class BravesModel : ObservableObject
     {
         public BravesModel()

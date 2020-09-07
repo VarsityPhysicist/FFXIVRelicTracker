@@ -1,4 +1,5 @@
 ﻿using FFXIVRelicTracker.Models.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -7,6 +8,8 @@ using System.Text;
 
 namespace FFXIVRelicTracker.Models
 {
+    
+    
     public class Character : ObservableObject
     {
         private string name;
@@ -49,7 +52,7 @@ namespace FFXIVRelicTracker.Models
                 }
             }
         }
-
+        [JsonConstructor]
         public Character()
         {
             Name = "Default Name";

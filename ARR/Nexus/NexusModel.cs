@@ -4,6 +4,7 @@ using System.Text;
 
 namespace FFXIVRelicTracker.ARR.Nexus
 {
+    
     public class NexusModel
     {
         internal string CurrentNexus;

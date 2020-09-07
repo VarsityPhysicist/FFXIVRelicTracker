@@ -1,8 +1,7 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.ARR.Atma;
 using FFXIVRelicTracker.Helpers;
 using FFXIVRelicTracker.Models;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
@@ -81,7 +80,7 @@ namespace FFXIVRelicTracker.ARR.Animus
                 {
                     AnimusModel = SelectedCharacter.ArrProgress.AnimusModel;
                     AnimusBooks = animusModel.animusBooks;
-                    ArrWeapon = SelectedCharacter.ArrProgress.Arr;
+                    ArrWeapon = SelectedCharacter.ArrProgress.ArrWeapon;
                 }
             }
         }
@@ -493,9 +492,9 @@ namespace FFXIVRelicTracker.ARR.Animus
             AvailableAnimusJobs = new ObservableCollection<string>();
             {
 
-                foreach(ArrStages job in ArrWeapon)
+                foreach(ArrJobs job in ArrWeapon.JobList)
                 {
-                    if (job.Atma.Progress==ArrProgress.States.Completed & job.Animus.Progress != ArrProgress.States.Completed)
+                    if ( job.Animus.Progress != ArrProgress.States.Completed)
                     {
                         AvailableAnimusJobs.Add(job.Name);
                     }
@@ -1138,8 +1137,11 @@ namespace FFXIVRelicTracker.ARR.Animus
         private void AnimusCommand(object param)
         {
 
-            ArrStages arrStages = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentAnimus)];
-            arrStages.Animus.Progress = ArrProgress.States.Completed;
+            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentAnimus)];
+
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Animus,true);
+
+
             LoadAvailableJobs();
             ResetBools();
             ResetBooks();

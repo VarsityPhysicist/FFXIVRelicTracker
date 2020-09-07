@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Text;
 
-namespace FFXIVRelicTracker.Models.ARR
+namespace FFXIVRelicTracker.ARR.ArrHelpers
 {
     public static class ArrInfo
     {

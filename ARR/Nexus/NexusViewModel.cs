@@ -1,6 +1,5 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
+﻿using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
-using FFXIVRelicTracker.Models.ARR;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
@@ -58,7 +57,7 @@ namespace FFXIVRelicTracker.ARR.Nexus
                 if (value != null)
                 {
                     NexusModel = SelectedCharacter.ArrProgress.NexusModel;
-                    ArrWeapon = SelectedCharacter.ArrProgress.Arr;
+                    ArrWeapon = SelectedCharacter.ArrProgress.ArrWeapon;
                 }
             }
         }
@@ -206,15 +205,11 @@ namespace FFXIVRelicTracker.ARR.Nexus
             AvailableNexusJobs = new ObservableCollection<string>();
             {
 
-                foreach (ArrStages job in ArrWeapon)
+                foreach (ArrJobs job in ArrWeapon.JobList)
                 {
-                    if (job.Novus.Progress == ArrProgress.States.Completed & job.Nexus.Progress != ArrProgress.States.Completed)
+                    if (job.Nexus.Progress != ArrProgress.States.Completed)
                     {
                         AvailableNexusJobs.Add(job.Name);
-                        if (job.Nexus.Progress == ArrProgress.States.Initiated)
-                        {
-                            CurrentNexus = job.Name;
-                        }
                     }
                 }
             }
@@ -272,8 +267,10 @@ namespace FFXIVRelicTracker.ARR.Nexus
         private void CompleteCommand(object param)
         {
 
-            ArrStages arrStages = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentNexus)];
-            arrStages.Nexus.Progress = ArrProgress.States.Completed;
+            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentNexus)];
+
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Nexus, true);
+
             CurrentLight = 0;
             LoadAvailableJobs();
 

@@ -1,5 +1,4 @@
-﻿using FFXIVRelicTracker.ARR.ARR;
-using FFXIVRelicTracker.Helpers;
+﻿using FFXIVRelicTracker.Helpers;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections.Generic;
@@ -10,6 +9,7 @@ using System.Windows;
 
 namespace FFXIVRelicTracker.ARR.Animus
 {
+    
     public class AnimusModel : ObservableObject
     {
         internal List<string> leves;

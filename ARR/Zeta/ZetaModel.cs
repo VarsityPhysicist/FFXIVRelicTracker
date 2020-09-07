@@ -6,6 +6,7 @@ using System.Text;
 
 namespace FFXIVRelicTracker.ARR.Zeta
 {
+    
     public class ZetaModel : ObservableObject
     {
         internal string CurrentZeta;
