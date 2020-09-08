@@ -1,6 +1,5 @@
 ﻿using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,7 +13,7 @@ namespace FFXIVRelicTracker.ARR.Atma
         public AtmaModel()
         {
         }
-        public int neededAtmas { get; set; }
+        public int NeededAtmas { get; set; }
 
     }
 }

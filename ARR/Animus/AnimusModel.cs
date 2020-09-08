@@ -16,7 +16,7 @@ namespace FFXIVRelicTracker.ARR.Animus
         public List<string> fates{ get; set;}
         public List<string> creatures{ get; set;}
         public bool showBookItems{ get; set;}
-        public List<string> observableUniqueMaps{ get; set;}
+        public List<string> observableUniqueMaps { get; set; }
         public List<string> observableAllMaps{ get; set;}
 
         public bool completedDungeon1{ get; set;}

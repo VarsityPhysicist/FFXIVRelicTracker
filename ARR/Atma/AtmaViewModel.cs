@@ -67,10 +67,10 @@ namespace FFXIVRelicTracker.ARR.Atma
         }
         public int NeededAtmas
         {
-            get { return AtmaModel.neededAtmas; }
+            get { return AtmaModel.NeededAtmas; }
             set
             {
-                atmaModel.neededAtmas = value;
+                atmaModel.NeededAtmas = value;
                 OnPropertyChanged(nameof(NeededAtmas));
             }
         }

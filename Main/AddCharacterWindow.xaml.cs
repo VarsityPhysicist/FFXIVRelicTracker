@@ -23,7 +23,7 @@ namespace FFXIVRelicTracker.Views
             this.DataContext = MainWindow.DataContextProperty;
         }
 
-        private void continueBtn_Click(object sender, RoutedEventArgs e)
+        private void ContinueBtn_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
@@ -34,7 +34,7 @@ namespace FFXIVRelicTracker.Views
                 this.DragMove();
         }
 
-        private void exitBtn_Click(object sender, RoutedEventArgs e)
+        private void ExitBtn_Click(object sender, RoutedEventArgs e)
         {
             NewServer.Text = "";
             this.Close();

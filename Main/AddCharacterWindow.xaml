@@ -40,7 +40,7 @@
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Add a character"/>
                                     <TextBlock Grid.Column="1"/>
-                                    <Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"   Content="Close Window"  Click="exitBtn_Click"/>
+                                    <Button Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"   Content="Close Window"  Click="ExitBtn_Click"/>
                                  </Grid>
                             </Border>
                             
@@ -54,8 +54,8 @@
                                     <TextBox MinWidth="100"  x:Name="NewServer"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource FFXIVButton}" x:Name="continueBtn" Content="Continue"  Click="continueBtn_Click"/>
-                                    <Button Style="{StaticResource FFXIVButton}" x:Name="exitBtn"    Content="Cancel"  Click="exitBtn_Click"/>
+                                    <Button Style="{StaticResource FFXIVButton}" x:Name="continueBtn" Content="Continue"  Click="ContinueBtn_Click"/>
+                                    <Button Style="{StaticResource FFXIVButton}" x:Name="exitBtn"    Content="Cancel"  Click="ExitBtn_Click"/>
                                 </StackPanel>
                             </StackPanel>
                         </Grid>
