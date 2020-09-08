@@ -835,7 +835,7 @@ namespace FFXIVRelicTracker.ARR.Novus
                 if (_CompleteButton == null)
                 {
                     _CompleteButton = new RelayCommand(
-                        param => this.CompleteCommand(param),
+                        param => this.CompleteCommand(),
                         param => this.CanComplete()
                         );
                 }
@@ -844,10 +844,10 @@ namespace FFXIVRelicTracker.ARR.Novus
         }
 
         private bool CanComplete() { return CurrentNovus != null; }
-        private void CompleteCommand(object param)
+        private void CompleteCommand()
         {
 
-            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentNovus)];
+            ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentNovus)];
 
             ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Novus, true);
 

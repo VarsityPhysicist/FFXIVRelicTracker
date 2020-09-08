@@ -54,7 +54,7 @@
                                     <TextBox MinWidth="100"  x:Name="NewServer"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource FFXIVButton}" x:Name="continueBtn"    Content="Continue"  Click="exitBtn_Click"/>
+                                    <Button Style="{StaticResource FFXIVButton}" x:Name="continueBtn" Content="Continue"  Click="continueBtn_Click"/>
                                     <Button Style="{StaticResource FFXIVButton}" x:Name="exitBtn"    Content="Cancel"  Click="exitBtn_Click"/>
                                 </StackPanel>
                             </StackPanel>

@@ -8,6 +8,32 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
     public static class ArrInfo
     {
 
+        public static List<string> JobListString = new List<string>
+            {
+               "PLD",
+               "WAR",
+               "WHM",
+               "SCH",
+               "MNK",
+               "DRG",
+               "NIN",
+               "BRD",
+               "BLM",
+               "SMN"
+            };
+
+        public static List<string> StageListString = new List<string>()
+        {
+           "Relic",
+           "Zenith",
+           "Atma",
+           "Animus",
+           "Novus",
+           "Nexus",
+           "Braves",
+           "Zeta"
+        };
+
         public static Dictionary<string, string> ArrMapImages = new Dictionary<string, string>
         {
             {"Central Shroud","../ArrMaps/CentralShroud.png"},
@@ -116,7 +142,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             return ArrRelicBeastmen[job];
         }
 
-        private static Dictionary<string, string> ArrBrokenImages = new Dictionary<string, string>()
+        private static readonly Dictionary<string, string> ArrBrokenImages = new Dictionary<string, string>()
         {
             {"PLD", "../ArrMaps/SouthernThanalan.png"},
             {"WAR", "../ArrMaps/OuterLaNoscea.png"},
@@ -130,7 +156,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             {"SMN", "../ArrMaps/EastShroud.png"}
         };
 
-        private static Dictionary<string, string> ArrBrokenDestinations = new Dictionary<string, string>()
+        private static readonly Dictionary<string, string> ArrBrokenDestinations = new Dictionary<string, string>()
         {
             {"PLD", "Southern Thanalan"},
             {"WAR", "Outer La Noscea"},
@@ -144,7 +170,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             {"SMN", "East Shroud"}
         };
 
-        private static Dictionary<string, PointF> ARRMapBounds = new Dictionary<string, PointF>
+        private static readonly Dictionary<string, PointF> ARRMapBounds = new Dictionary<string, PointF>
         {
             { "PLD",new PointF(41F,41F)},
             { "WAR",new PointF(41F,41F)},
@@ -157,7 +183,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             { "BLM",new PointF(41F,41F)},
             { "SMN",new PointF(41F,41F)}
         };
-        private static Dictionary<string, PointF> ARRBrokenLocations = new Dictionary<string, PointF>
+        private static readonly Dictionary<string, PointF> ARRBrokenLocations = new Dictionary<string, PointF>
         {
             { "PLD",new PointF(30F,19F)},
             { "WAR",new PointF(23F,10F)},
@@ -170,7 +196,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             { "BLM",new PointF(23F,10F)},
             { "SMN",new PointF(25F,19F)},
         };
-        private static Dictionary<string, string> ArrRelicMats = new Dictionary<string, string>()
+        private static readonly Dictionary<string, string> ArrRelicMats = new Dictionary<string, string>()
         {
            {"PLD", "Aeolian Scimitar" },
            {"WAR", "Barbarian's Bardiche"},
@@ -184,7 +210,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
            {"SMN", "Erudite's Picatrix of Casting" }
         };
 
-        private static Dictionary<string, string> ArrRelicMaterias = new Dictionary<string, string>
+        private static readonly Dictionary<string, string> ArrRelicMaterias = new Dictionary<string, string>
         {
             {"PLD", "Battle Dance Materia III" },
             {"WAR", "Battle Dance Materia III" },
@@ -198,7 +224,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             {"SMN", "Savage Might Materia III" }
         };
 
-        private static Dictionary<string, List<string>> ArrRelicBeastmen = new Dictionary<string, List<string>>
+        private static readonly Dictionary<string, List<string>> ArrRelicBeastmen = new Dictionary<string, List<string>>
         {
              {"PLD", new List<string>{"Zahar'ak Lance","Zahar'ak Pugliest","Zahar'ak Archer" } },
              {"WAR", new List<string>{"13th Order Quarryman","13th Order Bedesman","13th Order Priest" } },

@@ -11,8 +11,6 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
 
         public static void ProgressClass(Character character, ArrJobs Job, ArrProgress arrProgress, bool CompleteBool=false )
         {
-
-
             int StageIndex = Job.StageList.IndexOf(arrProgress);
 
 
@@ -29,7 +27,6 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             {
                 arrProgress.Progress = ArrProgress.States.Completed;
             }
-
             else
             {
                 switch (StageIndex)
@@ -64,19 +61,14 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
                     {
                         stage.Progress = ArrProgress.States.NA;
                     }
-
                 }
             }
         }
 
         private static void InCompleteFollowingStages(ArrJobs tempStage, int stageIndex)
         {
-
-
             for (int i = stageIndex; i < tempStage.StageList.Count; i++)
             {
-
-                tempStage.Animus.Progress = ArrProgress.States.NA;
                 tempStage.StageList[i].Progress = ArrProgress.States.NA;
             }
         }
@@ -85,7 +77,6 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
         {
             for (int i = 0; i < stageIndex; i++)
             {
-
                 tempStage.StageList[i].Progress = ArrProgress.States.Completed;
             }
         }

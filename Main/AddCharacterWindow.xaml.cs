@@ -25,7 +25,7 @@ namespace FFXIVRelicTracker.Views
 
         private void continueBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -36,6 +36,7 @@ namespace FFXIVRelicTracker.Views
 
         private void exitBtn_Click(object sender, RoutedEventArgs e)
         {
+            NewServer.Text = "";
             this.Close();
         }
     }

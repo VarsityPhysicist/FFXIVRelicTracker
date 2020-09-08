@@ -163,42 +163,20 @@ namespace FFXIVRelicTracker.ARR.Nexus
         #region Methods
         private void UpdateActivity()
         {
-            switch (CurrentLight)
+            NexusActivity = CurrentLight switch
             {
-                case int n when n >= 2000:
-                    NexusActivity = "Bursting Activity (Complete)";
-                    break;
-                case int n when n >= 1800:
-                    NexusActivity = "Extreme Activity";
-                    break;
-                case int n when n >= 1600:
-                    NexusActivity = "Intense Activity";
-                    break;
-                case int n when n >= 1400:
-                    NexusActivity = "Vigorous Activity";
-                    break;
-                case int n when n >= 1200:
-                    NexusActivity = "Robust Activity";
-                    break;
-                case int n when n >= 1000:
-                    NexusActivity = "Distinct Activity";
-                    break;
-                case int n when n >= 800:
-                    NexusActivity = "Modest Activity";
-                    break;
-                case int n when n >= 600:
-                    NexusActivity = "Slight Activity";
-                    break;
-                case int n when n >= 400:
-                    NexusActivity = "Faint Activity";
-                    break;
-                case int n when n >= 200:
-                    NexusActivity = "Indistinct Activity";
-                    break;
-                default:
-                    NexusActivity = "No Activity";
-                    break;
-            }
+                int n when n >= 2000 => "Bursting Activity (Complete)",
+                int n when n >= 1800 => "Extreme Activity",
+                int n when n >= 1600 => "Intense Activity",
+                int n when n >= 1400 => "Vigorous Activity",
+                int n when n >= 1200 => "Robust Activity",
+                int n when n >= 1000 => "Distinct Activity",
+                int n when n >= 800 => "Modest Activity",
+                int n when n >= 600 => "Slight Activity",
+                int n when n >= 400 => "Faint Activity",
+                int n when n >= 200 => "Indistinct Activity",
+                _ => "No Activity",
+            };
         }
         private void LoadAvailableJobs()
         {
@@ -255,7 +233,7 @@ namespace FFXIVRelicTracker.ARR.Nexus
                 if (_CompleteButton == null)
                 {
                     _CompleteButton = new RelayCommand(
-                        param => this.CompleteCommand(param),
+                        param => this.CompleteCommand(),
                         param => this.CanComplete()
                         );
                 }
@@ -264,10 +242,10 @@ namespace FFXIVRelicTracker.ARR.Nexus
         }
 
         private bool CanComplete() { return CurrentNexus != null; }
-        private void CompleteCommand(object param)
+        private void CompleteCommand()
         {
 
-            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentNexus)];
+            ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentNexus)];
 
             ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Nexus, true);
 

@@ -247,7 +247,7 @@ namespace FFXIVRelicTracker.ARR.Relic
                 if (_RelicButton == null)
                 {
                     _RelicButton = new RelayCommand(
-                        param => this.RelicCommand(param),
+                        param => this.RelicCommand(),
                         param => this.RelicCan()
                         );
                 }
@@ -256,9 +256,9 @@ namespace FFXIVRelicTracker.ARR.Relic
         }
 
         private bool RelicCan() { return CurrentRelic!=null; }
-        private void RelicCommand(object param)
+        private void RelicCommand()
         {
-            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentRelic)];
+            ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentRelic)];
 
             ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Relic, true);
 

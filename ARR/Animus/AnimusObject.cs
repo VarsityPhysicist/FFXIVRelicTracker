@@ -11,22 +11,25 @@ namespace FFXIVRelicTracker.ARR.Animus
     
     public class AnimusObject :ObservableObject
     {
-        private string name;
-        private string person="";
-        private string type="";
-        private string map="";
-        private BoolObject completed=new BoolObject();
-        private PointF pointF;
+        public string name{ get; set;}
+        public string person{ get; set;}
+        public string type{ get; set;}
+        public string map{ get; set;}
+        public BoolObject completed{ get; set;}
+        public PointF pointF{ get; set;}
 
         public AnimusObject()
         {
+            completed = new BoolObject();
         }
         public AnimusObject(bool boolean)
         {
+            completed = new BoolObject();
             this.Completed.Bool = boolean;
         }
         public AnimusObject(AnimusObject animusObject)
         {
+            completed = new BoolObject();
             this.Name = animusObject.Name;
             this.Completed = animusObject.Completed;
             this.PointF = animusObject.PointF;

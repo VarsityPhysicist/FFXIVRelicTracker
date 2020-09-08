@@ -7,9 +7,9 @@ namespace FFXIVRelicTracker.ARR.Nexus
     
     public class NexusModel
     {
-        internal string CurrentNexus;
-        internal int CurrentLight;
-        internal string NexusActivity;
+        public string CurrentNexus{ get; set;}
+        public int CurrentLight{ get; set;}
+        public string NexusActivity{ get; set;}
         public NexusModel()
         {
 

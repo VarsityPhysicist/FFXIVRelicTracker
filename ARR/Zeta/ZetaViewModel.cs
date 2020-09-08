@@ -285,42 +285,20 @@ namespace FFXIVRelicTracker.ARR.Zeta
 
         private void UpdateActivity()
         {
-            switch (CurrentLight)
+            ZetaActivity = CurrentLight switch
             {
-                case int n when n >= 40:
-                    ZetaActivity = "Full Soul Resonance (Complete)";
-                    break;
-                case int n when n >= 36:
-                    ZetaActivity = "Extreme Sense";
-                    break;
-                case int n when n >= 32:
-                    ZetaActivity = "Intense Sense";
-                    break;
-                case int n when n >= 28:
-                    ZetaActivity = "Vigorous Sense";
-                    break;
-                case int n when n >= 24:
-                    ZetaActivity = "Robust Sense";
-                    break;
-                case int n when n >= 20:
-                    ZetaActivity = "Distinct Sense";
-                    break;
-                case int n when n >= 16:
-                    ZetaActivity = "Modest Sense";
-                    break;
-                case int n when n >= 12:
-                    ZetaActivity = "Slight Sense";
-                    break;
-                case int n when n >= 8:
-                    ZetaActivity = "Faint Sense";
-                    break;
-                case int n when n >= 4:
-                    ZetaActivity = "Indistinct Sense";
-                    break;
-                default:
-                    ZetaActivity = "No Sense";
-                    break;
-            }
+                int n when n >= 40 => "Full Soul Resonance (Complete)",
+                int n when n >= 36 => "Extreme Sense",
+                int n when n >= 32 => "Intense Sense",
+                int n when n >= 28 => "Vigorous Sense",
+                int n when n >= 24 => "Robust Sense",
+                int n when n >= 20 => "Distinct Sense",
+                int n when n >= 16 => "Modest Sense",
+                int n when n >= 12 => "Slight Sense",
+                int n when n >= 8 => "Faint Sense",
+                int n when n >= 4 => "Indistinct Sense",
+                _ => "No Sense",
+            };
         }
         private void LoadAvailableJobs()
         {
@@ -390,7 +368,7 @@ namespace FFXIVRelicTracker.ARR.Zeta
                 if (_CompleteButton == null)
                 {
                     _CompleteButton = new RelayCommand(
-                        param => this.CompleteCommand(param),
+                        param => this.CompleteCommand(),
                         param => this.CanComplete()
                         );
                 }
@@ -399,10 +377,10 @@ namespace FFXIVRelicTracker.ARR.Zeta
         }
 
         private bool CanComplete() { return CurrentZeta != null; }
-        private void CompleteCommand(object param)
+        private void CompleteCommand()
         {
 
-            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentZeta)];
+            ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentZeta)];
 
             ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Zeta, true);
 

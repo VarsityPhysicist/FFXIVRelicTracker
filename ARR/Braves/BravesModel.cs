@@ -12,14 +12,14 @@ namespace FFXIVRelicTracker.ARR.Braves
         {
 
         }
-        internal string CurrentBraves;
-        internal bool FirstQuest;
-        internal bool FifthQuest;
-        internal bool FourthQuest;
-        internal bool ThirdQuest;
-        internal bool SecondQuest;
-        internal int RemainingGil;
-        internal int RemainingSeals;
-        internal int RemainingPoetics;
+        public string CurrentBraves{ get; set;}
+        public bool FirstQuest{ get; set;}
+        public bool FifthQuest{ get; set;}
+        public bool FourthQuest{ get; set;}
+        public bool ThirdQuest{ get; set;}
+        public bool SecondQuest{ get; set;}
+        public int RemainingGil{ get; set;}
+        public int RemainingSeals{ get; set;}
+        public int RemainingPoetics{ get; set;}
     }
 }

@@ -14,7 +14,7 @@ namespace FFXIVRelicTracker.ARR.Atma
         public AtmaModel()
         {
         }
-        internal int neededAtmas;
+        public int neededAtmas { get; set; }
 
     }
 }

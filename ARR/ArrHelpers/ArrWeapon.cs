@@ -9,22 +9,9 @@ using System.Text;
 
 namespace FFXIVRelicTracker.ARR.ArrHelpers
 {
-    public class ArrWeapon :ObservableObject//, IEnumerable
+    public class ArrWeapon :ObservableObject
     {
-        #region Enumeration
-        //public void Add(System.Object Obj)
-        //{
-
-        //}
-        //public IEnumerator GetEnumerator()
-        //{
-        //    return new JobEnumerator(this);
-        //}
-
-
-
-        #endregion
-
+       
         public ArrWeapon()
         {
         }
@@ -32,19 +19,6 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
         #region Fields
 
         public List<ArrJobs> JobList = new List<ArrJobs>();
-        public List<string> JobListString = new List<string>
-            {
-               "PLD",
-               "WAR",
-               "WHM",
-               "SCH",
-               "MNK",
-               "DRG",
-               "NIN",
-               "BRD",
-               "BLM",
-               "SMN"
-            };
 
         private ArrJobs pld= new ArrJobs("PLD");
         private ArrJobs war= new ArrJobs("WAR");
@@ -159,29 +133,5 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
 
         public bool IsReadOnly => ((ICollection<ArrJobs>)JobList).IsReadOnly;
         #endregion
-    }
-
-    public class JobEnumerator : IEnumerator
-    {
-        private ArrWeapon parent;
-        int position = -1;
-
-        public JobEnumerator(ArrWeapon parent)
-        {
-            this.parent = parent;
-        }
-
-        public bool MoveNext()
-        {
-            position++;
-            return (position < parent.JobList.Count);
-        }
-
-        public void Reset()
-        {
-            position = 0;
-        }
-
-        public object Current => parent.JobList[position];
     }
 }

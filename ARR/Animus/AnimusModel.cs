@@ -12,99 +12,99 @@ namespace FFXIVRelicTracker.ARR.Animus
     
     public class AnimusModel : ObservableObject
     {
-        internal List<string> leves;
-        internal List<string> fates;
-        internal List<string> creatures;
-        internal bool showBookItems;
-        internal List<string> observableUniqueMaps;
-        internal List<string> observableAllMaps;
+        public List<string> leves{ get; set;}
+        public List<string> fates{ get; set;}
+        public List<string> creatures{ get; set;}
+        public bool showBookItems{ get; set;}
+        public List<string> observableUniqueMaps{ get; set;}
+        public List<string> observableAllMaps{ get; set;}
 
-        internal bool completedDungeon1;
-        internal bool completedDungeon2;
-        internal bool completedDungeon3;
+        public bool completedDungeon1{ get; set;}
+        public bool completedDungeon2{ get; set;}
+        public bool completedDungeon3{ get; set;}
 
-        internal bool possibleChecked1;
-        internal bool possibleChecked2;
-        internal bool possibleChecked3;
-        internal bool possibleChecked4;
-        internal bool possibleChecked5;
-        internal bool possibleChecked6;
-        internal bool possibleChecked7;
-        internal bool possibleChecked8;
-        internal bool possibleChecked9;
-        internal bool possibleChecked10;
+        public bool possibleChecked1{ get; set;}
+        public bool possibleChecked2{ get; set;}
+        public bool possibleChecked3{ get; set;}
+        public bool possibleChecked4{ get; set;}
+        public bool possibleChecked5{ get; set;}
+        public bool possibleChecked6{ get; set;}
+        public bool possibleChecked7{ get; set;}
+        public bool possibleChecked8{ get; set;}
+        public bool possibleChecked9{ get; set;}
+        public bool possibleChecked10{ get; set;}
 
-        internal bool possibleVisibility1;
-        internal bool possibleVisibility2;
-        internal bool possibleVisibility3;
-        internal bool possibleVisibility4;
-        internal bool possibleVisibility5;
-        internal bool possibleVisibility6;
-        internal bool possibleVisibility7;
-        internal bool possibleVisibility8;
-        internal bool possibleVisibility9;
-        internal bool possibleVisibility10;
+        public bool possibleVisibility1{ get; set;}
+        public bool possibleVisibility2{ get; set;}
+        public bool possibleVisibility3{ get; set;}
+        public bool possibleVisibility4{ get; set;}
+        public bool possibleVisibility5{ get; set;}
+        public bool possibleVisibility6{ get; set;}
+        public bool possibleVisibility7{ get; set;}
+        public bool possibleVisibility8{ get; set;}
+        public bool possibleVisibility9{ get; set;}
+        public bool possibleVisibility10{ get; set;}
 
-        internal string possibleMap1;
-        internal string possibleMap2;
-        internal string possibleMap3;
-        internal string possibleMap4;
-        internal string possibleMap5;
-        internal string possibleMap6;
-        internal string possibleMap7;
-        internal string possibleMap8;
-        internal string possibleMap9;
-        internal string possibleMap10;
+        public string possibleMap1{ get; set;}
+        public string possibleMap2{ get; set;}
+        public string possibleMap3{ get; set;}
+        public string possibleMap4{ get; set;}
+        public string possibleMap5{ get; set;}
+        public string possibleMap6{ get; set;}
+        public string possibleMap7{ get; set;}
+        public string possibleMap8{ get; set;}
+        public string possibleMap9{ get; set;}
+        public string possibleMap10{ get; set;}
 
-        internal string selectedAnimusMap;
-        internal string selectedAnimusImage;
+        public string selectedAnimusMap{ get; set;}
+        public string selectedAnimusImage{ get; set;}
        
-        internal string dungeon1;
-        internal string dungeon2;
-        internal string dungeon3;
+        public string dungeon1{ get; set;}
+        public string dungeon2{ get; set;}
+        public string dungeon3{ get; set;}
         
-        internal bool skyFire1Book;
-        internal bool skyFire2Book;
-        internal bool skyFall1Book;
-        internal bool skyFall2Book;
-        internal bool netherFire1Book;
-        internal bool netherFall1Book;
-        internal bool skyWind1Book;
-        internal bool skyEarth1Book;
-        internal int bookSelection;
+        public bool skyFire1Book{ get; set;}
+        public bool skyFire2Book{ get; set;}
+        public bool skyFall1Book{ get; set;}
+        public bool skyFall2Book{ get; set;}
+        public bool netherFire1Book{ get; set;}
+        public bool netherFall1Book{ get; set;}
+        public bool skyWind1Book{ get; set;}
+        public bool skyEarth1Book{ get; set;}
+        public int bookSelection{ get; set;}
 
-        internal AnimusObject Leve1 = new AnimusObject();
-        internal AnimusObject Leve2 = new AnimusObject();
-        internal AnimusObject Leve3 = new AnimusObject();
+        public AnimusObject Leve1{ get; set;}
+        public AnimusObject Leve2{ get; set;}
+        public AnimusObject Leve3{ get; set;}
 
-        internal AnimusObject DisplayLeve = new AnimusObject();
+        public AnimusObject DisplayLeve{ get; set;}
 
-        internal AnimusObject Fate1 = new AnimusObject();
-        internal AnimusObject Fate2 = new AnimusObject();
-        internal AnimusObject Fate3 = new AnimusObject();
+        public AnimusObject Fate1{ get; set;}
+        public AnimusObject Fate2{ get; set;}
+        public AnimusObject Fate3{ get; set;}
 
-        internal AnimusObject DisplayFate = new AnimusObject();
+        public AnimusObject DisplayFate{ get; set;}
 
-        internal AnimusObject Creature1 = new AnimusObject();
-        internal AnimusObject Creature2 = new AnimusObject();
-        internal AnimusObject Creature3 = new AnimusObject();
-        internal AnimusObject Creature4 = new AnimusObject();
-        internal AnimusObject Creature5 = new AnimusObject();
-        internal AnimusObject Creature6 = new AnimusObject();
-        internal AnimusObject Creature7 = new AnimusObject();
-        internal AnimusObject Creature8 = new AnimusObject();
-        internal AnimusObject Creature9 = new AnimusObject();
-        internal AnimusObject Creature10 = new AnimusObject();
+        public AnimusObject Creature1{ get; set;}
+        public AnimusObject Creature2{ get; set;}
+        public AnimusObject Creature3{ get; set;}
+        public AnimusObject Creature4{ get; set;}
+        public AnimusObject Creature5{ get; set;}
+        public AnimusObject Creature6{ get; set;}
+        public AnimusObject Creature7{ get; set;}
+        public AnimusObject Creature8{ get; set;}
+        public AnimusObject Creature9{ get; set;}
+        public AnimusObject Creature10{ get; set;}
 
-        internal AnimusObject DisplayCreature1 = new AnimusObject();
-        internal AnimusObject DisplayCreature2 = new AnimusObject();
-        internal AnimusObject DisplayCreature3 = new AnimusObject();
+        public AnimusObject DisplayCreature1{ get; set;}
+        public AnimusObject DisplayCreature2{ get; set;}
+        public AnimusObject DisplayCreature3{ get; set;}
 
-        internal string CurrentBook;
-        internal string CurrentAnimus;
+        public string CurrentBook;
+        public string CurrentAnimus;
 
 
-        internal ObservableCollection<string> animusBooks = new ObservableCollection<string>
+        public ObservableCollection<string> animusBooks = new ObservableCollection<string>
             {
                 "Book of Skyfire I",
                 "Book of Skyfire II",
@@ -115,11 +115,36 @@ namespace FFXIVRelicTracker.ARR.Animus
                 "Book of Skywind I",
                 "Book of Skyearth I"
             };
-        internal ObservableCollection<string> availableAnimusobs;
+        public ObservableCollection<string> availableAnimusobs { get; set; }
 
         public AnimusModel()
         {
+            Leve1 = new AnimusObject();
+            Leve2 = new AnimusObject();
+            Leve3 = new AnimusObject();
 
+            DisplayLeve = new AnimusObject();
+
+            Fate1 = new AnimusObject();
+            Fate2 = new AnimusObject();
+            Fate3 = new AnimusObject();
+
+            DisplayFate = new AnimusObject();
+
+            Creature1 = new AnimusObject();
+            Creature2 = new AnimusObject();
+            Creature3 = new AnimusObject();
+            Creature4 = new AnimusObject();
+            Creature5 = new AnimusObject();
+            Creature6 = new AnimusObject();
+            Creature7 = new AnimusObject();
+            Creature8 = new AnimusObject();
+            Creature9 = new AnimusObject();
+            Creature10 = new AnimusObject();
+
+            DisplayCreature1 = new AnimusObject();
+            DisplayCreature2 = new AnimusObject();
+            DisplayCreature3 = new AnimusObject();
         }
 
     }

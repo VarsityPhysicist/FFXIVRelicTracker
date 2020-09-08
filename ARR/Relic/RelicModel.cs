@@ -18,21 +18,24 @@ namespace FFXIVRelicTracker.ARR.Relic
         {
         }
 
-        internal Visibility relicVisibility = Visibility.Hidden;
-        internal List<ArrProgress> JobRelics;
-        internal int RelicIndex;
-        internal string CurrentRelic;
-        internal string RelicDestination;
-        internal string RelicClassWeapon;
-        internal string RelicBeastmen1;
-        internal string RelicBeastmen2;
-        internal string RelicBeastmen3;
-        internal string RelicMap;
-        internal PointF RelicPoint;
-        internal string RelicMateria;
-        internal ObservableCollection<string> availableRelicJobs= new ObservableCollection<string>();
+        public Visibility relicVisibility = Visibility.Hidden;
+        public List<ArrProgress> JobRelics{ get; set;}
+        public int RelicIndex{ get; set;}
+        public string RelicDestination{ get; set;}
+        public string RelicClassWeapon{ get; set;}
+        public string RelicBeastmen1{ get; set;}
+        public string RelicBeastmen2{ get; set;}
+        public string RelicBeastmen3{ get; set;}
+        public string RelicMap{ get; set;}
+        public PointF RelicPoint{ get; set;}
+        public string RelicMateria{ get; set;}
+        public ObservableCollection<string> availableRelicJobs= new ObservableCollection<string>();
 
         public Visibility RelicVisibility { get { return relicVisibility; } set { relicVisibility = value; OnPropertyChanged(nameof(RelicVisibility)); } }
+
+        private string currentRelic;
+        public string CurrentRelic { get { return currentRelic; } set { currentRelic = value; } }
+
         //public List<ArrProgress> JobRelics;
         //public int RelicIndex;
         //public string CurrentRelic;

@@ -22,20 +22,8 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
         }
         public ArrJobs()
         {
-            
         }
 
-        internal List<string> StageListString=new List<string>()
-        {
-           "Relic",
-           "Zenith",
-           "Atma",
-           "Animus",
-           "Novus",
-           "Nexus",
-           "Braves",
-           "Zeta"
-        };
 
         public ArrJobs(string name)
             :this()

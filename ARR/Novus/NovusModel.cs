@@ -11,47 +11,48 @@ namespace FFXIVRelicTracker.ARR.Novus
         {
             PLDNovus = false;
             NonPLDNovus = true;
+            ShowContent = false;
         }
 
-        internal int HeavenEyeCount ;
-        internal int QuickarmCount ;
-        internal int SavageAimCount ;
-        internal int BattledanceCount ;
-        internal int QuicktongueCount ;
-        internal int PietyCount ;
-        internal int SavageMightCount ;
+        public int HeavenEyeCount { get; set;}
+        public int QuickarmCount { get; set;}
+        public int SavageAimCount { get; set;}
+        public int BattledanceCount { get; set;}
+        public int QuicktongueCount { get; set;}
+        public int PietyCount { get; set;}
+        public int SavageMightCount { get; set;}
 
-        internal int MateriaSum ;
-        internal int HeavenEyeMax ;
+        public int MateriaSum { get; set;}
+        public int HeavenEyeMax { get; set;}
 
-        internal int QuickarmMax ;
-        internal int SavageAimMax ;
-        internal int PietyMax ;
-        internal int SavageMightMax ;
-        internal int QuicktongueMax ;
-        internal int BattledanceMax ;
+        public int QuickarmMax { get; set;}
+        public int SavageAimMax { get; set;}
+        public int PietyMax { get; set;}
+        public int SavageMightMax { get; set;}
+        public int QuicktongueMax { get; set;}
+        public int BattledanceMax { get; set;}
 
-        internal string CurrentNovus;
-        internal bool PLDNovus;
-        internal bool NonPLDNovus;
-        internal int BattledanceSwordCount;
-        internal int QuicktongueSwordCount;
-        internal int SavageMightSwordCount;
-        internal int PietySwordCount;
-        internal int SavageAimSwordCount;
-        internal int QuickarmSwordCount;
-        internal int HeavenEyeSwordCount;
-        internal int MateriaSwordSum;
-        internal int BattledanceShieldCount;
-        internal int QuicktongueShieldCount;
-        internal int SavageMightShieldCount;
-        internal int PietyShieldCount;
-        internal int SavageAimShieldCount;
-        internal int QuickarmShieldCount;
-        internal int HeavenEyeShieldCount;
-        internal int MateriaShieldSum;
-        internal string WeaponName;
-        internal bool KnownWeapon;
-        internal bool ShowContent=false;
+        public string CurrentNovus{ get; set;}
+        public bool PLDNovus{ get; set;}
+        public bool NonPLDNovus{ get; set;}
+        public int BattledanceSwordCount{ get; set;}
+        public int QuicktongueSwordCount{ get; set;}
+        public int SavageMightSwordCount{ get; set;}
+        public int PietySwordCount{ get; set;}
+        public int SavageAimSwordCount{ get; set;}
+        public int QuickarmSwordCount{ get; set;}
+        public int HeavenEyeSwordCount{ get; set;}
+        public int MateriaSwordSum{ get; set;}
+        public int BattledanceShieldCount{ get; set;}
+        public int QuicktongueShieldCount{ get; set;}
+        public int SavageMightShieldCount{ get; set;}
+        public int PietyShieldCount{ get; set;}
+        public int SavageAimShieldCount{ get; set;}
+        public int QuickarmShieldCount{ get; set;}
+        public int HeavenEyeShieldCount{ get; set;}
+        public int MateriaShieldSum{ get; set;}
+        public string WeaponName{ get; set;}
+        public bool KnownWeapon{ get; set;}
+        public bool ShowContent{ get; set;}
     }
 }

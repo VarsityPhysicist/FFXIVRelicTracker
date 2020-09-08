@@ -184,7 +184,7 @@
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="18" Grid.Column="1" TextDecorations="{Binding Path=Creature9.Completed.Bool,  Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature9.Map}"/>
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="20" Grid.Column="1" TextDecorations="{Binding Path=Creature10.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Creature10.Map}"/>
 
-                                            <CheckBox Command="{Binding CheckboxButton}"  Grid.Row="1"      Grid.Column="2"   IsChecked="{Binding CreatureBool1}"/>
+                                            <CheckBox   Grid.Row="1"      Grid.Column="2"   IsChecked="{Binding CreatureBool1}"/>
                                             <CheckBox   Grid.Row="3"      Grid.Column="2"   IsChecked="{Binding CreatureBool2}"/>
                                             <CheckBox   Grid.Row="5"      Grid.Column="2"   IsChecked="{Binding CreatureBool3}"/>
                                             <CheckBox   Grid.Row="7"      Grid.Column="2"   IsChecked="{Binding CreatureBool4}"/>

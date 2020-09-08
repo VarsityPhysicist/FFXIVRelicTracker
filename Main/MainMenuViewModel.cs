@@ -127,7 +127,7 @@ namespace FFXIVRelicTracker.ViewModels
 
         #endregion
 
-
+        
         #region Add Character
         private ICommand _AddCommand;
         public ICommand AddCommand
@@ -165,7 +165,7 @@ namespace FFXIVRelicTracker.ViewModels
             string Name = AddingWindow.NewChar.Text;
             string Server = AddingWindow.NewServer.Text;
 
-            if (Name == "" | Server == null)
+            if (Name == "" | Server == "")
             {
                 return;
             }
@@ -230,7 +230,7 @@ namespace FFXIVRelicTracker.ViewModels
 
         private bool CanLoad()
         {
-            return File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.xml"); 
+            return File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.txt"); 
         }
 
         private ObservableCollection<Character> tempCharacterList;

@@ -642,8 +642,6 @@ namespace FFXIVRelicTracker.ARR.Animus
                 if (UniqueMaps.IndexOf(map) < 0) { UniqueMaps.Add(map); }
             }
 
-            List<string> tempUniqueMaps = SortArrMaps(UniqueMaps);
-
             #endregion
 
             #region Sort Creatures
@@ -1125,7 +1123,7 @@ namespace FFXIVRelicTracker.ARR.Animus
                 if (_CompleteButton == null)
                 {
                     _CompleteButton = new RelayCommand(
-                        param => this.AnimusCommand(param),
+                        param => this.AnimusCommand(),
                         param => this.AnimusCan()
                         );
                 }
@@ -1134,10 +1132,10 @@ namespace FFXIVRelicTracker.ARR.Animus
         }
 
         private bool AnimusCan() { return CurrentAnimus != null; }
-        private void AnimusCommand(object param)
+        private void AnimusCommand()
         {
 
-            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentAnimus)];
+            ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentAnimus)];
 
             ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Animus,true);
 

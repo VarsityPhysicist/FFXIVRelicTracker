@@ -242,7 +242,7 @@ namespace FFXIVRelicTracker.ARR.Braves
                 if (_CompleteButton == null)
                 {
                     _CompleteButton = new RelayCommand(
-                        param => this.CompleteCommand(param),
+                        param => this.CompleteCommand(),
                         param => this.CanComplete()
                         );
                 }
@@ -251,10 +251,10 @@ namespace FFXIVRelicTracker.ARR.Braves
         }
 
         private bool CanComplete() { return CurrentBraves != null; }
-        private void CompleteCommand(object param)
+        private void CompleteCommand()
         {
 
-            ArrJobs tempJob = ArrWeapon.JobList[ArrWeapon.JobListString.IndexOf(CurrentBraves)];
+            ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentBraves)];
 
             ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Braves,true);
 

@@ -9,25 +9,39 @@ namespace FFXIVRelicTracker.ARR.Zeta
     
     public class ZetaModel : ObservableObject
     {
-        internal string CurrentZeta;
-        internal BoolObject ramVisibility = new BoolObject();
-        internal BoolObject bullVisibility = new BoolObject();
-        internal BoolObject twinsVisibility = new BoolObject();
-        internal BoolObject crabVisibility = new BoolObject();
-        internal BoolObject lionVisibility = new BoolObject();
-        internal BoolObject maidenVisibility = new BoolObject();
-        internal BoolObject scalesVisibility = new BoolObject();
-        internal BoolObject scorpionVisibility = new BoolObject();
-        internal BoolObject archerVisibility = new BoolObject();
-        internal BoolObject goatVisibility = new BoolObject();
-        internal BoolObject water_bearerVisibility = new BoolObject();
-        internal BoolObject fishVisibility = new BoolObject();
-        internal int CurrentLight=0;
-        internal string ZetaActivity="No Sense";
+        public string CurrentZeta{ get; set;}
+        public BoolObject ramVisibility { get; set; }
+        public BoolObject bullVisibility { get; set; }
+        public BoolObject twinsVisibility { get; set; }
+        public BoolObject crabVisibility { get; set; }
+        public BoolObject lionVisibility { get; set; }
+        public BoolObject maidenVisibility { get; set; }
+        public BoolObject scalesVisibility { get; set; }
+        public BoolObject scorpionVisibility { get; set; }
+        public BoolObject archerVisibility { get; set; }
+        public BoolObject goatVisibility { get; set; }
+        public BoolObject water_bearerVisibility { get; set; }
+        public BoolObject fishVisibility  { get; set;}
+        public int CurrentLight{ get; set;}
+        public string ZetaActivity{ get; set;}
 
         public ZetaModel()
         {
+            ZetaActivity = "No Sense";
+            CurrentLight = 0;
 
+            ramVisibility = new BoolObject();
+            bullVisibility = new BoolObject();
+            twinsVisibility = new BoolObject();
+            crabVisibility = new BoolObject();
+            lionVisibility = new BoolObject();
+            maidenVisibility = new BoolObject();
+            scalesVisibility = new BoolObject();
+            scorpionVisibility = new BoolObject();
+            archerVisibility = new BoolObject();
+            goatVisibility = new BoolObject();
+            water_bearerVisibility = new BoolObject();
+            fishVisibility = new BoolObject();
         }
     }
 }
