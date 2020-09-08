@@ -15,7 +15,7 @@ To use the application, download the files and run FFXIVRelicTracker.exe
   
   Once a character is selected via the dropdown, the options on the right of the window will allow viewing of the character's progression through different expansion's relics
   
-  ARR Progression:
+    ARR Progression:
     Summary Tab:
       The summary tab is the default tab selected in ARR, it list the different stages for each weapon and each job.
       Each stage and job in the table has a button that is used to indicate progress, clicking the buttons completes or incompletes other options in the table.
