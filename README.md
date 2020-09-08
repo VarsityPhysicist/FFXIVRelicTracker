@@ -2,6 +2,7 @@
 This is a project for tracking Relic weapon progression in FFXIV. Each expansion of FXIV adds a new relic wepon with different tasks required to unlock them.
 
 Release is here: https://github.com/VarsityPhysicist/FFXIVRelicTracker/releases/tag/v1.0
+
 This is my first programming project and I didn't look into basing it on any specific version of Microsoft's .NET Core runtime, so unfortunately the latest version is required - you can download it here:https://dotnet.microsoft.com/download
 
 Currently the following expansions are included in this: ARR
