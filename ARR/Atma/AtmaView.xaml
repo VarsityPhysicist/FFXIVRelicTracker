@@ -48,34 +48,140 @@
             <TextBlock/>
         </StackPanel>
 
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="1"    Grid.Column="0" Text="Atma:"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="1"    Grid.Column="1" Text="Area:"/>
+        <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="0" Text="Atma:"/>
+        <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="1" Text="Area:"/>
 
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="2"    Grid.Column="0" Text="Atma of the Lion"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="3"    Grid.Column="0" Text="Atma of the Water-bearer"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="4"    Grid.Column="0" Text="Atma of the Ram"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="5"    Grid.Column="0" Text="Atma of the Crab"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="6"    Grid.Column="0" Text="Atma of the Fish"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="7"    Grid.Column="0" Text="Atma of the Bull"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="8"    Grid.Column="0" Text="Atma of the Scales"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="9"    Grid.Column="0" Text="Atma of the Twins"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="10"    Grid.Column="0" Text="Atma of the Scorpion"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="11"    Grid.Column="0" Text="Atma of the Archer"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="12"    Grid.Column="0" Text="Atma of the Goat"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="13"    Grid.Column="0" Text="Atma of the Maiden"/>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="0" Text="Atma of the Lion"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="1" Text="Outer La Noscea"/>
 
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="2"    Grid.Column="1" Text="Outer La Noscea"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="3"    Grid.Column="1" Text="Upper La Noscea"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="4"    Grid.Column="1" Text="Middle La Noscea"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="5"    Grid.Column="1" Text="Western La Noscea"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="6"    Grid.Column="1" Text="Lower La Noscea"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="7"    Grid.Column="1" Text="Eastern Thanalan"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="8"    Grid.Column="1" Text="Central Thanalan"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="9"    Grid.Column="1" Text="Western Thanalan"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="10"   Grid.Column="1" Text="Southern Thanalan"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="11"   Grid.Column="1" Text="North Shroud"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="12"   Grid.Column="1" Text="East Shroud"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Row="13"   Grid.Column="1" Text="Central Shroud"/>
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"     Grid.Column="0" Text="Atma of the Water-bearer"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"     Grid.Column="1" Text="Upper La Noscea"/>
 
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="0" Text="Atma of the Ram"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="1" Text="Middle La Noscea"/>
+
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="5" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Column="0" Text="Atma of the Crab"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Column="1" Text="Western La Noscea"/>
+
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="6" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"   Grid.Column="0" Text="Atma of the Fish"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"   Grid.Column="1" Text="Lower La Noscea"/>
+
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="7" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"   Grid.Column="0" Text="Atma of the Bull"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"   Grid.Column="1" Text="Eastern Thanalan"/>
+
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="8" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="0" Text="Atma of the Scales"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="1" Text="Central Thanalan"/>
+
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="9" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"      Grid.Column="0" Text="Atma of the Twins"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"      Grid.Column="1" Text="Western Thanalan"/>
+
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="10" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"     Grid.Column="0" Text="Atma of the Scorpion"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="1" Text="Southern Thanalan"/>
+
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="11" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}"   Grid.Column="0" Text="Atma of the Archer"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"  Grid.Column="1" Text="North Shroud"/>
+
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="12" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Style="{StaticResource BaseTextBlock}"   Grid.Column="1" Text="East Shroud"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="0" Text="Atma of the Goat"/>
+            </Grid>
+        </Border>
+        <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="13" Style="{StaticResource GoldBorder}">
+            <Grid >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Column="0" Text="Atma of tshe Maiden"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Column="1" Text="Central Shroud"/>
+
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

@@ -30,11 +30,7 @@
             <Button Style="{StaticResource FFXIVButton}" x:Name="addBtn"     Content="Add Character"     Command="{Binding AddCommand}"/>
             <Button Style="{StaticResource FFXIVButton}" x:Name="removeBtn"  Content="Remove Character"  Command="{Binding   Path=RemoveCommand}"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal">
-            <TextBlock Style="{StaticResource BaseTextBlock}"  Text="Display ARR?"  Margin="0,0,10,0"/>
 
-            <CheckBox   Grid.Column="1" IsChecked="{Binding Path=SelectedCharacter.TrackARR, Mode=TwoWay}"/>
-        </StackPanel>
         <Grid   Width="auto">
             <Grid.RowDefinitions>
                 <RowDefinition/>

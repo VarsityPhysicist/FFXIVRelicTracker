@@ -24,19 +24,13 @@ namespace FFXIVRelicTracker.ViewModels
 
         public MainMenuViewModel()
         {
-            AddCharacter("bustin", "default");
+            AddCharacter("Default Name", "Default Server");
         }
 
         public MainMenuViewModel(IEventAggregator _eventAggregator)
         {
             this._eventAggregator = _eventAggregator;
-            AddCharacter("bustin", "Gilgamesh");
 
-            //this.LoadObject();
-
-
-            //Currently, selecting the character in this way does not allow subscribed events to recieve SelecteCharacter
-            //this.SelectedCharacter = CharacterList[0];
         }
 
         private Character selectedCharacter;
