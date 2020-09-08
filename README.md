@@ -8,8 +8,11 @@ This is my first programming project and I didn't look into basing it on any spe
 Currently the following expansions are included in this: ARR
 
 To use the application, download the files and run FFXIVRelicTracker.exe
+  
   The main window can be dragged around from the top bar and can be expanded or shrunk by clicking and dragging from the bottom right corner.
+  
   Create a character via the add character button. Click the save button on the main menu at any time to save the current progression of all characters that have been added.
+  
   Once a character is selected via the dropdown, the options on the right of the window will allow viewing of the character's progression through different expansion's relics
   
   ARR Progression:
