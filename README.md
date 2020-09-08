@@ -1,6 +1,8 @@
 # FFXIVRelicTracker
 This is a project for tracking Relic weapon progression in FFXIV. Each expansion of FXIV adds a new relic wepon with different tasks required to unlock them.
 
+Release is here: https://github.com/VarsityPhysicist/FFXIVRelicTracker/releases/tag/v1.0
+
 Currently the following expansions are included in this: ARR
 
 To use the application, download the files and run FFXIVRelicTracker.exe
