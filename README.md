@@ -70,3 +70,7 @@ To use the application, download the files and run FFXIVRelicTracker.exe
           (I think) 80 light 12 times
           
 Don't forget to save progress before closing the application!
+
+Known bugs:
+  Un-completing stages from the summary view does not update the individual stage drop down selection for selecting available jobs
+    -save and reload to refresh this
