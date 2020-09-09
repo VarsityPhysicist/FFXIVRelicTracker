@@ -487,7 +487,7 @@ namespace FFXIVRelicTracker.ARR.Animus
             Fate3.Completed.Bool = false;
         }
 
-        private void LoadAvailableJobs()
+        public void LoadAvailableJobs()
         {
             AvailableAnimusJobs = new ObservableCollection<string>();
             {

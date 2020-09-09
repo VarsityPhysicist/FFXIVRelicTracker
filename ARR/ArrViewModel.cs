@@ -122,6 +122,8 @@ namespace FFXIVRelicTracker.ViewModels
                 if (_currentPageViewModel != value)
                 {
                     _currentPageViewModel = value;
+
+
                     OnPropertyChanged("CurrentPageViewModel");
                 }
             }
@@ -136,8 +138,14 @@ namespace FFXIVRelicTracker.ViewModels
             if (!PageViewModels.Contains(viewModel))
                 PageViewModels.Add(viewModel);
 
+            viewModel.LoadAvailableJobs();
+
             CurrentPageViewModel = PageViewModels
                 .FirstOrDefault(vm => vm == viewModel);
+        }
+
+        public void LoadAvailableJobs()
+        {
         }
 
         #endregion

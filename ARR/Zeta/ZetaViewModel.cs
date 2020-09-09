@@ -300,7 +300,7 @@ namespace FFXIVRelicTracker.ARR.Zeta
                 _ => "No Sense",
             };
         }
-        private void LoadAvailableJobs()
+        public void LoadAvailableJobs()
         {
             AvailableZetaJobs = new ObservableCollection<string>();
             {

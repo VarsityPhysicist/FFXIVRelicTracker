@@ -273,6 +273,10 @@ namespace FFXIVRelicTracker.ViewModels
             jsonString = JsonSerializer.Serialize(CharacterList);
             File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Characters.txt", jsonString);
         }
+
+        public void LoadAvailableJobs()
+        {
+        }
         #endregion
     }
 }

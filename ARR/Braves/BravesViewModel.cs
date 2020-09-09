@@ -213,7 +213,7 @@ namespace FFXIVRelicTracker.ARR.Braves
             FifthQuest = false;
         }
 
-        private void LoadAvailableJobs()
+        public void LoadAvailableJobs()
         {
             AvailableBravesJobs = new ObservableCollection<string>();
             {

@@ -86,6 +86,10 @@ namespace FFXIVRelicTracker.ARR.Summary
 
         }
 
+        public void LoadAvailableJobs()
+        {
+        }
+
         #endregion
     }
 }

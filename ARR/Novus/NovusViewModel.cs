@@ -761,7 +761,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             BattledanceCount = 0;
         }
 
-        private void LoadAvailableJobs()
+        public void LoadAvailableJobs()
         {
             AvailableNovusJobs = new ObservableCollection<string>();
             {

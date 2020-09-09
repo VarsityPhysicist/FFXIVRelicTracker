@@ -178,7 +178,7 @@ namespace FFXIVRelicTracker.ARR.Nexus
                 _ => "No Activity",
             };
         }
-        private void LoadAvailableJobs()
+        public void LoadAvailableJobs()
         {
             AvailableNexusJobs = new ObservableCollection<string>();
             {

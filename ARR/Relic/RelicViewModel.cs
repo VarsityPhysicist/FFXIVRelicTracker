@@ -219,7 +219,7 @@ namespace FFXIVRelicTracker.ARR.Relic
             }
         }
 
-        private void LoadAvailableJobs()
+        public void LoadAvailableJobs()
         {
             AvailableRelicJobs=new ObservableCollection<string>();
             {
@@ -262,8 +262,7 @@ namespace FFXIVRelicTracker.ARR.Relic
 
             ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Relic, true);
 
-            AvailableRelicJobs.RemoveAt(RelicIndex);
-            RelicIndex = 0;
+            AvailableRelicJobs.Remove(CurrentRelic);
         }
         #endregion
 
