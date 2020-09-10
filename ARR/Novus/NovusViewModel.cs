@@ -79,10 +79,10 @@ namespace FFXIVRelicTracker.ARR.Novus
         }
         public ObservableCollection<string> AvailableNovusJobs
         {
-            get { return availableNovusJobs; }
+            get { return novusModel.AvailableNovusJobs; }
             set
             {
-                availableNovusJobs = value;
+                novusModel.AvailableNovusJobs = value;
                 OnPropertyChanged(nameof(AvailableNovusJobs));
             }
         }
@@ -763,12 +763,16 @@ namespace FFXIVRelicTracker.ARR.Novus
 
         public void LoadAvailableJobs()
         {
-            if (availableNovusJobs == null) { availableNovusJobs = new ObservableCollection<string>(); }
+            if (AvailableNovusJobs == null) { AvailableNovusJobs = new ObservableCollection<string>(); }
             foreach (ArrJobs job in ArrWeapon.JobList)
             {
-                if (job.Novus.Progress != ArrProgress.States.Completed & !availableNovusJobs.Contains(job.Name))
+                if (job.Novus.Progress != ArrProgress.States.Completed & !AvailableNovusJobs.Contains(job.Name))
                 {
                     AvailableNovusJobs.Add(job.Name);
+                }
+                if (job.Novus.Progress == ArrProgress.States.Completed & AvailableNovusJobs.Contains(job.Name))
+                {
+                    AvailableNovusJobs.Remove(job.Name);
                 }
             }
         }
@@ -779,7 +783,6 @@ namespace FFXIVRelicTracker.ARR.Novus
         private ICommand _CompleteButton;
         private ICommand _IncrementButton;
         private ICommand _DecrementButton;
-        private ObservableCollection<string> availableNovusJobs;
         public ICommand IncrementButton
         {
             get

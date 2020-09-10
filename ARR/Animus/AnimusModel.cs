@@ -100,8 +100,8 @@ namespace FFXIVRelicTracker.ARR.Animus
         public AnimusObject DisplayCreature2{ get; set;}
         public AnimusObject DisplayCreature3{ get; set;}
 
-        public string CurrentBook;
-        public string CurrentAnimus;
+        public string CurrentBook { get; set; }
+        public string CurrentAnimus { get; set; }
 
 
         public ObservableCollection<string> animusBooks = new ObservableCollection<string>

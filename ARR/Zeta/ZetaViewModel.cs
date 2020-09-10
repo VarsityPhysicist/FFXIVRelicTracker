@@ -18,8 +18,6 @@ namespace FFXIVRelicTracker.ARR.Zeta
         private ZetaModel zetaModel;
         private Character selectedCharacter;
         private ArrWeapon arrWeapon;
-        private ObservableCollection<string> availableZetaJobs;
-
         public ZetaViewModel(IEventAggregator iEventAggregator)
         {
             this.iEventAggregator = iEventAggregator;
@@ -75,10 +73,10 @@ namespace FFXIVRelicTracker.ARR.Zeta
 
         public ObservableCollection<string> AvailableZetaJobs
         {
-            get { return availableZetaJobs; }
+            get { return zetaModel.AvailableZetaJobs; }
             set
             {
-                availableZetaJobs = value;
+                zetaModel.AvailableZetaJobs = value;
                 OnPropertyChanged(nameof(AvailableZetaJobs));
             }
         }
@@ -302,12 +300,16 @@ namespace FFXIVRelicTracker.ARR.Zeta
         }
         public void LoadAvailableJobs()
         {
-            if (availableZetaJobs == null) { availableZetaJobs = new ObservableCollection<string>(); }
+            if (AvailableZetaJobs == null) { AvailableZetaJobs = new ObservableCollection<string>(); }
             foreach (ArrJobs job in ArrWeapon.JobList)
             {
-                if (job.Zeta.Progress != ArrProgress.States.Completed & !availableZetaJobs.Contains(job.Name))
+                if (job.Zeta.Progress != ArrProgress.States.Completed & !AvailableZetaJobs.Contains(job.Name))
                 {
                     AvailableZetaJobs.Add(job.Name);
+                }
+                if (job.Zeta.Progress == ArrProgress.States.Completed & AvailableZetaJobs.Contains(job.Name))
+                {
+                    AvailableZetaJobs.Remove(job.Name);
                 }
             }
         }

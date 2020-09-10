@@ -1,6 +1,7 @@
 ﻿using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace FFXIVRelicTracker.ARR.Braves
@@ -21,5 +22,6 @@ namespace FFXIVRelicTracker.ARR.Braves
         public int RemainingGil{ get; set;}
         public int RemainingSeals{ get; set;}
         public int RemainingPoetics{ get; set;}
+        public ObservableCollection<string> AvailableBravesJobs { get; internal set; }
     }
 }

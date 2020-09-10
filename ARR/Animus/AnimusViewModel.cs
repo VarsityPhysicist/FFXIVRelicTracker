@@ -54,6 +54,8 @@ namespace FFXIVRelicTracker.ARR.Animus
             iEventAggregator.GetEvent<PubSubEvent<ArrWeapon>>().Subscribe((details) => { this.ArrWeapon = details; });
         }
 
+        #region ViewModel Properties
+
         public string Name =>"Animus";
         public AnimusModel AnimusModel
         {
@@ -120,7 +122,6 @@ namespace FFXIVRelicTracker.ARR.Animus
             {
                 arrWeapon = value;
                 OnPropertyChanged(nameof(ArrWeapon));
-                LoadAvailableJobs();
             }
         }
 
@@ -212,6 +213,8 @@ namespace FFXIVRelicTracker.ARR.Animus
                 OnPropertyChanged(nameof(CurrentAnimus));
             }
         }
+
+        #endregion
 
         #region Animus Objects
 
@@ -495,6 +498,10 @@ namespace FFXIVRelicTracker.ARR.Animus
                 if ( job.Animus.Progress != ArrProgress.States.Completed & !AvailableAnimusJobs.Contains(job.Name))
                 {
                     AvailableAnimusJobs.Add(job.Name);
+                }
+                if (job.Animus.Progress == ArrProgress.States.Completed & AvailableAnimusJobs.Contains(job.Name))
+                {
+                    AvailableAnimusJobs.Remove(job.Name);
                 }
             }
         }

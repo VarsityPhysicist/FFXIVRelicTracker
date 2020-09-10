@@ -2,6 +2,7 @@
 using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace FFXIVRelicTracker.ARR.Zeta
@@ -24,6 +25,7 @@ namespace FFXIVRelicTracker.ARR.Zeta
         public BoolObject fishVisibility  { get; set;}
         public int CurrentLight{ get; set;}
         public string ZetaActivity{ get; set;}
+        public ObservableCollection<string> AvailableZetaJobs { get; internal set; }
 
         public ZetaModel()
         {

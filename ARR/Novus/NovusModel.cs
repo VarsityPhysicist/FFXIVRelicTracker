@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace FFXIVRelicTracker.ARR.Novus
@@ -54,5 +55,6 @@ namespace FFXIVRelicTracker.ARR.Novus
         public string WeaponName{ get; set;}
         public bool KnownWeapon{ get; set;}
         public bool ShowContent{ get; set;}
+        public ObservableCollection<string> AvailableNovusJobs { get; internal set; }
     }
 }

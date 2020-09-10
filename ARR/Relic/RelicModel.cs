@@ -51,18 +51,5 @@ namespace FFXIVRelicTracker.ARR.Relic
         public bool BeastMan2Complete { get; internal set; }
         public bool BeastMan3Complete { get; internal set; }
 
-        //public List<ArrProgress> JobRelics;
-        //public int RelicIndex;
-        //public string CurrentRelic;
-        //public string RelicDestination;
-        //public string RelicClassWeapon;
-        //public string RelicBeastmen1;
-        //public string RelicBeastmen2;
-        //public string RelicBeastmen3;
-        //public string RelicMap;
-        //public PointF RelicPoint;
-        //public string RelicMateria;
-        //public ObservableCollection<string> availableRelicJobs = new ObservableCollection<string>();
-
     }
 }

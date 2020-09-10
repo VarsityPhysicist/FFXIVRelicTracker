@@ -284,6 +284,10 @@ namespace FFXIVRelicTracker.ARR.Relic
                 {
                     AvailableRelicJobs.Add(job.Name);
                 }
+                if (job.Relic.Progress == ArrProgress.States.Completed & AvailableRelicJobs.Contains(job.Name))
+                {
+                    AvailableRelicJobs.Remove(job.Name);
+                }
             }
         }
         #endregion

@@ -17,7 +17,6 @@ namespace FFXIVRelicTracker.ARR.Nexus
         private ArrWeapon arrWeapon;
         private Character selectedCharacter;
         private NexusModel nexusModel;
-        private ObservableCollection<string> availableNexusJobs;
 
         public NexusViewModel(IEventAggregator iEventAggregator)
         {
@@ -74,10 +73,10 @@ namespace FFXIVRelicTracker.ARR.Nexus
 
         public ObservableCollection<string> AvailableNexusJobs
         {
-            get { return availableNexusJobs; }
+            get { return NexusModel.AvailableNexusJobs; }
             set
             {
-                availableNexusJobs = value;
+                NexusModel.AvailableNexusJobs = value;
                 OnPropertyChanged(nameof(AvailableNexusJobs));
             }
         }
@@ -180,12 +179,16 @@ namespace FFXIVRelicTracker.ARR.Nexus
         }
         public void LoadAvailableJobs()
         {
-            if (availableNexusJobs == null) { availableNexusJobs = new ObservableCollection<string>(); }
+            if (AvailableNexusJobs == null) { AvailableNexusJobs = new ObservableCollection<string>(); }
             foreach (ArrJobs job in ArrWeapon.JobList)
             {
-                if (job.Nexus.Progress != ArrProgress.States.Completed & !availableNexusJobs.Contains(job.Name))
+                if (job.Nexus.Progress != ArrProgress.States.Completed & !AvailableNexusJobs.Contains(job.Name))
                 {
                     AvailableNexusJobs.Add(job.Name);
+                }
+                if (job.Nexus.Progress == ArrProgress.States.Completed & AvailableNexusJobs.Contains(job.Name))
+                {
+                    AvailableNexusJobs.Remove(job.Name);
                 }
             }
         }

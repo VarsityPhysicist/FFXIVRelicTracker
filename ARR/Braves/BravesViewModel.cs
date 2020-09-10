@@ -16,7 +16,6 @@ namespace FFXIVRelicTracker.ARR.Braves
         private BravesModel bravesModel;
         private Character selectedCharacter;
         private ArrWeapon arrWeapon;
-        private ObservableCollection<string> availableBravesJobs;
 
         public BravesViewModel(IEventAggregator iEventAggregator)
         {
@@ -76,10 +75,10 @@ namespace FFXIVRelicTracker.ARR.Braves
 
         public ObservableCollection<string> AvailableBravesJobs
         {
-            get { return availableBravesJobs; }
+            get { return BravesModel.AvailableBravesJobs; }
             set
             {
-                availableBravesJobs = value;
+                BravesModel.AvailableBravesJobs = value;
                 OnPropertyChanged(nameof(AvailableBravesJobs));
             }
         }
@@ -215,12 +214,16 @@ namespace FFXIVRelicTracker.ARR.Braves
 
         public void LoadAvailableJobs()
         {
-            if (availableBravesJobs == null) { availableBravesJobs = new ObservableCollection<string>(); }
+            if (AvailableBravesJobs == null) { AvailableBravesJobs = new ObservableCollection<string>(); }
             foreach (ArrJobs job in ArrWeapon.JobList)
             {
-                if (job.Braves.Progress != ArrProgress.States.Completed & !availableBravesJobs.Contains(job.Name))
+                if (job.Braves.Progress != ArrProgress.States.Completed & !AvailableBravesJobs.Contains(job.Name))
                 {
                     AvailableBravesJobs.Add(job.Name);
+                }
+                if (job.Braves.Progress == ArrProgress.States.Completed & AvailableBravesJobs.Contains(job.Name))
+                {
+                    AvailableBravesJobs.Remove(job.Name);
                 }
             }
         }
