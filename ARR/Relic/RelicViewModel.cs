@@ -277,6 +277,7 @@ namespace FFXIVRelicTracker.ARR.Relic
         }
         public void LoadAvailableJobs()
         {
+            if (AvailableRelicJobs == null) { AvailableRelicJobs = new ObservableCollection<string>(); }
             foreach(ArrJobs job in arrWeapon.JobList)
             {
                 if (job.Relic.Progress != ArrProgress.States.Completed & !AvailableRelicJobs.Contains(job.Name))

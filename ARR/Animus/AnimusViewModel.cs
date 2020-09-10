@@ -489,6 +489,7 @@ namespace FFXIVRelicTracker.ARR.Animus
 
         public void LoadAvailableJobs()
         {
+            if (AvailableAnimusJobs == null) { AvailableAnimusJobs = new ObservableCollection<string>(); }
             foreach(ArrJobs job in ArrWeapon.JobList)
             {
                 if ( job.Animus.Progress != ArrProgress.States.Completed & !AvailableAnimusJobs.Contains(job.Name))
