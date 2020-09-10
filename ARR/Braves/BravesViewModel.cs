@@ -215,6 +215,7 @@ namespace FFXIVRelicTracker.ARR.Braves
 
         public void LoadAvailableJobs()
         {
+            if (availableBravesJobs == null) { availableBravesJobs = new ObservableCollection<string>(); }
             foreach (ArrJobs job in ArrWeapon.JobList)
             {
                 if (job.Braves.Progress != ArrProgress.States.Completed & !availableBravesJobs.Contains(job.Name))
