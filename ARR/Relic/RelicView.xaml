@@ -34,83 +34,254 @@
                 </Border>
             </StackPanel>
         <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible"  Visibility="{Binding Path=RelicVisibility}">
-            <StackPanel  MaxWidth="300" Visibility="{Binding Path=RelicVisibility}">
-                <Border>
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Stage 1: Broken Weapon"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"  x:Name="BrokenTravelDestination"    Text="{Binding  Path=RelicDestination}" Padding="10,0,0,0"/>
-                    </StackPanel>
+            <Grid Margin="0,10,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Padding="5" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Grid.Row=" 0" Style="{StaticResource LeftTextBlock}"  Text="Stage 1: Broken Weapon" 
+                                   TextDecorations="{Binding Stage1Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                        <TextBlock Grid.Column="1" Grid.Row=" 1" Style="{StaticResource LeftTextBlock}"  x:Name="BrokenTravelDestination"    
+                                   Text="{Binding  Path=RelicDestination}" Padding="10,0,0,0" TextDecorations="{Binding Stage1Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Stage1Complete}"/>
+                    </Grid>
                 </Border>
-                <Border>
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Stage 2: Class Weapon"/>
-                        <WrapPanel Orientation="Horizontal" Margin="10,0,0,0">
-                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Acquire a "  />
-                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding   Path=RelicClassWeapon}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text=" and meld three "/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding  Path=RelicMateria}"/>
+
+                <Border Grid.Row="1" Padding="5" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="Stage 2: Class Weapon"
+                                   TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+
+                        <WrapPanel Grid.Column="1"  Grid.Row="1" Orientation="Horizontal" Margin="10,0,0,0">
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Acquire a "  
+                                       TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding   Path=RelicClassWeapon}"
+                                       TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text=" and meld three "
+                                       TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding  Path=RelicMateria}"
+                                       TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
                         </WrapPanel>
-                    </StackPanel>
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Stage2Complete}"/>
+                    </Grid>
                 </Border>
-                <Border>
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 3: Alumina Salts"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"  Padding="10,0,0,0" Text="Complete A Relic Reborn: The Chimera to obtain Alumina Salts" TextWrapping="Wrap"/>
-                    </StackPanel>
+
+
+                <Border Grid.Row="3" Padding="5" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource LeftTextBlock}"  Text="Stage 3: Alumina Salts"
+                                   TextDecorations="{Binding Stage3Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource LeftTextBlock}"  Padding="10,0,0,0" Text="Complete A Relic Reborn: The Chimera to obtain Alumina Salts" 
+                                   TextDecorations="{Binding Stage3Complete,  Converter={StaticResource ConvertToStrikethrough}}" TextWrapping="Wrap"/>
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Stage3Complete}"/>
+                    </Grid>
                 </Border>
-                <Border>
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 4: Interview with the Padjal"/>
-                        <WrapPanel Orientation="Horizontal"  Margin="10,0,0,0">
-                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Complete Amdapor Keep as a "/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}"   Text="{Binding  Path=SelectedItem, ElementName=ArrRelicJob}"/>
+                <Border Grid.Row="4" Padding="5" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource LeftTextBlock}"  Text="Stage 4: Interview with the Padjal"
+                                   TextDecorations="{Binding Stage4Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                        <WrapPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal"  Margin="10,0,0,0">
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Complete Amdapor Keep as a "
+                                       TextDecorations="{Binding Stage4Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"   Text="{Binding  Path=SelectedItem, ElementName=ArrRelicJob}"
+                                       TextDecorations="{Binding Stage4Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
                         </WrapPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"   Padding="10,0,0,0" Text="(You may run this unsynced)" FontStyle="Italic"/>
-                </StackPanel>
+                        <TextBlock Grid.Column="1" Grid.Row="2" Style="{StaticResource LeftTextBlock}"   Padding="10,0,0,0" Text="(You may run this unsynced)" FontStyle="Italic"
+                                   TextDecorations="{Binding Stage4Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Stage4Complete}"/>
+                    </Grid>
                 </Border>
-                <Border>
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 5: Beastmen Hunt"/>
-                        <WrapPanel Orientation="Vertical" Margin="10,0,0,0">
-                            <TextBlock Style="{StaticResource LeftTextBlock}"   Text="Defeat 8 of the following beastmen:"/>
+
+                <Border Grid.Row="5" Padding="5" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource LeftTextBlock}"  Text="Stage 5: Beastmen Hunt"
+                                   TextDecorations="{Binding Stage5Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                        <WrapPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical" Margin="10,0,0,0">
+                            <TextBlock Style="{StaticResource LeftTextBlock}"   Text="Defeat 8 of the following beastmen:"
+                                       TextDecorations="{Binding Stage5Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition  Width="20"/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen1}"
+                                           TextDecorations="{Binding BeastMan1Binding,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                                <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen2}"
+                                           TextDecorations="{Binding BeastMan2Binding,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                                <TextBlock Grid.Column="1"  Grid.Row="2" Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen3}"
+                                           TextDecorations="{Binding BeastMan3Binding,  Converter={StaticResource ConvertToStrikethrough}}"/>
+
+                                <CheckBox Grid.Row="0" IsChecked="{Binding BeastMan1Complete}" />
+                                <CheckBox Grid.Row="1" IsChecked="{Binding BeastMan2Complete}"  />
+                                <CheckBox Grid.Row="2" IsChecked="{Binding BeastMan3Complete}"  />
+                            </Grid>
                             <StackPanel Margin="10,0,0,0">
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen1}"/>
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen2}"/>
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=RelicBeastmen3}"/>
+                                
                             </StackPanel>
                         </WrapPanel>
-                    </StackPanel>
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Stage5Complete}"/>
+                    </Grid>
                 </Border>
-                <Border>
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 6: Hydra"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"   Padding="10,0,0,0"  Text="With your Unfinished Relic equiped, complete A Relic Reborn: The Hydra" TextWrapping="Wrap"/>
-                    </StackPanel>
+
+
+                <Border Grid.Row="6" Padding="5" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource LeftTextBlock}"  Text="Stage 6: Hydra"
+                                   TextDecorations="{Binding Stage6Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1" Style="{StaticResource LeftTextBlock}"   Padding="10,0,0,0"  Text="With your Unfinished Relic equiped, complete A Relic Reborn: The Hydra" 
+                                   TextDecorations="{Binding Stage6Complete,  Converter={StaticResource ConvertToStrikethrough}}" TextWrapping="Wrap"/>
+
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Stage6Complete}"/>
+                    </Grid>
                 </Border>
-                <Border>
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"   Text="Stage 7: Primals"/>
-                        <WrapPanel  Orientation="Vertical"  Margin="10,0,0,0">
-                            <WrapPanel Orientation="Horizontal">
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="As a "/>
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding  Path=SelectedItem, ElementName=ArrRelicJob}"/>
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text=" defeat the following primals:" />
-                            </WrapPanel>
-                            <StackPanel Margin="10,0,0,0">
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Ifrit"/>
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Garuda"/>
-                                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Titan"/>
-                            </StackPanel>
+
+
+                <Border Grid.Row="7" Padding="5" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Grid.Row="0" Style="{StaticResource LeftTextBlock}"   Text="Stage 7: Primals"
+                                   TextDecorations="{Binding Stage7Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                        <WrapPanel Grid.Column="1" Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="As a "
+                                           TextDecorations="{Binding Stage7Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding  Path=SelectedItem, ElementName=ArrRelicJob}"
+                                           TextDecorations="{Binding Stage7Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text=" defeat the following primals:" 
+                                           TextDecorations="{Binding Stage7Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
                         </WrapPanel>
-                    </StackPanel>
+                        <Grid Grid.Column="1" Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="20" />
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <CheckBox Grid.Row="1"  />
+                            <CheckBox Grid.Row="2"  />
+                            <CheckBox Grid.Row="3"  />
+                            
+                            <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource LeftTextBlock}"  Text="Ifrit"
+                                           TextDecorations="{Binding IfritBinding,  Converter={StaticResource ConvertToStrikethrough}}"/>
+
+                            <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource LeftTextBlock}"  Text="Garuda"
+                                           TextDecorations="{Binding GarudaBinding,   Converter={StaticResource ConvertToStrikethrough}}"/>
+                            <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource LeftTextBlock}"  Text="Titan"
+                                           TextDecorations="{Binding ShivaBinding,  Converter={StaticResource ConvertToStrikethrough}}"/>
+
+                            <CheckBox Grid.Row="1" IsChecked="{Binding IfritComplete}" />
+                            <CheckBox Grid.Row="2" IsChecked="{Binding GarudaComplete}"  />
+                            <CheckBox Grid.Row="3" IsChecked="{Binding ShivaComplete}"  />
+                        </Grid>
+                        
+                        
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Stage7Complete}"/>
+                    </Grid>
                 </Border>
-                <Border>
-                    <StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Stage 8:Radz-at-Han Quenching Oil"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}"  Padding="10,0,0,0" Text="Exchange 15 Allagan Tomestones of Poetics for one Radz-at-Han Quenching Oil from Auriana in MorDhona" TextWrapping="Wrap"/>
-                    </StackPanel>
+
+                <Border Grid.Row="8" Padding="5" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Column="1" Grid.Row="0"  Style="{StaticResource LeftTextBlock}"  Text="Stage 8:Radz-at-Han Quenching Oil"
+                                    TextDecorations="{Binding Stage8Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
+                        <TextBlock Grid.Column="1" Grid.Row="1"  Style="{StaticResource LeftTextBlock}"  Padding="10,0,0,0" 
+                                    Text="Exchange 15 Allagan Tomestones of Poetics for one Radz-at-Han Quenching Oil from Auriana in MorDhona" 
+                                    TextDecorations="{Binding Stage8Complete,  Converter={StaticResource ConvertToStrikethrough}}" TextWrapping="Wrap"/>
+                        <CheckBox Grid.Column="0" IsChecked="{Binding Stage8Complete}"/>
+                    </Grid>
                 </Border>
-            </StackPanel>
+
+                
+            </Grid>
+
         </ScrollViewer>
         <Viewbox    Grid.RowSpan="2"   Grid.Column="1" VerticalAlignment="Top"   MaxWidth="800" HorizontalAlignment="Left">
                 <Canvas  Height="300" Width="300"       x:Name="ArrBrokenMapCanvas" Visibility="{Binding Path=RelicVisibility}">
