@@ -1,7 +1,7 @@
 # FFXIVRelicTracker
 This is a project for tracking Relic weapon progression in FFXIV. Each expansion of FXIV adds a new relic wepon with different tasks required to unlock them.
 
-Release is here: https://github.com/VarsityPhysicist/FFXIVRelicTracker/releases/tag/v1.0
+Current release is here: https://github.com/VarsityPhysicist/FFXIVRelicTracker/releases/tag/v1.1
 
 This is my first programming project and I didn't look into basing it on any specific version of Microsoft's .NET Core runtime, so unfortunately the latest version is required - you can download it here:https://dotnet.microsoft.com/download
 
@@ -29,6 +29,10 @@ To use the application, download the files and run FFXIVRelicTracker.exe
       Select a job via the dropdown box and the steps required for completion will display on the left and an 
         image will display showing the appropriate step's location to go to, since some point of the progression requires slaying of some creatures
       Clicking the mark completed button updates the job to have completed the Relic stage and this is updated in the Summary Tab
+      Checkboxes will strike through the text they are associated with
+      
+    Zenith Tab:
+      There is no zenith tab, the stage requires 3 Thavnairian Mist and you're done
       
     Atma Tab:
       This tab is used to show where to get specific atma and how many are required for completing all remaining jobs
@@ -56,7 +60,6 @@ To use the application, download the files and run FFXIVRelicTracker.exe
       Collecting light is done by completing tasks with the weapon equipped; varying tasks give different levels of light, 
         but its most time effecient to run Tam-Tara Deepcroft since it only takes a few minutes to complete and is easiliy solo-able at level cap
       Click buttons to add the amount of "light" to the total or type in the current total if it is known
-       -2000 light is needed, this was mistakenly not included
      
      Zodiac Braves Tab:
       This tab is used for displaying the progress on completing the required quests for this stage
@@ -67,10 +70,6 @@ To use the application, download the files and run FFXIVRelicTracker.exe
       Zodiac Zeta Tab:
         This tab is used for displaying the progress on "collecting light" for the target weapon like the Nexus stage
         This stage is similar to the Nexus stage, except instead of collecting 2000 light at onces, you collect
-          (I think) 80 light 12 times
+          40 light 12 times
           
 Don't forget to save progress before closing the application!
-
-Known bugs:
-  Un-completing stages from the summary view does not update the individual stage drop down selection for selecting available jobs
-    -save and reload to refresh this
