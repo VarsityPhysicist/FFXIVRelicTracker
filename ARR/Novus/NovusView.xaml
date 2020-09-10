@@ -29,12 +29,19 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <StackPanel>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quest: Celestial Radiance | Started by: Jalzahn"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Purchase three bottles of Superior Enchanted Ink for 75 total Poetics"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Exchange bottles for a Sphere Scroll from Hubairtin"/>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" />
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infuse Sphere Scroll(s) with 75 materia total"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion may fail and destroy materia at advanced levels"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion failing does not destroy alexandrite"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions may be spread across five separate stats"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions start at Tier I materia"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="As more infusions in a stat are completed, the required materia tier increases"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Note: Individual materia caps are only included for PLD, DRG"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}"/>
                 </StackPanel>
                 <Grid Grid.Row="1">

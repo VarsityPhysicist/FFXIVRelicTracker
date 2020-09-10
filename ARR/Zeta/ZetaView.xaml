@@ -15,45 +15,49 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto"  ScrollViewer.VerticalScrollBarVisibility="Auto">
-         <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
+    <ScrollViewer Margin="10,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto"  ScrollViewer.VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Horizontal">
-            <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Active Zodiac Braves:"/>
-            <ComboBox   x:Name="ArrRelicJob"
-                                            ItemsSource="{Binding   Path=AvailableZetaJobs}" 
-                                            SelectedItem="{Binding Path=CurrentZeta}"
-                                />
-            <Border HorizontalAlignment="Center">
-                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentZeta}"/>
-            </Border>
-        </StackPanel>
-        
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Horizontal">
+                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Active Zodiac Braves:"/>
+                <ComboBox   x:Name="ArrRelicJob"
+                                                ItemsSource="{Binding   Path=AvailableZetaJobs}" 
+                                                SelectedItem="{Binding Path=CurrentZeta}"
+                                    />
+                <Border HorizontalAlignment="Center">
+                    <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentZeta}"/>
+                </Border>
+            </StackPanel>
+
             <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quest: The Vital Title | Started by: Jalzahn"/>
+
                 <TextBlock Style="{StaticResource LeftTextBlock}" Text="Complete each of the 12 following Mahatma by completing ARR Content"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Mahatma are purchased for 50 Poetics each from Remon in Swiftperch"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Collect 40 Light to compelete each Mahatma"/>
                 <TextBlock Style="{StaticResource LeftTextBlock}" Margin="5,0,0,0" Text="The current weapon only needs to be equipped for the last boss"/>
                 <TextBlock Style="{StaticResource LeftTextBlock}" Margin="5,0,0,0" Text="Content my be completed unsynced"/>
             </StackPanel>
@@ -111,31 +115,31 @@
             </StackPanel>
 
             <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="3" Style="{StaticResource LeftTextBlock}" Text="Current Light:"/>
-        
+
             <StackPanel Grid.Row="1" Grid.Column="4" Orientation="Horizontal">
                 <TextBox MinWidth="50" Text="{Binding CurrentLightString}" Margin="0,0,5,0"
-                             helpers:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
-                             Style="{StaticResource BaseTextBox}" />
+                                 helpers:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
+                                 Style="{StaticResource BaseTextBox}" />
                 <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding LightError}"/>
             </StackPanel>
 
             <TextBlock Grid.Column="3" Grid.Row="2" Style="{StaticResource RightTextBlock}" Text="Feeble Light: "/>
-            <TextBlock Grid.Column="3" Grid.Row="3" Style="{StaticResource RightTextBlock}" Text="Gentle Light: "/>
-            <TextBlock Grid.Column="3" Grid.Row="4" Style="{StaticResource RightTextBlock}" Text="Bright Light: "/>
-            <TextBlock Grid.Column="3" Grid.Row="5" Style="{StaticResource RightTextBlock}" Text="Brilliant Light: "/>
-            <TextBlock Grid.Column="3" Grid.Row="6" Style="{StaticResource RightTextBlock}" Text="Blinding Light: "/>
-            <TextBlock Grid.Column="3" Grid.Row="7" Style="{StaticResource RightTextBlock}" Text="Newborn Star: "/>
+            <TextBlock Grid.Column="3" Grid.Row="3" Style="{StaticResource RightTextBlock}" Text="Faint Light: "/>
+            <TextBlock Grid.Column="3" Grid.Row="4" Style="{StaticResource RightTextBlock}" Text="Gentle Light: "/>
+            <TextBlock Grid.Column="3" Grid.Row="5" Style="{StaticResource RightTextBlock}" Text="Steady Light: "/>
+            <TextBlock Grid.Column="3" Grid.Row="6" Style="{StaticResource RightTextBlock}" Text="Forceful Light: "/>
+            <TextBlock Grid.Column="3" Grid.Row="7" Style="{StaticResource RightTextBlock}" Text="Nigh Sings: "/>
 
-            <Button Grid.Row="2" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="4 points" CommandParameter="8"/>
-            <Button Grid.Row="3" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="8 points" CommandParameter="16"/>
-            <Button Grid.Row="4" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="16 points" CommandParameter="32"/>
-            <Button Grid.Row="5" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="24 points" CommandParameter="48"/>
-            <Button Grid.Row="6" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="48 points" CommandParameter="96"/>
-            <Button Grid.Row="7" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="64 points" CommandParameter="128"/>
+            <Button Grid.Row="2" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="4 points" CommandParameter="4"/>
+            <Button Grid.Row="3" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="8 points" CommandParameter="8"/>
+            <Button Grid.Row="4" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="16 points" CommandParameter="16"/>
+            <Button Grid.Row="5" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="24 points" CommandParameter="24"/>
+            <Button Grid.Row="6" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="48 points" CommandParameter="48"/>
+            <Button Grid.Row="7" Grid.Column="4" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="64 points" CommandParameter="64"/>
 
             <TextBlock Grid.Column="3"  Style="{StaticResource LeftTextBlock}" Grid.Row="9" Grid.ColumnSpan="3" Text="Reccomendation: Run 'Sastasha' (Steady Light) 2 times for each Mahatma"/>
 
-    </Grid>
+        </Grid>
     </ScrollViewer>
    
 </UserControl>

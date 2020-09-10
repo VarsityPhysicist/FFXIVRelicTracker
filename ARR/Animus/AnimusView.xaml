@@ -15,10 +15,11 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="10,0,0,0">
         <ScrollViewer VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto">
             <Grid VerticalAlignment="Top" >
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -39,7 +40,11 @@
                         <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentAnimus}"/>
                     </Border>
                 </StackPanel>
-                <Grid   Grid.Row="1">
+
+                <TextBlock Grid.Row="1" Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Quest: Trials of the Braves | Started by: Jalzahn"/>
+
+
+                <Grid   Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition  Width="auto" />
                         <ColumnDefinition   Width="auto"/>
@@ -56,39 +61,47 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Complete the following Zodiac Braves Books"   Grid.ColumnSpan="10"/>
+                    <TextBlock Margin="5,0,0,0" Grid.Row="1" Style="{StaticResource LeftTextBlock}"  
+                               Text="Purchase books from G'jusana in Mor Dhona for 100 Poetics each"   Grid.ColumnSpan="10"/>
+                    <TextBlock Margin="5,0,0,0" Grid.Row="2" Style="{StaticResource LeftTextBlock}"  
+                               Text="One book may be active at a time"   Grid.ColumnSpan="10"/>
 
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1"    Grid.Column="0" Text="Book of Skyfire I"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2"    Grid.Column="0" Text="Book of Skyfire II"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3"    Grid.Column="0" Text="Book of Skyfall I"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4"    Grid.Column="0" Text="Book of Skyfall II"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5"    Grid.Column="0" Text="Book of Netherfire I"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6"    Grid.Column="0" Text="Book of Netherfall I"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="7"    Grid.Column="0" Text="Book of Skywind I"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="8"    Grid.Column="0" Text="Book of Skyearth I"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="3"     Grid.Column="0" Text="Book of Skyfire I"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="4"     Grid.Column="0" Text="Book of Skyfire II"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="5"     Grid.Column="0" Text="Book of Skyfall I"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="6"     Grid.Column="0" Text="Book of Skyfall II"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="7"     Grid.Column="0" Text="Book of Netherfire I"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="8"     Grid.Column="0" Text="Book of Netherfall I"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="9"     Grid.Column="0" Text="Book of Skywind I"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="10"    Grid.Column="0" Text="Book of Skyearth I"/>
 
-                    <CheckBox Grid.Row="1"    Grid.Column="1" IsChecked="{Binding Path=SkyFire1Book   }"/>
-                    <CheckBox Grid.Row="2"    Grid.Column="1" IsChecked="{Binding Path=SkyFire2Book   }"/>
-                    <CheckBox Grid.Row="3"    Grid.Column="1" IsChecked="{Binding Path=SkyFall1Book   }"/>
-                    <CheckBox Grid.Row="4"    Grid.Column="1" IsChecked="{Binding Path=SkyFall2Book   }"/>
-                    <CheckBox Grid.Row="5"    Grid.Column="1" IsChecked="{Binding Path=NetherFire1Book}"/>
-                    <CheckBox Grid.Row="6"    Grid.Column="1" IsChecked="{Binding Path=NetherFall1Book}"/>
-                    <CheckBox Grid.Row="7"    Grid.Column="1" IsChecked="{Binding Path=SkyWind1Book   }"/>
-                    <CheckBox Grid.Row="8"    Grid.Column="1" IsChecked="{Binding Path=SkyEarth1Book  }"/>
+                    <CheckBox Grid.Row="3"    Grid.Column="1" IsChecked="{Binding Path=SkyFire1Book   }"/>
+                    <CheckBox Grid.Row="4"    Grid.Column="1" IsChecked="{Binding Path=SkyFire2Book   }"/>
+                    <CheckBox Grid.Row="5"    Grid.Column="1" IsChecked="{Binding Path=SkyFall1Book   }"/>
+                    <CheckBox Grid.Row="6"    Grid.Column="1" IsChecked="{Binding Path=SkyFall2Book   }"/>
+                    <CheckBox Grid.Row="7"    Grid.Column="1" IsChecked="{Binding Path=NetherFire1Book}"/>
+                    <CheckBox Grid.Row="8"    Grid.Column="1" IsChecked="{Binding Path=NetherFall1Book}"/>
+                    <CheckBox Grid.Row="9"    Grid.Column="1" IsChecked="{Binding Path=SkyWind1Book   }"/>
+                    <CheckBox Grid.Row="10"    Grid.Column="1" IsChecked="{Binding Path=SkyEarth1Book  }"/>
 
+                    <TextBlock Grid.Row="11"/>
 
 
                 </Grid>
-                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Selected Book"/>
                     <ComboBox ItemsSource="{Binding Path=AnimusBooks}"
                                                   SelectedItem="{Binding CurrentBook, Mode=TwoWay}"
                                                   SelectedIndex="{Binding BookSelection}"/>
 
                 </StackPanel>
-                <StackPanel Grid.Row="3" Visibility="{Binding Path=ShowBookItems,Converter={StaticResource b2v}}">
+                <StackPanel Grid.Row="5" Visibility="{Binding Path=ShowBookItems,Converter={StaticResource b2v}}">
                     <Grid>
 
                         <Grid.ColumnDefinitions>
@@ -300,36 +313,70 @@
                             </Border>
                         </Border>
 
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2"   Margin="0,0,10,0" Grid.Row="0" Grid.Column="4" Text="Complete the following Dungeons:"/>
+                        <Border Style="{StaticResource GoldBorder}" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="3">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition Width="20"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2"    Grid.Row="0" Text="Complete the following Dungeons:"/>
+
+                                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" TextDecorations="{Binding Path=CompletedDungeon1, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Dungeon1}"/>
+                                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" TextDecorations="{Binding Path=CompletedDungeon2, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Dungeon2}"/>
+                                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" TextDecorations="{Binding Path=CompletedDungeon3, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Dungeon3}"/>
+
+                                <CheckBox  Grid.Row="1"    Grid.Column="1"   IsChecked="{Binding Path=CompletedDungeon1}"/>
+                                <CheckBox  Grid.Row="2"    Grid.Column="1"   IsChecked="{Binding Path=CompletedDungeon2}"/>
+                                <CheckBox  Grid.Row="3"    Grid.Column="1"   IsChecked="{Binding Path=CompletedDungeon3}"/>
+
+                                
+                            </Grid>
+                        </Border>
+
+                        <Border Style="{StaticResource GoldBorder}" Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="10">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Style="{StaticResource LeftTextBlock}" Margin="0,0,10,0" Text="Available Maps:"/>
+
+                                <helper:DataBoundRadioButton Grid.Row="1" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap1}"  Visibility="{Binding Path=PossibleVisibility1,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked1}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap1}" />
+                                <helper:DataBoundRadioButton Grid.Row="2" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap2}"  Visibility="{Binding Path=PossibleVisibility2,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked2}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap2}" />
+                                <helper:DataBoundRadioButton Grid.Row="3" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap3}"  Visibility="{Binding Path=PossibleVisibility3,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked3}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap3}" />
+                                <helper:DataBoundRadioButton Grid.Row="4" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap4}"  Visibility="{Binding Path=PossibleVisibility4,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked4}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap4}" />
+                                <helper:DataBoundRadioButton Grid.Row="5" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap5}"  Visibility="{Binding Path=PossibleVisibility5,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked5}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap5}" />
+                                <helper:DataBoundRadioButton Grid.Row="6" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap6}"  Visibility="{Binding Path=PossibleVisibility6,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked6}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap6}" />
+                                <helper:DataBoundRadioButton Grid.Row="7" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap7}"  Visibility="{Binding Path=PossibleVisibility7,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked7}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap7}" />
+                                <helper:DataBoundRadioButton Grid.Row="8" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap8}"  Visibility="{Binding Path=PossibleVisibility8,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked8}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap8}" />
+                                <helper:DataBoundRadioButton Grid.Row="9" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap9}"  Visibility="{Binding Path=PossibleVisibility9,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked9}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap9}" />
+                                <helper:DataBoundRadioButton Grid.Row="9" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap10}"  Visibility="{Binding Path=PossibleVisibility10,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked10}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap10}"/>
+
+                                
+                            </Grid>
+                        </Border>
+                       
 
 
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1"    Grid.Column="4" TextDecorations="{Binding Path=CompletedDungeon1, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Dungeon1}"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2"    Grid.Column="4" TextDecorations="{Binding Path=CompletedDungeon2, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Dungeon2}"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3"    Grid.Column="4" TextDecorations="{Binding Path=CompletedDungeon3, Converter={StaticResource ConvertToStrikethrough}}"  Text="{Binding Path=Dungeon3}"/>
-
-                        <CheckBox  Grid.Row="1"    Grid.Column="5"   IsChecked="{Binding Path=CompletedDungeon1}"/>
-                        <CheckBox  Grid.Row="2"    Grid.Column="5"   IsChecked="{Binding Path=CompletedDungeon2}"/>
-                        <CheckBox  Grid.Row="3"    Grid.Column="5"   IsChecked="{Binding Path=CompletedDungeon3}"/>
-
-
-
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2"   Margin="0,0,10,0" Grid.Row="10" Grid.Column="4" Text="Available Maps:"/>
-
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap1}"  Visibility="{Binding Path=PossibleVisibility1,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked1}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap1}"  Grid.Row="11"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap2}"  Visibility="{Binding Path=PossibleVisibility2,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked2}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap2}"  Grid.Row="12"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap3}"  Visibility="{Binding Path=PossibleVisibility3,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked3}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap3}"  Grid.Row="13"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap4}"  Visibility="{Binding Path=PossibleVisibility4,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked4}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap4}"  Grid.Row="14"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap5}"  Visibility="{Binding Path=PossibleVisibility5,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked5}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap5}"  Grid.Row="15"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap6}"  Visibility="{Binding Path=PossibleVisibility6,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked6}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap6}"  Grid.Row="16"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap7}"  Visibility="{Binding Path=PossibleVisibility7,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked7}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap7}"  Grid.Row="17"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap8}"  Visibility="{Binding Path=PossibleVisibility8,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked8}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap8}"  Grid.Row="18"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap9}"  Visibility="{Binding Path=PossibleVisibility9,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked9}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap9}"  Grid.Row="19"    Grid.Column="4" />
-                        <helper:DataBoundRadioButton Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap10}"  Visibility="{Binding Path=PossibleVisibility10,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked10}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap10}"  Grid.Row="20"    Grid.Column="4" />
 
                     </Grid>
 
                 </StackPanel>
-                <Canvas Grid.Column="1" Grid.RowSpan="10" Width="800"   x:Name="ArrAnimusCanvas" Visibility="{Binding Path=ShowBookItems,Converter={StaticResource b2v}}">
+                <Canvas Margin="10,0,0,0" Grid.Column="1" Grid.RowSpan="10" Width="800"   x:Name="ArrAnimusCanvas" Visibility="{Binding Path=ShowBookItems,Converter={StaticResource b2v}}">
                     <Canvas.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Template">

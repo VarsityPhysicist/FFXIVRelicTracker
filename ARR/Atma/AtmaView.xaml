@@ -14,7 +14,8 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid>
+    <ScrollViewer Margin="10,0,0,0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition   Width="auto"/>
             <ColumnDefinition   Width="auto"/>
@@ -36,20 +37,22 @@
             <RowDefinition  Height="auto"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.ColumnSpan="10">
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Acquire the following Atma from the listed locations"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}"  Margin="10,0,0,0"   TextWrapping="Wrap"     Text="Atma are acquired from completing FATE's with a Zenith weapon equipped"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}"  Margin="10,0,0,0"   TextWrapping="Wrap"     Text="Any job may be used to acquire Atma"/>
-            <TextBlock/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Total of each Atma required for all remaining jobs:"/>
-                <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=NeededAtmas}"/>
-            </StackPanel>
-            <TextBlock/>
-        </StackPanel>
+            <StackPanel Grid.ColumnSpan="10">
+                <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Quest: Up in Arms | Started by: Gerolt"/>
 
-        <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="0" Text="Atma:"/>
-        <TextBlock Style="{StaticResource BaseTextBlock}"    Grid.Column="1" Text="Area:"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Atma are acquired from completing ARR FATE's with a Zenith weapon equipped"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Any job may be used to acquire Atma"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="After collecting 1 of each atma below, speak with Jalzahn to receive an Atma weapon"/>
+                <TextBlock/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Total of each Atma required for all remaining jobs:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=NeededAtmas}"/>
+                </StackPanel>
+                <TextBlock/>
+            </StackPanel>
+
+            <TextBlock Grid.Row="1" Style="{StaticResource BaseTextBlock}"    Grid.Column="0" Text="Atma:"/>
+        <TextBlock Grid.Row="1" Style="{StaticResource BaseTextBlock}"    Grid.Column="1" Text="Area:"/>
 
         <Border Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Style="{StaticResource GoldBorder}">
             <Grid >
@@ -184,4 +187,6 @@
             </Grid>
         </Border>
     </Grid>
+    </ScrollViewer>
+    
 </UserControl>

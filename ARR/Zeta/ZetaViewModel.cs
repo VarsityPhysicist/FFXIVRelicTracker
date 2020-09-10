@@ -302,15 +302,11 @@ namespace FFXIVRelicTracker.ARR.Zeta
         }
         public void LoadAvailableJobs()
         {
-            AvailableZetaJobs = new ObservableCollection<string>();
+            foreach (ArrJobs job in ArrWeapon.JobList)
             {
-
-                foreach (ArrJobs job in ArrWeapon.JobList)
+                if (job.Zeta.Progress != ArrProgress.States.Completed & !availableZetaJobs.Contains(job.Name))
                 {
-                    if (job.Zeta.Progress != ArrProgress.States.Completed)
-                    {
-                        AvailableZetaJobs.Add(job.Name);
-                    }
+                    AvailableZetaJobs.Add(job.Name);
                 }
             }
         }

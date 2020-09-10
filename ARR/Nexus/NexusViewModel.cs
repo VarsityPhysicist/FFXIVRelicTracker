@@ -180,15 +180,11 @@ namespace FFXIVRelicTracker.ARR.Nexus
         }
         public void LoadAvailableJobs()
         {
-            AvailableNexusJobs = new ObservableCollection<string>();
+            foreach (ArrJobs job in ArrWeapon.JobList)
             {
-
-                foreach (ArrJobs job in ArrWeapon.JobList)
+                if (job.Nexus.Progress != ArrProgress.States.Completed & !availableNexusJobs.Contains(job.Name))
                 {
-                    if (job.Nexus.Progress != ArrProgress.States.Completed)
-                    {
-                        AvailableNexusJobs.Add(job.Name);
-                    }
+                    AvailableNexusJobs.Add(job.Name);
                 }
             }
         }

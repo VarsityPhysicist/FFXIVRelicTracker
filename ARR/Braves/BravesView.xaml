@@ -13,7 +13,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="10,0,0,0">
         <ScrollViewer   HorizontalScrollBarVisibility="Auto"    VerticalScrollBarVisibility="Auto">
             <Grid >
                 <Grid.ColumnDefinitions>
@@ -50,20 +50,45 @@
                     </Border>
                 </StackPanel>
 
+                <Border Grid.Column="5" Grid.RowSpan="3"  Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Remaining Gil:" Margin="0,0,5,0"/>
+                        <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource RightTextBlock}" Text="{Binding RemainingGil, StringFormat='{}{0:N0}'}"/>
+
+                        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Remaining Seals:" Margin="0,0,5,0"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource RightTextBlock}" Text="{Binding RemainingSeals, StringFormat='{}{0:N0}'}"/>
+
+                        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Remaining Poetics:" Margin="0,0,5,0"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource RightTextBlock}" Text="{Binding RemainingPoetics, StringFormat='{}{0:N0}'}"/>
+                        
+                    </Grid>
+                </Border>
                 <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="5">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Gil:" Margin="0,0,5,0"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemainingGil, StringFormat='{}{0:N0}'}"/>
+                    
+                    
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="5">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Seals:" Margin="0,0,5,0"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemainingSeals, StringFormat='{}{0:N0}'}"/>
+                   
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="5">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Poetics:" Margin="0,0,5,0"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemainingPoetics, StringFormat='{}{0:N0}'}"/>
+                    
                 </StackPanel>
 
-                <TextBlock Grid.Row="1" Style="{StaticResource LeftTextBlock}"  Text="Complete the following quests:"/>
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="2">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quest: Wherefore Art Thou, Zodiac | Started by: Jalzahn"/>
+                    <TextBlock Grid.Row="1" Style="{StaticResource LeftTextBlock}"  Text="Complete the following quests:"/>
+                </StackPanel>
+                
 
                 <Border Grid.Column="0" Grid.Row="4" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>
                 <Border Grid.Column="0" Grid.Row="5" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>

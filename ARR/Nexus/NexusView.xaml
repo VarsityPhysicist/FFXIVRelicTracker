@@ -14,7 +14,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid>
+    <Grid Margin="10,0,0,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -43,7 +43,9 @@
             </Border>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+            <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Quest: Mmmmmm, Soulglazed Relics | Started by: Jalzahn"/>
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Complete ARR activities (unsynced acceptable) with Soulglazed Weapon equipped to earn Light"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="A total of 2000 Light is required to complete a weapon"/>
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Every two hours, one random light giving event (Dungeon, Trial, etc.) gives additional Light until the next event is selected"/>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{StaticResource LeftTextBlock}" Text="Current Light:" Margin="0,0,5,0"/>

@@ -13,7 +13,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-        <Grid>
+        <Grid Margin="10,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto" />
                 <ColumnDefinition/>
@@ -46,8 +46,11 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-
                 <Border Grid.Row="0" Padding="5" Style="{StaticResource GoldBorder}">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Quest: A Relic Reborn | Started by: Gerolt"/>
+                </Border>
+
+                <Border Grid.Row="1" Padding="5" Style="{StaticResource GoldBorder}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>
@@ -66,7 +69,7 @@
                     </Grid>
                 </Border>
 
-                <Border Grid.Row="1" Padding="5" Style="{StaticResource GoldBorder}">
+                <Border Grid.Row="2" Padding="5" Style="{StaticResource GoldBorder}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="20"/>

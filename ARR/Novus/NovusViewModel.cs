@@ -763,15 +763,11 @@ namespace FFXIVRelicTracker.ARR.Novus
 
         public void LoadAvailableJobs()
         {
-            AvailableNovusJobs = new ObservableCollection<string>();
+            foreach (ArrJobs job in ArrWeapon.JobList)
             {
-
-                foreach (ArrJobs job in ArrWeapon.JobList)
+                if (job.Novus.Progress != ArrProgress.States.Completed & !availableNovusJobs.Contains(job.Name))
                 {
-                    if (job.Novus.Progress != ArrProgress.States.Completed)
-                    {
-                        AvailableNovusJobs.Add(job.Name);
-                    }
+                    AvailableNovusJobs.Add(job.Name);
                 }
             }
         }
