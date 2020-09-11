@@ -133,23 +133,7 @@ namespace FFXIVRelicTracker.ARR.Animus
                 if (value != null)
                 {
                     ShowBookItems = true;
-                    int bookInt = ArrInfo.ReferenceBooks.IndexOf(value);
-
-                    CreatureNames = ArrInfo.ReturnCreatureNames(bookInt);
-                    CreatureMaps = ArrInfo.ReturnCreatureMaps(bookInt);
-                    CreaturePoints = ArrInfo.ReturnCreaturePoints(bookInt);
-
-                    Dungeons = ArrInfo.ReturnBookDungeons(bookInt);
-
-                    FateNames = ArrInfo.ReturnFATENames(bookInt);
-                    FateMaps = ArrInfo.ReturnFATEMaps(bookInt);
-                    FatePoints = ArrInfo.ReturnFATEPoints(bookInt);
-
-                    LeveNames = ArrInfo.ReturnLeveNames(bookInt);
-                    LeveTypes = ArrInfo.ReturnLeveTypes(bookInt);
-                    LevePersons = ArrInfo.ReturnLevePersons(bookInt);
-                    LeveMaps = ArrInfo.ReturnLeveLocations(bookInt);
-                    LevePoints = ArrInfo.ReturnLevePoints(bookInt);
+                    ReadBooks();
 
                     if (animusModel.CurrentBook != null)
                     {
@@ -256,7 +240,7 @@ namespace FFXIVRelicTracker.ARR.Animus
         public bool CompletedDungeon2 { get { return animusModel.completedDungeon2; } set { animusModel.completedDungeon2 = value; OnPropertyChanged(nameof(CompletedDungeon2)); } }
         public bool CompletedDungeon3 { get { return animusModel.completedDungeon3; } set { animusModel.completedDungeon3 = value; OnPropertyChanged(nameof(CompletedDungeon3)); } }
 
-        public bool CreatureBool1 { get { return Creature1.Completed.Bool; } set { Creature1.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool1)); } }
+        public bool CreatureBool1 { get { return animusModel.Creature1.Completed.Bool; } set { animusModel.Creature1.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool1)); } }
         public bool CreatureBool2 { get { return Creature2.Completed.Bool; } set { Creature2.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool2)); } }
         public bool CreatureBool3 { get { return Creature3.Completed.Bool; } set { Creature3.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool3)); } }
         public bool CreatureBool4 { get { return Creature4.Completed.Bool; } set { Creature4.Completed.Bool = value; ReCheckMaps(); OnPropertyChanged(nameof(CreatureBool4)); } }
@@ -369,6 +353,26 @@ namespace FFXIVRelicTracker.ARR.Animus
         #endregion
 
         #region Methods
+        private void ReadBooks()
+        {
+            int bookInt = ArrInfo.ReferenceBooks.IndexOf(CurrentBook);
+
+            CreatureNames = ArrInfo.ReturnCreatureNames(bookInt);
+            CreatureMaps = ArrInfo.ReturnCreatureMaps(bookInt);
+            CreaturePoints = ArrInfo.ReturnCreaturePoints(bookInt);
+
+            Dungeons = ArrInfo.ReturnBookDungeons(bookInt);
+
+            FateNames = ArrInfo.ReturnFATENames(bookInt);
+            FateMaps = ArrInfo.ReturnFATEMaps(bookInt);
+            FatePoints = ArrInfo.ReturnFATEPoints(bookInt);
+
+            LeveNames = ArrInfo.ReturnLeveNames(bookInt);
+            LeveTypes = ArrInfo.ReturnLeveTypes(bookInt);
+            LevePersons = ArrInfo.ReturnLevePersons(bookInt);
+            LeveMaps = ArrInfo.ReturnLeveLocations(bookInt);
+            LevePoints = ArrInfo.ReturnLevePoints(bookInt);
+        }
         private void InitializeLists()
         {
 
@@ -466,32 +470,65 @@ namespace FFXIVRelicTracker.ARR.Animus
         {
             ClearMaps();
 
-            Creature1.Completed.Bool = false;
-            Creature2.Completed.Bool = false;
-            Creature3.Completed.Bool = false;
-            Creature4.Completed.Bool = false;
-            Creature5.Completed.Bool = false;
-            Creature6.Completed.Bool = false;
-            Creature7.Completed.Bool = false;
-            Creature8.Completed.Bool = false;
-            Creature9.Completed.Bool = false;
-            Creature10.Completed.Bool = false;
-
-            CompletedDungeon1 = false;
-            CompletedDungeon2 = false;
+            CompletedDungeon1  = false;
+            CompletedDungeon2  = false;
             CompletedDungeon3 = false;
 
-            Leve1.Completed.Bool = false;
-            Leve2.Completed.Bool = false;
-            Leve3.Completed.Bool = false;
+            CreatureBool1  = false;
+            CreatureBool2  = false;
+            CreatureBool3  = false;
+            CreatureBool4  = false;
+            CreatureBool5  = false;
+            CreatureBool6  = false;
+            CreatureBool7  = false;
+            CreatureBool8  = false;
+            CreatureBool9  = false;
+            CreatureBool10 = false;
 
-            Fate1.Completed.Bool = false;
-            Fate2.Completed.Bool = false;
-            Fate3.Completed.Bool = false;
+            FateBool1  = false;
+            FateBool2  = false;
+            FateBool3 = false;
+
+            LeveBool1  = false;
+            LeveBool2  = false;
+            LeveBool3 = false;
+
+        }
+        private void ReCheckBools()
+        {
+            //For some reason, checkboxes IsChecked is not being triggered by clicking items on the map, but the strikethrough on the completion
+            //  list is working. Resending this event will announce if a checkbox needs to be checked
+
+            OnPropertyChanged(nameof(CreatureBool1));
+            OnPropertyChanged(nameof(CreatureBool2));
+            OnPropertyChanged(nameof(CreatureBool3));
+            OnPropertyChanged(nameof(CreatureBool4));
+            OnPropertyChanged(nameof(CreatureBool5));
+            OnPropertyChanged(nameof(CreatureBool6));
+            OnPropertyChanged(nameof(CreatureBool7));
+            OnPropertyChanged(nameof(CreatureBool8));
+            OnPropertyChanged(nameof(CreatureBool9));
+            OnPropertyChanged(nameof(CreatureBool10));
+
+            OnPropertyChanged(nameof(FateBool1));
+            OnPropertyChanged(nameof(FateBool2));
+            OnPropertyChanged(nameof(FateBool3));
+
+            OnPropertyChanged(nameof(LeveBool1));
+            OnPropertyChanged(nameof(LeveBool2));
+            OnPropertyChanged(nameof(LeveBool3));
+
+            OnPropertyChanged(nameof(CompletedDungeon1));
+            OnPropertyChanged(nameof(CompletedDungeon2));
+            OnPropertyChanged(nameof(CompletedDungeon3));
+
+
         }
 
         public void LoadAvailableJobs()
         {
+            ReadBooks();
+
             if (AvailableAnimusJobs == null) { AvailableAnimusJobs = new ObservableCollection<string>(); }
             foreach(ArrJobs job in ArrWeapon.JobList)
             {
@@ -562,6 +599,8 @@ namespace FFXIVRelicTracker.ARR.Animus
             string bookString = ArrInfo.ReferenceBooks[bookindex];
 
             int compareIndex;
+
+            if(CurrentBook== bookString & newStatus) { ResetBools(); }
 
             if (newStatus)
             {
@@ -1232,7 +1271,10 @@ namespace FFXIVRelicTracker.ARR.Animus
             }
             ReCheckMaps();
             if (SelectedAnimusImage != null) {ReassignPoints(); }
-            
+
+            ReCheckBools();
+
+
 
         }
 

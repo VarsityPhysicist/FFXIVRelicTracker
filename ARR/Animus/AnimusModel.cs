@@ -116,7 +116,7 @@ namespace FFXIVRelicTracker.ARR.Animus
                 "Book of Skyearth I"
             };
         public ObservableCollection<string> availableAnimusobs { get; set; }
-
+       
         public AnimusModel()
         {
             Leve1 = new AnimusObject();

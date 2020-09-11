@@ -376,6 +376,7 @@
                     </Grid>
 
                 </StackPanel>
+                
                 <Canvas Margin="10,0,0,0" Grid.Column="1" Grid.RowSpan="10" Width="800"   x:Name="ArrAnimusCanvas" Visibility="{Binding Path=ShowBookItems,Converter={StaticResource b2v}}">
                     <Canvas.Resources>
                         <Style TargetType="Button">
