@@ -70,7 +70,6 @@ namespace FFXIVRelicTracker.ARR.Nexus
                 LoadAvailableJobs();
             }
         }
-
         public ObservableCollection<string> AvailableNexusJobs
         {
             get { return NexusModel.AvailableNexusJobs; }
@@ -90,42 +89,6 @@ namespace FFXIVRelicTracker.ARR.Nexus
                 OnPropertyChanged(nameof(CurrentNexus));
             }
         }
-        public string LightError
-        {
-            get { return lightError; }
-            set
-            {
-                lightError = value;
-                OnPropertyChanged(nameof(LightError));
-            }
-        }
-
-        public string CurrentLightString
-        {
-            get { return currentLightString; }
-            set
-            {
-                LightError = "";
-                currentLightString = value;
-                OnPropertyChanged(nameof(CurrentLightString));
-                if (CurrentLight.ToString() != value & value != "")
-                {
-                    try
-                    {
-                        CurrentLight = Int32.Parse(value);
-                    }
-                    catch (FormatException)
-                    {
-                        LightError = "Enter numeric values only";
-                    }
-                }
-                else if (value == "")
-                {
-                    CurrentLight = 0;
-                }
-
-            }
-        }
 
         public int CurrentLight
         {
@@ -135,10 +98,6 @@ namespace FFXIVRelicTracker.ARR.Nexus
                 if(value>=0 & value<=3000)
                 {
                     NexusModel.CurrentLight = value;
-                    if (value.ToString() != CurrentLightString)
-                    {
-                        CurrentLightString = value.ToString();
-                    }
                     OnPropertyChanged(nameof(CurrentLight));
                     UpdateActivity();
                 }
@@ -223,8 +182,6 @@ namespace FFXIVRelicTracker.ARR.Nexus
 
         #region Complete Button
         private ICommand _CompleteButton;
-        private string currentLightString;
-        private string lightError;
 
         public ICommand CompleteButton
         {
