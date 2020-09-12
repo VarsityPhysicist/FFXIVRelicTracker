@@ -18,63 +18,68 @@
     <Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Grid Margin="10,0,0,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition Width="auto"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="auto"/>
-        </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-            <ComboBox   x:Name="ArrNovusJob"
-                                                    ItemsSource="{Binding   Path=AvailableNexusJobs}" 
-                                                    SelectedItem="{Binding Path=CurrentNexus}"
-                                        />
-            <Border HorizontalAlignment="Center">
-                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentNexus}"/>
-            </Border>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
-            <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Quest: Mmmmmm, Soulglazed Relics | Started by: Jalzahn"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Complete ARR activities (unsynced acceptable) with Soulglazed Weapon equipped to earn Light"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="A total of 2000 Light is required to complete a weapon"/>
-            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Every two hours, one random light giving event (Dungeon, Trial, etc.) gives additional Light until the next event is selected"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Current Light:" Margin="0,0,5,0"/>
-                        <TextBox MinWidth="30" Text="{Binding CurrentLight}" Margin="0,0,5,0"
-                         Style="{StaticResource BaseTextBox}" HorizontalContentAlignment="Right" />
-                <TextBlock Style="{StaticResource LeftTextBlock}" Text="/2000"/>
-            </StackPanel>
-        </StackPanel>
-        
-        <TextBlock Grid.Row="2" Style="{StaticResource RightTextBlock}" Text="Feeble Light: "/>
-        <TextBlock Grid.Row="3" Style="{StaticResource RightTextBlock}" Text="Gentle Light: "/>
-        <TextBlock Grid.Row="4" Style="{StaticResource RightTextBlock}" Text="Bright Light: "/>
-        <TextBlock Grid.Row="5" Style="{StaticResource RightTextBlock}" Text="Brilliant Light: "/>
-        <TextBlock Grid.Row="6" Style="{StaticResource RightTextBlock}" Text="Blinding Light: "/>
-        <TextBlock Grid.Row="7" Style="{StaticResource RightTextBlock}" Text="Newborn Star: "/>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+                    <ComboBox   x:Name="ArrNovusJob"
+                                                ItemsSource="{Binding   Path=AvailableNexusJobs}" 
+                                                SelectedItem="{Binding Path=CurrentNexus}"
+                                    />
+                    <Border HorizontalAlignment="Center">
+                        <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentNexus}"/>
+                    </Border>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Grid.ColumnSpan="3">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Quest: Mmmmmm, Soulglazed Relics | Started by: Jalzahn"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Complete ARR activities (unsynced acceptable) with Soulglazed Weapon equipped to earn Light"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="A total of 2000 Light is required to complete a weapon"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Every two hours, one random light giving event (Dungeon, Trial, etc.) gives additional Light until the next event is selected"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Current Light:" Margin="0,0,5,0"/>
+                        <TextBox MinWidth="30" Text="{Binding CurrentLight}" Margin="12,0,5,0"
+                        Style="{StaticResource BaseTextBox}" HorizontalContentAlignment="Right" />
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="/2000"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Current Activity:"/>
+                        <TextBlock Margin="5,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding NexusActivity}"/>
+                    </StackPanel>
+                    <TextBlock/>
+                </StackPanel>
 
-        <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="8 points" CommandParameter="8"/>
-        <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="16 points" CommandParameter="16"/>
-        <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="32 points" CommandParameter="32"/>
-        <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="48 points" CommandParameter="48"/>
-        <Button Grid.Row="6" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="96 points" CommandParameter="96"/>
-        <Button Grid.Row="7" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="128 points" CommandParameter="128"/>
+                <TextBlock Grid.Row="2" Style="{StaticResource RightTextBlock}" Text="Feeble Light: "/>
+                <TextBlock Grid.Row="3" Style="{StaticResource RightTextBlock}" Text="Gentle Light: "/>
+                <TextBlock Grid.Row="4" Style="{StaticResource RightTextBlock}" Text="Bright Light: "/>
+                <TextBlock Grid.Row="5" Style="{StaticResource RightTextBlock}" Text="Brilliant Light: "/>
+                <TextBlock Grid.Row="6" Style="{StaticResource RightTextBlock}" Text="Blinding Light: "/>
+                <TextBlock Grid.Row="7" Style="{StaticResource RightTextBlock}" Text="Newborn Star: "/>
 
-        <TextBlock Grid.Row="8"/>
-        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="9" Grid.ColumnSpan="3" Text="Reccomendation: Run 'The Tam-Tara Deepcroft' (Brilliant Light) 42 times"/>
-    </Grid>
+                <Button Grid.Row="2" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="8 points" CommandParameter="8"/>
+                <Button Grid.Row="3" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="16 points" CommandParameter="16"/>
+                <Button Grid.Row="4" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="32 points" CommandParameter="32"/>
+                <Button Grid.Row="5" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="48 points" CommandParameter="48"/>
+                <Button Grid.Row="6" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="96 points" CommandParameter="96"/>
+                <Button Grid.Row="7" Grid.Column="1" Style="{StaticResource FFXIVButton}" Command="{Binding AddPointsButton}" Content="128 points" CommandParameter="128"/>
+
+                <TextBlock Grid.Row="8"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="9" Grid.ColumnSpan="3" Text="Reccomendation: Run 'The Tam-Tara Deepcroft' (Brilliant Light) 42 times"/>
+            </Grid>
         </ScrollViewer>
     </Grid>
     
