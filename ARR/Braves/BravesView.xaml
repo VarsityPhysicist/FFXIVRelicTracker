@@ -13,9 +13,9 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </UserControl.Resources>
-    <Grid Margin="10,0,0,0">
+    <Grid>
         <ScrollViewer   HorizontalScrollBarVisibility="Auto"    VerticalScrollBarVisibility="Auto">
-            <Grid >
+            <Grid Margin="10,5,10,5" >
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="auto"/>
@@ -96,16 +96,16 @@
                 <Border Grid.Column="0" Grid.Row="7" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>
                 <Border Grid.Column="0" Grid.Row="8" BorderBrush="#a27e4e" BorderThickness="2" CornerRadius="10" Grid.ColumnSpan="10"/>
 
-                <TextBlock Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="0" Text="Quest:"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="0" Text="Quest:"/>
                 <TextBlock Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="3" Text="NPC:"/>
                 <TextBlock Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="5" Text="Requires:"/>
                 <TextBlock Style="{StaticResource LeftTextBlock}"  Grid.Row="3"    Grid.Column="7" Text="Cost/Location:"/>
 
-                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="4"    Grid.Column="0" Text="A Ponze of Flesh"/>
-                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="5"    Grid.Column="0" Text="A Treasured Mother"/>
-                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="6"    Grid.Column="0" Text="Labor of Love"/>
-                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="7"    Grid.Column="0" Text="Method in His Malice"/>
-                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}"  Grid.Row="8"    Grid.Column="0" Text="His Dark Materia"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}" TextDecorations="{Binding Path=FirstQuest,   Converter={StaticResource ConvertToStrikethrough}}" Grid.Row="4"    Grid.Column="0" Text="A Ponze of Flesh"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}" TextDecorations="{Binding Path=SecondQuest,  Converter={StaticResource ConvertToStrikethrough}}" Grid.Row="5"    Grid.Column="0" Text="A Treasured Mother"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}" TextDecorations="{Binding Path=ThirdQuest,   Converter={StaticResource ConvertToStrikethrough}}" Grid.Row="6"    Grid.Column="0" Text="Labor of Love"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}" TextDecorations="{Binding Path=FourthQuest,  Converter={StaticResource ConvertToStrikethrough}}" Grid.Row="7"    Grid.Column="0" Text="Method in His Malice"/>
+                <TextBlock Margin="10,0" Style="{StaticResource LeftTextBlock}" TextDecorations="{Binding Path=FifthQuest,   Converter={StaticResource ConvertToStrikethrough}}" Grid.Row="8"    Grid.Column="0" Text="His Dark Materia"/>
 
                 <CheckBox IsChecked="{Binding FirstQuest}" Grid.Row="4" Grid.Column="1" VerticalAlignment="Center"/>
                 <CheckBox IsChecked="{Binding SecondQuest}" Grid.Row="5" Grid.Column="1" VerticalAlignment="Center"/>
