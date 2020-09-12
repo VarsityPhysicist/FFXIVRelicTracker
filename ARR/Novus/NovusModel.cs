@@ -56,5 +56,6 @@ namespace FFXIVRelicTracker.ARR.Novus
         public bool KnownWeapon{ get; set;}
         public bool ShowContent{ get; set;}
         public ObservableCollection<string> AvailableNovusJobs { get; internal set; }
+        public int AlexandriteCount { get; internal set; }
     }
 }

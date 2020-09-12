@@ -112,6 +112,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             get { return novusModel.CurrentNovus; }
             set
             {
+                if (value != CurrentNovus) { ResetCounts(); }
                 novusModel.CurrentNovus = value;
                 OnPropertyChanged(nameof(CurrentNovus));
 
@@ -127,7 +128,8 @@ namespace FFXIVRelicTracker.ARR.Novus
                     }
                     else
                     {
-                        if (knownWeapons.Contains(value)) { KnownWeapon = true; }
+                        KnownWeapon = knownWeapons.Contains(value);
+
                         WeaponName = ArrInfo.WeaponNames[value];
                         
                         ShowContent = true;
@@ -144,6 +146,25 @@ namespace FFXIVRelicTracker.ARR.Novus
         #endregion
 
         #region Model Properties
+
+        public int AlexandriteCount
+        {
+            get { return novusModel.AlexandriteCount; }
+            set
+            {
+                if(value>=0 & value <= 750)
+                {
+                    novusModel.AlexandriteCount = value;
+                    OnPropertyChanged(nameof(AlexandriteCount));
+                }
+            }
+        }
+
+        public int AlexandriteNeeded
+        {
+            get { return AvailableNovusJobs.Count * 75; }
+        }
+
         #region Materia Counts
 
         #region PLD Counts
@@ -740,7 +761,7 @@ namespace FFXIVRelicTracker.ARR.Novus
             {
                 MateriaSum = HeavenEyeCount + QuickarmCount + SavageAimCount + PietyCount + SavageMightCount + QuicktongueCount + BattledanceCount;
             }
-            else if (NonPLDNovus)
+            else if (PLDNovus)
             {
                 MateriaSwordSum = HeavenEyeSwordCount + QuickarmSwordCount + SavageAimSwordCount + PietySwordCount 
                     + SavageMightSwordCount + QuicktongueSwordCount + BattledanceSwordCount;
@@ -752,6 +773,7 @@ namespace FFXIVRelicTracker.ARR.Novus
 
         private void ResetCounts()
         {
+
             HeavenEyeCount = 0;
             QuickarmCount = 0;
             SavageAimCount = 0;
@@ -759,6 +781,22 @@ namespace FFXIVRelicTracker.ARR.Novus
             SavageMightCount = 0;
             QuicktongueCount = 0;
             BattledanceCount = 0;
+
+            HeavenEyeShieldCount = 0;
+            QuickarmShieldCount = 0;
+            SavageAimShieldCount = 0;
+            PietyShieldCount = 0;
+            SavageMightShieldCount = 0;
+            QuicktongueShieldCount = 0;
+            BattledanceShieldCount = 0;
+
+            HeavenEyeSwordCount = 0;
+            QuickarmSwordCount = 0;
+            SavageAimSwordCount = 0;
+            PietySwordCount = 0;
+            SavageMightSwordCount = 0;
+            QuicktongueSwordCount = 0;
+            BattledanceSwordCount = 0;
         }
 
         public void LoadAvailableJobs()
@@ -775,14 +813,18 @@ namespace FFXIVRelicTracker.ARR.Novus
                     AvailableNovusJobs.Remove(job.Name);
                 }
             }
+            OnPropertyChanged(nameof(AlexandriteNeeded));
         }
 
         #endregion
 
         #region Commands
         private ICommand _CompleteButton;
+        private ICommand _AlexandriteButton;
         private ICommand _IncrementButton;
         private ICommand _DecrementButton;
+
+        #region Add/Subtract Materia
         public ICommand IncrementButton
         {
             get
@@ -796,7 +838,7 @@ namespace FFXIVRelicTracker.ARR.Novus
                 return _IncrementButton;
             }
         }
-        public ICommand DencrementButton
+        public ICommand DecrementButton
         {
             get
             {
@@ -810,22 +852,53 @@ namespace FFXIVRelicTracker.ARR.Novus
         }
         private void IncrementCommand(object param, bool add)
         {
+            if(KnownWeapon | PLDNovus) { CalculateMateriaSum();}
+
             string sum = (string)param;
 
             Type classType = typeof(NovusViewModel);
 
             PropertyInfo CommandTarget = classType.GetProperty(sum);
 
+            int initialSum = (int)CommandTarget.GetValue(this);
+
             switch (add)
             {
                 case true:
                     CommandTarget.SetValue(this, (int)CommandTarget.GetValue(this) + 1);
+                    if(initialSum!= (int)CommandTarget.GetValue(this)) { AlexandriteCount -= 1; }
                     break;
                 case false:
                     CommandTarget.SetValue(this, (int)CommandTarget.GetValue(this) - 1);
+                    if(initialSum!= (int)CommandTarget.GetValue(this)) { AlexandriteCount += 1; }
                     break;
             }
         }
+
+        #endregion
+
+        #region Add Alexandrite
+        public ICommand AlexandriteButton
+        {
+            get
+            {
+                if (_AlexandriteButton == null)
+                {
+                    _AlexandriteButton = new RelayCommand(
+                        param => this.AlexandriteCommand(param)
+                        );
+                }
+                return _AlexandriteButton;
+            }
+        }
+
+        private void AlexandriteCommand(object param)
+        {
+            int count = Int32.Parse((string)param);
+
+            AlexandriteCount += count;
+        }
+        #endregion
 
         #region Complete Button
         public ICommand CompleteButton
@@ -850,6 +923,12 @@ namespace FFXIVRelicTracker.ARR.Novus
             ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentNovus)];
 
             ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Novus, true);
+
+            int subtractAlexandrite = 75;
+            subtractAlexandrite -= MateriaShieldSum + MateriaSwordSum + MateriaSum;
+
+            if (subtractAlexandrite >= AlexandriteCount) { AlexandriteCount = 0; }
+            else { AlexandriteCount -= subtractAlexandrite; }
 
             ResetCounts();
             LoadAvailableJobs();

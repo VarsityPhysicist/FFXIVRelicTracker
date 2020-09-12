@@ -15,19 +15,58 @@
     </UserControl.Resources>
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="auto"/>
-        </Grid.ColumnDefinitions>
-        <ScrollViewer   HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <ScrollViewer HorizontalScrollBarVisibility="Auto"    VerticalScrollBarVisibility="Auto">
             <Grid Margin="10,0,0,0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="auto"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
+
+                <Border Padding="5,2,5,2" Margin="10,60,10,0" Grid.Column="1" Style="{StaticResource GoldBorder}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" />
+
+                        <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Each successful materia infusion consumes 1 Alexandrite" />
+                        <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="5 Alexandrite are obtained from the completion of a Mysterious Map"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Mysterious Maps are acquired as follows:"/>
+                        <TextBlock Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Margin="10,0,0,0" Text="Complete the daily quest 'Morbid Motivation'"/>
+                        <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Margin="10,0,0,0" Text="Purchase from Auriana for 75 Poetics in Mor Dhona"/>
+                        <TextBlock Grid.Row="5" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Additionally, Alexandrite can be purchased for 50 Allied Seals each"/>
+
+                        <StackPanel Grid.Row="7" Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock  Style="{StaticResource LeftTextBlock}" Text="Alexandrite Obtained:" />
+                            <TextBox   Margin="5,0,5,0" Grid.Row="6" Grid.Column="1" Style="{StaticResource BaseTextBox}" Text="{Binding AlexandriteCount}" MinWidth="40" />
+                            <Button Style="{StaticResource incrementButton}" Content="+5" Command="{Binding AlexandriteButton}" CommandParameter="5"/>
+                            <Button Style="{StaticResource incrementButton}" Content="+1" Command="{Binding AlexandriteButton}" CommandParameter="1"/>
+
+                        </StackPanel>
+                        <StackPanel Grid.Row="8" Grid.Column="0" Orientation="Horizontal">
+                            <TextBlock Grid.Row="7" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Alexandrite Needed:" />
+                            <TextBlock Margin="13,0,5,0" Grid.Row="7" Grid.Column="1" Style="{StaticResource LeftTextBlock}" Text="{Binding AlexandriteNeeded}" MinWidth="40" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                
                 <StackPanel>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quest: Celestial Radiance | Started by: Jalzahn"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Purchase three bottles of Superior Enchanted Ink for 75 total Poetics"/>
@@ -38,7 +77,7 @@
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion may fail and destroy materia at advanced levels"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusion failing does not destroy alexandrite"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions may be spread across five separate stats"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions start at Tier I materia"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Infusions start at tier I materia"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="As more infusions in a stat are completed, the required materia tier increases"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Note: Individual materia caps are only included for PLD, DRG"/>
@@ -224,7 +263,6 @@
                                 </Grid>
                             </Border>
                         </Grid>
-
 
                     </StackPanel>
                     <Grid Grid.Row="1" Visibility="{Binding PLDNovus, Converter={StaticResource b2v}}" >
