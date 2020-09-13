@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker.Models.Helpers;
+﻿using FFXIVRelicTracker._05_ShB.Main;
+using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,9 @@ namespace FFXIVRelicTracker.Models
         private string name;
         private string server;
         private ArrModel arrProgress;
+        private ShBModel shbModel;
+
+        #region Properties
 
         public string Name
         {
@@ -51,12 +55,28 @@ namespace FFXIVRelicTracker.Models
                 }
             }
         }
+
+        public ShBModel ShBModel
+        {
+            get { return shbModel; }
+            set
+            {
+                if (value != null)
+                {
+                    shbModel = value;
+                    OnPropertyChanged(nameof(ShBModel));
+                }
+            }
+        }
+
+        #endregion
         public Character()
         {
             Name = "Default Name";
             Server = "Default Server";
 
             ArrProgress = new ArrModel();
+            ShBModel = new ShBModel();
         }
 
         public Character(string name, string server )
@@ -64,6 +84,7 @@ namespace FFXIVRelicTracker.Models
             Name = name;
             Server = server;
             ArrProgress = new ArrModel();
+            ShBModel = new ShBModel();
         }
 
         public Character(Character oldCharacter)

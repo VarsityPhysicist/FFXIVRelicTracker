@@ -1,0 +1,100 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._05_ShB._00_Summary.ShBSummaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._05_ShB._00_Summary"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-ShBDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="20">
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text="Selected Character: "/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text="{Binding SelectedCharacter}"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text=" ShB Progress"/>
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="PLD" Grid.Row="1"   Grid.Column="01"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WAR" Grid.Row="1"   Grid.Column="02"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRK" Grid.Row="1"   Grid.Column="03"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="GNB" Grid.Row="1"   Grid.Column="04"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WHM" Grid.Row="1"   Grid.Column="05"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SCH" Grid.Row="1"   Grid.Column="06"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="AST" Grid.Row="1"   Grid.Column="07"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MNK" Grid.Row="1"   Grid.Column="08"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRG" Grid.Row="1"   Grid.Column="09"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="NIN" Grid.Row="1"   Grid.Column="10"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SAM" Grid.Row="1"   Grid.Column="11"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BRD" Grid.Row="1"   Grid.Column="12"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MCH" Grid.Row="1"   Grid.Column="13"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DNC" Grid.Row="1"   Grid.Column="14"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BLM" Grid.Row="1"   Grid.Column="15"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SMN" Grid.Row="1"   Grid.Column="16"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="RDM" Grid.Row="1"   Grid.Column="17"/>
+
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Resistance"  Grid.Row="2" Grid.Column="0"/>
+
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="01" Content="{Binding Path=PLD.Resistance.Progress}" Tag="{Binding PLD.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="02" Content="{Binding Path=WAR.Resistance.Progress}" Tag="{Binding WAR.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="03" Content="{Binding Path=DRK.Resistance.Progress}" Tag="{Binding DRK.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="04" Content="{Binding Path=GNB.Resistance.Progress}" Tag="{Binding GNB.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="05" Content="{Binding Path=WHM.Resistance.Progress}" Tag="{Binding WHM.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="06" Content="{Binding Path=SCH.Resistance.Progress}" Tag="{Binding SCH.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="07" Content="{Binding Path=AST.Resistance.Progress}" Tag="{Binding AST.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="08" Content="{Binding Path=MNK.Resistance.Progress}" Tag="{Binding MNK.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="09" Content="{Binding Path=DRG.Resistance.Progress}" Tag="{Binding DRG.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="10" Content="{Binding Path=NIN.Resistance.Progress}" Tag="{Binding NIN.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="11" Content="{Binding Path=SAM.Resistance.Progress}" Tag="{Binding SAM.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="12" Content="{Binding Path=BRD.Resistance.Progress}" Tag="{Binding BRD.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="13" Content="{Binding Path=MCH.Resistance.Progress}" Tag="{Binding MCH.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="14" Content="{Binding Path=DNC.Resistance.Progress}" Tag="{Binding DNC.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="15" Content="{Binding Path=BLM.Resistance.Progress}" Tag="{Binding BLM.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="16" Content="{Binding Path=SMN.Resistance.Progress}" Tag="{Binding SMN.Resistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="17" Content="{Binding Path=RDM.Resistance.Progress}" Tag="{Binding RDM.Resistance}" />
+
+
+        </Grid>
+    </ScrollViewer>
+    
+</UserControl>

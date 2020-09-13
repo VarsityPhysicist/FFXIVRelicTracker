@@ -16,6 +16,7 @@
     <converters:StrikeThroughConverter  x:Key="ConvertToStrikethrough"/>
     <converters:MyBooleanToVisibilityConverter   x:Key="b2v"/>
     <converters:InvertBooleanToVisibilityConverter x:Key="Ob2v"/>
+    <converters:StageToProgressConverter x:Key="S2P"/>
 
     <Style x:Key="GoldLeftBar" TargetType="Border">
         <Setter Property="BorderBrush">

@@ -85,4 +85,10 @@
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="05-Skysteel\Main\" />
+    <Folder Include="05-Skysteel\00-Summary\" />
+    <Folder Include="05-Skysteel\Skysteel Helpers\" />
+  </ItemGroup>
+
 </Project>

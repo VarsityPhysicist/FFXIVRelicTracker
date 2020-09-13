@@ -1,0 +1,88 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._05_ShB._01_Resistance.ResistanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._05_ShB._01_Resistance"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-ShBDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid Margin="10,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=CurrentResistance}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentResistance}"/>
+            </Border>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                    Text="The first Resistance weapon is received upon completion of a quest chain starting with:'"
+                    TextDecorations="{Binding Path=CompletedFirstResistance, Converter={StaticResource ConvertToStrikethrough}}" />
+                <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Quest: 'Hail to the Queen' | Started by: Keiten (Kugane)"
+                    TextDecorations="{Binding Path=CompletedFirstResistance, Converter={StaticResource ConvertToStrikethrough}}" />
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Subsequent Resistance weapons are acquired from the side quest:"/>
+                <TextBlock Margin="10,0,0,0" Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="'Resistance is (Not) Futile' | Started by: Zlatan (Gangos)"/>
+                <TextBlock Margin="10,0,0,0" Grid.Row="5" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Four Thavnairian Scalepowder are required to complete this quest "/>
+                <TextBlock Margin="10,0,0,0" Grid.Row="6" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Thavnairian Scalepowder are purchased for 250 Poetics each"/>
+                <TextBlock Margin="10,0,0,0" Grid.Row="7" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Purchase Thavnairian Scalepowder from:"/>
+                <TextBlock Margin="20,0,0,0" Grid.Row="8" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Auriana (Mor Dhona) or Hismena (Idyllshire)"/>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="9" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                <Grid Grid.Row="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Current Thavnairian Scalepowder:"/>
+                    <TextBox Grid.Row="0" Grid.Column="1"  Margin="0,0,0,0" Style="{StaticResource BaseTextBox}"  Text="{Binding CurrentScalepowder}" MinWidth="20"/>
+                    <Button Grid.Row="0" Grid.Column="2"  Style="{StaticResource incrementButton}" Content="+" Command="{Binding ScalepowderButton}"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Total Thavnairian Scalepowder needed:"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding NeededScalepowder}" Width="20"/>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

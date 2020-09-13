@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:FFXIVRelicTracker.Helpers"
                     xmlns:viewmodels="clr-namespace:FFXIVRelicTracker.ViewModels"
+                    xmlns:shb="clr-namespace:FFXIVRelicTracker._05_ShB.Main"
                     xmlns:views="clr-namespace:FFXIVRelicTracker.Views">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
@@ -13,5 +14,8 @@
     <DataTemplate DataType="{x:Type viewmodels:ArrViewModel}">
         <views:ArrView />
     </DataTemplate>
-    
+    <DataTemplate DataType="{x:Type shb:ShBViewModel}">
+        <shb:ShBView />
+    </DataTemplate>
+
 </ResourceDictionary>

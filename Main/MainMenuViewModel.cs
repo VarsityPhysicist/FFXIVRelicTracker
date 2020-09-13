@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker.ARR.ArrHelpers;
+﻿using FFXIVRelicTracker._05_ShB.ShBHelpers;
+using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
 using FFXIVRelicTracker.Views;
@@ -45,6 +46,7 @@ namespace FFXIVRelicTracker.ViewModels
                 if (value != null)
                 {
                     ConfigureARRLists();
+                    ConfigureShBLists();
                 }
 
                 CharacterInt = CharacterList.IndexOf(SelectedCharacter);
@@ -111,17 +113,49 @@ namespace FFXIVRelicTracker.ViewModels
                     job.Braves,
                     job.Zeta
                 };
-
                 job.StageList = arrProgresses;
             }
-
         }
 
+        private void ConfigureShBLists()
+        {
+            List<ShBJob> shbStages = new List<ShBJob>()
+            {
+                selectedCharacter.ShBModel.PLD,
+                selectedCharacter.ShBModel.WAR,
+                selectedCharacter.ShBModel.DRK,
+                selectedCharacter.ShBModel.GNB,
+                selectedCharacter.ShBModel.WHM,
+                selectedCharacter.ShBModel.SCH,
+                selectedCharacter.ShBModel.AST,
+                selectedCharacter.ShBModel.MNK,
+                selectedCharacter.ShBModel.DRG,
+                selectedCharacter.ShBModel.NIN,
+                selectedCharacter.ShBModel.SAM,
+                selectedCharacter.ShBModel.BRD,
+                selectedCharacter.ShBModel.MCH,
+                selectedCharacter.ShBModel.DNC,
+                selectedCharacter.ShBModel.BLM,
+                selectedCharacter.ShBModel.SMN,
+                selectedCharacter.ShBModel.RDM
+            };
+
+            selectedCharacter.ShBModel.ShbJobList = shbStages;
+
+            foreach (ShBJob job in selectedCharacter.ShBModel.ShbJobList)
+            {
+                List<ShBProgress> arrProgresses = new List<ShBProgress>()
+                {
+                    job.Resistance
+                };
+                job.StageList = arrProgresses;
+            }
+        }
 
 
         #endregion
 
-        
+
         #region Add Character
         private ICommand _AddCommand;
         public ICommand AddCommand

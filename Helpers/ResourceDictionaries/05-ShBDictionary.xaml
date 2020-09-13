@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:summary="clr-namespace:FFXIVRelicTracker._05_ShB._00_Summary"
+                    xmlns:resistance="clr-namespace:FFXIVRelicTracker._05_ShB._01_Resistance"
+                    
+                    >
+
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate DataType="{x:Type summary:ShBSummaryViewModel}">
+        <summary:ShBSummaryView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type resistance:ResistanceViewModel}">
+        <resistance:ResistanceView/>
+    </DataTemplate>
+
+
+    <Style BasedOn="{StaticResource FFXIVButton }" x:Key="ShBSummaryButton" TargetType="Button">
+        <Setter Property="HorizontalAlignment"  Value="Center"/>
+        <Setter Property="VerticalAlignment"    Value="Center"/>
+        <Setter Property="Margin"  Value="5"/>
+        <Setter Property="Command"  Value="{Binding ShBButton}" />
+        <Setter Property="MinWidth" Value="90"/>
+        <Setter Property="CommandParameter">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource MultiConvert}">
+                    <Binding    Path="Tag" RelativeSource="{RelativeSource Self}"/>
+                    <Binding    Path="Content"  RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
