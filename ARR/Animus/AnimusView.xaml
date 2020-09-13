@@ -16,7 +16,25 @@
         </ResourceDictionary>
     </UserControl.Resources>
     <Grid Margin="10,0,0,0">
-        <ScrollViewer VerticalScrollBarVisibility="Auto"  HorizontalScrollBarVisibility="Auto">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox   x:Name="ArrAnimusJob"
+                                                ItemsSource="{Binding   Path=AvailableAnimusJobs}" 
+                                                SelectedItem="{Binding Path=CurrentAnimus}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentAnimus}"/>
+            </Border>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible"  HorizontalScrollBarVisibility="Auto" Padding="0,0,5,0">
             <Grid VerticalAlignment="Top" >
                 <Grid.RowDefinitions>
                     <RowDefinition/>
@@ -30,16 +48,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <StackPanel Grid.Row="0" Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-                    <ComboBox   x:Name="ArrAnimusJob"
-                                                ItemsSource="{Binding   Path=AvailableAnimusJobs}" 
-                                                SelectedItem="{Binding Path=CurrentAnimus}"
-                                    />
-                    <Border HorizontalAlignment="Center">
-                        <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentAnimus}"/>
-                    </Border>
-                </StackPanel>
+               
 
                 <TextBlock Grid.Row="1" Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Quest: Trials of the Braves | Started by: Jalzahn"/>
 
@@ -248,9 +257,9 @@
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4"    Grid.Column="1"   TextDecorations="{Binding Path=Fate2.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Fate2.Map}"/>
                                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2"    Grid.Column="1"   TextDecorations="{Binding Path=Fate1.Completed.Bool, Converter={StaticResource ConvertToStrikethrough}}" Margin="10,0,0,0" Text="{Binding Path=Fate1.Map}"/>
 
-                                            <CheckBox Grid.Row="5"    Grid.Column="2"   IsChecked="{Binding Path=FateBool1}"/>
+                                            <CheckBox Grid.Row="5"    Grid.Column="2"   IsChecked="{Binding Path=FateBool3}"/>
                                             <CheckBox Grid.Row="3"    Grid.Column="2"   IsChecked="{Binding Path=FateBool2}"/>
-                                            <CheckBox Grid.Row="1"    Grid.Column="2"   IsChecked="{Binding Path=FateBool3}"/>
+                                            <CheckBox Grid.Row="1"    Grid.Column="2"   IsChecked="{Binding Path=FateBool1}"/>
                                         </Grid>
                                     </Border>
                                 </Border>
@@ -377,7 +386,11 @@
 
                 </StackPanel>
                 
-                <Canvas Margin="10,0,0,0" Grid.Column="1" Grid.RowSpan="10" Width="800"   x:Name="ArrAnimusCanvas" Visibility="{Binding Path=ShowBookItems,Converter={StaticResource b2v}}">
+                
+            </Grid>
+        </ScrollViewer>
+        <Viewbox Grid.RowSpan="2" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="10">
+            <Canvas Width="800" Height="800" MaxWidth="800" x:Name="ArrAnimusCanvas" Visibility="{Binding Path=ShowBookItems,Converter={StaticResource b2v}}">
                     <Canvas.Resources>
                         <Style TargetType="Button">
                             <Setter Property="Template">
@@ -412,7 +425,7 @@
                             </Setter>
                         </Style>
                     </Canvas.Resources>
-                    <Image   Source="{Binding  Path=SelectedAnimusImage}"  >
+                <Image   Source="{Binding  Path=SelectedAnimusImage}" Height="{Binding Path=ActualHeight, ElementName=ArrAnimusCanvas}"  Width="{Binding Path=ActualWidth, ElementName=ArrAnimusCanvas}"  Stretch="Fill">
                     </Image>
 
                     <Rectangle Visibility="{Binding Path=DisplayCreature1.Completed.Bool, Converter={StaticResource Ob2v}}"  Canvas.Top="{Binding Path=DisplayCreature1.Y}"  Canvas.Left="{Binding Path=DisplayCreature1.X}" Opacity=".2" />
@@ -446,7 +459,6 @@
                             Visibility="{Binding Path=DisplayFate.Completed.Bool, Converter={StaticResource Ob2v}}"  
                             Canvas.Top="{Binding Path=DisplayFate.Y}"  Canvas.Left="{Binding Path=DisplayFate.X}" />
                 </Canvas>
-            </Grid>
-        </ScrollViewer>
+        </Viewbox>
     </Grid>
 </UserControl>
