@@ -114,14 +114,20 @@
                 </StackPanel>
             </StackPanel>
 
-            <TextBlock HorizontalAlignment="Right" Grid.Row="1" Grid.Column="3" Style="{StaticResource LeftTextBlock}" Text="Current Light:"/>
-
-            <StackPanel Grid.Row="1" Grid.Column="4" Orientation="Horizontal">
-                <TextBox MinWidth="50" Text="{Binding CurrentLightString}" Margin="0,0,5,0"
-                                 helpers:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
-                                 Style="{StaticResource BaseTextBox}" />
-                <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding LightError}"/>
+            <StackPanel Margin="0,0,0,20" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="3">
+                <TextBlock HorizontalAlignment="Right" Style="{StaticResource LeftTextBlock}" Text="Current Light:"/>
+                <TextBlock HorizontalAlignment="Right" Style="{StaticResource LeftTextBlock}" Text="Current Activity:"/>
             </StackPanel>
+
+            <StackPanel Margin="0,0,0,20" VerticalAlignment="Bottom" Grid.Row="1" Grid.Column="4" >
+                <StackPanel Orientation="Horizontal">
+                    <TextBox MinWidth="30" Text="{Binding CurrentLight}" Margin="5,0,5,0"
+                                     Style="{StaticResource BaseTextBox}" />
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="/40"/>
+                </StackPanel>
+                <TextBlock Margin="5,0,0,0" MinWidth="180" Text="{Binding ZetaActivity}" Style="{StaticResource LeftTextBlock}"/>
+            </StackPanel>
+
 
             <TextBlock Grid.Column="3" Grid.Row="2" Style="{StaticResource RightTextBlock}" Text="Feeble Light: "/>
             <TextBlock Grid.Column="3" Grid.Row="3" Style="{StaticResource RightTextBlock}" Text="Faint Light: "/>

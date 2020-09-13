@@ -94,43 +94,6 @@ namespace FFXIVRelicTracker.ARR.Zeta
         }
 
         #region Light
-        public string LightError
-        {
-            get { return lightError; }
-            set
-            {
-                lightError = value;
-                OnPropertyChanged(nameof(LightError));
-            }
-        }
-
-        public string CurrentLightString
-        {
-            get { return currentLightString; }
-            set
-            {
-                LightError = "";
-                currentLightString = value;
-                OnPropertyChanged(nameof(CurrentLightString));
-                if (CurrentLight.ToString() != value & value != "")
-                {
-                    try
-                    {
-                        CurrentLight = Int32.Parse(value);
-                    }
-                    catch (FormatException)
-                    {
-                        LightError = "Enter numeric values only";
-                    }
-                }
-                else if (value == "")
-                {
-                    CurrentLight = 0;
-                }
-
-            }
-        }
-
         public int CurrentLight
         {
             get { return zetaModel.CurrentLight; }
@@ -139,10 +102,6 @@ namespace FFXIVRelicTracker.ARR.Zeta
                 if (value >= 0 & value <= 100)
                 {
                     zetaModel.CurrentLight = value;
-                    if (value.ToString() != CurrentLightString)
-                    {
-                        CurrentLightString = value.ToString();
-                    }
                     OnPropertyChanged(nameof(CurrentLight));
                     UpdateActivity();
                 }
@@ -275,8 +234,6 @@ namespace FFXIVRelicTracker.ARR.Zeta
 
         private void ResetLight()
         {
-            LightError = "";
-            CurrentLightString = "0";
             CurrentLight = 0;
             ZetaActivity = "No Sense";
         }
@@ -389,8 +346,6 @@ namespace FFXIVRelicTracker.ARR.Zeta
         #endregion
         #region Toggle Button
         private ICommand _ToggleButton;
-        private string currentLightString;
-        private string lightError;
 
         public ICommand ToggleButton
         {
