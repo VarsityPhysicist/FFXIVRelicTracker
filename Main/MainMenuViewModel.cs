@@ -1,4 +1,5 @@
 ﻿using FFXIVRelicTracker._05_ShB.ShBHelpers;
+using FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers;
 using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
@@ -47,6 +48,7 @@ namespace FFXIVRelicTracker.ViewModels
                 {
                     ConfigureARRLists();
                     ConfigureShBLists();
+                    ConfigureSkysteelLists();
                 }
 
                 CharacterInt = CharacterList.IndexOf(SelectedCharacter);
@@ -80,7 +82,11 @@ namespace FFXIVRelicTracker.ViewModels
         #region Configure Job Lists
         //Job list provides an easy way of accessing the individual models for tracking progress
         //Re-instantiating them here is required as loading the character list unlinks the 
-            //objects within the list from the objects they're supposed to refer to
+        //  objects within the list from the objects they're supposed to refer to
+
+        //Additionally, with ShB and Skysteel tracking, as new stages of progression are created
+        //  a procedure for generating them within existing object is required, otherwise they will generate
+        //  null reference errors
 
         private void ConfigureARRLists()
         {
@@ -149,6 +155,39 @@ namespace FFXIVRelicTracker.ViewModels
                     job.Resistance
                 };
                 job.StageList = arrProgresses;
+                job.CheckObject();
+            }
+        }
+
+        private void ConfigureSkysteelLists()
+        {
+            List<SkysteelJob> skysteelStages = new List<SkysteelJob>()
+            {
+                selectedCharacter.SkysteelModel.CRP,
+                selectedCharacter.SkysteelModel.BSM,
+                selectedCharacter.SkysteelModel.ARM,
+                selectedCharacter.SkysteelModel.GSM,
+                selectedCharacter.SkysteelModel.LTW,
+                selectedCharacter.SkysteelModel.WVR,
+                selectedCharacter.SkysteelModel.ALC,
+                selectedCharacter.SkysteelModel.CUL,
+                selectedCharacter.SkysteelModel.MIN,
+                selectedCharacter.SkysteelModel.BTM,
+                selectedCharacter.SkysteelModel.FSH
+            };
+
+            selectedCharacter.SkysteelModel.SkysteelJobList = skysteelStages;
+
+            foreach (SkysteelJob job in selectedCharacter.SkysteelModel.SkysteelJobList)
+            {
+                List<SkysteelProgress> arrProgresses = new List<SkysteelProgress>()
+                {
+                    job.BaseTool,
+                    job.BasePlus1,
+                    job.Dragonsung
+                };
+                job.StageList = arrProgresses;
+                job.CheckObject();
             }
         }
 

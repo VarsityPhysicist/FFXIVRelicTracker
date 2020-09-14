@@ -73,6 +73,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Current Thavnairian Scalepowder:"/>
@@ -81,6 +82,9 @@
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Total Thavnairian Scalepowder needed:"/>
                     <TextBlock Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding NeededScalepowder}" Width="20"/>
+                    
+                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Remaining Poetics needed:"/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Margin="5,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding ScalepowderCost, StringFormat='{}{0:N0}'}" MinWidth="20"/>
                 </Grid>
             </Grid>
         </ScrollViewer>

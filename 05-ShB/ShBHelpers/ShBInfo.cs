@@ -36,6 +36,8 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
 
         #region Methods
 
+        
+
         public static void ReloadJobList(ObservableCollection<string> tempList, string jobName)
         {
             //This method should be called from LoadAvailableJobs methods to add jobs back into the list to preserve their order

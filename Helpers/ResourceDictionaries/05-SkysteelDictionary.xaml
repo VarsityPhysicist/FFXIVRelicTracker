@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FFXIVRelicTracker.Helpers.ResourceDictionaries"
+                    xmlns:summary="clr-namespace:FFXIVRelicTracker._05_Skysteel._00_Summary"
+                    >
+    
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate DataType="{x:Type summary:SkysteelSummaryViewModel}">
+        <summary:SkysteelSummaryView/>
+    </DataTemplate>
+
+    <Style BasedOn="{StaticResource FFXIVButton }" x:Key="SkysteelSummaryButton" TargetType="Button">
+        <Setter Property="HorizontalAlignment"  Value="Center"/>
+        <Setter Property="VerticalAlignment"    Value="Center"/>
+        <Setter Property="Margin"  Value="5"/>
+        <Setter Property="Command"  Value="{Binding ShBButton}" />
+        <Setter Property="MinWidth" Value="90"/>
+        <Setter Property="CommandParameter">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource MultiConvert}">
+                    <Binding    Path="Tag" RelativeSource="{RelativeSource Self}"/>
+                    <Binding    Path="Content"  RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

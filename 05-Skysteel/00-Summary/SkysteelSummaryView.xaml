@@ -1,0 +1,108 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._05_Skysteel._00_Summary.SkysteelSummaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._05_Skysteel._00_Summary"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-SkysteelDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="20">
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text="Selected Character: "/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text="{Binding SelectedCharacter}"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text=" Skysteel Tool Progress"/>
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="CRP" Grid.Row="1"   Grid.Column="01"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BSM" Grid.Row="1"   Grid.Column="02"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="ARM" Grid.Row="1"   Grid.Column="03"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="GSM" Grid.Row="1"   Grid.Column="04"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="LTW" Grid.Row="1"   Grid.Column="05"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WVR" Grid.Row="1"   Grid.Column="06"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="ALC" Grid.Row="1"   Grid.Column="07"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="CUL" Grid.Row="1"   Grid.Column="08"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MIN" Grid.Row="1"   Grid.Column="09"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BTM" Grid.Row="1"   Grid.Column="10"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="FSH" Grid.Row="1"   Grid.Column="11"/>
+
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Base Tool"  Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Base Tool +1"  Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Dragonsung Tool"  Grid.Row="4" Grid.Column="0"/>
+
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="01" Content="{Binding Path=CRP.BaseTool.Progress}" Tag="{Binding CRP.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="02" Content="{Binding Path=BSM.BaseTool.Progress}" Tag="{Binding BSM.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="03" Content="{Binding Path=ARM.BaseTool.Progress}" Tag="{Binding ARM.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="04" Content="{Binding Path=GSM.BaseTool.Progress}" Tag="{Binding GSM.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="05" Content="{Binding Path=LTW.BaseTool.Progress}" Tag="{Binding LTW.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="06" Content="{Binding Path=WVR.BaseTool.Progress}" Tag="{Binding WVR.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="07" Content="{Binding Path=ALC.BaseTool.Progress}" Tag="{Binding ALC.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="08" Content="{Binding Path=CUL.BaseTool.Progress}" Tag="{Binding CUL.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="09" Content="{Binding Path=MIN.BaseTool.Progress}" Tag="{Binding MIN.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="10" Content="{Binding Path=BTM.BaseTool.Progress}" Tag="{Binding BTM.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="11" Content="{Binding Path=FSH.BaseTool.Progress}" Tag="{Binding FSH.BaseTool}" />
+
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="01" Content="{Binding Path=CRP.BasePlus1.Progress}" Tag="{Binding CRP.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="02" Content="{Binding Path=BSM.BasePlus1.Progress}" Tag="{Binding BSM.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="03" Content="{Binding Path=ARM.BasePlus1.Progress}" Tag="{Binding ARM.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="04" Content="{Binding Path=GSM.BasePlus1.Progress}" Tag="{Binding GSM.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="05" Content="{Binding Path=LTW.BasePlus1.Progress}" Tag="{Binding LTW.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="06" Content="{Binding Path=WVR.BasePlus1.Progress}" Tag="{Binding WVR.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="07" Content="{Binding Path=ALC.BasePlus1.Progress}" Tag="{Binding ALC.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="08" Content="{Binding Path=CUL.BasePlus1.Progress}" Tag="{Binding CUL.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="09" Content="{Binding Path=MIN.BasePlus1.Progress}" Tag="{Binding MIN.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="10" Content="{Binding Path=BTM.BasePlus1.Progress}" Tag="{Binding BTM.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="11" Content="{Binding Path=FSH.BasePlus1.Progress}" Tag="{Binding FSH.BasePlus1}" />
+
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="01" Content="{Binding Path=CRP.Dragonsung.Progress}" Tag="{Binding CRP.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="02" Content="{Binding Path=BSM.Dragonsung.Progress}" Tag="{Binding BSM.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="03" Content="{Binding Path=ARM.Dragonsung.Progress}" Tag="{Binding ARM.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="04" Content="{Binding Path=GSM.Dragonsung.Progress}" Tag="{Binding GSM.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="05" Content="{Binding Path=LTW.Dragonsung.Progress}" Tag="{Binding LTW.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="06" Content="{Binding Path=WVR.Dragonsung.Progress}" Tag="{Binding WVR.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="07" Content="{Binding Path=ALC.Dragonsung.Progress}" Tag="{Binding ALC.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="08" Content="{Binding Path=CUL.Dragonsung.Progress}" Tag="{Binding CUL.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="09" Content="{Binding Path=MIN.Dragonsung.Progress}" Tag="{Binding MIN.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="10" Content="{Binding Path=BTM.Dragonsung.Progress}" Tag="{Binding BTM.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="11" Content="{Binding Path=FSH.Dragonsung.Progress}" Tag="{Binding FSH.Dragonsung}" />
+
+
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

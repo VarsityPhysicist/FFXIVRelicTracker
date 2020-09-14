@@ -13,6 +13,8 @@ namespace FFXIVRelicTracker._05_ShB._00_Summary
     {
         #region Fields
         private IEventAggregator eventAggregator;
+        private ShBSummaryModel summaryModel;
+        private Character selectedCharacter;
         #endregion
 
         #region Constructor
@@ -36,7 +38,6 @@ namespace FFXIVRelicTracker._05_ShB._00_Summary
 
         #region Properties
         public string Name => "Summary";
-        private ShBSummaryModel summaryModel;
         public ShBSummaryModel SummaryModel
         {
             get { return summaryModel; }
@@ -47,7 +48,6 @@ namespace FFXIVRelicTracker._05_ShB._00_Summary
             }
         }
 
-        private Character selectedCharacter;
         public Character SelectedCharacter
         {
             get { return selectedCharacter; }

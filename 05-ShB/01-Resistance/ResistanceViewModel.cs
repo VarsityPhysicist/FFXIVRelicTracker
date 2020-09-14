@@ -84,10 +84,12 @@ namespace FFXIVRelicTracker._05_ShB._01_Resistance
                 {
                     resistanceModel.CurrentScalepowder = value;
                     OnPropertyChanged(nameof(CurrentScalepowder));
+                    OnPropertyChanged(nameof(ScalepowderCost));
                 }
             }
         }
-        public int NeededScalepowder { get { return (Math.Min(16,AvailableJobs.Count)) * 4; } }
+        public int NeededScalepowder { get { return (Math.Min(16, AvailableJobs.Count)) * 4; } }
+        public int ScalepowderCost { get { return ((NeededScalepowder-CurrentScalepowder) * 250); } }
 
         public ObservableCollection<string> AvailableJobs
         {
@@ -119,6 +121,7 @@ namespace FFXIVRelicTracker._05_ShB._01_Resistance
             }
             OnPropertyChanged(nameof(CompletedFirstResistance));
             OnPropertyChanged(nameof(NeededScalepowder));
+            OnPropertyChanged(nameof(ScalepowderCost));
         }
         #endregion
 
