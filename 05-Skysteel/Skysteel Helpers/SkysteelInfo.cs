@@ -19,7 +19,7 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
                "ALC",
                "CUL",
                "MIN",
-               "BTM",
+               "BTN",
                "FSH"
             };
 
@@ -30,7 +30,27 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
            "Dragonsung"
         };
 
+        private static Dictionary<string, string> JobToToolDict= new Dictionary<string, string>
+        {
+            {"CRP", "Saw" },
+            {"BSM", "Cross-pein Hammer" },
+            {"ARM", "Raising Hammer"},
+            {"GSM", "Lapidary Hammer"},
+            {"LTW", "Round Knife"},
+            {"WVR", "Needle"},
+            {"ALC", "Alembic"},
+            {"CUL", "Frypan"},
+            {"MIN", "Pickaxe" },
+            {"BTN", "Hatchet"},
+            {"FSH", "Fishing Rod"}
+        };
+
         #region Methods
+
+        public static string ReturnToolName(string job)
+        {
+            return JobToToolDict[job];
+        }
 
         #region CompleteStages
         public static void ProgressClass(Character character, SkysteelProgress skysteelProgress, bool CompleteBool = false)
@@ -123,6 +143,60 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
                     break;
             }
         }
+
+        #endregion
+
+        #region BasePlus1
+
+        public static Tuple<string, string, string, string> ReturnJobTuple(string job)
+        {
+            return new Tuple<string, string, string, string>(JobToToolDict[job], JobToPlus1Craft[job], JobToFirstPlus1Mat[job], JobToSecondPlus1Mat[job]);
+        }
+
+        private static Dictionary<string, string> JobToPlus1Craft = new Dictionary<string, string>
+        {
+            {"CRP", "Oddly Specific Petrified Orb" },
+            {"BSM", "Oddly Specific Rivets" },
+            {"ARM", "Oddly Specific Wire"},
+            {"GSM", "Oddly Specific Whetstone"},
+            {"LTW", "Oddly Specific Leather"},
+            {"WVR", "Oddly Specific Moonbeam Silk"},
+            {"ALC", "Oddly Specific Synthetic Resin"},
+            {"CUL", "Oddly Specific Seed Extract"},
+            {"MIN", "" },
+            {"BTN", ""},
+            {"FSH", ""}
+        };
+
+        private static Dictionary<string, string> JobToFirstPlus1Mat = new Dictionary<string, string>
+        {
+            {"CRP", "Oddly Specific Petrified Log" },
+            {"BSM", "Oddly Specific Iron Sand" },
+            {"ARM", "Oddly Specific Iron Ore"},
+            {"GSM", "Oddly Specific Uncut Gemstone"},
+            {"LTW", "Oddly Specific Skin"},
+            {"WVR", "Oddly Specific Cotton"},
+            {"ALC", "Oddly Specific Quartz"},
+            {"CUL", "Oddly Specific Seeds"},
+            {"MIN", "Oddly Specific Obsidian (Coerthas Western Highlands/The Sea of Clouds)" },
+            {"BTN", "Oddly Specific Latex (The Dravanian Forelands/The Sea of Clouds)"},
+            {"FSH", "Thinker's Coral (The Dravanian Forelands)"}
+        };
+
+        private static Dictionary<string, string> JobToSecondPlus1Mat = new Dictionary<string, string>
+        {
+            {"CRP", "White Ash Log (The Rak'tola Greatwood)" },
+            {"BSM", "Manasilver Sand (The Rak'tola Greatwood)" },
+            {"ARM", "Manasilver Sand (The Rak'tola Greatwood)"},
+            {"GSM", "Manasilver Sand (The Rak'tola Greatwood)"},
+            {"LTW", "Atrociraptor Skin (Bicolor Gemstone)"},
+            {"WVR", "Pixie Floss Boll (The Rak'tola Greatwood)"},
+            {"ALC", "Vampire Vine Sap (Bicolor Gemstone)"},
+            {"CUL", "Highland Spring Water (Il Mheg)"},
+            {"MIN", "Oddly Specific Mineral Sand (Coerthas Western Highlands/The Sea of Clouds)" },
+            {"BTN", "Oddly Specific Fossil Dust (The Dravanian Forelands/The Sea of Clouds)"},
+            {"FSH", ""}
+        };
 
         #endregion
     }

@@ -66,7 +66,7 @@ namespace FFXIVRelicTracker._05_Skysteel._00_Summary
         public SkysteelJob ALC{ get { return SelectedCharacter.SkysteelModel.ALC; } }
         public SkysteelJob CUL{ get { return SelectedCharacter.SkysteelModel.CUL; } }
         public SkysteelJob MIN{ get { return SelectedCharacter.SkysteelModel.MIN; } }
-        public SkysteelJob BTM{ get { return SelectedCharacter.SkysteelModel.BTM; } }
+        public SkysteelJob BTN{ get { return SelectedCharacter.SkysteelModel.BTN; } }
         public SkysteelJob FSH{ get { return SelectedCharacter.SkysteelModel.FSH; } }
 
         #endregion

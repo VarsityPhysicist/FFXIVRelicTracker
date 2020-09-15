@@ -1,4 +1,6 @@
-﻿using FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers;
+﻿using FFXIVRelicTracker._05_Skysteel._01_BaseTool;
+using FFXIVRelicTracker._05_Skysteel._02_BasePlus1;
+using FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections.Generic;
@@ -21,8 +23,11 @@ namespace FFXIVRelicTracker._05_Skysteel.Main
         private SkysteelJob cul = new SkysteelJob("CUL");
 
         private SkysteelJob min = new SkysteelJob("MIN");
-        private SkysteelJob btm = new SkysteelJob("BTM");
+        private SkysteelJob btn = new SkysteelJob("BTN");
         private SkysteelJob fsh = new SkysteelJob("FSH");
+
+        private BaseToolModel baseToolModel = new BaseToolModel();
+        private BasePlus1Model basePlus1Model = new BasePlus1Model();
 
         #endregion
 
@@ -48,8 +53,11 @@ namespace FFXIVRelicTracker._05_Skysteel.Main
         public SkysteelJob CUL {get{return cul ;} set{ cul=value; OnPropertyChanged(nameof(CUL));} }
                                                                                                    
         public SkysteelJob MIN {get{return min ;} set{ min=value; OnPropertyChanged(nameof(MIN));} }
-        public SkysteelJob BTM {get{return btm ;} set{ btm=value; OnPropertyChanged(nameof(BTM));} }
+        public SkysteelJob BTN { get{return btn ;} set{ btn = value; OnPropertyChanged(nameof(BTN));} }
         public SkysteelJob FSH { get { return fsh; } set { fsh = value; OnPropertyChanged(nameof(FSH)); } }
+
+        public BaseToolModel BaseToolModel { get { return baseToolModel; } set { baseToolModel = value; OnPropertyChanged(nameof(BaseToolModel)); } }
+        public BasePlus1Model BasePlus1Model { get { return basePlus1Model; } set { basePlus1Model = value; OnPropertyChanged(nameof(BasePlus1Model)); } }
 
         #endregion
     }

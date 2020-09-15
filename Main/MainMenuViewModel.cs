@@ -172,7 +172,7 @@ namespace FFXIVRelicTracker.ViewModels
                 selectedCharacter.SkysteelModel.ALC,
                 selectedCharacter.SkysteelModel.CUL,
                 selectedCharacter.SkysteelModel.MIN,
-                selectedCharacter.SkysteelModel.BTM,
+                selectedCharacter.SkysteelModel.BTN,
                 selectedCharacter.SkysteelModel.FSH
             };
 

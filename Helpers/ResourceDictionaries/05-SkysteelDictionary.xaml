@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:FFXIVRelicTracker.Helpers.ResourceDictionaries"
                     xmlns:summary="clr-namespace:FFXIVRelicTracker._05_Skysteel._00_Summary"
+                    xmlns:baseTool="clr-namespace:FFXIVRelicTracker._05_Skysteel._01_BaseTool"
+                    xmlns:basePlus1="clr-namespace:FFXIVRelicTracker._05_Skysteel._02_BasePlus1"
                     >
     
     
@@ -11,6 +13,12 @@
 
     <DataTemplate DataType="{x:Type summary:SkysteelSummaryViewModel}">
         <summary:SkysteelSummaryView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type baseTool:BaseToolViewModel}">
+        <baseTool:BaseToolView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type basePlus1:BasePlus1ViewModel}">
+        <basePlus1:BasePlus1View/>
     </DataTemplate>
 
     <Style BasedOn="{StaticResource FFXIVButton }" x:Key="SkysteelSummaryButton" TargetType="Button">
