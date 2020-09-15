@@ -144,11 +144,12 @@ namespace FFXIVRelicTracker.ARR.Animus
                     
                     animusModel.CurrentBook = value;
 
+                    ReadBooks();
+                    AssignItems();
+
                     InitializeMapLists(animusModel.CurrentBook, value);
 
-                    AssignItems();
                     ShowBookItems = true;
-                    ReadBooks();
 
                     OnPropertyChanged(nameof(CurrentBook));
 
@@ -366,21 +367,28 @@ namespace FFXIVRelicTracker.ARR.Animus
         {
             int bookInt = ArrInfo.ReferenceBooks.IndexOf(CurrentBook);
 
-            CreatureNames = ArrInfo.ReturnCreatureNames(bookInt);
-            CreatureMaps = ArrInfo.ReturnCreatureMaps(bookInt);
-            CreaturePoints = ArrInfo.ReturnCreaturePoints(bookInt);
+            // A newly created character doesn't have a CurrentBook and has a book int of -1 and this breaks >.>
 
-            Dungeons = ArrInfo.ReturnBookDungeons(bookInt);
+            if (bookInt >= 0)
+            {
+                CreatureNames = ArrInfo.ReturnCreatureNames(bookInt);
+                CreatureMaps = ArrInfo.ReturnCreatureMaps(bookInt);
+                CreaturePoints = ArrInfo.ReturnCreaturePoints(bookInt);
 
-            FateNames = ArrInfo.ReturnFATENames(bookInt);
-            FateMaps = ArrInfo.ReturnFATEMaps(bookInt);
-            FatePoints = ArrInfo.ReturnFATEPoints(bookInt);
+                Dungeons = ArrInfo.ReturnBookDungeons(bookInt);
 
-            LeveNames = ArrInfo.ReturnLeveNames(bookInt);
-            LeveTypes = ArrInfo.ReturnLeveTypes(bookInt);
-            LevePersons = ArrInfo.ReturnLevePersons(bookInt);
-            LeveMaps = ArrInfo.ReturnLeveLocations(bookInt);
-            LevePoints = ArrInfo.ReturnLevePoints(bookInt);
+                FateNames = ArrInfo.ReturnFATENames(bookInt);
+                FateMaps = ArrInfo.ReturnFATEMaps(bookInt);
+                FatePoints = ArrInfo.ReturnFATEPoints(bookInt);
+
+                LeveNames = ArrInfo.ReturnLeveNames(bookInt);
+                LeveTypes = ArrInfo.ReturnLeveTypes(bookInt);
+                LevePersons = ArrInfo.ReturnLevePersons(bookInt);
+                LeveMaps = ArrInfo.ReturnLeveLocations(bookInt);
+                LevePoints = ArrInfo.ReturnLevePoints(bookInt);
+            }
+
+
         }
         private void InitializeLists()
         {
