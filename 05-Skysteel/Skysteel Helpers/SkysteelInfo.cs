@@ -78,13 +78,13 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
                 IncompleteOtherJobs(character, StageIndex);
                 switch (StageIndex)
                 {
-                    case 0:
+                    default:
                         skysteelProgress.Progress = SkysteelProgress.States.Completed;
                         break;
-                    case 1:
-                    case 2:
-                        skysteelProgress.Progress++;
-                        break;
+                    //case 1:
+                    //case 2:
+                    //    skysteelProgress.Progress++;
+                    //    break;
                 }
             }
         }

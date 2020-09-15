@@ -71,7 +71,8 @@ namespace FFXIVRelicTracker.ARR.Animus
         public bool netherFall1Book{ get; set;}
         public bool skyWind1Book{ get; set;}
         public bool skyEarth1Book{ get; set;}
-        public int bookSelection{ get; set;}
+        public bool skyWind2Book { get; internal set; }
+        public int bookSelection{ get; set; }
 
         public AnimusObject Leve1{ get; set;}
         public AnimusObject Leve2{ get; set;}
@@ -116,7 +117,7 @@ namespace FFXIVRelicTracker.ARR.Animus
                 "Book of Skyearth I"
             };
         public ObservableCollection<string> availableAnimusobs { get; set; }
-       
+
         public AnimusModel()
         {
             Leve1 = new AnimusObject();

@@ -30,6 +30,7 @@ namespace FFXIVRelicTracker.ARR.Animus
                 "Book of Netherfire I",
                 "Book of Netherfall I",
                 "Book of Skywind I",
+                "Book of Skywind II",
                 "Book of Skyearth I"
             };
 
@@ -132,23 +133,29 @@ namespace FFXIVRelicTracker.ARR.Animus
             {
                 if (value != null)
                 {
-                    ShowBookItems = true;
-                    ReadBooks();
+                    
 
                     if (animusModel.CurrentBook != null)
                     {
                         ResetBools();
                     }
-                    AssignItems();
+
+
+                    
+                    animusModel.CurrentBook = value;
 
                     InitializeMapLists(animusModel.CurrentBook, value);
 
-                    animusModel.CurrentBook = value;
-
+                    AssignItems();
+                    ShowBookItems = true;
+                    ReadBooks();
 
                     OnPropertyChanged(nameof(CurrentBook));
 
                     ReassignPoints();
+
+                    SelectedAnimusMap = ObservableUniqueMaps[0];
+                    ReCheckMaps();
                 }
                 else
                 {
@@ -273,8 +280,10 @@ namespace FFXIVRelicTracker.ARR.Animus
         public bool NetherFire1Book { get { return animusModel.netherFire1Book; } set { animusModel.netherFire1Book = value; ChangedBookStatus(nameof(NetherFire1Book), value); OnPropertyChanged(nameof(NetherFire1Book)); } }
         public bool NetherFall1Book { get { return animusModel.netherFall1Book; } set { animusModel.netherFall1Book = value; ChangedBookStatus(nameof(NetherFall1Book), value); OnPropertyChanged(nameof(NetherFall1Book)); } }
         public bool SkyWind1Book { get { return animusModel.skyWind1Book; } set { animusModel.skyWind1Book = value; ChangedBookStatus(nameof(SkyWind1Book), value); OnPropertyChanged(nameof(SkyWind1Book)); } }
+        public bool SkyWind2Book { get { return animusModel.skyWind2Book; } set { animusModel.skyWind2Book = value; ChangedBookStatus(nameof(SkyWind2Book), value); OnPropertyChanged(nameof(SkyWind2Book)); } }
         public bool SkyEarth1Book { get { return animusModel.skyEarth1Book; } set { animusModel.skyEarth1Book = value; ChangedBookStatus(nameof(SkyEarth1Book), value); OnPropertyChanged(nameof(SkyEarth1Book)); } }
 
+        private List<bool> bookBools = new List<bool>();
 
         public List<string> Leves { get { return animusModel.leves; } set { animusModel.leves = value; OnPropertyChanged(nameof(Leves)); } }
         public List<string> Fates { get { return animusModel.fates; } set { animusModel.fates = value; OnPropertyChanged(nameof(Fates)); } }
@@ -463,6 +472,7 @@ namespace FFXIVRelicTracker.ARR.Animus
             NetherFire1Book = false;
             NetherFall1Book = false;
             SkyWind1Book = false;
+            SkyWind2Book = false;
             SkyEarth1Book = false;
         }
 
@@ -541,6 +551,9 @@ namespace FFXIVRelicTracker.ARR.Animus
                     AvailableAnimusJobs.Remove(job.Name);
                 }
             }
+                RecheckAvailableBooks();
+            //Refreshes view for people with older versions that may have had a bug resolved
+            CurrentBook = CurrentBook;
         }
 
         public void ReassignPoints()
@@ -593,70 +606,64 @@ namespace FFXIVRelicTracker.ARR.Animus
             #endregion
         }
 
+        private void RecheckAvailableBooks()
+        {
+            bookBools = new List<bool>()
+            {
+                SkyFire1Book,
+                SkyFire2Book,
+                SkyFall1Book,
+                SkyFall2Book,
+                NetherFire1Book,
+                NetherFall1Book,
+                SkyWind1Book,
+                SkyWind2Book,
+                SkyEarth1Book
+            };
+            foreach (string book in ArrInfo.ReferenceBooks)
+            {
+                int bookOrder = ArrInfo.ReferenceBooks.IndexOf(book);
+                bool tempBool = bookBools[bookOrder];
+
+                int compareInt;
+
+                if(tempBool & AnimusBooks.Contains(book))
+                {
+                    AnimusBooks.Remove(book);
+                }
+                else if(!tempBool & !AnimusBooks.Contains(book))
+                {
+                    switch (AnimusBooks.Count)
+                    {
+                        case 0:
+                            AnimusBooks.Add(book);
+                            break;
+                        default:
+                            for(int i=0; i < AnimusBooks.Count; i++)
+                            {
+                                compareInt = ArrInfo.ReferenceBooks.IndexOf(AnimusBooks[i]);
+                                if (compareInt > bookOrder) 
+                                { 
+                                    AnimusBooks.Insert(i, book); 
+                                    break;
+                                }
+                            }
+                            if (!AnimusBooks.Contains(book)) { AnimusBooks.Add(book); }
+                            break;
+                    }
+                }
+                
+            }
+        }
+
         private void ChangedBookStatus(string book, bool newStatus)
         {
             int bookindex = ArrInfo.BookList.IndexOf(book);
             string bookString = ArrInfo.ReferenceBooks[bookindex];
 
-            int compareIndex;
-
             if(CurrentBook== bookString & newStatus) { ResetBools(); }
 
-            if (newStatus)
-            {
-
-                AnimusBooks.Remove(bookString);
-
-                // Maybe not needed, apparently I shouldn't bind to combobox indices
-                if (BookSelection == AnimusBooks.IndexOf(bookString))
-                { BookSelection = 0; }
-            }
-            else
-            {
-                switch (AnimusBooks.Count)
-                {
-                    case 0:
-                        AnimusBooks.Add(bookString);
-                        CurrentBook = AnimusBooks[0];
-                        break;
-                    case 1:
-                        compareIndex = ArrInfo.ReferenceBooks.IndexOf(AnimusBooks[0]);
-                        if (compareIndex > bookindex)
-                        {
-                            AnimusBooks.Insert(0, bookString);
-                        }
-                        break;
-                    default:
-                        compareIndex = ArrInfo.ReferenceBooks.IndexOf(AnimusBooks[0]);
-                        if (compareIndex > bookindex)
-                        {
-                            AnimusBooks.Insert(0, bookString);
-                        }
-                        else if (ArrInfo.ReferenceBooks.IndexOf(AnimusBooks[AnimusBooks.Count - 1]) < bookindex)
-                        {
-                            AnimusBooks.Add(bookString);
-                        }
-                        else
-                        {
-                            int maxIndex = AnimusBooks.Count;
-                            int firstIndex;
-                            int secondIndex;
-                            for (int i = 0; i < maxIndex - 1; i++)
-                            {
-                                firstIndex = ArrInfo.ReferenceBooks.IndexOf(AnimusBooks[i]);
-                                secondIndex = ArrInfo.ReferenceBooks.IndexOf(AnimusBooks[i + 1]);
-
-                                if (firstIndex < bookindex & bookindex < secondIndex)
-                                {
-                                    AnimusBooks.Insert(i + 1, bookString);
-                                    break;
-                                }
-                            }
-                        }
-                        break;
-                }
-            }
-
+            RecheckAvailableBooks();
         }
 
 

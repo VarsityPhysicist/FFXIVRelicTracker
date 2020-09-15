@@ -73,6 +73,7 @@
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition/>
                     </Grid.RowDefinitions>
 
                     <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Complete the following Zodiac Braves Books"   Grid.ColumnSpan="10"/>
@@ -88,7 +89,8 @@
                     <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="7"     Grid.Column="0" Text="Book of Netherfire I"/>
                     <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="8"     Grid.Column="0" Text="Book of Netherfall I"/>
                     <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="9"     Grid.Column="0" Text="Book of Skywind I"/>
-                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="10"    Grid.Column="0" Text="Book of Skyearth I"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="10"     Grid.Column="0" Text="Book of Skywind II"/>
+                    <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="11"    Grid.Column="0" Text="Book of Skyearth I"/>
 
                     <CheckBox Grid.Row="3"    Grid.Column="1" IsChecked="{Binding Path=SkyFire1Book   }"/>
                     <CheckBox Grid.Row="4"    Grid.Column="1" IsChecked="{Binding Path=SkyFire2Book   }"/>
@@ -97,9 +99,10 @@
                     <CheckBox Grid.Row="7"    Grid.Column="1" IsChecked="{Binding Path=NetherFire1Book}"/>
                     <CheckBox Grid.Row="8"    Grid.Column="1" IsChecked="{Binding Path=NetherFall1Book}"/>
                     <CheckBox Grid.Row="9"    Grid.Column="1" IsChecked="{Binding Path=SkyWind1Book   }"/>
-                    <CheckBox Grid.Row="10"    Grid.Column="1" IsChecked="{Binding Path=SkyEarth1Book  }"/>
+                    <CheckBox Grid.Row="10"    Grid.Column="1" IsChecked="{Binding Path=SkyWind2Book   }"/>
+                    <CheckBox Grid.Row="11"    Grid.Column="1" IsChecked="{Binding Path=SkyEarth1Book  }"/>
 
-                    <TextBlock Grid.Row="11"/>
+                    <TextBlock Grid.Row="12"/>
 
 
                 </Grid>

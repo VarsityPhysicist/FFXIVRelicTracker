@@ -53,11 +53,13 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
             get { return selectedCharacter; }
             set
             {
-                selectedCharacter = value;
-
-                CheckModelExists();
-
-                OnPropertyChanged(nameof(SelectedCharacter));
+                if (value != null)
+                {
+                    selectedCharacter = value;
+                    CheckModelExists();
+                    OnPropertyChanged(nameof(SelectedCharacter));
+                }
+                
             }
         }
 

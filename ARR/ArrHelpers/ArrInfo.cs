@@ -249,6 +249,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             "NetherFire1Book",
             "NetherFall1Book",
             "SkyWind1Book",
+            "SkyWind2Book",
             "SkyEarth1Book"
         };
 
@@ -261,6 +262,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
                 "Book of Netherfire I",
                 "Book of Netherfall I",
                 "Book of Skywind I",
+                "Book of Skywind II",
                 "Book of Skyearth I"
             };
 

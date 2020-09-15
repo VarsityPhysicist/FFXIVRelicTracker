@@ -58,7 +58,7 @@
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="ALC" Grid.Row="1"   Grid.Column="07"/>
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="CUL" Grid.Row="1"   Grid.Column="08"/>
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="MIN" Grid.Row="1"   Grid.Column="09"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BTM" Grid.Row="1"   Grid.Column="10"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BTN" Grid.Row="1"   Grid.Column="10"/>
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="FSH" Grid.Row="1"   Grid.Column="11"/>
 
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="Base Tool"  Grid.Row="2" Grid.Column="0"/>
@@ -74,7 +74,7 @@
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="07" Content="{Binding Path=ALC.BaseTool.Progress}" Tag="{Binding ALC.BaseTool}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="08" Content="{Binding Path=CUL.BaseTool.Progress}" Tag="{Binding CUL.BaseTool}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="09" Content="{Binding Path=MIN.BaseTool.Progress}" Tag="{Binding MIN.BaseTool}" />
-            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="10" Content="{Binding Path=BTM.BaseTool.Progress}" Tag="{Binding BTM.BaseTool}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="10" Content="{Binding Path=BTN.BaseTool.Progress}" Tag="{Binding BTN.BaseTool}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="2" Grid.Column="11" Content="{Binding Path=FSH.BaseTool.Progress}" Tag="{Binding FSH.BaseTool}" />
 
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="01" Content="{Binding Path=CRP.BasePlus1.Progress}" Tag="{Binding CRP.BasePlus1}" />
@@ -86,7 +86,7 @@
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="07" Content="{Binding Path=ALC.BasePlus1.Progress}" Tag="{Binding ALC.BasePlus1}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="08" Content="{Binding Path=CUL.BasePlus1.Progress}" Tag="{Binding CUL.BasePlus1}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="09" Content="{Binding Path=MIN.BasePlus1.Progress}" Tag="{Binding MIN.BasePlus1}" />
-            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="10" Content="{Binding Path=BTM.BasePlus1.Progress}" Tag="{Binding BTM.BasePlus1}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="10" Content="{Binding Path=BTN.BasePlus1.Progress}" Tag="{Binding BTN.BasePlus1}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="3" Grid.Column="11" Content="{Binding Path=FSH.BasePlus1.Progress}" Tag="{Binding FSH.BasePlus1}" />
 
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="01" Content="{Binding Path=CRP.Dragonsung.Progress}" Tag="{Binding CRP.Dragonsung}" />
@@ -98,7 +98,7 @@
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="07" Content="{Binding Path=ALC.Dragonsung.Progress}" Tag="{Binding ALC.Dragonsung}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="08" Content="{Binding Path=CUL.Dragonsung.Progress}" Tag="{Binding CUL.Dragonsung}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="09" Content="{Binding Path=MIN.Dragonsung.Progress}" Tag="{Binding MIN.Dragonsung}" />
-            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="10" Content="{Binding Path=BTM.Dragonsung.Progress}" Tag="{Binding BTM.Dragonsung}" />
+            <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="10" Content="{Binding Path=BTN.Dragonsung.Progress}" Tag="{Binding BTN.Dragonsung}" />
             <Button Style="{StaticResource SkysteelSummaryButton}" Grid.Row="4" Grid.Column="11" Content="{Binding Path=FSH.Dragonsung.Progress}" Tag="{Binding FSH.Dragonsung}" />
 
 
