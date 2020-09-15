@@ -3,8 +3,6 @@ This is a project for tracking Relic weapon progression in FFXIV. Each expansion
 
 Current release is here: https://github.com/VarsityPhysicist/FFXIVRelicTracker/releases
 
-Known issue: the animus tab is likely not to work on new characters, and for some pre-existing loaded characters as well. The issue was reported 14SEP2020 and I will have a fix in the evening of 15SEP2020
-
 This is my first programming project and I didn't look into basing it on any specific version of Microsoft's .NET Core runtime, so unfortunately the latest version is required - you can download it here:https://dotnet.microsoft.com/download
 
 Currently the following expansions are included in this: ARR, ShB, Skysteel Tools
