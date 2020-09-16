@@ -79,8 +79,8 @@ namespace FFXIVRelicTracker.ARR.Atma
         #endregion
     public void LoadAvailableJobs()
         {
+            CountAtma();
         }
-
 
         private void CountAtma()
         {
