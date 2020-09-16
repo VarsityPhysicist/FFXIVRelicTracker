@@ -7,6 +7,8 @@ This is my first programming project and I didn't look into basing it on any spe
 
 Currently the following expansions are included in this: ARR, ShB, Skysteel Tools
 
+The order of planned expansions to be added are: HW then SB - if a new stage for ShB drops then that will get completed first
+
 To use the application, download the files and run FFXIVRelicTracker.exe
   
   The main window can be dragged around from the top bar and can be expanded or shrunk by clicking and dragging from the bottom right corner.
