@@ -11,7 +11,7 @@ namespace FFXIVRelicTracker.ARR.Nexus
         public string CurrentNexus{ get; set;}
         public int CurrentLight{ get; set;}
         public string NexusActivity{ get; set;}
-        public ObservableCollection<string> AvailableNexusJobs { get; internal set; }
+        public ObservableCollection<string> AvailableNexusJobs { get; set; }
 
         public NexusModel()
         {

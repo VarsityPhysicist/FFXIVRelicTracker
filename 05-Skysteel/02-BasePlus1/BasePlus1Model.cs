@@ -8,12 +8,12 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
 {
     public class BasePlus1Model : ObservableObject
     {
-        public string SelectedJob { get; internal set; }
-        public string ToolName { get; internal set; }
-        public string FirstMat { get; internal set; }
-        public string SecondMat { get; internal set; }
-        public string CraftedMat { get; internal set; }
-        public ObservableCollection<string> AvailableJobs { get; internal set; }
+        public string SelectedJob { get;  set; }
+        public string ToolName { get;  set; }
+        public string FirstMat { get;  set; }
+        public string SecondMat { get;  set; }
+        public string CraftedMat { get;  set; }
+        public ObservableCollection<string> AvailableJobs { get;  set; }
 
         public BasePlus1Model()
         {

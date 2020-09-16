@@ -36,20 +36,20 @@ namespace FFXIVRelicTracker.ARR.Relic
         private string currentRelic;
         public string CurrentRelic { get { return currentRelic; } set { currentRelic = value; } }
 
-        public bool Stage1Complete { get; internal set; }
-        public bool Stage2Complete { get; internal set; }
-        public bool Stage3Complete { get; internal set; }
-        public bool Stage4Complete { get; internal set; }
-        public bool Stage5Complete { get; internal set; }
-        public bool Stage6Complete { get; internal set; }
-        public bool Stage7Complete { get; internal set; }
-        public bool Stage8Complete { get; internal set; }
-        public bool IfritComplete { get; internal set; }
-        public bool GarudaComplete { get; internal set; }
-        public bool ShivaComplete { get; internal set; }
-        public bool BeastMan1Complete { get; internal set; }
-        public bool BeastMan2Complete { get; internal set; }
-        public bool BeastMan3Complete { get; internal set; }
+        public bool Stage1Complete { get;  set; }
+        public bool Stage2Complete { get;  set; }
+        public bool Stage3Complete { get;  set; }
+        public bool Stage4Complete { get;  set; }
+        public bool Stage5Complete { get;  set; }
+        public bool Stage6Complete { get;  set; }
+        public bool Stage7Complete { get;  set; }
+        public bool Stage8Complete { get;  set; }
+        public bool IfritComplete { get;  set; }
+        public bool GarudaComplete { get;  set; }
+        public bool ShivaComplete { get;  set; }
+        public bool BeastMan1Complete { get;  set; }
+        public bool BeastMan2Complete { get;  set; }
+        public bool BeastMan3Complete { get;  set; }
 
     }
 }

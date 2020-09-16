@@ -22,6 +22,6 @@ namespace FFXIVRelicTracker.ARR.Braves
         public int RemainingGil{ get; set;}
         public int RemainingSeals{ get; set;}
         public int RemainingPoetics{ get; set;}
-        public ObservableCollection<string> AvailableBravesJobs { get; internal set; }
+        public ObservableCollection<string> AvailableBravesJobs { get; set; }
     }
 }

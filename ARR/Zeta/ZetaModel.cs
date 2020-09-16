@@ -25,7 +25,7 @@ namespace FFXIVRelicTracker.ARR.Zeta
         public BoolObject fishVisibility  { get; set;}
         public int CurrentLight{ get; set;}
         public string ZetaActivity{ get; set;}
-        public ObservableCollection<string> AvailableZetaJobs { get; internal set; }
+        public ObservableCollection<string> AvailableZetaJobs { get; set; }
 
         public ZetaModel()
         {

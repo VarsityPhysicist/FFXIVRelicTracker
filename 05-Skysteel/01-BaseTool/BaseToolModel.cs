@@ -8,7 +8,11 @@ namespace FFXIVRelicTracker._05_Skysteel._01_BaseTool
 {
     public class BaseToolModel : ObservableObject
     {
-        public string SelectedJob { get; internal set; }
-        public ObservableCollection<string> AvailableJobs { get; internal set; }
+        public BaseToolModel()
+        {
+
+        }
+        public string SelectedJob { get;  set; }
+        public ObservableCollection<string> AvailableJobs { get;  set; }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using FFXIVRelicTracker._05_Skysteel._00_Summary;
 using FFXIVRelicTracker._05_Skysteel._01_BaseTool;
 using FFXIVRelicTracker._05_Skysteel._02_BasePlus1;
+using FFXIVRelicTracker._05_Skysteel._03_Dragonsung;
 using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Commands;
@@ -37,6 +38,7 @@ namespace FFXIVRelicTracker._05_Skysteel.Main
             PageViewModels.Add(new SkysteelSummaryViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new BaseToolViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new BasePlus1ViewModel(Event.EventInstance.EventAggregator));
+            PageViewModels.Add(new DragonsungViewModel(Event.EventInstance.EventAggregator));
 
             CurrentPageViewModel = PageViewModels[0];
 

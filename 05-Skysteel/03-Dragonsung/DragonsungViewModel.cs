@@ -9,19 +9,19 @@ using System.Collections.ObjectModel;
 using System.Text;
 using System.Windows.Input;
 
-namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
+namespace FFXIVRelicTracker._05_Skysteel._03_Dragonsung
 {
-    public class BasePlus1ViewModel : ObservableObject, IPageViewModel, IIncompleteViewModel
+    public class DragonsungViewModel : ObservableObject, IPageViewModel, IIncompleteViewModel
     {
         #region Fields
-        private BasePlus1Model basePlus1Model;
+        private DragonsungModel dragonsung1Model;
         private Character selectedCharacter;
         private IEventAggregator eventAggregator;
         private Tuple<string, string, string, string> jobInfo;
         #endregion
 
         #region Constructors
-        public BasePlus1ViewModel(IEventAggregator eventAggregator)
+        public DragonsungViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;
 
@@ -38,14 +38,14 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
         #endregion
 
         #region Properties
-        public string Name => "Skysteel Tool+1";
-        public BasePlus1Model BasePlus1Model
+        public string Name => "Dragonsung";
+        public DragonsungModel DragonsungModel
         {
-            get { return basePlus1Model; }
+            get { return dragonsung1Model; }
             set
             {
-                basePlus1Model = value;
-                OnPropertyChanged(nameof(BasePlus1Model));
+                dragonsung1Model = value;
+                OnPropertyChanged(nameof(DragonsungModel));
             }
         }
         public Character SelectedCharacter
@@ -59,16 +59,16 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
                     CheckModelExists();
                     OnPropertyChanged(nameof(SelectedCharacter));
                 }
-                
+
             }
         }
 
         public string SelectedJob
         {
-            get { return BasePlus1Model.SelectedJob; }
+            get { return DragonsungModel.SelectedJob; }
             set
             {
-                BasePlus1Model.SelectedJob = value;
+                DragonsungModel.SelectedJob = value;
                 OnPropertyChanged(nameof(SelectedJob));
                 OnPropertyChanged(nameof(IsGatherer));
                 OnPropertyChanged(nameof(IsFSH));
@@ -76,7 +76,7 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
 
                 if (value != null)
                 {
-                    jobInfo = SkysteelInfo.ReturnBasePlus1Tuple(SelectedJob);
+                    jobInfo = SkysteelInfo.ReturnDragonsungTuple(SelectedJob);
 
 
                     ToolName = jobInfo.Item1;
@@ -88,25 +88,25 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
         }
         public ObservableCollection<string> AvailableJobs
         {
-            get { return basePlus1Model.AvailableJobs; }
+            get { return dragonsung1Model.AvailableJobs; }
             set
             {
-                basePlus1Model.AvailableJobs = value;
+                dragonsung1Model.AvailableJobs = value;
                 OnPropertyChanged(nameof(AvailableJobs));
             }
         }
 
-        public string ToolName { get { return basePlus1Model.ToolName; } set { basePlus1Model.ToolName = value; OnPropertyChanged(nameof(ToolName)); } }
-        public string CraftedMat { get { return basePlus1Model.CraftedMat; } set { basePlus1Model.CraftedMat = value; OnPropertyChanged(nameof(CraftedMat)); } }
-        public string FirstMat { get { return basePlus1Model.FirstMat; } set { basePlus1Model.FirstMat = value; OnPropertyChanged(nameof(FirstMat)); } }
-        public string SecondMat { get { return basePlus1Model.SecondMat; } set { basePlus1Model.SecondMat = value; OnPropertyChanged(nameof(SecondMat)); } }
+        public string ToolName { get { return dragonsung1Model.ToolName; } set { dragonsung1Model.ToolName = value; OnPropertyChanged(nameof(ToolName)); } }
+        public string CraftedMat { get { return dragonsung1Model.CraftedMat; } set { dragonsung1Model.CraftedMat = value; OnPropertyChanged(nameof(CraftedMat)); } }
+        public string FirstMat { get { return dragonsung1Model.FirstMat; } set { dragonsung1Model.FirstMat = value; OnPropertyChanged(nameof(FirstMat)); } }
+        public string SecondMat { get { return dragonsung1Model.SecondMat; } set { dragonsung1Model.SecondMat = value; OnPropertyChanged(nameof(SecondMat)); } }
 
 
         public string SelectedToolType { get { return SkysteelInfo.ReturnToolName(SelectedJob); } }
-        public bool DisplayInfo { get { return SelectedJob!=null; } }
+        public bool DisplayInfo { get { return SelectedJob != null; } }
         public bool IsGatherer { get { return (SelectedJob == "MIN" | SelectedJob == "BTN" | SelectedJob == "FSH"); } }
         public bool IsFSH { get { return SelectedJob == "FSH"; } }
-        public int RemaningYellowScrips { get { if (AvailableJobs == null) { LoadAvailableJobs(); } return AvailableJobs.Count * 20 * 50; } }
+        public int RemaningYellowScrips { get { if (AvailableJobs == null) { LoadAvailableJobs(); } return AvailableJobs.Count * 30 * 50; } }
 
 
         #endregion
@@ -114,12 +114,12 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
         #region Methods
         public void CheckModelExists()
         {
-            if (BasePlus1Model == null)
+            if (DragonsungModel == null)
             {
-                BasePlus1Model = new BasePlus1Model();
-                selectedCharacter.SkysteelModel.BasePlus1Model = BasePlus1Model;
+                DragonsungModel = new DragonsungModel();
+                selectedCharacter.SkysteelModel.DragonsungModel = DragonsungModel;
             }
-            else { BasePlus1Model = selectedCharacter.SkysteelModel.BasePlus1Model; }
+            else { DragonsungModel = selectedCharacter.SkysteelModel.DragonsungModel; }
         }
 
 
@@ -128,11 +128,11 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
             if (AvailableJobs == null) { AvailableJobs = new ObservableCollection<string>(); }
             foreach (SkysteelJob job in selectedCharacter.SkysteelModel.SkysteelJobList)
             {
-                if (job.BasePlus1.Progress == BaseProgressClass.States.Completed & AvailableJobs.Contains(job.Name))
+                if (job.Dragonsung.Progress == BaseProgressClass.States.Completed & AvailableJobs.Contains(job.Name))
                 {
                     AvailableJobs.Remove(job.Name);
                 }
-                if (job.BasePlus1.Progress != BaseProgressClass.States.Completed & !AvailableJobs.Contains(job.Name))
+                if (job.Dragonsung.Progress != BaseProgressClass.States.Completed & !AvailableJobs.Contains(job.Name))
                 {
                     SkysteelInfo.ReloadJobList(AvailableJobs, job.Name);
                 }
@@ -167,7 +167,7 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
 
             SkysteelJob tempJob = selectedCharacter.SkysteelModel.SkysteelJobList[SkysteelInfo.JobListString.IndexOf(SelectedJob)];
 
-            SkysteelInfo.ProgressClass(selectedCharacter, tempJob.BasePlus1, true);
+            SkysteelInfo.ProgressClass(selectedCharacter, tempJob.Dragonsung, true);
 
             LoadAvailableJobs();
 
@@ -175,7 +175,5 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
         #endregion
 
         #endregion
-
-
     }
 }

@@ -148,7 +148,7 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
 
         #region BasePlus1
 
-        public static Tuple<string, string, string, string> ReturnJobTuple(string job)
+        public static Tuple<string, string, string, string> ReturnBasePlus1Tuple(string job)
         {
             return new Tuple<string, string, string, string>(JobToToolDict[job], JobToPlus1Craft[job], JobToFirstPlus1Mat[job], JobToSecondPlus1Mat[job]);
         }
@@ -195,6 +195,60 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
             {"CUL", "Highland Spring Water (Il Mheg)"},
             {"MIN", "Oddly Specific Mineral Sand (Coerthas Western Highlands/The Sea of Clouds)" },
             {"BTN", "Oddly Specific Fossil Dust (The Dravanian Forelands/The Sea of Clouds)"},
+            {"FSH", ""}
+        };
+
+        #endregion
+
+        #region Dragonsung
+
+        public static Tuple<string, string, string, string> ReturnDragonsungTuple(string job)
+        {
+            return new Tuple<string, string, string, string>(JobToToolDict[job], JobToDragonsungCraft[job], JobToFirstDragonsungMat[job], JobToSecondDragonsungMat[job]);
+        }
+
+        private static Dictionary<string, string> JobToDragonsungCraft = new Dictionary<string, string>
+        {
+            {"CRP", "Oddly Specific Shaft"},
+            {"BSM", "Oddly Specific Fitting"},
+            {"ARM", "Oddly Specific Chainmail Sheet"},
+            {"GSM", "Oddly Specific Gemstone"},
+            {"LTW", "Oddly Specific Vellum"},
+            {"WVR", "Oddly Specific Velvet"},
+            {"ALC", "Oddly Specific Glass"},
+            {"CUL", "Oddly Specific Seed Flour"},
+            {"MIN", "" },
+            {"BTN", ""},
+            {"FSH", ""}
+        };
+
+        private static Dictionary<string, string> JobToFirstDragonsungMat = new Dictionary<string, string>
+        {
+            {"CRP", "Oddly Specific Petrified Log" },
+            {"BSM", "Oddly Specific Iron Sand" },
+            {"ARM", "Oddly Specific Iron Ore"},
+            {"GSM", "Oddly Specific Uncut Gemstone"},
+            {"LTW", "Oddly Specific Skin"},
+            {"WVR", "Oddly Specific Cotton"},
+            {"ALC", "Oddly Specific Quartz"},
+            {"CUL", "Oddly Specific Seeds"},
+            {"MIN", "Oddly Specific Dark Matter (The Dravanian Forelands/The Dravanian Hinterlands)" },
+            {"BTN", "Oddly Specific Amber (Coerthas Western Highlands/The Churning Mists)"},
+            {"FSH", "Dragonspine (Coerthas Western Highlands)"}
+        };
+
+        private static Dictionary<string, string> JobToSecondDragonsungMat = new Dictionary<string, string>
+        {
+            {"CRP", "Sandteak Lumber"},
+            {"BSM", "Titanbronze Ingot"},
+            {"ARM", "Titanbronze Ingot"},
+            {"GSM", "Tuff Whetstone"},
+            {"LTW", "Zonure Leather"},
+            {"WVR", "Ovim Wool"},
+            {"ALC", "Refined Natron"},
+            {"CUL", "Night Vinegar"},
+            {"MIN", "Oddly Specific Striking Stone (The Dravanian Forelands/The Dravanian Hinterlands)"},
+            {"BTN", "Oddly Specific Bauble (Coerthas Western Highlands/The Churning Mists)"},
             {"FSH", ""}
         };
 
