@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FFXIVRelicTracker.Helpers.ResourceDictionaries"
+                    xmlns:summary="clr-namespace:FFXIVRelicTracker._03_HW._00_Summary"
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate DataType="{x:Type summary:HWSummaryViewModel}">
+        <summary:HWSummaryView />
+    </DataTemplate>
+
+
+
+    <Style BasedOn="{StaticResource FFXIVButton }" x:Key="HWSummaryButton" TargetType="Button">
+        <Setter Property="HorizontalAlignment"  Value="Center"/>
+        <Setter Property="VerticalAlignment"    Value="Center"/>
+        <Setter Property="Margin"  Value="5"/>
+        <Setter Property="Command"  Value="{Binding HWButton}" />
+        <Setter Property="MinWidth" Value="90"/>
+        <Setter Property="CommandParameter">
+            <Setter.Value>
+                    <Binding    Path="Tag" RelativeSource="{RelativeSource Self}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

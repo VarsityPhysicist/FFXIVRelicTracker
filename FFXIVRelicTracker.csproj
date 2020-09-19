@@ -85,4 +85,15 @@
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="03-HW\01-Animated\" />
+    <Folder Include="03-HW\02-Awoken\" />
+    <Folder Include="03-HW\03-Anima\" />
+    <Folder Include="03-HW\04-Hyperconductive\" />
+    <Folder Include="03-HW\05-Reconditioned\" />
+    <Folder Include="03-HW\06-Sharpened\" />
+    <Folder Include="03-HW\07-Complete\" />
+    <Folder Include="03-HW\08-Lux\" />
+  </ItemGroup>
+
 </Project>
