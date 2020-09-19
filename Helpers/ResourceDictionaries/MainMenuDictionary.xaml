@@ -4,6 +4,7 @@
                     xmlns:viewmodels="clr-namespace:FFXIVRelicTracker.ViewModels"
                     xmlns:shb="clr-namespace:FFXIVRelicTracker._05_ShB.Main"
                     xmlns:skysteel="clr-namespace:FFXIVRelicTracker._05_Skysteel.Main"
+                    xmlns:hw="clr-namespace:FFXIVRelicTracker._03_HW.Main"
                     xmlns:views="clr-namespace:FFXIVRelicTracker.Views">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
@@ -14,6 +15,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewmodels:ArrViewModel}">
         <views:ArrView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type hw:HWViewModel}">
+        <hw:HWView />
     </DataTemplate>
     <DataTemplate DataType="{x:Type shb:ShBViewModel}">
         <shb:ShBView />

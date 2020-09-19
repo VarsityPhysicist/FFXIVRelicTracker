@@ -86,7 +86,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="03-HW\01-Animated\" />
     <Folder Include="03-HW\02-Awoken\" />
     <Folder Include="03-HW\03-Anima\" />
     <Folder Include="03-HW\04-Hyperconductive\" />

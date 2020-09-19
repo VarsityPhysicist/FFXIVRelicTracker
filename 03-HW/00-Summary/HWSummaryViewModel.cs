@@ -102,10 +102,10 @@ namespace FFXIVRelicTracker._03_HW._00_Summary
         private bool HWCan() { return true; }
         private void HWCommand(object param)
         {
-            object[] values = (object[])param;
+            //HWProgress values = (HWProgress)param;
 
             //HWJob tempJob = (HWJob)values[0];
-            HWProgress tempProgress = (HWProgress)values[0];
+            HWProgress tempProgress = (HWProgress)param;
 
             HWInfo.ProgressClass(selectedCharacter, tempProgress);
 
