@@ -33,6 +33,8 @@
         </Setter>
     </Style>
 
+
+
     <Style x:Key="GoldBorder" TargetType="Border">
         <Setter Property="BorderBrush" Value="#a27e4e"/>
         <Setter Property="CornerRadius" Value="5"/>
@@ -191,6 +193,21 @@
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background"  Value="#282728"/>
                             <Setter Property="TextElement.Foreground" Value="#5c5c5c"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FFXIVCheckbox" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="#a0a0a0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="TextBlock.TextDecorations" Value="Strikethrough"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

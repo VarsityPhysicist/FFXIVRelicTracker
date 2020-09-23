@@ -1,4 +1,5 @@
 ﻿using FFXIVRelicTracker._03_HW._01_Animated;
+using FFXIVRelicTracker._03_HW._02_Awoken;
 using FFXIVRelicTracker._03_HW.HWHelpers;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
@@ -26,7 +27,7 @@ namespace FFXIVRelicTracker._03_HW.Main
         private HWJob smn = new HWJob("SMN");
 
         private AnimatedModel animatedModel = new AnimatedModel();
-        //private AwokenModel awokenModel = new AwokenModel();
+        private AwokenModel awokenModel = new AwokenModel();
         //private AnimaModel animaModel = new AnimaModel();
         //private HyperconductiveModel hyperconductiveModel = new HyperconductiveModel();
         //private ReconditionedModel reconditionedModel = new ReconditionedModel();
@@ -60,7 +61,7 @@ namespace FFXIVRelicTracker._03_HW.Main
         public HWJob SMN { get { return smn; } set { smn = value; OnPropertyChanged(nameof(SMN)); } }
 
         public AnimatedModel AnimatedModel { get { return animatedModel; } set { animatedModel = value; OnPropertyChanged(nameof(AnimatedModel)); } }
-        //public AwokenModel AwokenModel { get { return awokenModel; } set { awokenModel = value; OnPropertyChanged(nameof(AwokenModel)); } }
+        public AwokenModel AwokenModel { get { return awokenModel; } set { awokenModel = value; OnPropertyChanged(nameof(AwokenModel)); } }
         //public AnimaModel AnimaModel { get { return animaModel; } set { animaModel = value; OnPropertyChanged(nameof(AnimaModel)); } }
         //public HyperconductiveModel HyperconductiveModel { get { return hyperconductiveModel; } set { hyperconductiveModel = value; OnPropertyChanged(nameof(HyperconductiveModel)); } }
         //public ReconditionedModel ReconditionedModel { get { return reconditionedModel; } set { reconditionedModel = value; OnPropertyChanged(nameof(ReconditionedModel)); } }

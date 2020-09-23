@@ -136,5 +136,31 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
 
         #endregion
 
+        #region Animated
+
+        public static string ReturnAnimatedWeaponName(string job)
+        {
+            return JobAnimatedWeapons[job];
+        }
+
+        private static Dictionary<string, string> JobAnimatedWeapons = new Dictionary<string, string>()
+        {
+            {"PLD", "Animated Hauteclaire and Animated Prytwen" },
+            {"WAR", "Animated Parashu"},
+            {"DRK", "Animated Deathbringer"},
+            {"WHM", "Animated Seraph Cane"},
+            {"SCH", "Animated Elements"},
+            {"AST", "Animated Atlas"},
+            {"MNK", "Animates Rising Suns"},
+            {"DRG", "Animated Brionac"},
+            {"NIN", "Animated Yukimitsu"},
+            {"BRD", "Animated Berimbau"},
+            {"MCH", "Animated Ferdinand"},
+            {"BLM", "Animated Lunaris Rod"},
+            {"SMN", "Animated Almandal"}
+        };
+
+        #endregion
+
     }
 }

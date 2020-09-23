@@ -1,0 +1,94 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._03_HW._02_Awoken.AwokenView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._03_HW._02_Awoken"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-SkysteelDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=SelectedJob}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
+            </Border>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}"/>
+
+
+                <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="Quest: 'Toughening Up' | Started by: Ardashir {Azys Lla}"/>
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Complete the following dungeons with your "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SelectedWeapon}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" equipped"/>
+                </StackPanel>
+                
+                <TextBlock Grid.Row="2" Style="{StaticResource LeftTextBlock}" Text="Note:"/>
+
+                <TextBlock Margin="10,0,0,0" Grid.Row="3" Style="{StaticResource LeftTextBlock}" Text="Dungeons may be completed unsynced"/>
+
+                <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Grid.Row="4">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Your "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SelectedWeapon}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" must be equipped as you exit each dungeon"/>
+                </StackPanel>
+
+                <TextBlock Text="" Grid.Row="5"/>
+
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="True"  Grid.Row="06"  Content="Complete Snowcloak"/>
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon02}"  Grid.Row="07"  Content="Complete Sashtasha (Hard)"/>
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon03}"  Grid.Row="08"  Content="Complete The Sunken Temple of Qarn (Hard)"/>
+
+                <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="09" Text="Speak to Ardashir (Southern Thanalan)"/>
+
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon04}"  Grid.Row="10"  Content="Complete "/>
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon05}"  Grid.Row="11"  Content="Complete "/>
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon06}"  Grid.Row="12"  Content="Complete "/>
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon07}"  Grid.Row="13"  Content="Complete "/>
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon08}"  Grid.Row="14"  Content="Complete "/>
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon09}"  Grid.Row="15"  Content="Complete "/>
+                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon10}"  Grid.Row="16"  Content="Complete "/>
+
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

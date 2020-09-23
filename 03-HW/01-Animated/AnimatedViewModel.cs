@@ -152,6 +152,7 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
             EarthCount -= 1;
             WaterCount -= 1;
         }
+        #endregion
 
         #region Add/Subtract Materia
 
@@ -188,7 +189,7 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
 
             string sum = (string)param;
 
-            Type classType = typeof(AnimatedViewModel);
+            Type classType = typeof(AnimatedView);
 
             PropertyInfo CommandTarget = classType.GetProperty(sum);
 
@@ -205,7 +206,6 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
             }
         }
 
-        #endregion
         #endregion
         #endregion
 
