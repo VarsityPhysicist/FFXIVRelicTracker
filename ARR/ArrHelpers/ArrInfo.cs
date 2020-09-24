@@ -7,6 +7,26 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
 {
     public static class ArrInfo
     {
+        public static List<string> mapOrder = new List<string>
+        {
+            "Eastern La Noscea",
+            "Lower La Noscea",
+            "Middle La Noscea",
+            "Outer La Noscea",
+            "Upper La Noscea",
+            "Western La Noscea",
+            "Central Shroud",
+            "East Shroud",
+            "North Shroud",
+            "South Shroud",
+            "Central Thanalan",
+            "Eastern Thanalan",
+            "Northern Thanalan",
+            "Southern Thanalan",
+            "Western Thanalan",
+            "Coerthas Central Highlands",
+            "Mor Dhona"
+        };
 
         public static List<string> JobListString = new List<string>
             {
@@ -257,9 +277,9 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             {
                 "Book of Skyfire I",
                 "Book of Skyfire II",
+                "Book of Netherfire I",
                 "Book of Skyfall I",
                 "Book of Skyfall II",
-                "Book of Netherfire I",
                 "Book of Netherfall I",
                 "Book of Skywind I",
                 "Book of Skywind II",
@@ -298,11 +318,11 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
         {
             new List<string>{"Daring Harrier","5th Cohort Vanguard","4th Cohort Hoplomachus","Basilisk","Zanr'ak Pugilist","Milkroot Cluster","Giant Logger","Synthetic Doblyn","Shoalspine Sahagin","2nd Cohort Hoplomachus"},
             new List<string>{"Raging Harrier","Biast","Natalan Boldwing","Shoaltooth Sahagin","Shelfscale Reaver","U'Ghamaro Golem","Dullahan","Sylpheed Sigh","Zahar'ak Archer","Tempered Gladiator"},
-            new List<string>{" Hexing Harrier"," Gigas Bonze"," Giant Lugger"," Wild Hog"," Sylpheed Screech"," U'Ghamaro Roundsman"," Shelfclaw Reaver"," 2nd Cohort Laquearius"," Zahar'ak Fortuneteller"," Tempered Orator"},
-            new List<string>{"Mudpuppy","Lake Cobra","Giant Reader","Shelfscale Shagin","Sea Wasp","U'Ghamarro Quarryman","2nd Cohort Equite","Magitek Vanguard","Amalj'aa Lancer","Sylphlands Sentinel"},
+            new List<string>{"Hexing Harrier","Gigas Bonze","Giant Lugger","Wild Hog","Sylpheed Screech","U'Ghamaro Roundsman","Shelfclaw Reaver","2nd Cohort Laquearius","Zahar'ak Fortuneteller","Tempered Orator"},
+            new List<string>{"Mudpuppy","Lake Cobra","Giant Reader","Shelfscale Shagin","Sea Wasp","U'Ghamarro Quarryman","2nd Cohort Eques","Magitek Vanguard","Amalj'aa Lancer","Sylphlands Sentinel"},
             new List<string>{"Gigas Bhikkhu","5th Cohort Hoplomachus","Natalan Watchwolf","Sylph Bonnet","Ked","4th Cohort Laquearius","Iron Tortoise","Shelfeye Reaver","Sapsa Shelfscale","U'Ghamaro Bedesman"},
-            new List<string>{" Amalj'aa Brigand"," 4th Cohort Secutor"," 5th Cohort Laquearius"," Gigas Sozu"," Snow Wolf"," Sapsa Shelfclaw"," U'Ghamaro Priest"," Violet Screech"," Ixali Windtalon"," Lesser Kalong"},
-            new List<string>{"Hippogryph","5th Cohort Equite","Natalan Windtalon","Sapsa Elbst","Trenchtooth Sahagin","Elite Roundsman","2nd Cohort Secutores","Ahriman","Amalj'aa Thaumaturge","Sylpheed Snarl"},
+            new List<string>{"Amalj'aa Brigand","4th Cohort Secutor","5th Cohort Laquearius","Gigas Sozu","Snow Wolf","Sapsa Shelfclaw","U'Ghamaro Priest","Violet Screech","Ixali Windtalon","Lesser Kalong"},
+            new List<string>{"Hippogryph","5th Cohort Eques","Natalan Windtalon","Sapsa Elbst","Trenchtooth Sahagin","Elite Roundsman","2nd Cohort Secutores","Ahriman","Amalj'aa Thaumaturge","Sylpheed Snarl"},
             new List<string>{"Gigas Shramana","5th Cohort Signifer","Watchwolf","Dreamtoad","Zahar'ak Battle Drake","Amalj'aa Archer","4th Cohort Signifer","Elite Priest","Sapsa Shelftooth","Natalan Fogcaller"},
             new List<string>{"Violet Sigh","Ixali Boldwing","Amalj'aa Scavenger","Zahar'ak Pugilist","Axolotl","Elite Quarryman","2nd Cohort Signifer","Natalan Swiftbeak","5th Cohort Secutor","Hapalit"}
         };
@@ -351,7 +371,7 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
             new List<string>{"Giant Seps","Make it Rain","The Enmity of My Enemy"},
             new List<string>{"Heroes of the 2nd","Breaching South Tidegate","Air Supply"},
             new List<string>{"Another Notch on the Torch","Everything's Better","Return to Cinder"},
-            new List<string>{"Bellyfull","The King's Justice","Quartz Coupling"},
+            new List<string>{"Bellyful","The King's Justice","Quartz Coupling"},
             new List<string>{"Black and Nburu","Breaching North Tidegate","Breaking Dawn"},
             new List<string>{"Rude Awakening","The Ceruleum Road","The Four Winds"},
             new List<string>{"Surprise","In Spite of It All","Good to Be Bud"},

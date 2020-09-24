@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Drawing;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows;
@@ -133,14 +134,13 @@ namespace FFXIVRelicTracker.ARR.Animus
             {
                 if (value != null)
                 {
-                    
-
                     if (animusModel.CurrentBook != null)
                     {
-                        ResetBools();
+                        if (animusModel.CurrentBook != value)
+                        {
+                            ResetBools();
+                        }
                     }
-
-
                     
                     animusModel.CurrentBook = value;
 
@@ -726,7 +726,7 @@ namespace FFXIVRelicTracker.ARR.Animus
             {
                 for (int i = 0; i <= tempCreatureMaps.Count - 1; i++)
                 {
-                    for (int i2 = 0; i2 <= tempCreatureMaps.Count - 1; i2++)
+                    for (int i2 = 0; i2 <= CreatureMaps.Count - 1; i2++)
                     {
                         if (tempCreatureMaps[i] == CreatureMaps[i2] & !sortedCreatureNames.Contains(CreatureNames[i2]))
                         {
@@ -1097,61 +1097,9 @@ namespace FFXIVRelicTracker.ARR.Animus
         {
             List<string> tempUniqueMaps = new List<string>();
 
-            for (int mapIndex = 10; mapIndex >= 0; mapIndex--)
-            {
-                if (inputMap.Count - 1 >= mapIndex)
-                {
-                    if (inputMap[mapIndex].Contains("Noscea"))
-                    {
-                        tempUniqueMaps.Add(inputMap[mapIndex]);
-                        inputMap.RemoveAt(mapIndex);
-                    }
-                }
-            }
-            for (int mapIndex = 10; mapIndex >= 0; mapIndex--)
-            {
-                if (inputMap.Count - 1 >= mapIndex)
-                {
-                    if (inputMap[mapIndex].Contains("Shroud"))
-                    {
-                        tempUniqueMaps.Add(inputMap[mapIndex]);
-                        inputMap.RemoveAt(mapIndex);
-                    }
-                }
-            }
-            for (int mapIndex = 10; mapIndex >= 0; mapIndex--)
-            {
-                if (inputMap.Count - 1 >= mapIndex)
-                {
-                    if (inputMap[mapIndex].Contains("Than"))
-                    {
-                        tempUniqueMaps.Add(inputMap[mapIndex]);
-                        inputMap.RemoveAt(mapIndex);
-                    }
-                }
-            }
-            for (int mapIndex = 10; mapIndex >= 0; mapIndex--)
-            {
-                if (inputMap.Count - 1 >= mapIndex)
-                {
-                    if (inputMap[mapIndex].Contains("Central"))
-                    {
-                        tempUniqueMaps.Add(inputMap[mapIndex]);
-                        inputMap.RemoveAt(mapIndex);
-                    }
-                }
-            }
-            for (int mapIndex = 10; mapIndex >= 0; mapIndex--)
-            {
-                if (inputMap.Count - 1 >= mapIndex)
-                {
-
-                    tempUniqueMaps.Add(inputMap[mapIndex]);
-                    inputMap.RemoveAt(mapIndex);
-
-                }
-            }
-            return tempUniqueMaps;
+            foreach (string map in ArrInfo.mapOrder) { tempUniqueMaps.Add(map);}
+            
+            return tempUniqueMaps.Intersect(inputMap).ToList();
         }
 
         private void AssignRadioButtons()
