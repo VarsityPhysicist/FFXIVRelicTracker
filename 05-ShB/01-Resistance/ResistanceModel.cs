@@ -14,6 +14,6 @@ namespace FFXIVRelicTracker._05_ShB._01_Resistance
 
         public ObservableCollection<string> AvailableJobs { get; set; }
         public string CurrentResistance { get; set; }
-        public int CurrentScalepowder { get; internal set; }
+        public int CurrentScalepowder { get; set; }
     }
 }
