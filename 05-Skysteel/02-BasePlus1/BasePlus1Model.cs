@@ -14,6 +14,7 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
         public string SecondMat { get;  set; }
         public string CraftedMat { get;  set; }
         public ObservableCollection<string> AvailableJobs { get;  set; }
+        public int RemainingYellowScrips { get; set; }
 
         public BasePlus1Model()
         {

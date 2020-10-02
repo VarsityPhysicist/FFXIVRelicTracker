@@ -106,7 +106,7 @@ namespace FFXIVRelicTracker._05_Skysteel._03_Dragonsung
         public bool DisplayInfo { get { return SelectedJob != null; } }
         public bool IsGatherer { get { return (SelectedJob == "MIN" | SelectedJob == "BTN" | SelectedJob == "FSH"); } }
         public bool IsFSH { get { return SelectedJob == "FSH"; } }
-        public int RemaningYellowScrips { get { if (AvailableJobs == null) { LoadAvailableJobs(); } return AvailableJobs.Count * 30 * 50; } }
+        public int RemainingYellowScrips { get { return dragonsung1Model.RemainingYellowScrips; } set { dragonsung1Model.RemainingYellowScrips = value; OnPropertyChanged(nameof(RemainingYellowScrips)); } }
 
 
         #endregion
@@ -137,7 +137,13 @@ namespace FFXIVRelicTracker._05_Skysteel._03_Dragonsung
                     SkysteelInfo.ReloadJobList(AvailableJobs, job.Name);
                 }
             }
-            OnPropertyChanged(nameof(RemaningYellowScrips));
+            int tempCount = AvailableJobs.Count;
+
+            if (AvailableJobs.Contains("MIN")) { tempCount -= 1; }
+            if (AvailableJobs.Contains("BTN")) { tempCount -= 1; }
+            if (AvailableJobs.Contains("FSH")) { tempCount -= 1; }
+
+            RemainingYellowScrips = tempCount * 30 * 50;
         }
         #endregion
 

@@ -18,5 +18,6 @@ namespace FFXIVRelicTracker._05_Skysteel._03_Dragonsung
         public string CraftedMat { get;  set; }
         public string FirstMat { get;  set; }
         public string SecondMat { get;  set; }
+        public int RemainingYellowScrips { get; set; }
     }
 }

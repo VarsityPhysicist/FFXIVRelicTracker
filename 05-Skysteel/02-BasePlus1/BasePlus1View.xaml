@@ -32,7 +32,7 @@
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Yellow Scrips (Based on completed tools): "/>
-                <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemaningYellowScrips, StringFormat='{}{0:N0}'}"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemainingYellowScrips, StringFormat='{}{0:N0}'}"/>
             </StackPanel>
             <TextBlock/>
         </StackPanel>
