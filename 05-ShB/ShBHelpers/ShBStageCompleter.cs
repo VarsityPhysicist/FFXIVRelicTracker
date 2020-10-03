@@ -16,7 +16,7 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
 
             if (shbProgress.Progress == ShBProgress.States.NA)
             {
-                CompletePreviousStages(tempJob, StageIndex);
+                CompletePreviousStages(character, tempJob, StageIndex);
             }
             else if (shbProgress.Progress == ShBProgress.States.Completed)
             {
@@ -34,6 +34,7 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
                 {
                     case 0:
                         shbProgress.Progress = ShBProgress.States.Completed;
+                        DecreaseScalePowder(character);
                         break;
                     case 1:
                         shbProgress.Progress++;
@@ -59,12 +60,21 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
                 tempStage.StageList[i].Progress = ShBProgress.States.NA;
             }
         }
-        private static void CompletePreviousStages(ShBJob tempStage, int stageIndex)
+        private static void CompletePreviousStages(Character character, ShBJob tempStage, int stageIndex)
         {
             for (int i = 0; i < stageIndex; i++)
             {
+                if (tempStage.Name == "Resistance" & tempStage.Resistance.Progress!=ShBProgress.States.Completed) { DecreaseScalePowder(character); }
                 tempStage.StageList[i].Progress = ShBProgress.States.Completed;
             }
+        }
+
+        private static void DecreaseScalePowder(Character character)
+        {
+            //Decrease Scalepowder outside of resistance model so that changes to progress that occur outside of Resistance view still impact scalepowder
+
+            if (character.ShBModel.ResistanceModel.CurrentScalepowder <= 4) { character.ShBModel.ResistanceModel.CurrentScalepowder = 0; }
+            else { character.ShBModel.ResistanceModel.CurrentScalepowder -= 4; }
         }
 
     }

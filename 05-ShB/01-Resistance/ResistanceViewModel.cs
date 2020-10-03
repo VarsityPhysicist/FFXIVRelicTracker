@@ -152,9 +152,6 @@ namespace FFXIVRelicTracker._05_ShB._01_Resistance
 
             ShBStageCompleter.ProgressClass(selectedCharacter, tempJob.Resistance, true);
 
-            if (CurrentScalepowder <= 4) { CurrentScalepowder = 0; }
-            else { CurrentScalepowder -= 4; }
-
             LoadAvailableJobs();
 
         }
