@@ -26,9 +26,9 @@ namespace FFXIVRelicTracker.ARR.Animus
             {
                 "Book of Skyfire I",
                 "Book of Skyfire II",
+                "Book of Netherfire I",
                 "Book of Skyfall I",
                 "Book of Skyfall II",
-                "Book of Netherfire I",
                 "Book of Netherfall I",
                 "Book of Skywind I",
                 "Book of Skywind II",
@@ -620,9 +620,9 @@ namespace FFXIVRelicTracker.ARR.Animus
             {
                 SkyFire1Book,
                 SkyFire2Book,
+                NetherFire1Book,
                 SkyFall1Book,
                 SkyFall2Book,
-                NetherFire1Book,
                 NetherFall1Book,
                 SkyWind1Book,
                 SkyWind2Book,

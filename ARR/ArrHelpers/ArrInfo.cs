@@ -264,9 +264,9 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
         {
             "SkyFire1Book",
             "SkyFire2Book",
+            "NetherFire1Book",
             "SkyFall1Book",
             "SkyFall2Book",
-            "NetherFire1Book",
             "NetherFall1Book",
             "SkyWind1Book",
             "SkyWind2Book",
