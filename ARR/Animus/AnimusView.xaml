@@ -364,6 +364,7 @@
                                     <RowDefinition/>
                                     <RowDefinition/>
                                     <RowDefinition/>
+                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <TextBlock Style="{StaticResource LeftTextBlock}" Margin="0,0,10,0" Text="Available Maps:"/>
 
@@ -376,7 +377,7 @@
                                 <helper:DataBoundRadioButton Grid.Row="7" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap7}"  Visibility="{Binding Path=PossibleVisibility7,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked7}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap7}" />
                                 <helper:DataBoundRadioButton Grid.Row="8" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap8}"  Visibility="{Binding Path=PossibleVisibility8,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked8}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap8}" />
                                 <helper:DataBoundRadioButton Grid.Row="9" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap9}"  Visibility="{Binding Path=PossibleVisibility9,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked9}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap9}" />
-                                <helper:DataBoundRadioButton Grid.Row="9" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap10}"  Visibility="{Binding Path=PossibleVisibility10,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked10}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap10}"/>
+                                <helper:DataBoundRadioButton Grid.Row="10" Style="{StaticResource RadioButtonStyle}"  Content="{Binding Path=PossibleMap10}"  Visibility="{Binding Path=PossibleVisibility10,Converter={StaticResource b2v}}"  IsChecked="{Binding Path=PossibleChecked10}"    Command="{Binding AnimusRadioButton}" CommandParameter="{Binding Path=PossibleMap10}"/>
 
                                 
                             </Grid>
