@@ -154,8 +154,8 @@ namespace FFXIVRelicTracker.ARR.Animus
                     OnPropertyChanged(nameof(CurrentBook));
 
                     ReassignPoints();
-
-                    SelectedAnimusMap = ObservableUniqueMaps[0];
+                    if (ObservableUniqueMaps.Count() > 0) { SelectedAnimusMap = ObservableUniqueMaps[0]; }
+                    
                     ReCheckMaps();
                 }
                 else
@@ -951,28 +951,52 @@ namespace FFXIVRelicTracker.ARR.Animus
                     VisibilityButtonList[i] = true;
                 }
 
-                PossibleMap1 = ObservableUniqueMaps[0]; PossibleVisibility1 = true;
-                PossibleMap2 = ObservableUniqueMaps[1]; PossibleVisibility2 = true;
-                PossibleMap3 = ObservableUniqueMaps[2]; PossibleVisibility3 = true;
-                PossibleMap4 = ObservableUniqueMaps[3]; PossibleVisibility4 = true;
-                PossibleMap5 = ObservableUniqueMaps[4]; PossibleVisibility5 = true;
-                PossibleMap6 = ObservableUniqueMaps[5]; PossibleVisibility6 = true;
-                if (tempcount > 6)
+                if (tempcount > 0)
                 {
-                    PossibleMap7 = ObservableUniqueMaps[6]; PossibleVisibility7 = true;
-                    if (tempcount > 7)
+                    PossibleMap1 = ObservableUniqueMaps[0]; PossibleVisibility1 = true;
+                    if (tempcount > 1)
                     {
-                        PossibleMap8 = ObservableUniqueMaps[7]; PossibleVisibility8 = true;
-                        if (tempcount > 8)
+                        PossibleMap2 = ObservableUniqueMaps[1]; PossibleVisibility2 = true;
+                        if (tempcount > 2)
                         {
-                            PossibleMap9 = ObservableUniqueMaps[8]; PossibleVisibility9 = true;
-                            if (tempcount > 9)
+                            PossibleMap3 = ObservableUniqueMaps[2]; PossibleVisibility3 = true;
+                            if (tempcount > 3)
                             {
-                                PossibleMap10 = ObservableUniqueMaps[9]; PossibleVisibility10 = true;
+                                PossibleMap4 = ObservableUniqueMaps[3]; PossibleVisibility4 = true;
+                                if (tempcount > 4)
+                                {
+                                    PossibleMap5 = ObservableUniqueMaps[4]; PossibleVisibility5 = true;
+                                    if (tempcount > 5)
+                                    {
+                                        PossibleMap6 = ObservableUniqueMaps[5]; PossibleVisibility6 = true;
+                                        if (tempcount > 6)
+                                        {
+                                            PossibleMap7 = ObservableUniqueMaps[6]; PossibleVisibility7 = true;
+                                            if (tempcount > 7)
+                                            {
+                                                PossibleMap8 = ObservableUniqueMaps[7]; PossibleVisibility8 = true;
+                                                if (tempcount > 8)
+                                                {
+                                                    PossibleMap9 = ObservableUniqueMaps[8]; PossibleVisibility9 = true;
+                                                    if (tempcount > 9)
+                                                    {
+                                                        PossibleMap10 = ObservableUniqueMaps[9]; PossibleVisibility10 = true;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                        
+                                }
+                                    
                             }
+                               
                         }
+                            
                     }
+                        
                 }
+                   
             }
 
             if (ObservableUniqueMaps.Count > 0)
