@@ -152,7 +152,9 @@ namespace FFXIVRelicTracker.ViewModels
             {
                 List<ShBProgress> arrProgresses = new List<ShBProgress>()
                 {
-                    job.Resistance
+                    job.Resistance,
+                    job.AugmentedResistance,
+                    job.Recollection
                 };
                 job.StageList = arrProgresses;
                 job.CheckObject();

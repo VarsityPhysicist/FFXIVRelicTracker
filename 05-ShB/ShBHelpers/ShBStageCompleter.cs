@@ -14,9 +14,9 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
 
             ShBJob tempJob = character.ShBModel.ShbJobList[JobIndex];
 
-            if (shbProgress.Progress == ShBProgress.States.NA)
+            if (shbProgress.Progress == ShBProgress.States.NA & StageIndex>0)
             {
-                CompletePreviousStages(character, tempJob, StageIndex);
+                CompletePreviousStages(character, tempJob, StageIndex-1);
             }
             else if (shbProgress.Progress == ShBProgress.States.Completed)
             {
@@ -26,6 +26,7 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
             if (shbProgress.Progress == ShBProgress.States.Initiated | CompleteBool)
             {
                 shbProgress.Progress = ShBProgress.States.Completed;
+                AlterCounts(character, StageIndex);
             }
             else
             {
@@ -34,12 +35,18 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
                 {
                     case 0:
                         shbProgress.Progress = ShBProgress.States.Completed;
-                        DecreaseScalePowder(character);
                         break;
                     case 1:
+                        shbProgress.Progress = ShBProgress.States.Completed;
+                        break;
+                    case 2:
+                        shbProgress.Progress = ShBProgress.States.Completed;
+                        break;
+                    default:
                         shbProgress.Progress++;
                         break;
                 }
+                AlterCounts(character, StageIndex);
             }
         }
         private static void IncompleteOtherJobs(Character SelectedCharacter, int StageIndex)
@@ -64,8 +71,28 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
         {
             for (int i = 0; i < stageIndex; i++)
             {
-                if (tempStage.Name == "Resistance" & tempStage.Resistance.Progress!=ShBProgress.States.Completed) { DecreaseScalePowder(character); }
+                if (i==0 & tempStage.Resistance.Progress!=ShBProgress.States.Completed) { DecreaseScalePowder(character); }
+                else if (i==1 & tempStage.AugmentedResistance.Progress != ShBProgress.States.Completed) { DecreaseMemoryCount(character); }
+                else if (i==2 & tempStage.Recollection.Progress != ShBProgress.States.Completed) { DecreaseBitterMemoryCount(character); }
                 tempStage.StageList[i].Progress = ShBProgress.States.Completed;
+            }
+        }
+
+        private static void AlterCounts(Character character, int stageIndex)
+        {
+            switch (stageIndex)
+            {
+                case 0:
+                    DecreaseScalePowder(character);
+                    break;
+                case 1:
+                    DecreaseMemoryCount(character);
+                    break;
+                case 2:
+                    DecreaseBitterMemoryCount(character);
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -77,5 +104,25 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
             else { character.ShBModel.ResistanceModel.CurrentScalepowder -= 4; }
         }
 
+        private static void DecreaseMemoryCount(Character character)
+        {
+            //Decrease Count of Memory items outside of AugmentedResistance model so that changes to progress that occur outside of AugmentedResistance view still impact Memory Counts
+
+            if (character.ShBModel.AugmentedResistanceModel.HarrowingCount <= 20) { character.ShBModel.AugmentedResistanceModel.HarrowingCount = 0; }
+            else { character.ShBModel.AugmentedResistanceModel.HarrowingCount -= 20; }
+
+            if (character.ShBModel.AugmentedResistanceModel.TorturedCount <= 20) { character.ShBModel.AugmentedResistanceModel.TorturedCount = 0; }
+            else { character.ShBModel.AugmentedResistanceModel.TorturedCount -= 20; }
+
+            if (character.ShBModel.AugmentedResistanceModel.SorrowfulCount <= 20) { character.ShBModel.AugmentedResistanceModel.SorrowfulCount = 0; }
+            else { character.ShBModel.AugmentedResistanceModel.SorrowfulCount -= 20; }
+        }
+        private static void DecreaseBitterMemoryCount(Character character)
+        {
+            //Decrease Count of Memory items outside of AugmentedResistance model so that changes to progress that occur outside of AugmentedResistance view still impact Memory Counts
+
+            if (character.ShBModel.RecollectionModel.MemoryCount <= 6) { character.ShBModel.RecollectionModel.MemoryCount = 0; }
+            else { character.ShBModel.RecollectionModel.MemoryCount -= 6; }
+        }
     }
 }

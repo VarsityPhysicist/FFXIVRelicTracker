@@ -31,7 +31,9 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
 
         public static List<string> StageListString = new List<string>()
         {
-           "Resistance"
+           "Resistance",
+           "AugmentedResistance",
+           "Recollection"
         };
 
         #region Methods

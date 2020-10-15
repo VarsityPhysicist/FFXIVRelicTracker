@@ -1,4 +1,6 @@
 ﻿using FFXIVRelicTracker._05_ShB._01_Resistance;
+using FFXIVRelicTracker._05_ShB._02_AugmentedResistance;
+using FFXIVRelicTracker._05_ShB._03_Recollection;
 using FFXIVRelicTracker._05_ShB.ShBHelpers;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
@@ -32,6 +34,8 @@ namespace FFXIVRelicTracker._05_ShB.Main
         private ShBJob rdm = new ShBJob("RDM");
 
         private ResistanceModel resistanceModel = new ResistanceModel();
+        private AugmentedResistanceModel augmentedResistanceModel = new AugmentedResistanceModel();
+        private RecollectionModel recollectionModel = new RecollectionModel();
 
         #endregion
 
@@ -63,6 +67,8 @@ namespace FFXIVRelicTracker._05_ShB.Main
         public ShBJob RDM { get { return rdm; } set { rdm = value; OnPropertyChanged(nameof(RDM)); } }
 
         public ResistanceModel ResistanceModel { get { return resistanceModel; } set { resistanceModel = value; OnPropertyChanged(nameof(ResistanceModel)); } }
+        public AugmentedResistanceModel AugmentedResistanceModel { get { return augmentedResistanceModel; } set { augmentedResistanceModel = value; OnPropertyChanged(nameof(AugmentedResistanceModel)); } }
+        public RecollectionModel RecollectionModel { get { return recollectionModel; } set { recollectionModel = value; OnPropertyChanged(nameof(RecollectionModel)); } }
         #endregion
 
     }

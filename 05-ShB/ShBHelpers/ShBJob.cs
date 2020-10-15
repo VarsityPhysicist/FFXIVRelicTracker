@@ -17,6 +17,8 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
         {
             this.name = name;
             Resistance = new ShBProgress("Resistance",Name);
+            AugmentedResistance = new ShBProgress("AugmentedResistance", Name);
+            Recollection = new ShBProgress("Recollection", Name);
         }
 
         #endregion
@@ -38,6 +40,8 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
 
         public List<ShBProgress> StageList = new List<ShBProgress>();
         private ShBProgress resistance;
+        private ShBProgress augmentedResistance;
+        private ShBProgress recollection;
 
         public ShBProgress Resistance
         {
@@ -46,6 +50,26 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
             {
                 resistance = value;
                 OnPropertyChanged(nameof(Resistance));
+            }
+        }
+
+        public ShBProgress AugmentedResistance
+        {
+            get { return augmentedResistance; }
+            set
+            {
+                augmentedResistance = value;
+                OnPropertyChanged(nameof(AugmentedResistance));
+            }
+        }
+
+        public ShBProgress Recollection
+        {
+            get { return recollection; }
+            set
+            {
+                recollection = value;
+                OnPropertyChanged(nameof(Recollection));
             }
         }
         #endregion
@@ -59,12 +83,12 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
 
             List<ShBProgress> tempList = new List<ShBProgress>();
 
-            foreach (ShBProgress skysteelProgress in StageList)
+            for (int stageIndex = 0; stageIndex < StageList.Count; stageIndex++)
             {
-                if (skysteelProgress == null)
+                ShBProgress ShBProgress = new ShBProgress();
+                if (StageList[stageIndex] != null) { ShBProgress = StageList[stageIndex]; }
+                if (ShBProgress.Name == null)
                 {
-                    int stageIndex = StageList.IndexOf(skysteelProgress);
-
                     ShBProgress tempProgress = new ShBProgress(ShBInfo.StageListString[stageIndex], name);
 
                     tempList.Add(tempProgress);
@@ -74,10 +98,42 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
                         case 0:
                             Resistance = tempProgress;
                             break;
+                        case 1:
+                            AugmentedResistance = tempProgress;
+                            break;
+                        case 2:
+                            Recollection = tempProgress;
+                            break;
                     }
                 }
-                else { tempList.Add(skysteelProgress); }
+                else { tempList.Add(ShBProgress); }
             }
+
+            //foreach (ShBProgress ShBProgress in StageList)
+            //{
+            //    if (ShBProgress == null)
+            //    {
+            //        int stageIndex = StageList.IndexOf(ShBProgress);
+
+            //        ShBProgress tempProgress = new ShBProgress(ShBInfo.StageListString[stageIndex], name);
+
+            //        tempList.Add(tempProgress);
+
+            //        switch (stageIndex)
+            //        {
+            //            case 0:
+            //                Resistance = tempProgress;
+            //                break;
+            //            case 1:
+            //                AugmentedResistance = tempProgress;
+            //                break;
+            //            case 2:
+            //                Recollection = tempProgress;
+            //                break;
+            //        }
+            //    }
+            //    else { tempList.Add(ShBProgress); }
+            //}
 
             StageList = tempList;
 

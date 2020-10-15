@@ -74,6 +74,8 @@
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="RDM" Grid.Row="1"   Grid.Column="17"/>
 
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="Resistance"  Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Augmented Resistance"  Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Recollection"  Grid.Row="4" Grid.Column="0"/>
 
             <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="01" Content="{Binding Path=PLD.Resistance.Progress}" Tag="{Binding PLD.Resistance}" />
             <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="02" Content="{Binding Path=WAR.Resistance.Progress}" Tag="{Binding WAR.Resistance}" />
@@ -93,6 +95,41 @@
             <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="16" Content="{Binding Path=SMN.Resistance.Progress}" Tag="{Binding SMN.Resistance}" />
             <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="2" Grid.Column="17" Content="{Binding Path=RDM.Resistance.Progress}" Tag="{Binding RDM.Resistance}" />
 
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="01" Content="{Binding Path=PLD.AugmentedResistance.Progress}" Tag="{Binding PLD.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="02" Content="{Binding Path=WAR.AugmentedResistance.Progress}" Tag="{Binding WAR.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="03" Content="{Binding Path=DRK.AugmentedResistance.Progress}" Tag="{Binding DRK.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="04" Content="{Binding Path=GNB.AugmentedResistance.Progress}" Tag="{Binding GNB.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="05" Content="{Binding Path=WHM.AugmentedResistance.Progress}" Tag="{Binding WHM.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="06" Content="{Binding Path=SCH.AugmentedResistance.Progress}" Tag="{Binding SCH.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="07" Content="{Binding Path=AST.AugmentedResistance.Progress}" Tag="{Binding AST.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="08" Content="{Binding Path=MNK.AugmentedResistance.Progress}" Tag="{Binding MNK.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="09" Content="{Binding Path=DRG.AugmentedResistance.Progress}" Tag="{Binding DRG.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="10" Content="{Binding Path=NIN.AugmentedResistance.Progress}" Tag="{Binding NIN.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="11" Content="{Binding Path=SAM.AugmentedResistance.Progress}" Tag="{Binding SAM.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="12" Content="{Binding Path=BRD.AugmentedResistance.Progress}" Tag="{Binding BRD.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="13" Content="{Binding Path=MCH.AugmentedResistance.Progress}" Tag="{Binding MCH.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="14" Content="{Binding Path=DNC.AugmentedResistance.Progress}" Tag="{Binding DNC.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="15" Content="{Binding Path=BLM.AugmentedResistance.Progress}" Tag="{Binding BLM.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="16" Content="{Binding Path=SMN.AugmentedResistance.Progress}" Tag="{Binding SMN.AugmentedResistance}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="3" Grid.Column="17" Content="{Binding Path=RDM.AugmentedResistance.Progress}" Tag="{Binding RDM.AugmentedResistance}" />
+
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="01" Content="{Binding Path=PLD.Recollection.Progress}" Tag="{Binding PLD.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="02" Content="{Binding Path=WAR.Recollection.Progress}" Tag="{Binding WAR.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="03" Content="{Binding Path=DRK.Recollection.Progress}" Tag="{Binding DRK.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="04" Content="{Binding Path=GNB.Recollection.Progress}" Tag="{Binding GNB.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="05" Content="{Binding Path=WHM.Recollection.Progress}" Tag="{Binding WHM.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="06" Content="{Binding Path=SCH.Recollection.Progress}" Tag="{Binding SCH.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="07" Content="{Binding Path=AST.Recollection.Progress}" Tag="{Binding AST.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="08" Content="{Binding Path=MNK.Recollection.Progress}" Tag="{Binding MNK.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="09" Content="{Binding Path=DRG.Recollection.Progress}" Tag="{Binding DRG.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="10" Content="{Binding Path=NIN.Recollection.Progress}" Tag="{Binding NIN.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="11" Content="{Binding Path=SAM.Recollection.Progress}" Tag="{Binding SAM.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="12" Content="{Binding Path=BRD.Recollection.Progress}" Tag="{Binding BRD.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="13" Content="{Binding Path=MCH.Recollection.Progress}" Tag="{Binding MCH.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="14" Content="{Binding Path=DNC.Recollection.Progress}" Tag="{Binding DNC.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="15" Content="{Binding Path=BLM.Recollection.Progress}" Tag="{Binding BLM.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="16" Content="{Binding Path=SMN.Recollection.Progress}" Tag="{Binding SMN.Recollection}" />
+            <Button Style="{StaticResource ShBSummaryButton}" Grid.Row="4" Grid.Column="17" Content="{Binding Path=RDM.Recollection.Progress}" Tag="{Binding RDM.Recollection}" />
 
         </Grid>
     </ScrollViewer>

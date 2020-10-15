@@ -2,6 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:summary="clr-namespace:FFXIVRelicTracker._05_ShB._00_Summary"
                     xmlns:resistance="clr-namespace:FFXIVRelicTracker._05_ShB._01_Resistance"
+                    xmlns:augmentedResistance="clr-namespace:FFXIVRelicTracker._05_ShB._02_AugmentedResistance"
+                    xmlns:recollection="clr-namespace:FFXIVRelicTracker._05_ShB._03_Recollection"
                     
                     >
 
@@ -16,6 +18,12 @@
 
     <DataTemplate DataType="{x:Type resistance:ResistanceViewModel}">
         <resistance:ResistanceView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type augmentedResistance:AugmentedResistanceViewModel}">
+        <augmentedResistance:AugmentedResistanceView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type recollection:RecollectionViewModel}">
+        <recollection:RecollectionView/>
     </DataTemplate>
 
 
