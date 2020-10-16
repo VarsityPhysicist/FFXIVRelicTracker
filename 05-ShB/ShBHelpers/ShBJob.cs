@@ -109,34 +109,7 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
                 else { tempList.Add(ShBProgress); }
             }
 
-            //foreach (ShBProgress ShBProgress in StageList)
-            //{
-            //    if (ShBProgress == null)
-            //    {
-            //        int stageIndex = StageList.IndexOf(ShBProgress);
-
-            //        ShBProgress tempProgress = new ShBProgress(ShBInfo.StageListString[stageIndex], name);
-
-            //        tempList.Add(tempProgress);
-
-            //        switch (stageIndex)
-            //        {
-            //            case 0:
-            //                Resistance = tempProgress;
-            //                break;
-            //            case 1:
-            //                AugmentedResistance = tempProgress;
-            //                break;
-            //            case 2:
-            //                Recollection = tempProgress;
-            //                break;
-            //        }
-            //    }
-            //    else { tempList.Add(ShBProgress); }
-            //}
-
             StageList = tempList;
-
         }
         #endregion
     }

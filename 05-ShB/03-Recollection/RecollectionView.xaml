@@ -54,7 +54,7 @@
                            Text="Dungeons must be completed with Lvl sync active"/>
                 
                 <TextBlock TextWrapping="Wrap" Margin="20,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
-                           Text="If interested in collecting all Recollection Weapons, it is recommended to keep an Augmented Resistance on hand until all are able to be completed"/>
+                           Text="Any Augmented Resistance weapon must be in inventory or equipped"/>
 
                 <TextBlock Margin="0,0,0,0" Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
 

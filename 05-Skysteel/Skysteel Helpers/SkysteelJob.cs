@@ -80,6 +80,8 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
             //Without checking and replacing the Progress lists and objects, the Progress object is null, regardless of the initiator being in the class constructor
             //  or in the field
 
+            //This will not work, see ShBJob for working logic
+
             List<SkysteelProgress> tempList = new List<SkysteelProgress>();
 
             foreach(SkysteelProgress skysteelProgress in StageList)

@@ -16,13 +16,14 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
 
             if (shbProgress.Progress == ShBProgress.States.NA & StageIndex>0)
             {
-                CompletePreviousStages(character, tempJob, StageIndex-1);
+                CompletePreviousStages(character, tempJob, StageIndex);
             }
             else if (shbProgress.Progress == ShBProgress.States.Completed)
             {
                 InCompleteFollowingStages(tempJob, StageIndex);
                 return;
             }
+
             if (shbProgress.Progress == ShBProgress.States.Initiated | CompleteBool)
             {
                 shbProgress.Progress = ShBProgress.States.Completed;
@@ -48,6 +49,7 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
                 }
                 AlterCounts(character, StageIndex);
             }
+
         }
         private static void IncompleteOtherJobs(Character SelectedCharacter, int StageIndex)
         {
