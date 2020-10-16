@@ -140,7 +140,7 @@
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
                             <TextBlock Style="{StaticResource LeftTextBlock}" Text="(HQ) "/>
                             <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding FirstMat}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 510"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 60"/>
                         </StackPanel>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Margin="10,0,0,0" Text="Dragonspit (X:8, Y:10)"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Margin="10,0,0,0" Text="Bait: Signature Skyball (Purchase from Denys (Foundation))"/>
