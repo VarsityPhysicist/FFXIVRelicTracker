@@ -84,6 +84,13 @@ To use the application, download the files and run FFXIVRelicTracker.exe
                 Subsequent Relics can be acquired for items that cost Poetics
                 There is a Poetic cost tracker than can be used if one desires - I planned to slowly buy the Scalepowders but so I wasn't Poetic-capped
 
+        Augmented Resistance Tab:
+            This tab is used for tracking Memory items collected for augmenting Resistance weapons
+            The total remaining count of memory items is displayed, and the current count of individual memory items may be tracked if desired
+
+        Recollection Tab:
+            This tab is used for tracking Bitter Memory items needed for upgrading Augmented Resistance weapons
+
     Skysteel Tools Progression:
         Summary Tab:
             This functions the same as the ARR summary stage, progress class completion of Skysteel tools by clicking the corresponding button in the table
