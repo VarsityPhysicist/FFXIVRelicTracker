@@ -25,6 +25,7 @@ namespace FFXIVRelicTracker
         public MainWindow()
         {
             InitializeComponent();
+            Style = (Style)FindResource(typeof(Window));
         }
 
         private void CloseCommandHandler(object sender, ExecutedRoutedEventArgs e)

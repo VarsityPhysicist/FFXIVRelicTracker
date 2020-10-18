@@ -63,7 +63,7 @@
                             <DockPanel  Grid.Row="2" Grid.Column="1">
                                 <Border BorderThickness="2,0,0,0" DockPanel.Dock="Right" Style="{StaticResource GoldLeftBar}">
 
-                                    <DockPanel HorizontalAlignment="Right" DockPanel.Dock="Right">
+                                    <DockPanel HorizontalAlignment="Right">
                                         <StackPanel DockPanel.Dock="Top"  Orientation="Vertical">
                                             <ItemsControl ItemsSource="{Binding MenuViewModels}">
                                                 <ItemsControl.ItemTemplate>
@@ -99,7 +99,11 @@
                                                 </ItemsControl.Resources>
                                             </ItemsControl>
                                         </StackPanel>
+                                        <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
+                                            <Button Style="{StaticResource FFXIVButton}" Command="{Binding SettingsCommand}" VerticalAlignment="Bottom" Content="Settings"/>
+                                        </StackPanel>
                                     </DockPanel>
+                                    
                                 </Border>
                                 <ContentControl HorizontalAlignment="Left" Content="{Binding CurrentPageViewModel}" />
                             </DockPanel>

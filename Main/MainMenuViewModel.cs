@@ -355,5 +355,7 @@ namespace FFXIVRelicTracker.ViewModels
         {
         }
         #endregion
+
+
     }
 }

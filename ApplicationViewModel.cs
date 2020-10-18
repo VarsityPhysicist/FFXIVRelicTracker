@@ -1,5 +1,6 @@
 ﻿using FFXIVRelicTracker._05_ShB.Main;
 using FFXIVRelicTracker._05_Skysteel.Main;
+using FFXIVRelicTracker.Main;
 using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
 using FFXIVRelicTracker.Views;
@@ -8,8 +9,10 @@ using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
@@ -31,7 +34,7 @@ namespace FFXIVRelicTracker.ViewModels
         #region Constructors
         public ApplicationViewModel(IEventAggregator iEventAggregator)
         {
-
+            LoadSettings();
             this.iEventAggregator = iEventAggregator;
             SubscriptionToken subscriptionToken =
                                     this
@@ -133,7 +136,45 @@ namespace FFXIVRelicTracker.ViewModels
                 }
             }
         }
+        #region Open Settings
+        private ICommand _SettingsCommand;
+        public ICommand SettingsCommand
+        {
+            get
+            {
+                if (_SettingsCommand == null)
+                {
+                    _SettingsCommand = new RelayCommand(
+                        param => this.SettingsMenu(),
+                        param => this.CanSettings()
+                        );
+                }
+                return _SettingsCommand;
+            }
+        }
 
+        private bool CanSettings()
+        {
+            return true;
+        }
+        private void SettingsMenu()
+        {
+            SettingsWindow SettingWindow = new SettingsWindow();
+            SettingWindow.Closing += new CancelEventHandler(_Closing);
+            SettingWindow.ShowInTaskbar = false;
+            SettingWindow.Owner = Application.Current.MainWindow;
+            SettingWindow.Show();
+
+            SettingWindow.FontButton.Text = Application.Current.Windows[0].FontSize.ToString();
+        }
+
+        void _Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            string jsonString;
+            jsonString = JsonSerializer.Serialize(Application.Current.Windows[0].FontSize);
+            File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\FFXIVRelicTrackerSettings.txt", jsonString);
+        }
+        #endregion
         #endregion
 
         #region Methods
@@ -145,6 +186,21 @@ namespace FFXIVRelicTracker.ViewModels
 
             CurrentPageViewModel = PageViewModels
                 .FirstOrDefault(vm => vm == viewModel);
+        }
+
+        private void LoadSettings()
+        {
+            if( File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\FFXIVRelicTrackerSettings.txt"))
+            {
+                string jsonString;
+                jsonString = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\FFXIVRelicTrackerSettings.txt");
+                double tempFontSetting= JsonSerializer.Deserialize<double>(jsonString);
+
+                foreach (Window window in Application.Current.Windows)
+                {
+                    window.FontSize = tempFontSetting;
+                }
+            }
         }
 
         #endregion
