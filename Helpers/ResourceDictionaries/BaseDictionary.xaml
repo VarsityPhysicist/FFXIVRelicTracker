@@ -200,21 +200,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="FFXIVCheckbox" TargetType="CheckBox">
-        <Setter Property="Foreground" Value="#a0a0a0"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="TextBlock.TextDecorations" Value="Strikethrough"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
+  
     <Style x:Key="RadioButtonStyle" TargetType="local:DataBoundRadioButton">
         <Setter Property="Foreground" Value="#a0a0a0"/>
     </Style>

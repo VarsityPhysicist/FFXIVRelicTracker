@@ -162,5 +162,30 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
 
         #endregion
 
+        #region Awoken
+
+        public static string ReturnAwokenWeaponName(string job)
+        {
+            return JobAwokenWeapons[job];
+        }
+
+        private static Dictionary<string, string> JobAwokenWeapons = new Dictionary<string, string>()
+        {
+            {"PLD", "Hauteclaire Awoken and Prytwen Awoken" },
+            {"WAR", "Parashu Awoken"},
+            {"DRK", "Deathbringer Awoken"},
+            {"WHM", "Seraph Cane Awoken"},
+            {"SCH", "Elements Awoken"},
+            {"AST", "Atlas Awoken"},
+            {"MNK", "Rising Suns Awoken"},
+            {"DRG", "Brionac Awoken"},
+            {"NIN", "Yukimitsu Awoken"},
+            {"BRD", "Berimbau Awoken"},
+            {"MCH", "Ferdinand Awoken"},
+            {"BLM", "Lunaris Rod Awoken"},
+            {"SMN", "Almandal Awoken"}
+        };
+
+        #endregion
     }
 }

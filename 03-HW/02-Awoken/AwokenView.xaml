@@ -48,16 +48,16 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
-
-                <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}"/>
-
 
                 <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="Quest: 'Toughening Up' | Started by: Ardashir {Azys Lla}"/>
                 
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Complete the following dungeons with your "/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SelectedWeapon}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="#5386ee" Text="{Binding AnimatedWeapon}"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text=" equipped"/>
                 </StackPanel>
                 
@@ -67,25 +67,86 @@
 
                 <StackPanel Margin="10,0,0,0" Orientation="Horizontal" Grid.Row="4">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Your "/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SelectedWeapon}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="#5386ee" Text="{Binding AnimatedWeapon}"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text=" must be equipped as you exit each dungeon"/>
                 </StackPanel>
 
-                <TextBlock Text="" Grid.Row="5"/>
+                <Grid Margin="10,5,0,0" Grid.Row="06">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
 
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="True"  Grid.Row="06"  Content="Complete Snowcloak"/>
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon02}"  Grid.Row="07"  Content="Complete Sashtasha (Hard)"/>
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon03}"  Grid.Row="08"  Content="Complete The Sunken Temple of Qarn (Hard)"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <CheckBox IsChecked="{Binding Dungeon00}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon00,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Snowcloak"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1">
+                        <CheckBox IsChecked="{Binding Dungeon01}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon01,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete  Sashtasha (Hard)"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2">
+                        <CheckBox IsChecked="{Binding Dungeon02}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon02,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete The Sunken Temple of Qarn (Hard)"/>
+                    </StackPanel>
 
-                <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="09" Text="Speak to Ardashir (Southern Thanalan)"/>
 
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon04}"  Grid.Row="10"  Content="Complete "/>
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon05}"  Grid.Row="11"  Content="Complete "/>
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon06}"  Grid.Row="12"  Content="Complete "/>
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon07}"  Grid.Row="13"  Content="Complete "/>
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon08}"  Grid.Row="14"  Content="Complete "/>
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon09}"  Grid.Row="15"  Content="Complete "/>
-                <CheckBox Margin="10,0,0,0" Style="{StaticResource FFXIVCheckbox}" IsChecked="{Binding Dungeon10}"  Grid.Row="16"  Content="Complete "/>
+                    <TextBlock Margin="0,5,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.ColumnSpan="2" Text="Speak to Ardashir (Southern Thanalan)"/>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="4">
+                        <CheckBox IsChecked="{Binding Dungeon03}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon03,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Keeper of the Lake"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="5">
+                        <CheckBox IsChecked="{Binding Dungeon04}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon04,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Wanderer's Palace (Hard)"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="6">
+                        <CheckBox IsChecked="{Binding Dungeon05}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon05,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Amdapor Keep"/>
+                    </StackPanel>
+
+
+                    <TextBlock Margin="0,5,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="7" Text="Speak to Ardashir (South Shroud)"/>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="8">
+                        <CheckBox IsChecked="{Binding Dungeon06}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon06,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Dusk Vigil"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="9">
+                        <CheckBox IsChecked="{Binding Dungeon07}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon07,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Sohm Al"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="10">
+                        <CheckBox IsChecked="{Binding Dungeon08}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon08,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete The Aery"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="11">
+                        <CheckBox IsChecked="{Binding Dungeon09}" Margin="0,0,5,0"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon09,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete The Vault"/>
+                    </StackPanel>
+                </Grid>
+
+
+                <StackPanel Orientation="Horizontal" Margin="10,5,0,0" Grid.Row="18">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Speak to Ardashir (Azys Lla) to recieve "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="#5386ee" Text="{Binding AwokenWeapon}"/>
+
+                </StackPanel>
 
 
             </Grid>

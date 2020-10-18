@@ -141,16 +141,9 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
 
             HWJob tempJob = selectedCharacter.HWModel.HWJobList[HWInfo.JobListString.IndexOf(SelectedJob)];
 
-            HWInfo.ProgressClass(selectedCharacter, tempJob.Animated, true);
+            HWStageCompleter.ProgressClass(selectedCharacter, tempJob.Animated, true);
 
             LoadAvailableJobs();
-
-            WindCount -= 1;
-            FireCount -= 1;
-            LightningCount -= 1;
-            IceCount -= 1;
-            EarthCount -= 1;
-            WaterCount -= 1;
         }
         #endregion
 
@@ -208,8 +201,5 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
 
         #endregion
         #endregion
-
-
-
     }
 }

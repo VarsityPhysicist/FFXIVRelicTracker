@@ -62,7 +62,8 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
             {
                 awokenModel.SelectedJob = value;
                 OnPropertyChanged(nameof(SelectedJob));
-                OnPropertyChanged(nameof(SelectedWeapon));
+                OnPropertyChanged(nameof(AnimatedWeapon));
+                OnPropertyChanged(nameof(AwokenWeapon));
             }
         }
 
@@ -89,7 +90,7 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
             }
         }
 
-        public string SelectedWeapon
+        public string AnimatedWeapon
         {
             //Check if saving+loading does not set this as expected
             get
@@ -98,10 +99,86 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
                 else { return HWInfo.ReturnAnimatedWeaponName(SelectedJob); }
             }
         }
+        public string AwokenWeapon
+        {
+            //Check if saving+loading does not set this as expected
+            get
+            {
+                if (SelectedJob == null | SelectedJob == "") { return "Animated Weapon"; }
+                else { return HWInfo.ReturnAwokenWeaponName(SelectedJob); }
+            }
+        }
+        private ObservableCollection<bool> DungeonBools
+        {
+            get
+            {
+                if (awokenModel.DungeonBools == null)
+                {
+                    awokenModel.DungeonBools = new ObservableCollection<bool>()
+                    {
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false
+                    };
+                }
+                return awokenModel.DungeonBools;
+            }
+            set
+            {
+                awokenModel.DungeonBools = value;
+                OnPropertyChanged(nameof(DungeonBools));
+            }
+        }
+
+        public bool Dungeon00 { get { return DungeonBools[00]; } set { DungeonBools[00] = value; AdjustBools(00, value);} }
+        public bool Dungeon01 { get { return DungeonBools[01]; } set { DungeonBools[01] = value; AdjustBools(01, value);} }
+        public bool Dungeon02 { get { return DungeonBools[02]; } set { DungeonBools[02] = value; AdjustBools(02, value);} }
+        public bool Dungeon03 { get { return DungeonBools[03]; } set { DungeonBools[03] = value; AdjustBools(03, value);} }
+        public bool Dungeon04 { get { return DungeonBools[04]; } set { DungeonBools[04] = value; AdjustBools(04, value);} }
+        public bool Dungeon05 { get { return DungeonBools[05]; } set { DungeonBools[05] = value; AdjustBools(05, value);} }
+        public bool Dungeon06 { get { return DungeonBools[06]; } set { DungeonBools[06] = value; AdjustBools(06, value);} }
+        public bool Dungeon07 { get { return DungeonBools[07]; } set { DungeonBools[07] = value; AdjustBools(07, value);} }
+        public bool Dungeon08 { get { return DungeonBools[08]; } set { DungeonBools[08] = value; AdjustBools(08, value);} }
+        public bool Dungeon09 { get { return DungeonBools[09]; } set { DungeonBools[09] = value; AdjustBools(09, value);} }
 
         #endregion
 
         #region Methods
+        private void AdjustBools(int BoolIndex, bool value)
+        {
+            if (value)
+            {
+                for(int index = 0; index <= BoolIndex; index++)
+                {
+                    DungeonBools[index] = true;
+                }
+            }
+            else
+            {
+                for (int index = BoolIndex; index < DungeonBools.Count; index++)
+                {
+                    DungeonBools[index] = false;
+                }
+            }
+
+            OnPropertyChanged(nameof(Dungeon00));
+            OnPropertyChanged(nameof(Dungeon01));
+            OnPropertyChanged(nameof(Dungeon02));
+            OnPropertyChanged(nameof(Dungeon03));
+            OnPropertyChanged(nameof(Dungeon04));
+            OnPropertyChanged(nameof(Dungeon05));
+            OnPropertyChanged(nameof(Dungeon06));
+            OnPropertyChanged(nameof(Dungeon07));
+            OnPropertyChanged(nameof(Dungeon08));
+            OnPropertyChanged(nameof(Dungeon09));
+        }
         public void LoadAvailableJobs()
         {
             if (AvailableJobs == null) { AvailableJobs = new ObservableCollection<string>(); }

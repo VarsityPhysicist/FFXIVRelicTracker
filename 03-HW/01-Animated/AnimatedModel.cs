@@ -13,11 +13,11 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
         {
         }
 
-        public int FireCount { get; internal set; }
-        public int WindCount { get; internal set; }
-        public int LightningCount { get; internal set; }
-        public int IceCount { get; internal set; }
-        public int EarthCount { get; internal set; }
-        public int WaterCount { get; internal set; }
+        public int FireCount { get; set; }
+        public int WindCount { get; set; }
+        public int LightningCount { get; set; }
+        public int IceCount { get; set; }
+        public int EarthCount { get; set; }
+        public int WaterCount { get; set; }
     }
 }
