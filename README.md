@@ -100,15 +100,27 @@ To use the application, download the files and run FFXIVRelicTracker.exe
                 Subsequent Tools can be purchased from Denys in Foundation
 
         Skysteel Tool+1 Tab:
-            This tab is used to show the items needed to obtain Skysteel Tool+1 for each class
+            This tab is used to show the items needed to obtain the Skysteel Tool+1 for each class
              Classes have different items required; be sure to note what items are required to be HQ
              Also, some of the items for crafting classes are purchased for 50 yellow scrips each, so the tab also has a tracker that 
                 determines how many yellow scrips are required to complete all remaining class tools
                         
         Dragonsung Tab:
-            This tab is used to show the items needed to obtain Dragonsung Tool for each class
+            This tab is used to show the items needed to obtain the Dragonsung Tool for each class
              Classes have different items required; be sure to note what items are required to be HQ
              Also, some of the items for crafting classes are purchased for 50 yellow scrips each, so the tab also has a tracker that 
+                determines how many yellow scrips are required to complete all remaining class tools
+        
+        Augmented Dragonsung Tab:
+            This tab is used to show the items needed to obtain the Augmented Dragonsung Tool for each class
+            Classes have different items required; be sure to note what how many materials are yielded for different collectability levels
+            Also, some of the items for crafting classes are purchased for 60 yellow scrips each, so the tab also has a tracker that 
+                determines how many yellow scrips are required to complete all remaining class tools
+
+        Skysung Tab:
+            This tab is used to show the items needed to obtain the Skysung Tool for each class
+            Classes have different items required; be sure to note what how many materials are yielded for different collectability levels
+            Also, some of the items for crafting classes are purchased for 60 yellow scrips each, so the tab also has a tracker that 
                 determines how many yellow scrips are required to complete all remaining class tools
     
           
