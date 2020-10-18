@@ -22,6 +22,6 @@ namespace FFXIVRelicTracker._05_Skysteel._04_AugmentedDragonsung
         public string TradedMat { get;  set; }
         public int MinRemainingYellowScrips { get;  set; }
         public int MaxRemainingYellowScrips { get;  set; }
-        public string GatherLoc { get; internal set; }
+        public string GatherLoc { get;  set; }
     }
 }

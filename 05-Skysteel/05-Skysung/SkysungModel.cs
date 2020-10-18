@@ -7,6 +7,10 @@ namespace FFXIVRelicTracker._05_Skysteel._05_Skysung
 {
     public class SkysungModel
     {
+        public SkysungModel()
+        {
+
+        }
         public string SelectedJob { get; set; }
         public ObservableCollection<string> AvailableJobs { get; set; }
         public string ToolName { get; set; }

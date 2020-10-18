@@ -19,7 +19,7 @@ namespace FFXIVRelicTracker._05_Skysteel._03_Dragonsung
         public string FirstMat { get;  set; }
         public string SecondMat { get;  set; }
         public int RemainingYellowScrips { get; set; }
-        public string TradedMat { get; internal set; }
-        public string GatherLoc { get; internal set; }
+        public string TradedMat { get;  set; }
+        public string GatherLoc { get;  set; }
     }
 }
