@@ -63,8 +63,6 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
             {
                 AnimaModel.SelectedJob = value;
                 OnPropertyChanged(nameof(SelectedJob));
-                OnPropertyChanged(nameof(AwokenWeapon));
-                OnPropertyChanged(nameof(AnimaWeapon));
             }
         }
 
@@ -88,22 +86,6 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
                     animaModel = value;
                     OnPropertyChanged(nameof(AnimaModel));
                 }
-            }
-        }
-        public string AwokenWeapon
-        {
-            get
-            {
-                if (SelectedJob == null | SelectedJob == "") { return "Weapon Awoken"; }
-                else { return HWInfo.ReturnAwokenWeaponName(SelectedJob); }
-            }
-        }
-        public string AnimaWeapon
-        {
-            get
-            {
-                if (SelectedJob == null | SelectedJob == "") { return "Anima Weapon"; }
-                else { return HWInfo.ReturnAnimaWeaponName(SelectedJob); }
             }
         }
 

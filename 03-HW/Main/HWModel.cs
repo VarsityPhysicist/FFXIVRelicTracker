@@ -1,6 +1,7 @@
 ﻿using FFXIVRelicTracker._03_HW._01_Animated;
 using FFXIVRelicTracker._03_HW._02_Awoken;
 using FFXIVRelicTracker._03_HW._03_Anima;
+using FFXIVRelicTracker._03_HW._04_Hyperconductive;
 using FFXIVRelicTracker._03_HW.HWHelpers;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
@@ -30,7 +31,7 @@ namespace FFXIVRelicTracker._03_HW.Main
         private AnimatedModel animatedModel = new AnimatedModel();
         private AwokenModel awokenModel = new AwokenModel();
         private AnimaModel animaModel = new AnimaModel();
-        //private HyperconductiveModel hyperconductiveModel = new HyperconductiveModel();
+        private HyperconductiveModel hyperconductiveModel = new HyperconductiveModel();
         //private ReconditionedModel reconditionedModel = new ReconditionedModel();
         //private SharpenedModel sharpenedModel = new SharpenedModel();
         //private CompleteModel completeModel = new CompleteModel();
@@ -64,7 +65,7 @@ namespace FFXIVRelicTracker._03_HW.Main
         public AnimatedModel AnimatedModel { get { return animatedModel; } set { animatedModel = value; OnPropertyChanged(nameof(AnimatedModel)); } }
         public AwokenModel AwokenModel { get { return awokenModel; } set { awokenModel = value; OnPropertyChanged(nameof(AwokenModel)); } }
         public AnimaModel AnimaModel { get { return animaModel; } set { animaModel = value; OnPropertyChanged(nameof(AnimaModel)); } }
-        //public HyperconductiveModel HyperconductiveModel { get { return hyperconductiveModel; } set { hyperconductiveModel = value; OnPropertyChanged(nameof(HyperconductiveModel)); } }
+        public HyperconductiveModel HyperconductiveModel { get { return hyperconductiveModel; } set { hyperconductiveModel = value; OnPropertyChanged(nameof(HyperconductiveModel)); } }
         //public ReconditionedModel ReconditionedModel { get { return reconditionedModel; } set { reconditionedModel = value; OnPropertyChanged(nameof(ReconditionedModel)); } }
         //public SharpenedModel SharpenedModel { get { return sharpenedModel; } set { sharpenedModel = value; OnPropertyChanged(nameof(SharpenedModel)); } }
         //public CompleteModel CompleteModel { get { return completeModel; } set { completeModel = value; OnPropertyChanged(nameof(CompleteModel)); } }
