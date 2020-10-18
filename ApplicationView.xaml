@@ -51,7 +51,10 @@
                                         <ColumnDefinition/>
                                         <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="FFXIVRelicTracker v.5.35.1" VerticalAlignment="Center"/>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="FFXIVRelicTracker "/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="v.5.35.1"/>
+                                    </StackPanel>
                                     <TextBlock Grid.Column="1"/>
                                     <Button  Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"  Command="ApplicationCommands.Close" Content="Close Window" />
                                 </Grid>
