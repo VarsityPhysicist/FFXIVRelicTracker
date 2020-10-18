@@ -17,7 +17,7 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
 
             if (hWProgress.Progress == HWProgress.States.NA)
             {
-                CompletePreviousStages(tempJob, StageIndex);
+                CompletePreviousStages(character, tempJob, StageIndex);
             }
             else if (hWProgress.Progress == HWProgress.States.Completed)
             {
@@ -63,11 +63,12 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
                 tempStage.StageList[i].Progress = HWProgress.States.NA;
             }
         }
-        private static void CompletePreviousStages(HWJob tempStage, int stageIndex)
+        private static void CompletePreviousStages(Character character, HWJob tempStage, int stageIndex)
         {
             for (int i = 0; i < stageIndex; i++)
             {
                 tempStage.StageList[i].Progress = HWProgress.States.Completed;
+                SelectStage(character, i);
             }
         }
         #endregion
@@ -82,6 +83,9 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
                     break;
                 case 1:
                     break;
+                case 2:
+                    AnimaStage(character);
+                    break;
                 default:
                     break;
             }
@@ -94,6 +98,20 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
             character.HWModel.AnimatedModel.IceCount -= 1;
             character.HWModel.AnimatedModel.EarthCount -= 1;
             character.HWModel.AnimatedModel.WaterCount -= 1;
+        }
+
+        private static void AnimaStage(Character character)
+        {
+            character.HWModel.AnimaModel.UnidentifiableBone -= 10;
+            character.HWModel.AnimaModel.UnidentifiableShell -= 10;
+            character.HWModel.AnimaModel.UnidentifiableOre -= 10;
+            character.HWModel.AnimaModel.UnidentifiableSeeds -= 10;
+
+            character.HWModel.AnimaModel.Francesca -= 4;
+            character.HWModel.AnimaModel.Mirror -= 4;
+            character.HWModel.AnimaModel.Arrow -= 4;
+            character.HWModel.AnimaModel.Kingcake -= 4;
+
         }
         #endregion
     }

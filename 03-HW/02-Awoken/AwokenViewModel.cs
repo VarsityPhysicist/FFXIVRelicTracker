@@ -60,6 +60,22 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
             get { return awokenModel.SelectedJob; }
             set
             {
+                if(value!=null & value != awokenModel.SelectedJob)
+                {
+                    DungeonBools = new ObservableCollection<bool>()
+                    {
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false,
+                        false
+                    };
+                }
                 awokenModel.SelectedJob = value;
                 OnPropertyChanged(nameof(SelectedJob));
                 OnPropertyChanged(nameof(AnimatedWeapon));
@@ -104,7 +120,7 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
             //Check if saving+loading does not set this as expected
             get
             {
-                if (SelectedJob == null | SelectedJob == "") { return "Animated Weapon"; }
+                if (SelectedJob == null | SelectedJob == "") { return "Weapon Awoken"; }
                 else { return HWInfo.ReturnAwokenWeaponName(SelectedJob); }
             }
         }

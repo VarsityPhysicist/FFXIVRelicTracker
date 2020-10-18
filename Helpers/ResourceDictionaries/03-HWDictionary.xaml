@@ -4,6 +4,7 @@
                     xmlns:summary="clr-namespace:FFXIVRelicTracker._03_HW._00_Summary"
                     xmlns:animated="clr-namespace:FFXIVRelicTracker._03_HW._01_Animated"
                     xmlns:awoken="clr-namespace:FFXIVRelicTracker._03_HW._02_Awoken"
+                    xmlns:anima="clr-namespace:FFXIVRelicTracker._03_HW._03_Anima"
                     >
 
     <ResourceDictionary.MergedDictionaries>
@@ -18,6 +19,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type awoken:AwokenViewModel}">
         <awoken:AwokenView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type anima:AnimaViewModel}">
+        <anima:AnimaView/>
     </DataTemplate>
 
 

@@ -187,5 +187,31 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
         };
 
         #endregion
+
+        #region Anima
+
+        public static string ReturnAnimaWeaponName(string job)
+        {
+            return JobAnimaWeapons[job];
+        }
+
+        private static Dictionary<string, string> JobAnimaWeapons = new Dictionary<string, string>()
+        {
+            {"PLD", "Almace and Ancile"},
+            {"WAR", "Ukonvasara"},
+            {"DRK", "Nothung"},
+            {"WHM", "Majestas"},
+            {"SCH", "Tetrabiblos"},
+            {"AST", "Deneb"},
+            {"MNK", "Verethragna"},
+            {"DRG", "Rhongomiant"},
+            {"NIN", "Kannagi"},
+            {"BRD", "Gandiva"},
+            {"MCH", "Armageddon"},
+            {"BLM", "Hvergelmir"},
+            {"SMN", "Draconomicon"}
+        };
+
+        #endregion
     }
 }

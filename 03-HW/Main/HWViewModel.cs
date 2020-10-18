@@ -1,6 +1,7 @@
 ﻿using FFXIVRelicTracker._03_HW._00_Summary;
 using FFXIVRelicTracker._03_HW._01_Animated;
 using FFXIVRelicTracker._03_HW._02_Awoken;
+using FFXIVRelicTracker._03_HW._03_Anima;
 using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Commands;
@@ -35,7 +36,7 @@ namespace FFXIVRelicTracker._03_HW.Main
             PageViewModels.Add(new HWSummaryViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new AnimatedViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new AwokenViewModel(Event.EventInstance.EventAggregator));
-            //PageViewModels.Add(new AnimaViewModel(Event.EventInstance.EventAggregator));
+            PageViewModels.Add(new AnimaViewModel(Event.EventInstance.EventAggregator));
             //PageViewModels.Add(new HyperconductiveViewModel(Event.EventInstance.EventAggregator));
             //PageViewModels.Add(new ReconditionedViewModel(Event.EventInstance.EventAggregator));
             //PageViewModels.Add(new SharpenedViewModel(Event.EventInstance.EventAggregator));
