@@ -52,7 +52,7 @@
                                 </StackPanel>
 
                                 <StackPanel Orientation="Horizontal">
-                                    <Button Style="{StaticResource FFXIVButton}" x:Name="continueBtn" Content="Continue"  Click="ContinueBtn_Click"/>
+                                    <Button Style="{StaticResource FFXIVButton}" x:Name="continueBtn" Content="Save"  Click="ContinueBtn_Click"/>
                                     <Button Style="{StaticResource FFXIVButton}" x:Name="exitBtn"    Content="Cancel"  Click="ExitBtn_Click"/>
                                 </StackPanel>
                             </StackPanel>
