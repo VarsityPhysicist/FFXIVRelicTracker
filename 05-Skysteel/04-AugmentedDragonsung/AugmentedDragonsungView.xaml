@@ -1,0 +1,261 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._05_Skysteel._04_AugmentedDragonsung.AugmentedDragonsungView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._05_Skysteel._04_AugmentedDragonsung"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-SkysteelDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel  Grid.Row="0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+                <ComboBox Margin="5,0,0,0"
+                                                    ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                    SelectedItem="{Binding Path=SelectedJob}"
+                                        />
+                <Border HorizontalAlignment="Center">
+                    <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
+                </Border>
+            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Yellow Scrips (Based on completed tools) between:"/>
+                <StackPanel Margin="10,0,0,0" Grid.Row="1" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MinRemainingYellowScrips, StringFormat='{}{0:N0}'}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" (Highest Collectability Score for all turn-ins)"/>
+                </StackPanel>
+                <TextBlock Margin="20,0,0,0"  Grid.Row="2" Style="{StaticResource LeftTextBlock}" Text="and"/>
+                <StackPanel Margin="10,0,0,0"  Grid.Row="3" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding MaxRemainingYellowScrips, StringFormat='{}{0:N0}'}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" (Lowest Collectability Score for all turn-ins)"/>
+                </StackPanel>
+            </Grid>
+            <TextBlock/>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid Visibility="{Binding DisplayInfo, Converter={StaticResource b2v}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="An "/>
+                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="Augmented Dragonsung " Foreground="MediumPurple"/>
+                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="{Binding ToolName}" Foreground="MediumPurple"/>
+                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text=" is recieved from Denys (Foundation) in exchange for the following items:"/>
+                </StackPanel>
+
+                <Grid Margin="10,0,0,0" Grid.Row="1" Visibility="{Binding IsGatherer, Converter={StaticResource Ob2v}}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Grid.Row="0" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Dragonsung " Foreground="MediumPurple"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding ToolName}" Foreground="MediumPurple"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=""/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding TradedMat}" Foreground="White"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="'s Gobbiegoo " Foreground="White"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="x 90"/>
+                    </StackPanel>
+                    
+                    <TextBlock Grid.Row="2" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                    <StackPanel Grid.Row="3" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="'s Gobbiegoo"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is acquired by collectable turn-in of "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding CraftedMat}"/>
+                    </StackPanel>
+
+                    <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="Collectability:"/>
+                        <TextBlock Grid.Row="1" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="3000-3799"/>
+                        <TextBlock Grid.Row="2" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="3800-4599"/>
+                        <TextBlock Grid.Row="3" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="4600+"/>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="'s Gobbiegoo"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 2"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="'s Gobbiegoo"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 3"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="'s Gobbiegoo"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 5"/>
+                        </StackPanel>
+
+                    </Grid>
+                    
+                    <TextBlock Grid.Row="5" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                    <StackPanel Margin="10,0,0,0" Grid.Row="6" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="The following items are needed to craft each "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding CraftedMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=":"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="15,0,0,0" Grid.Row="7" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
+                    </StackPanel>
+                    <StackPanel Margin="15,0,0,0" Grid.Row="8" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding SecondMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="9" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                    <StackPanel Margin="0,0,0,0" Grid.Row="10" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Note:  "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is purchased for 60 Yellow Crafters' or 20 Skybuilders' Scrip each"/>
+                    </StackPanel>
+                </Grid>
+
+                <Grid Grid.Row="1" Visibility="{Binding IsGatherer, Converter={StaticResource b2v}}">
+                    <Grid Margin="10,0,0,0" Grid.Row="1" Visibility="{Binding IsFSH, Converter={StaticResource Ob2v}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="Dragonsung "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding ToolName}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=""/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="'s Gobbiegoo"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 50"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding SecondMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding GatherLoc}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 180"/>
+                        </StackPanel>
+
+                        <TextBlock Grid.Row="3" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                        <StackPanel Grid.Row="4" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="1 "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="'s Gobbiegoo"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is acquired by trading 10"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text=" HQ "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding GatherLoc}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" to Denys"/>
+                        </StackPanel>
+                    </Grid>
+
+                    <Grid Margin="10,0,0,0" Grid.Row="1" Visibility="{Binding IsFSH, Converter={StaticResource b2v}}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="Dragonsung "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding ToolName}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=""/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="'s Gobbiegoo"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 6"/>
+                        </StackPanel>
+                        
+                        <TextBlock Grid.Row="3" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                        <StackPanel Grid.Row="4" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="1 "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="'s Gobbiegoo"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is acquired by trading 10"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" HQ "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" to Denys"/>
+                        </StackPanel>
+                        
+                        <TextBlock Grid.Row="5" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                        <StackPanel Grid.Row="6" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are caught from "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Yanxia - Plum Spring (X:36, Y:23)"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="7" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Bait: "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Signature Skyball"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" (Purchase from Denys (Foundation))"/>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
+

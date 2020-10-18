@@ -57,9 +57,20 @@
 
                 <TextBlock Margin="0,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Subsequent Resistance weapons are acquired from the side quest:"/>
                 <TextBlock Margin="10,0,0,0" Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="'Resistance is (Not) Futile' | Started by: Zlatan (Gangos)"/>
-                <TextBlock Margin="10,0,0,0" Grid.Row="5" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Four Thavnairian Scalepowder are required to complete this quest "/>
-                <TextBlock Margin="10,0,0,0" Grid.Row="6" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Thavnairian Scalepowder are purchased for 250 Poetics each"/>
-                <TextBlock Margin="10,0,0,0" Grid.Row="7" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Purchase Thavnairian Scalepowder from:"/>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Grid.Row="5">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Four "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Thavnairian Scalepowder"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are required to complete this quest"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Grid.Row="6">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Thavnairian Scalepowder"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are purchased for 250 Poetics each"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Grid.Row="7">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Purchase "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Thavnairian Scalepowder"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" from:"/>
+                </StackPanel>
                 <TextBlock Margin="20,0,0,0" Grid.Row="8" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Auriana (Mor Dhona) or Hismena (Idyllshire)"/>
 
                 <TextBlock Margin="0,0,0,0" Grid.Row="9" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
@@ -76,11 +87,20 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
 
-                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Current Thavnairian Scalepowder:"/>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Current "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Thavnairian Scalepowder"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=":"/>
+                    </StackPanel>
                     <TextBox Grid.Row="0" Grid.Column="1"  Margin="0,0,0,0" Style="{StaticResource BaseTextBox}"  Text="{Binding CurrentScalepowder}" MinWidth="20"/>
                     <Button Grid.Row="0" Grid.Column="2"  Style="{StaticResource incrementButton}" Content="+" Command="{Binding ScalepowderButton}"/>
 
-                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Total Thavnairian Scalepowder needed:"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Total "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Thavnairian Scalepowder"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" needed:"/>
+                    </StackPanel>
                     <TextBlock Grid.Row="1" Grid.Column="1" Margin="5,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding NeededScalepowder}" Width="20"/>
                     
                     <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Remaining Poetics needed:"/>

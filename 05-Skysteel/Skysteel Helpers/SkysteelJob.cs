@@ -12,6 +12,8 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
         private SkysteelProgress baseTool;
         private SkysteelProgress basePlus1;
         private SkysteelProgress dragonsung;
+        private SkysteelProgress augmentedDragonsung;
+        private SkysteelProgress skysung;
         #endregion
 
 
@@ -27,6 +29,8 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
             BaseTool = new SkysteelProgress("BaseTool", name);
             BasePlus1 = new SkysteelProgress("BasePlus1", name);
             Dragonsung = new SkysteelProgress("Dragonsung", name);
+            AugmentedDragonsung = new SkysteelProgress("AugmentedDragonsung", name);
+            Skysung = new SkysteelProgress("Skysung", name);
         }
         #endregion
 
@@ -70,6 +74,24 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
                 OnPropertyChanged(nameof(Dragonsung));
             }
         }
+        public SkysteelProgress AugmentedDragonsung
+        {
+            get { return augmentedDragonsung; }
+            set
+            {
+                augmentedDragonsung = value;
+                OnPropertyChanged(nameof(AugmentedDragonsung));
+            }
+        }
+        public SkysteelProgress Skysung
+        {
+            get { return skysung; }
+            set
+            {
+                skysung = value;
+                OnPropertyChanged(nameof(Skysung));
+            }
+        }
 
         #endregion
 
@@ -80,17 +102,16 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
             //Without checking and replacing the Progress lists and objects, the Progress object is null, regardless of the initiator being in the class constructor
             //  or in the field
 
-            //This will not work, see ShBJob for working logic
 
             List<SkysteelProgress> tempList = new List<SkysteelProgress>();
 
-            foreach(SkysteelProgress skysteelProgress in StageList)
+            for (int stageIndex = 0; stageIndex < StageList.Count; stageIndex++)
             {
-                if (skysteelProgress == null)
+                SkysteelProgress SkysteelProgress = new SkysteelProgress();
+                if (StageList[stageIndex] != null) { SkysteelProgress = StageList[stageIndex]; }
+                if (SkysteelProgress.Name == null)
                 {
-                    int stageIndex = StageList.IndexOf(skysteelProgress);
-
-                    SkysteelProgress tempProgress = new SkysteelProgress(SkysteelInfo.StageListString[stageIndex],name);
+                    SkysteelProgress tempProgress = new SkysteelProgress(SkysteelInfo.StageListString[stageIndex], name);
 
                     tempList.Add(tempProgress);
 
@@ -105,11 +126,16 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
                         case 2:
                             Dragonsung = tempProgress;
                             break;
+                        case 3:
+                            AugmentedDragonsung = tempProgress;
+                            break;
+                        case 4:
+                            Skysung = tempProgress;
+                            break;
                     }
                 }
-                else { tempList.Add(skysteelProgress); }
+                else { tempList.Add(SkysteelProgress); }
             }
-
             StageList = tempList;
 
         }

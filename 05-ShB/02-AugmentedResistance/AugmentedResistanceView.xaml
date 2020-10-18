@@ -44,6 +44,7 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
@@ -53,8 +54,10 @@
 
                 <TextBlock Margin="20,0,0,0" Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Completing HW FATEs with a gold rating awards a single memory"/>
                 <TextBlock Margin="20,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Memory drops within Bozja Southern Front have a drop chance &lt;100% and are not targetable"/>
+                
+                <TextBlock Margin="0,0,0,0" Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
 
-                <Grid Grid.Row="4">
+                <Grid Grid.Row="5">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -67,12 +70,12 @@
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Memory"/>
-                    <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource LeftTextBlock}" Text="FATE Area"/>
+                    <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Memory:"/>
+                    <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Style="{StaticResource LeftTextBlock}" Text="FATE Area:"/>
 
-                    <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Harrowing Memory of the Dying"/>
-                    <TextBlock Margin="10,0,0,0" Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Sorrowful Memory of the Dying"/>
-                    <TextBlock Margin="10,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Tortured Memory of the Dying"/>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Harrowing Memory of the Dying"/>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Sorrowful Memory of the Dying"/>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Tortured Memory of the Dying"/>
 
                     <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource LeftTextBlock}" Text="Dravanian Hinterlands | "/>
                     <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="Azys lla"/>
@@ -84,21 +87,22 @@
                     <TextBlock Margin="0,0,0,0" Grid.Row="3" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="Sea of Clouds"/>
                 </Grid>
 
-                <TextBlock Margin="0,0,0,0" Grid.Row="5" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+                <TextBlock Margin="0,0,0,0" Grid.Row="6" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
                 
-                <TextBlock Margin="0,0,0,0" Grid.Row="6" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="20 Memories of each type are required to Augment a Resistance weapon"/>
-                <Grid Grid.Row="7">
+                <TextBlock Margin="0,0,0,0" Grid.Row="7" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="20 Memories of each type are required to Augment a Resistance weapon"/>
+
+                <Grid Grid.Row="8">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Margin="10,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="Memories of each type required:"/>
+                    <TextBlock Margin="10,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="Remaining memories of each type required:"/>
                     <TextBlock Margin="10,0,0,0" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="{Binding MemoryNeeded}"/>
                 </Grid>
                 
-                <TextBlock Margin="0,0,0,0" Grid.Row="8" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+                <TextBlock Margin="0,0,0,0" Grid.Row="9" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
 
-                <Grid Grid.Row="9">
+                <Grid Grid.Row="10">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>

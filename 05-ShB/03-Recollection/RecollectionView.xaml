@@ -43,37 +43,69 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
                 <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
                     Text="Quest: 'The Will to Resist' | Started by: Zlatan (Gangos)" />
-                <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
-                           Text="Collect 6 Bitter Memory of the Dying by completing HW Lvl 60 Dungeons"/>
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,0,0,0">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Collect 6 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" from one of the following sources:"/>
+                </StackPanel>
 
                 <TextBlock Margin="20,0,0,0" Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
-                           Text="Dungeons must be completed with Lvl sync active"/>
+                           Text="-Slaying creatures in Bozja Southern Front"/>
+
+                <TextBlock Margin="20,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="-Completing Duty Roulette: Leveling"/>
                 
-                <TextBlock TextWrapping="Wrap" Margin="20,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
-                           Text="Any Augmented Resistance weapon must be in inventory or equipped"/>
+                <TextBlock Margin="30,0,0,0" Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="(only awarded once per day)"/>
 
-                <TextBlock Margin="0,0,0,0" Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+                <TextBlock Margin="20,0,0,0" Grid.Row="5" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="-Completing Lvl 60 Dungeons"/>
+                
+                <TextBlock Margin="30,0,0,0" Grid.Row="6" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="(dungeons must be completed with Lvl sync active)"/>
+                
+                <TextBlock Margin="0,0,0,0" Grid.Row="7" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
 
-                <Grid Grid.Row="5">
+                
+
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Grid.Row="8">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="For a "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Bitter Memory of the Dying"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" to drop, the quest 'The Will to Resist' Must be active"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15,0,0,0" Grid.Row="9">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="and an augmented resistance weapon must be in inventory or equipped"/>
+
+                </StackPanel>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="10" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                <Grid Grid.Row="11">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="Bitter Memory of the Dying:"/>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Bitter Memory of the Dying:"/>
                     <TextBox Margin="5,0,0,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding MemoryCount}"/>
                     <Button Grid.Row="0" Grid.Column="2"  Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}"/>
                 </Grid>
-                <Grid Grid.Row="6">
+                <Grid Grid.Row="12">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Margin="10,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="Bitter Memory of the Dying Remaining:"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="10,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Bitter Memory of the Dying"/>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text=" remaining:"/>
+                    </StackPanel>
                     <TextBlock Margin="10,0,0,0" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="{Binding MemoryNeeded}"/>
                 </Grid>
 

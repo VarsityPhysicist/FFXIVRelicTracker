@@ -1,6 +1,8 @@
 ﻿using FFXIVRelicTracker._05_Skysteel._01_BaseTool;
 using FFXIVRelicTracker._05_Skysteel._02_BasePlus1;
 using FFXIVRelicTracker._05_Skysteel._03_Dragonsung;
+using FFXIVRelicTracker._05_Skysteel._04_AugmentedDragonsung;
+using FFXIVRelicTracker._05_Skysteel._05_Skysung;
 using FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
@@ -30,6 +32,8 @@ namespace FFXIVRelicTracker._05_Skysteel.Main
         private BaseToolModel baseToolModel = new BaseToolModel();
         private BasePlus1Model basePlus1Model = new BasePlus1Model();
         private DragonsungModel dragonsungModel = new DragonsungModel();
+        private AugmentedDragonsungModel augmentedDragonsungModel = new AugmentedDragonsungModel();
+        private SkysungModel skysungModel = new SkysungModel();
 
         #endregion
 
@@ -61,6 +65,8 @@ namespace FFXIVRelicTracker._05_Skysteel.Main
         public BaseToolModel BaseToolModel { get { return baseToolModel; } set { baseToolModel = value; OnPropertyChanged(nameof(BaseToolModel)); } }
         public BasePlus1Model BasePlus1Model { get { return basePlus1Model; } set { basePlus1Model = value; OnPropertyChanged(nameof(BasePlus1Model)); } }
         public DragonsungModel DragonsungModel { get { return dragonsungModel; } set { dragonsungModel = value; OnPropertyChanged(nameof(DragonsungModel)); } }
+        public AugmentedDragonsungModel AugmentedDragonsungModel { get { return augmentedDragonsungModel; } set { augmentedDragonsungModel = value; OnPropertyChanged(nameof(AugmentedDragonsungModel)); } }
+        public SkysungModel SkysungModel { get { return skysungModel; } set { skysungModel = value; OnPropertyChanged(nameof(SkysungModel)); } }
 
         #endregion
     }

@@ -45,8 +45,9 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="A Dragonsung "/>
-                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="{Binding ToolName}"/>
+                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="A "/>
+                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="Dragonsung "/>
+                    <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding ToolName}"/>
                     <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text=" is recieved from Denys (Foundation) in exchange for the following items:"/>
                 </StackPanel>
 
@@ -59,40 +60,43 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
 
                     <StackPanel Grid.Row="0" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Skysteel "/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding ToolName}"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" +1"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Skysteel "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding ToolName}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text=" +1"/>
                     </StackPanel>
 
                     <StackPanel Grid.Row="1" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="(HQ) "/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding CraftedMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="(HQ) "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding CraftedMat}"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 30"/>
                     </StackPanel>
+                    
+                    <TextBlock Grid.Row="2" Style="{StaticResource LeftTextBlock}" Text=""/>
 
-                    <StackPanel Margin="10,0,0,0" Grid.Row="2" Orientation="Horizontal">
+                    <StackPanel Margin="10,0,0,0" Grid.Row="3" Orientation="Horizontal">
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="The following items are needed to craft each "/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding CraftedMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding CraftedMat}"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text=":"/>
                     </StackPanel>
 
-                    <StackPanel Margin="15,0,0,0" Grid.Row="3" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding FirstMat}"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
-                    </StackPanel>
                     <StackPanel Margin="15,0,0,0" Grid.Row="4" Orientation="Horizontal">
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SecondMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
+                    </StackPanel>
+                    <StackPanel Margin="15,0,0,0" Grid.Row="5" Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding SecondMat}"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="5" Style="{StaticResource LeftTextBlock}" Text=""/>
+                    <TextBlock Grid.Row="6" Style="{StaticResource LeftTextBlock}" Text=""/>
 
-                    <StackPanel Margin="15,0,0,0" Grid.Row="6" Orientation="Horizontal">
+                    <StackPanel Margin="15,0,0,0" Grid.Row="7" Orientation="Horizontal">
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="Note:  "/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding FirstMat}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is purchased for 50 Yellow Crafter's Scrip each"/>
                     </StackPanel>
                 </Grid>
@@ -106,19 +110,21 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Row="0" Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Skysteel "/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding ToolName}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" +1"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Skysteel "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding ToolName}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text=" +1"/>
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="(HQ) "/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding FirstMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="(HQ) "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding GatherLoc}"/>
                             <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 510"/>
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding SecondMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding SecondMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding GatherLoc}"/>
                             <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 180"/>
                         </StackPanel>
                     </Grid>
@@ -129,21 +135,34 @@
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
                             <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Row="0" Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Skysteel "/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding ToolName}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" +1"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Skysteel "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding ToolName}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text=" +1"/>
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" Orientation="Horizontal">
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="(HQ) "/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding FirstMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="(HQ) "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
                             <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 60"/>
                         </StackPanel>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Margin="10,0,0,0" Text="Dragonspit (X:8, Y:10)"/>
-                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Margin="10,0,0,0" Text="Bait: Signature Skyball (Purchase from Denys (Foundation))"/>
+                        
+                        <TextBlock Grid.Row="2"/>
+
+                        <StackPanel Grid.Row="3" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding FirstMat}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is caught at "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Coerthas Western Highlands - Dragonspit (X:8, Y:10)"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="4" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Bait: "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Signature Skyball"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" (Purchase from Denys (Foundation))"/>
+                        </StackPanel>
                     </Grid>
                 </Grid>
 

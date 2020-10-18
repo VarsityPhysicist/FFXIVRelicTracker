@@ -23,11 +23,27 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
                "FSH"
             };
 
+        public static List<string> JobNameListString = new List<string>
+            {
+               "Carpenter",
+               "Blacksmith",
+               "Armorer",
+               "Goldsmith",
+               "Leatherworker",
+               "Weaver",
+               "Alchemist",
+               "Culinarian",
+               "Miner",
+               "Botanist",
+               "Fisher"
+            };
         public static List<string> StageListString = new List<string>()
         {
            "BaseTool",
            "BasePlus1",
-           "Dragonsung"
+           "Dragonsung",
+           "AugmentedDragonsung",
+           "Skysung"
         };
 
         private static Dictionary<string, string> JobToToolDict= new Dictionary<string, string>
@@ -178,23 +194,23 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
             {"WVR", "Oddly Specific Cotton"},
             {"ALC", "Oddly Specific Quartz"},
             {"CUL", "Oddly Specific Seeds"},
-            {"MIN", "Oddly Specific Obsidian (Coerthas Western Highlands/The Sea of Clouds)" },
-            {"BTN", "Oddly Specific Latex (The Dravanian Forelands/The Sea of Clouds)"},
-            {"FSH", "Thinker's Coral (The Dravanian Forelands)"}
+            {"MIN", "Oddly Specific Obsidian" },
+            {"BTN", "Oddly Specific Latex"},
+            {"FSH", "Thinker's Coral"}
         };
 
         private static Dictionary<string, string> JobToSecondPlus1Mat = new Dictionary<string, string>
         {
-            {"CRP", "White Ash Log (The Rak'tola Greatwood)" },
-            {"BSM", "Manasilver Sand (The Rak'tola Greatwood)" },
-            {"ARM", "Manasilver Sand (The Rak'tola Greatwood)"},
-            {"GSM", "Manasilver Sand (The Rak'tola Greatwood)"},
-            {"LTW", "Atrociraptor Skin (Bicolor Gemstone)"},
-            {"WVR", "Pixie Floss Boll (The Rak'tola Greatwood)"},
-            {"ALC", "Vampire Vine Sap (Bicolor Gemstone)"},
-            {"CUL", "Highland Spring Water (Il Mheg)"},
-            {"MIN", "Oddly Specific Mineral Sand (Coerthas Western Highlands/The Sea of Clouds)" },
-            {"BTN", "Oddly Specific Fossil Dust (The Dravanian Forelands/The Sea of Clouds)"},
+            {"CRP", "White Ash Log" },
+            {"BSM", "Manasilver Sand" },
+            {"ARM", "Manasilver Sand"},
+            {"GSM", "Manasilver Sand"},
+            {"LTW", "Atrociraptor Skin"},
+            {"WVR", "Pixie Floss Boll"},
+            {"ALC", "Vampire Vine Sap"},
+            {"CUL", "Highland Spring Water"},
+            {"MIN", "Oddly Specific Mineral Sand" },
+            {"BTN", "Oddly Specific Fossil Dust)"},
             {"FSH", ""}
         };
 
@@ -232,9 +248,9 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
             {"WVR", "Oddly Specific Cotton"},
             {"ALC", "Oddly Specific Quartz"},
             {"CUL", "Oddly Specific Seeds"},
-            {"MIN", "Oddly Specific Dark Matter (The Dravanian Forelands/The Dravanian Hinterlands)" },
-            {"BTN", "Oddly Specific Amber (Coerthas Western Highlands/The Churning Mists)"},
-            {"FSH", "Dragonspine (Coerthas Western Highlands)"}
+            {"MIN", "Oddly Specific Dark Matter" },
+            {"BTN", "Oddly Specific Amber"},
+            {"FSH", "Dragonspine"}
         };
 
         private static Dictionary<string, string> JobToSecondDragonsungMat = new Dictionary<string, string>
@@ -247,8 +263,116 @@ namespace FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers
             {"WVR", "Ovim Wool"},
             {"ALC", "Refined Natron"},
             {"CUL", "Night Vinegar"},
-            {"MIN", "Oddly Specific Striking Stone (The Dravanian Forelands/The Dravanian Hinterlands)"},
-            {"BTN", "Oddly Specific Bauble (Coerthas Western Highlands/The Churning Mists)"},
+            {"MIN", "Oddly Specific Striking Stone"},
+            {"BTN", "Oddly Specific Bauble"},
+            {"FSH", ""}
+        };
+
+        #endregion
+
+        #region AugmentedDragonsung
+
+        public static Tuple<string, string, string, string, string> ReturnAugmentedDragonsungTuple(string job)
+        {
+            return new Tuple<string, string, string, string, string>(JobToToolDict[job], JobNameListString[JobListString.IndexOf(job)], JobToAugmentedDragonsungCraft[job], JobToFirstAugmentedDragonsungMat[job], JobToSecondAugmentedDragonsungMat[job]);
+        }
+
+        private static Dictionary<string, string> JobToAugmentedDragonsungCraft = new Dictionary<string, string>
+        {
+            {"CRP", "Oddly Specific Cedar Lumber"},
+            {"BSM", "Oddly Specific Iron Nails"},
+            {"ARM", "Oddly Specific Mythril Rings"},
+            {"GSM", "Oddly Specific Silver Nuggets"},
+            {"LTW", "Oddly Specific Gagana Syrup"},
+            {"WVR", "Oddly Specific Cloth"},
+            {"ALC", "Oddly Specific Cedar Glue"},
+            {"CUL", "Oddly Specific Cedar Oil"},
+            {"MIN", "" },
+            {"BTN", ""},
+            {"FSH", ""}
+        };
+
+        private static Dictionary<string, string> JobToFirstAugmentedDragonsungMat = new Dictionary<string, string>
+        {
+            {"CRP", "Oddly Specific Cedar Log" },
+            {"BSM", "Oddly Specific Coerthan Iron Ore" },
+            {"ARM", "Oddly Specific Mythrite Sand"},
+            {"GSM", "Oddly Specific Silver Ore"},
+            {"LTW", "Oddly Specific Gagana Skin"},
+            {"WVR", "Oddly Specific Fleece"},
+            {"ALC", "Oddly Specific Sap"},
+            {"CUL", "Oddly Specific Aloe"},
+            {"MIN", "Oddly Specific Schorl" },
+            {"BTN", "Oddly Specific Dark Chestnut Log"},
+            {"FSH", "Petal Shell"}
+        };
+
+        private static Dictionary<string, string> JobToSecondAugmentedDragonsungMat = new Dictionary<string, string>
+        {
+            {"CRP", "Lignum Vitae Log"},
+            {"BSM", "Dimythrite Ore"},
+            {"ARM", "Dimythrite Ore"},
+            {"GSM", "Dimythrite Sand"},
+            {"LTW", "Yellow Alumen"},
+            {"WVR", "Dwarven Cotton Boll"},
+            {"ALC", "Vampire Cup Vine"},
+            {"CUL", "Frantoio"},
+            {"MIN", "Oddly Specific Landborne Aethersand"},
+            {"BTN", "Oddly Specific Leafborne Aethersand"},
+            {"FSH", ""}
+        };
+
+        #endregion
+
+        #region Skysung
+
+        public static Tuple<string, string, string, string, string> ReturnSkysungTuple(string job)
+        {
+            return new Tuple<string, string, string, string, string>(JobToToolDict[job], JobNameListString[JobListString.IndexOf(job)], JobToSkysungCraft[job], JobToFirstSkysungMat[job], JobToSecondSkysungMat[job]);
+        }
+
+        private static Dictionary<string, string> JobToSkysungCraft = new Dictionary<string, string>
+        {
+            {"CRP", "Oddly Specific Cedar Lumber"},
+            {"BSM", "Oddly Specific Iron Ingots"},
+            {"ARM", "Oddly Specific Mythril PLate"},
+            {"GSM", "Oddly Specific Silver Ingot"},
+            {"LTW", "Oddly Specific Gagana Leather"},
+            {"WVR", "Oddly Specific Undyed Woolen Cloth"},
+            {"ALC", "Oddly Specific Rubber"},
+            {"CUL", "Oddly Specific Paste"},
+            {"MIN", "" },
+            {"BTN", ""},
+            {"FSH", ""}
+        };
+
+        private static Dictionary<string, string> JobToFirstSkysungMat = new Dictionary<string, string>
+        {
+            {"CRP", "Oddly Specific Cedar Log" },
+            {"BSM", "Oddly Specific Coerthan Iron Ore" },
+            {"ARM", "Oddly Specific Mythrite Sand"},
+            {"GSM", "Oddly Specific Silver Ore"},
+            {"LTW", "Oddly Specific Gagana Skin"},
+            {"WVR", "Oddly Specific Fleece"},
+            {"ALC", "Oddly Specific Sap"},
+            {"CUL", "Oddly Specific Aloe"},
+            {"MIN", "Oddly Specific Primordial Ore" },
+            {"BTN", "Oddly Specific Primordial Log"},
+            {"FSH", "Allagan Hunter"}
+        };
+
+        private static Dictionary<string, string> JobToSecondSkysungMat = new Dictionary<string, string>
+        {
+            {"CRP", "Lignum Vitae Lumber"},
+            {"BSM", "Dwarven Mythril Ingot"},
+            {"ARM", "Dwarven Mythril Ingot"},
+            {"GSM", "Dwarven Mythril Nugget"},
+            {"LTW", "Sea Swallow Leather"},
+            {"WVR", "Dwarven Cotton"},
+            {"ALC", "Refined Natron"},
+            {"CUL", "Night Vinegar"},
+            {"MIN", "Oddly Specific Primordial Asphaltum"},
+            {"BTN", "Oddly Specific Primordial Resin"},
             {"FSH", ""}
         };
 

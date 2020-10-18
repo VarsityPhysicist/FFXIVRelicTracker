@@ -5,6 +5,8 @@
                     xmlns:baseTool="clr-namespace:FFXIVRelicTracker._05_Skysteel._01_BaseTool"
                     xmlns:basePlus1="clr-namespace:FFXIVRelicTracker._05_Skysteel._02_BasePlus1"
                     xmlns:dragonsung="clr-namespace:FFXIVRelicTracker._05_Skysteel._03_Dragonsung"
+                    xmlns:augmentedDragonsung="clr-namespace:FFXIVRelicTracker._05_Skysteel._04_AugmentedDragonsung"
+                    xmlns:skysung="clr-namespace:FFXIVRelicTracker._05_Skysteel._05_Skysung"
                     >
     
     
@@ -23,6 +25,12 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type dragonsung:DragonsungViewModel}">
         <dragonsung:DragonsungView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type augmentedDragonsung:AugmentedDragonsungViewModel}">
+        <augmentedDragonsung:AugmentedDragonsungView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type skysung:SkysungViewModel}">
+        <skysung:SkysungView/>
     </DataTemplate>
 
     <Style BasedOn="{StaticResource FFXIVButton }" x:Key="SkysteelSummaryButton" TargetType="Button">

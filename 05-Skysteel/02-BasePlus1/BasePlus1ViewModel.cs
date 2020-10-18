@@ -73,6 +73,7 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
                 OnPropertyChanged(nameof(IsGatherer));
                 OnPropertyChanged(nameof(IsFSH));
                 OnPropertyChanged(nameof(DisplayInfo));
+                SetGatherLoc();
 
                 if (value != null)
                 {
@@ -101,6 +102,8 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
         public string FirstMat { get { return basePlus1Model.FirstMat; } set { basePlus1Model.FirstMat = value; OnPropertyChanged(nameof(FirstMat)); } }
         public string SecondMat { get { return basePlus1Model.SecondMat; } set { basePlus1Model.SecondMat = value; OnPropertyChanged(nameof(SecondMat)); } }
 
+        public string GatherLoc { get { return basePlus1Model.GatherLoc; } set { basePlus1Model.GatherLoc = value; OnPropertyChanged(nameof(GatherLoc)); } }
+
 
         public string SelectedToolType { get { return SkysteelInfo.ReturnToolName(SelectedJob); } }
         public bool DisplayInfo { get { return SelectedJob!=null; } }
@@ -122,6 +125,21 @@ namespace FFXIVRelicTracker._05_Skysteel._02_BasePlus1
             else { BasePlus1Model = selectedCharacter.SkysteelModel.BasePlus1Model; }
         }
 
+        public void SetGatherLoc()
+        {
+            switch (SelectedJob)
+            {
+                case "MIN":
+                    GatherLoc = " (Coerthas Western Highlands | The Sea of Clouds)";
+                    break;
+                case "BTN":
+                    GatherLoc = " (The Dravanian Forelands | The Sea of Clouds)";
+                    break;
+                default:
+                    GatherLoc = "";
+                    break;
+            }
+        }
 
         public void LoadAvailableJobs()
         {

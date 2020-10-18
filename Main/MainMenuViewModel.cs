@@ -186,7 +186,9 @@ namespace FFXIVRelicTracker.ViewModels
                 {
                     job.BaseTool,
                     job.BasePlus1,
-                    job.Dragonsung
+                    job.Dragonsung,
+                    job.AugmentedDragonsung,
+                    job.Skysung
                 };
                 job.StageList = arrProgresses;
                 job.CheckObject();
