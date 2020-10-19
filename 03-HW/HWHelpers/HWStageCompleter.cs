@@ -78,13 +78,16 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
         {
             switch (stageInt)
             {
-                case 0:
+                case 0: //Animated Stage
                     AnimatedStage(character);
                     break;
-                case 1:
+                case 1: //Awoken Stage
                     break;
-                case 2:
+                case 2: //Anima Stage
                     AnimaStage(character);
+                    break;
+                case 3: //Hyperconductive Stage
+                    HyperconductiveStage(character);
                     break;
                 default:
                     break;
@@ -112,6 +115,11 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
             character.HWModel.AnimaModel.Arrow -= 4;
             character.HWModel.AnimaModel.Kingcake -= 4;
 
+        }
+
+        private static void HyperconductiveStage(Character character)
+        {
+            character.HWModel.HyperconductiveModel.OilCount -= 5;
         }
         #endregion
     }

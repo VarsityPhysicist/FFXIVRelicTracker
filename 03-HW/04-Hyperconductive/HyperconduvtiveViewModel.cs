@@ -1,10 +1,13 @@
-﻿using FFXIVRelicTracker.Models;
+﻿using FFXIVRelicTracker._03_HW.HWHelpers;
+using FFXIVRelicTracker.Helpers;
+using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Events;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Text;
+using System.Windows.Input;
 
 namespace FFXIVRelicTracker._03_HW._04_Hyperconductive
 {
@@ -76,18 +79,21 @@ namespace FFXIVRelicTracker._03_HW._04_Hyperconductive
 
         public HyperconductiveModel HyperconductiveModel
         {
-            get { return HyperconductiveModel; }
+            get { return hyperconductiveModel; }
             set
             {
                 if (value != null)
                 {
-                    HyperconductiveModel = value;
+                    hyperconductiveModel = value;
                     OnPropertyChanged(nameof(HyperconductiveModel));
                 }
             }
         }
         
         public int OilCount { get { return hyperconductiveModel.OilCount; } set { if (value >= 0) { hyperconductiveModel.OilCount = value; } else { hyperconductiveModel.OilCount = 0; } OilChange(); } }
+        public int NeededOil { get { if (AvailableJobs != null) { return AvailableJobs.Count * 5 - OilCount; } else { return 0; } } }
+        public int Poetics { get { return NeededOil * 350; } }
+        public string QuestName { get { if (AvailableJobs != null) { if (AvailableJobs.Count == 13) { return "Finding Your Voice"; } else { return "Soul Without Life"; } } else { return "Finding Your Voice"; } } }
         #endregion
 
         #region Methods
@@ -95,16 +101,83 @@ namespace FFXIVRelicTracker._03_HW._04_Hyperconductive
         private void OilChange()
         {
             OnPropertyChanged(nameof(OilCount));
+            OnPropertyChanged(nameof(NeededOil));
+            OnPropertyChanged(nameof(Poetics));
         }
 
         public void LoadAvailableJobs()
         {
-            throw new NotImplementedException();
+            if (AvailableJobs == null) { AvailableJobs = new ObservableCollection<string>(); }
+            foreach (HWJob job in selectedCharacter.HWModel.HWJobList)
+            {
+                if (job.Hyperconductive.Progress == BaseProgressClass.States.Completed & AvailableJobs.Contains(job.Name))
+                {
+                    AvailableJobs.Remove(job.Name);
+                }
+                if (job.Hyperconductive.Progress != BaseProgressClass.States.Completed & !AvailableJobs.Contains(job.Name))
+                {
+                    HWInfo.ReloadJobList(AvailableJobs, job.Name);
+                }
+            }
+            OnPropertyChanged(nameof(AvailableJobs));
+            OilChange();
         }
         #endregion
 
         #region Commands
+        #region Complete Button
+        private ICommand _CompleteButton;
 
+        public ICommand CompleteButton
+        {
+            get
+            {
+                if (_CompleteButton == null)
+                {
+                    _CompleteButton = new RelayCommand(
+                        param => this.CompleteCommand(),
+                        param => this.CompleteCan()
+                        );
+                }
+                return _CompleteButton;
+            }
+        }
+
+        private bool CompleteCan() { return SelectedJob != null; }
+        private void CompleteCommand()
+        {
+
+            HWJob tempJob = selectedCharacter.HWModel.HWJobList[HWInfo.JobListString.IndexOf(SelectedJob)];
+
+            HWStageCompleter.ProgressClass(selectedCharacter, tempJob.Hyperconductive, true);
+
+            LoadAvailableJobs();
+        }
+        #endregion
+
+        #region Add Oil
+
+        private ICommand _IncrementButton;
+
+        public ICommand IncrementButton
+        {
+            get
+            {
+                if (_IncrementButton == null)
+                {
+                    _IncrementButton = new RelayCommand(
+                        param => this.IncrementCommand(param)
+                        );
+                }
+                return _IncrementButton;
+            }
+        }
+        private void IncrementCommand(object param)
+        {
+            OilCount += 1;
+        }
+
+        #endregion
         #endregion
 
 

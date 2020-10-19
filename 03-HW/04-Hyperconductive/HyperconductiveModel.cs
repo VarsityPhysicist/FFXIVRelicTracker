@@ -11,6 +11,6 @@ namespace FFXIVRelicTracker._03_HW._04_Hyperconductive
         {
         }
 
-        public int OilCount { get; internal set; }
+        public int OilCount { get;  set; }
     }
 }

@@ -5,6 +5,7 @@
                     xmlns:animated="clr-namespace:FFXIVRelicTracker._03_HW._01_Animated"
                     xmlns:awoken="clr-namespace:FFXIVRelicTracker._03_HW._02_Awoken"
                     xmlns:anima="clr-namespace:FFXIVRelicTracker._03_HW._03_Anima"
+                    xmlns:hyperconductive="clr-namespace:FFXIVRelicTracker._03_HW._04_Hyperconductive"
                     >
 
     <ResourceDictionary.MergedDictionaries>
@@ -22,6 +23,9 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type anima:AnimaViewModel}">
         <anima:AnimaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type hyperconductive:HyperconduvtiveViewModel}">
+        <hyperconductive:HyperconductiveView/>
     </DataTemplate>
 
 
