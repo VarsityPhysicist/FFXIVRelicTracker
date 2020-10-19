@@ -195,6 +195,7 @@ namespace FFXIVRelicTracker.ViewModels
                 string jsonString;
                 jsonString = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\FFXIVRelicTrackerSettings.txt");
                 double tempFontSetting= JsonSerializer.Deserialize<double>(jsonString);
+                if (tempFontSetting <= 0) { tempFontSetting = 12.0; }
 
                 foreach (Window window in Application.Current.Windows)
                 {

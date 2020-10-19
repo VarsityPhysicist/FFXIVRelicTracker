@@ -31,7 +31,7 @@ namespace FFXIVRelicTracker.Main
             double FontSetting = Application.Current.Windows[0].FontSize;
             double.TryParse(this.FontButton.Text, out FontSetting);
 
-            if (FontSetting == 0) { FontSetting = Application.Current.Windows[0].FontSize; }
+            if (FontSetting <= 0) { FontSetting = Application.Current.Windows[0].FontSize; }
 
             foreach (Window window in Application.Current.Windows)
             {
