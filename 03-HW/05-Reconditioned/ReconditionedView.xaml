@@ -1,0 +1,198 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._03_HW._05_Reconditioned.ReconditionedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._03_HW._05_Reconditioned"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-SkysteelDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="5,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=SelectedJob}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
+            </Border>
+            <TextBlock Margin="20,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding Name}"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Stage "/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Text="Quest 'A Dream Fulfilled' | Started by: Ardashir (azys Lla)"/>
+
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Text="Speak with Ulan in Idyllshire"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Acquire "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Crystal Sand"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" and "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Umbrite"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=", trade these to Ulan to recieve 3 - 6 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Treated Crystal Sand"/>
+                </StackPanel>
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="3">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Treated Crystal Sand"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are used to allocate points to stats on your "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding AnimaWeapon}"/>
+                </StackPanel>
+
+                <Grid Grid.Row="4" Margin="10,0,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Note: "/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Before 120 Treated Crystal Sand are recieved, trading "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Crystal Sand"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" and "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Umbrite"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" earns 3 "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Treated Crystal Sand"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="After 120 Treated Crystal Sand are recieved, trading "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Crystal Sand"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" and "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Umbrite"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" earns 3-6 "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Treated Crystal Sand"/>
+                    </StackPanel>
+                </Grid>
+
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Text=""/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6" Text="A total of 240 Treated Crystal Sand are required to complete the Reconditioning"/>
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="7">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="A total of 60 - 80 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Crystal Sand"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" and "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Umbrite"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Are required to completed each Reconditioning "/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="8">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Crystal Sand"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are acquired by trading with Ulan"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="9">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Umbrite"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are purchased for 75 Poetics each"/>
+                </StackPanel>
+                <Grid Grid.Row="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ProgressBar Grid.ColumnSpan="4" Minimum="0" Maximum="240" Value="{Binding CurrentPoints}" Margin="10,5,10,5" Foreground="DarkGoldenrod"/>
+                    <TextBox Background="Transparent" BorderBrush="Transparent" Text="{Binding CurrentPoints}" Grid.ColumnSpan="4" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10,5,10,5"/>
+                    <Button Style="{StaticResource incrementButton}" Grid.Row="1" Grid.Column="0" Content="+3" Command="{Binding IncrementButton}" CommandParameter="Point3"/>
+                    <Button Style="{StaticResource incrementButton}" Grid.Row="1" Grid.Column="1" Content="4" Command="{Binding IncrementButton}" CommandParameter="Point4"/>
+                    <Button Style="{StaticResource incrementButton}" Grid.Row="1" Grid.Column="2" Content="+5" Command="{Binding IncrementButton}" CommandParameter="Point5"/>
+                    <Button Style="{StaticResource incrementButton}" Grid.Row="1" Grid.Column="3" Content="+6" Command="{Binding IncrementButton}" CommandParameter="Point6"/>
+                </Grid>
+
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="11" Text=""/>
+                
+                <Grid Grid.Row="12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Margin="0,0,5,0" Text="Material "/>
+                    <TextBlock Grid.Row="0" Grid.Column="1" Style="{StaticResource LeftTextBlock}" Margin="0,0,5,0" Text="Current " Grid.ColumnSpan="2"/>
+                    <TextBlock Grid.Row="0" Grid.Column="3" Style="{StaticResource LeftTextBlock}" Margin="0,0,5,0" Text="Current Remaining "/>
+                    <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource LeftTextBlock}" Margin="0,0,5,0" Text="Total Remaining "/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Umbrite"/>
+                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentUmbrite}"/>
+                    <Button Style="{StaticResource incrementButton}" Grid.Row="1" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Umbrite" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentMinUmbrite}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="-"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentMaxUmbrite}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MinUmbrite}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="-"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MaxUmbrite}"/>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Crystal Sand "/>
+                    <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentSand}"/>
+                    <Button Style="{StaticResource incrementButton}" Grid.Row="2" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Sand" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <StackPanel Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentMinSand}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="-"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentMaxSand}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="2" Grid.Column="4" HorizontalAlignment="Center"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MinSands}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="-"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MaxSands}"/>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="3" Grid.ColumnSpan="4" Style="{StaticResource LeftTextBlock}"  HorizontalAlignment="Center" Text="Remaining Poetics Cost"/>
+                    <StackPanel Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center"  Orientation="Horizontal">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MinPoetics, StringFormat='{}{0:N0}'}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="-"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MaxPoetics, StringFormat='{}{0:N0}'}"/>
+                    </StackPanel>
+                </Grid>
+                
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

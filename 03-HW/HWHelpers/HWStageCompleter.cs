@@ -89,6 +89,9 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
                 case 3: //Hyperconductive Stage
                     HyperconductiveStage(character);
                     break;
+                case 4: //Reconditioned Stage
+                    ReconditionedStage(character);
+                    break;
                 default:
                     break;
             }
@@ -120,6 +123,11 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
         private static void HyperconductiveStage(Character character)
         {
             character.HWModel.HyperconductiveModel.OilCount -= 5;
+        }
+
+        private static void ReconditionedStage(Character character)
+        {
+            character.HWModel.ReconditionedModel.CurrentPoints = 0;
         }
         #endregion
     }
