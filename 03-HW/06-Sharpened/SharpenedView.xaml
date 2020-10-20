@@ -1,0 +1,102 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._03_HW._06_Sharpened.SharpenedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._03_HW._06_Sharpened"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-SkysteelDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="5,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=SelectedJob}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
+            </Border>
+            <TextBlock Margin="20,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding Name}"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Stage "/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Text="Quest: 'Future Proof' | Started by: Ardashir (Azys Lla)"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="1">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Acquire 50 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Singing Clusters"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" by completing daily/weekly quests or purchasing with Poetics"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="1 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Singing Cluster"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is awarded by the waily quest 'Cut from a Different Cloth', started by Angelet (Idyllshire)"/>
+                </StackPanel>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Margin="10,0,0,0" Text="Quest objective is to complete a Daily Roulette: Level 50/60/70 Dungeons"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="4">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="18 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Singing Clusters"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are awarded by the weekly quest 'Seeking Inspiration', started by Amphelice (Idyllshire)"/>
+                </StackPanel>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Margin="10,0,0,0" Text="Quest objective is to complete a Daily Roulette: Leveling three times"/>
+                
+                <StackPanel Orientation="Horizontal" Grid.Row="6">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Singing Clusters"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" may also be purchased for 40 Poetics each"/>
+                </StackPanel>
+                
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="7"/>
+
+                <Grid Grid.Row="8">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="1" Margin="0,0,10,0" Text="Current:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="3" Margin="0,0,10,0" Text="Total Remaining:"/>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Margin="0,0,10,0" Foreground="White" Text="Singing Cluster"/>
+                    <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="1" Grid.Column="1" Text="{Binding CurrentCluster}" MinWidth="40"/>
+                    <StackPanel Grid.Row="1" Grid.Column="2">
+                        <Button Style="{StaticResource incrementButton}" Content="+1" Command="{Binding IncrementButton}" CommandParameter="1"/>
+                        <Button Style="{StaticResource incrementButton}" Content="+18" Command="{Binding IncrementButton}" CommandParameter="18"/>
+                    </StackPanel>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" Text="{Binding RemainingCluster, StringFormat='{}{0:N0}'}"/>
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

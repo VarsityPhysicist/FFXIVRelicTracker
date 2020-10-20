@@ -47,7 +47,6 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 
                 <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Text="Quest 'A Dream Fulfilled' | Started by: Ardashir (azys Lla)"/>

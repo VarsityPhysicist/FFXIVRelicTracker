@@ -92,6 +92,9 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
                 case 4: //Reconditioned Stage
                     ReconditionedStage(character);
                     break;
+                case 5: //Sharpened Stage
+                    SharpenedStage(character);
+                    break;
                 default:
                     break;
             }
@@ -128,6 +131,11 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
         private static void ReconditionedStage(Character character)
         {
             character.HWModel.ReconditionedModel.CurrentPoints = 0;
+        }
+
+        private static void SharpenedStage(Character character)
+        {
+            character.HWModel.SharpenedModel.Currentcluster -= 50;
         }
         #endregion
     }

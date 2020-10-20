@@ -86,7 +86,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="03-HW\06-Sharpened\" />
     <Folder Include="03-HW\07-Complete\" />
     <Folder Include="03-HW\08-Lux\" />
   </ItemGroup>

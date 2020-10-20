@@ -11,8 +11,8 @@ namespace FFXIVRelicTracker._03_HW._05_Reconditioned
         {
         }
 
-        public int CurrentPoints { get; internal set; }
-        public int CurrentUmbrite { get; internal set; }
-        public int CurrentSand { get; internal set; }
+        public int CurrentPoints { get; set; }
+        public int CurrentUmbrite { get; set; }
+        public int CurrentSand { get; set; }
     }
 }
