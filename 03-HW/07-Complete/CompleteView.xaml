@@ -1,0 +1,203 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._03_HW._07_Complete.CompleteView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._03_HW._07_Complete"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-SkysteelDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="5,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=SelectedJob}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
+            </Border>
+            <TextBlock Margin="20,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding Name}"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Stage "/>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Text="Quest: 'Born Again Anima' | Started by: Ardashir (Azys Lla)"/>
+                
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Text="Complete the following dungeons:"/>
+
+                <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10,0,0,0">
+                    <CheckBox IsChecked="{Binding DungeonBool0}" Margin="0,0,10,0"/>
+                    <TextBlock TextDecorations="{Binding Path=DungeonBool0,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Sohm Al (Hard)"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="10,0,0,0">
+                    <CheckBox IsChecked="{Binding DungeonBool1}" Margin="0,0,10,0"/>
+                    <TextBlock TextDecorations="{Binding Path=DungeonBool1,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="The Great Gubal Library (Hard)"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="10,0,0,0">
+                    <CheckBox IsChecked="{Binding DungeonBool2}" Margin="0,0,10,0"/>
+                    <TextBlock TextDecorations="{Binding Path=DungeonBool2,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="The Lost City of Amdapor (Hard)"/>
+                </StackPanel>
+                
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Note:" Margin="0,0,5,-0"/>
+                    <StackPanel Orientation="Horizontal" Grid.Column="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="Your "/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding SharpenedWeapon}"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" may be in inventory or equipped"/>
+                    </StackPanel>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" Text="You must complete these dungeons as the same job that 'Born Again Anima' was started as"/>
+                </Grid>
+
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6" Text=""/>
+                
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="7" Text="Speak to Ardashir (Azys Lla) then complete the two following tasks:"/>
+
+                <Border Style="{StaticResource GoldBorder}" Grid.Row="8" Margin="10,10,0,0" Padding="5,5,10,5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Text="Quest: 'Some Assebly Required' | Started by: Processing Node (Azys Lla)"/>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Turn in 15 "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Pneumite"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" to recieve a "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Newborn Soulstone"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="2">
+
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Pneumite"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are purchased for 100 Poetics or 4000 GC Seals"/>
+                        </StackPanel>
+
+                        <Grid Grid.Row="3">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="1" Margin="0,0,10,0" Text="Current:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="3" Margin="0,0,10,0" Text="Total Remaining:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="4" Margin="0,0,10,0" Text="Remaining Poetics:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="5" Margin="0,0,10,0" Text="Remaining Seals:"/>
+
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Margin="0,0,10,0" Foreground="White" Text="Pneumite"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="1" Grid.Column="1" Margin="0,0,10,0" HorizontalAlignment="Center" Text="{Binding CurrentPneumite}" MinWidth="40"/>
+                            <StackPanel Grid.Row="1" Grid.Column="2">
+                                <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="1"/>
+                            </StackPanel>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding RemainingPneumite, StringFormat='{}{0:N0}'}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" Text="{Binding RemainingPoetics, StringFormat='{}{0:N0}'}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Text="{Binding RemainingSeals, StringFormat='{}{0:N0}'}"/>
+                        </Grid>
+                    </Grid>
+                </Border>
+
+                <Border Style="{StaticResource GoldBorder}" Grid.Row="9" Margin="10,10,0,0" Padding="5,5,10,5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Text="Speak to Verification Node (Azys Lla) and acquire 2000 Aetheric Density"/>
+
+                        <StackPanel Orientation="Horizontal" Grid.Row="1" Width="auto">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Aetheric Density is awarded upon defeating the final boss of select duties with your "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding SharpenedWeapon}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" equipped"/>
+                        </StackPanel>
+
+                        <Grid Grid.Row="2" Margin="0,10,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Margin="0,0,10,0" Text="Light"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Column="1" Text="{Binding Light}" MinWidth="40" Margin="0,0,10,0"/>
+                            
+                            <Button Style="{StaticResource incrementButton}" Grid.Column="2" Content="Vague" Command="{Binding IncrementButton}" CommandParameter="8"/>
+                            <Button Style="{StaticResource incrementButton}" Grid.Column="3" Content="Meager " Command="{Binding IncrementButton}" CommandParameter="16"/>
+                            <Button Style="{StaticResource incrementButton}" Grid.Column="4" Content="Vigorous " Command="{Binding IncrementButton}" CommandParameter="24"/>
+                            <Button Style="{StaticResource incrementButton}" Grid.Column="5" Content="Robust " Command="{Binding IncrementButton}" CommandParameter="48"/>
+                            <Button Style="{StaticResource incrementButton}" Grid.Column="6" Content="Sturdy " Command="{Binding IncrementButton}" CommandParameter="64"/>
+                            <Button Style="{StaticResource incrementButton}" Grid.Column="7" Content="Hardened " Command="{Binding IncrementButton}" CommandParameter="96"/>
+                            <Button Style="{StaticResource incrementButton}" Grid.Column="8" Content="Stalwart " Command="{Binding IncrementButton}" CommandParameter="128"/>
+
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.ColumnSpan="8" Margin="0,5,0,0" Text="Recommendation: Complete A9S unsynced 21 times"/>
+
+                        </Grid>
+                    </Grid>
+                </Border>
+
+
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
+

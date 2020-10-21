@@ -8,6 +8,7 @@
                     xmlns:hyperconductive="clr-namespace:FFXIVRelicTracker._03_HW._04_Hyperconductive"
                     xmlns:reconditioned="clr-namespace:FFXIVRelicTracker._03_HW._05_Reconditioned"
                     xmlns:sharpened="clr-namespace:FFXIVRelicTracker._03_HW._06_Sharpened"
+                    xmlns:complete="clr-namespace:FFXIVRelicTracker._03_HW._07_Complete"
                     >
 
     <ResourceDictionary.MergedDictionaries>
@@ -32,8 +33,8 @@
     <DataTemplate DataType="{x:Type reconditioned:ReconditionedViewModel}">
         <reconditioned:ReconditionedView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type sharpened:SharpenedViewModel}">
-        <sharpened:SharpenedView/>
+    <DataTemplate DataType="{x:Type complete:CompleteViewModel}">
+        <complete:CompleteView/>
     </DataTemplate>
 
 

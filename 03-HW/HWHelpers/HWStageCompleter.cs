@@ -95,6 +95,9 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
                 case 5: //Sharpened Stage
                     SharpenedStage(character);
                     break;
+                case 6: //Complete Stage
+                    CompleteStage(character);
+                    break;
                 default:
                     break;
             }
@@ -136,6 +139,12 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
         private static void SharpenedStage(Character character)
         {
             character.HWModel.SharpenedModel.Currentcluster -= 50;
+        }
+
+        private static void CompleteStage(Character character)
+        {
+            character.HWModel.CompleteModel.CurrentPneumite -= 15;
+            character.HWModel.CompleteModel.Light = 0;
         }
         #endregion
     }
