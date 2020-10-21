@@ -61,7 +61,7 @@ namespace FFXIVRelicTracker._03_HW._07_Complete
             get { return completeModel.SelectedJob; }
             set
             {
-                if (SelectedJob != value) { ResetDungeons(); }
+                if (SelectedJob != value) { ResetDungeons(); Light = 0; }
 
                 completeModel.SelectedJob = value;
                 OnPropertyChanged(nameof(SelectedJob));
@@ -134,10 +134,14 @@ namespace FFXIVRelicTracker._03_HW._07_Complete
         #region Pneumite
         public int CurrentPneumite
         {
-            get => completeModel.CurrentPneumite;
+            get 
+            {
+                if (completeModel.CurrentPneumite < 0) { CurrentPneumite = 0; }
+                return  completeModel.CurrentPneumite; 
+            }
             set
             {
-                if (value <= 0) { completeModel.CurrentPneumite = 0; }
+                if (value < 0) { completeModel.CurrentPneumite = 0; }
                 else { completeModel.CurrentPneumite = value; }
                 CheckPneumite();
             }

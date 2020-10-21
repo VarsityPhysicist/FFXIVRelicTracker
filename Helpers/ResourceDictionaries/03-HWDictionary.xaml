@@ -9,6 +9,7 @@
                     xmlns:reconditioned="clr-namespace:FFXIVRelicTracker._03_HW._05_Reconditioned"
                     xmlns:sharpened="clr-namespace:FFXIVRelicTracker._03_HW._06_Sharpened"
                     xmlns:complete="clr-namespace:FFXIVRelicTracker._03_HW._07_Complete"
+                    xmlns:lux="clr-namespace:FFXIVRelicTracker._03_HW._08_Lux"
                     >
 
     <ResourceDictionary.MergedDictionaries>
@@ -33,8 +34,14 @@
     <DataTemplate DataType="{x:Type reconditioned:ReconditionedViewModel}">
         <reconditioned:ReconditionedView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type sharpened:SharpenedViewModel}">
+        <sharpened:SharpenedView/>
+    </DataTemplate>
     <DataTemplate DataType="{x:Type complete:CompleteViewModel}">
         <complete:CompleteView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type lux:LuxViewModel}">
+        <lux:LuxView/>
     </DataTemplate>
 
 

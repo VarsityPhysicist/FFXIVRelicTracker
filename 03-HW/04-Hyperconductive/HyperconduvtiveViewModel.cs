@@ -90,7 +90,20 @@ namespace FFXIVRelicTracker._03_HW._04_Hyperconductive
             }
         }
         
-        public int OilCount { get { return hyperconductiveModel.OilCount; } set { if (value >= 0) { hyperconductiveModel.OilCount = value; } else { hyperconductiveModel.OilCount = 0; } OilChange(); } }
+        public int OilCount 
+        { 
+            get 
+            {
+                if (hyperconductiveModel.OilCount < 0) { OilCount = 0; }
+                return hyperconductiveModel.OilCount; 
+            } 
+            set 
+            {
+                if (value < 0) { hyperconductiveModel.OilCount = 0; }
+                else { hyperconductiveModel.OilCount = value; }
+                OilChange(); 
+            } 
+        }
         public int NeededOil { get { if (AvailableJobs != null) { return AvailableJobs.Count * 5 - OilCount; } else { return 0; } } }
         public int Poetics { get { return NeededOil * 350; } }
         public string QuestName { get { if (AvailableJobs != null) { if (AvailableJobs.Count == 13) { return "Finding Your Voice"; } else { return "Soul Without Life"; } } else { return "Finding Your Voice"; } } }

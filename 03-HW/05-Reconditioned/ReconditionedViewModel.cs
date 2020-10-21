@@ -109,29 +109,42 @@ namespace FFXIVRelicTracker._03_HW._05_Reconditioned
         }
         public int CurrentSand
         {
-            get { return reconditionedModel.CurrentSand; }
+            get 
+            {
+                if (reconditionedModel.CurrentSand < 0) { CurrentSand = 0; }
+                return reconditionedModel.CurrentSand; 
+            }
             set
             {
-                if (value <= 0) { reconditionedModel.CurrentSand = 0; }
+                if (value < 0) { reconditionedModel.CurrentSand = 0; }
                 else { reconditionedModel.CurrentSand = value; }
             }
         }
         public int CurrentUmbrite
         {
-            get { return reconditionedModel.CurrentUmbrite; }
+            get 
+            {
+                if (reconditionedModel.CurrentUmbrite < 0) { CurrentUmbrite = 0; }
+                return reconditionedModel.CurrentUmbrite; 
+            }
             set
             {
-                if (value <= 0) { reconditionedModel.CurrentUmbrite = 0; }
+                if (value < 0) { reconditionedModel.CurrentUmbrite = 0; }
                 else { reconditionedModel.CurrentUmbrite = value; }
             }
         }
         public int CurrentPoints 
         { 
-            get { return reconditionedModel.CurrentPoints; }
+            get 
+            {
+                if (reconditionedModel.CurrentPoints < 0) { CurrentPoints = 0; }
+                else if (reconditionedModel.CurrentPoints > 240) { CurrentPoints = 240; }
+                return reconditionedModel.CurrentPoints; 
+            }
             set
             {
-                if (value <= 0) { reconditionedModel.CurrentPoints = 0; }
-                else if (value >= 240) { reconditionedModel.CurrentPoints = 240; }
+                if (value < 0) { reconditionedModel.CurrentPoints = 0; }
+                else if (value > 240) { reconditionedModel.CurrentPoints = 240; }
                 else { reconditionedModel.CurrentPoints = value; }
                 OnPropertyChanged(nameof(CurrentPoints));
             }

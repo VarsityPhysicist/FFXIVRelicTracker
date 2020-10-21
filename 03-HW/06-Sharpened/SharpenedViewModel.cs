@@ -90,10 +90,14 @@ namespace FFXIVRelicTracker._03_HW._06_Sharpened
 
         public int CurrentCluster
         {
-            get => sharpenedModel.Currentcluster;
+            get 
+            {
+                if (sharpenedModel.Currentcluster<0 ) { CurrentCluster = 0; }
+                return sharpenedModel.Currentcluster; 
+            }
             set
             {
-                if (value <= 0) { sharpenedModel.Currentcluster = 0; }
+                if (value < 0) { sharpenedModel.Currentcluster = 0; }
                 else { sharpenedModel.Currentcluster = value; }
             }
         }

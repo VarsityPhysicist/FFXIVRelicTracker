@@ -6,6 +6,7 @@ using FFXIVRelicTracker._03_HW._04_Hyperconductive;
 using FFXIVRelicTracker._03_HW._05_Reconditioned;
 using FFXIVRelicTracker._03_HW._06_Sharpened;
 using FFXIVRelicTracker._03_HW._07_Complete;
+using FFXIVRelicTracker._03_HW._08_Lux;
 using FFXIVRelicTracker.Models;
 using FFXIVRelicTracker.Models.Helpers;
 using Prism.Commands;
@@ -45,7 +46,7 @@ namespace FFXIVRelicTracker._03_HW.Main
             PageViewModels.Add(new ReconditionedViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new SharpenedViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new CompleteViewModel(Event.EventInstance.EventAggregator));
-            //PageViewModels.Add(new LuxViewModel(Event.EventInstance.EventAggregator));
+            PageViewModels.Add(new LuxViewModel(Event.EventInstance.EventAggregator));
 
             CurrentPageViewModel = PageViewModels[0];
 

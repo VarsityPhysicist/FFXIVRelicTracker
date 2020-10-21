@@ -212,6 +212,32 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
             {"SMN", "Draconomicon"}
         };
 
-        #endregion
+        #endregion    
+        
+        #region Complete
+
+        public static string ReturnCompleteWeaponName(string job)
+        {
+            return JobCompleteWeapons[job];
+        }
+
+        private static Dictionary<string, string> JobCompleteWeapons = new Dictionary<string, string>()
+        {
+            {"PLD", "Aettir and Priven"},
+            {"WAR", "Minos"},
+            {"DRK", "Cronus"},
+            {"WHM", "Sindri"},
+            {"SCH", "Anabasis"},
+            {"AST", "Canopus"},
+            {"MNK", "Nyepel"},
+            {"DRG", "Aredbhar"},
+            {"NIN", "Sandung"},
+            {"BRD", "Terpander"},
+            {"MCH", "Deathlocke"},
+            {"BLM", "Kalanda"},
+            {"SMN", "Mimesis"}
+        };
+
+#endregion
     }
 }

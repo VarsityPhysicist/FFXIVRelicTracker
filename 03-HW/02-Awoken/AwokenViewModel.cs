@@ -21,6 +21,9 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
         #endregion
 
         #region Constructors
+        public AwokenViewModel()
+        {
+        }
         public AwokenViewModel(IEventAggregator eventAggregator)
         {
             this.eventAggregator = eventAggregator;

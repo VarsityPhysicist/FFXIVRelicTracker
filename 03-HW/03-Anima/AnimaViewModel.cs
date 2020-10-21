@@ -90,10 +90,10 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
         }
 
         #region Token 1
-        public int UnidentifiableBone { get { return animaModel.UnidentifiableBone; } set { if (value >= 0) { animaModel.UnidentifiableBone = value; RecalcBones(); }  }}
-        public int UnidentifiableShell { get { return animaModel.UnidentifiableShell; } set { if (value >= 0) { animaModel.UnidentifiableShell = value; } RecalcShells(); }}
-        public int UnidentifiableOre { get { return animaModel.UnidentifiableOre; } set { if (value >= 0) { animaModel.UnidentifiableOre = value; } RecalcOres(); }}
-        public int UnidentifiableSeeds { get { return animaModel.UnidentifiableSeeds; } set { if (value >= 0) { animaModel.UnidentifiableSeeds = value; } RecalcSeeds(); }}
+        public int UnidentifiableBone { get { if (animaModel.UnidentifiableBone < 0) { UnidentifiableBone = 0; } return animaModel.UnidentifiableBone; } set { if (value >= 0) { animaModel.UnidentifiableBone = value; RecalcBones(); }  }}
+        public int UnidentifiableShell { get { if (animaModel.UnidentifiableShell < 0) { UnidentifiableShell = 0; } return animaModel.UnidentifiableShell; } set { if (value >= 0) { animaModel.UnidentifiableShell = value; } RecalcShells(); }}
+        public int UnidentifiableOre { get { if (animaModel.UnidentifiableOre < 0) { UnidentifiableOre = 0; } return animaModel.UnidentifiableOre; } set { if (value >= 0) { animaModel.UnidentifiableOre = value; } RecalcOres(); }}
+        public int UnidentifiableSeeds { get { if (animaModel.UnidentifiableSeeds < 0) { UnidentifiableSeeds = 0; } return animaModel.UnidentifiableSeeds; } set { if (value >= 0) { animaModel.UnidentifiableSeeds = value; } RecalcSeeds(); }}
         
         public int NeededBone { get { if (AvailableJobs != null) { return AvailableJobs.Count * 10 - UnidentifiableBone; } else { return 0; } } }
         public int NeededShell{ get { if (AvailableJobs != null) { return AvailableJobs.Count * 10 - UnidentifiableShell; } else { return 0; } } }
@@ -114,10 +114,10 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
         #endregion
 
         #region Token 2
-        public int Francesca { get { return animaModel.Francesca; } set { if (value >= 0) { animaModel.Francesca = value; } RecalcFrancesca(); } }
-        public int Mirror { get { return animaModel.Mirror; } set { if (value >= 0) { animaModel.Mirror = value; } RecalcMirror(); } }
-        public int Arrow { get { return animaModel.Arrow; } set { if (value >= 0) { animaModel.Arrow = value; } RecalcArrow(); } }
-        public int Kingcake { get { return animaModel.Kingcake; } set { if (value >= 0) { animaModel.Kingcake = value; } RecalcKingcake(); } }
+        public int Francesca { get { if (animaModel.Francesca < 0) { Francesca = 0; } return animaModel.Francesca; } set { if (value >= 0) { animaModel.Francesca = value; } RecalcFrancesca(); } }
+        public int Mirror { get { if (animaModel.Mirror < 0) { Mirror = 0; } return animaModel.Mirror; } set { if (value >= 0) { animaModel.Mirror = value; } RecalcMirror(); } }
+        public int Arrow { get { if (animaModel.Arrow < 0) { Arrow = 0; } return animaModel.Arrow; } set { if (value >= 0) { animaModel.Arrow = value; } RecalcArrow(); } }
+        public int Kingcake { get { if (animaModel.Kingcake < 0) { Kingcake = 0; } return animaModel.Kingcake; } set { if (value >= 0) { animaModel.Kingcake = value; } RecalcKingcake(); } }
 
         public int NeededFrancesca { get { if (AvailableJobs != null) { return Math.Max(0, AvailableJobs.Count * 4 - Francesca); } else { return 0; } } }
         public int NeededMirror { get { if (AvailableJobs != null) { return Math.Max(0, AvailableJobs.Count * 4 - Mirror); } else { return 0; } } }
@@ -208,6 +208,18 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
             OnPropertyChanged(nameof(KingcakeSeals));
             RecalcTotals();
         }
+
+        private void RecalcAll()
+        {
+            RecalcBones();
+            RecalcShells();
+            RecalcOres();
+            RecalcSeeds();
+            RecalcFrancesca();
+            RecalcMirror();
+            RecalcArrow();
+            RecalcKingcake();
+        }
         #endregion
         public void LoadAvailableJobs()
         {
@@ -224,6 +236,7 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
                 }
             }
             OnPropertyChanged(nameof(AvailableJobs));
+            RecalcAll();
         }
         #endregion
 
@@ -255,6 +268,7 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
             HWStageCompleter.ProgressClass(selectedCharacter, tempJob.Anima, true);
 
             LoadAvailableJobs();
+            RecalcAll();
         }
         #endregion
 

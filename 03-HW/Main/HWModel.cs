@@ -5,6 +5,7 @@ using FFXIVRelicTracker._03_HW._04_Hyperconductive;
 using FFXIVRelicTracker._03_HW._05_Reconditioned;
 using FFXIVRelicTracker._03_HW._06_Sharpened;
 using FFXIVRelicTracker._03_HW._07_Complete;
+using FFXIVRelicTracker._03_HW._08_Lux;
 using FFXIVRelicTracker._03_HW.HWHelpers;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
@@ -38,7 +39,7 @@ namespace FFXIVRelicTracker._03_HW.Main
         private ReconditionedModel reconditionedModel = new ReconditionedModel();
         private SharpenedModel sharpenedModel = new SharpenedModel();
         private CompleteModel completeModel = new CompleteModel();
-        //private LuxModel luxModel = new LuxModel();
+        private LuxModel luxModel = new LuxModel();
 
         #endregion
 
@@ -72,7 +73,7 @@ namespace FFXIVRelicTracker._03_HW.Main
         public ReconditionedModel ReconditionedModel { get { return reconditionedModel; } set { reconditionedModel = value; OnPropertyChanged(nameof(ReconditionedModel)); } }
         public SharpenedModel SharpenedModel { get { return sharpenedModel; } set { sharpenedModel = value; OnPropertyChanged(nameof(SharpenedModel)); } }
         public CompleteModel CompleteModel { get { return completeModel; } set { completeModel = value; OnPropertyChanged(nameof(CompleteModel)); } }
-        //public LuxModel LuxModel { get { return luxModel; } set { luxModel = value; OnPropertyChanged(nameof(LuxModel)); } }
+        public LuxModel LuxModel { get { return luxModel; } set { luxModel = value; OnPropertyChanged(nameof(LuxModel)); } }
         #endregion
 
     }

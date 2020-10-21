@@ -98,6 +98,9 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
                 case 6: //Complete Stage
                     CompleteStage(character);
                     break;
+                case 7: //Lux Stage
+                    LuxStage(character);
+                    break;
                 default:
                     break;
             }
@@ -147,5 +150,9 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
             character.HWModel.CompleteModel.Light = 0;
         }
         #endregion
+        private static void LuxStage(Character character)
+        {
+            character.HWModel.LuxModel.Ink = -1;
+        }
     }
 }

@@ -88,12 +88,12 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
         }
 
         public int RemainingCrystals { get { if (AvailableJobs == null) { LoadAvailableJobs(); } return AvailableJobs.Count; } }
-        public int WindCount { get { return animatedModel.WindCount; } set { if (value >= 0 & value <= 20) { animatedModel.WindCount = value; OnPropertyChanged(nameof(WindCount)); } } }
-        public int FireCount { get { return animatedModel.FireCount; } set { if(value>=0 & value <= 20) { animatedModel.FireCount = value; OnPropertyChanged(nameof(FireCount)); } } }
-        public int LightningCount { get { return animatedModel.LightningCount; } set { if(value>=0 & value <= 20) { animatedModel.LightningCount = value; OnPropertyChanged(nameof(LightningCount)); } } }
-        public int IceCount { get { return animatedModel.IceCount; } set { if(value>=0 & value <= 20) { animatedModel.IceCount = value; OnPropertyChanged(nameof(IceCount)); } } }
-        public int EarthCount { get { return animatedModel.EarthCount; } set { if(value>=0 & value <= 20) { animatedModel.EarthCount = value; OnPropertyChanged(nameof(EarthCount)); } } }
-        public int WaterCount { get { return animatedModel.WaterCount; } set { if(value>=0 & value <= 20) { animatedModel.WaterCount = value; OnPropertyChanged(nameof(WaterCount)); } } }
+        public int WindCount { get { if (animatedModel.WindCount < 0) { WindCount = 0; } return animatedModel.WindCount; } set { if (value >= 0 & value <= 20) { animatedModel.WindCount = value; OnPropertyChanged(nameof(WindCount)); } } }
+        public int FireCount { get { if (animatedModel.FireCount < 0) { FireCount = 0; } return animatedModel.FireCount; } set { if(value>=0 & value <= 20) { animatedModel.FireCount = value; OnPropertyChanged(nameof(FireCount)); } } }
+        public int LightningCount { get { if (animatedModel.LightningCount < 0) { LightningCount = 0; } return animatedModel.LightningCount; } set { if(value>=0 & value <= 20) { animatedModel.LightningCount = value; OnPropertyChanged(nameof(LightningCount)); } } }
+        public int IceCount { get { if (animatedModel.IceCount < 0) { IceCount = 0; } return animatedModel.IceCount; } set { if(value>=0 & value <= 20) { animatedModel.IceCount = value; OnPropertyChanged(nameof(IceCount)); } } }
+        public int EarthCount { get { if (animatedModel.EarthCount < 0) { EarthCount = 0; } return animatedModel.EarthCount; } set { if(value>=0 & value <= 20) { animatedModel.EarthCount = value; OnPropertyChanged(nameof(EarthCount)); } } }
+        public int WaterCount { get { if (animatedModel.WaterCount < 0) { WaterCount = 0; } return animatedModel.WaterCount; } set { if(value>=0 & value <= 20) { animatedModel.WaterCount = value; OnPropertyChanged(nameof(WaterCount)); } } }
         #endregion
 
         #region Methods
