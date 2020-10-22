@@ -112,7 +112,6 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
 
         public string AnimatedWeapon
         {
-            //Check if saving+loading does not set this as expected
             get
             {
                 if(SelectedJob==null | SelectedJob == "") { return "Animated Weapon"; }
@@ -121,7 +120,6 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
         }
         public string AwokenWeapon
         {
-            //Check if saving+loading does not set this as expected
             get
             {
                 if (SelectedJob == null | SelectedJob == "") { return "Awoken Weapon"; }

@@ -33,6 +33,9 @@
         </Setter>
     </Style>
 
+    <Style x:Key="CenterCheckbox" TargetType="CheckBox">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
 
 
     <Style x:Key="GoldBorder" TargetType="Border">
