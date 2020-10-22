@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -28,6 +28,8 @@
             <Border HorizontalAlignment="Center">
                 <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
             </Border>
+            <TextBlock Margin="20,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding Name}"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Stage "/>
         </StackPanel>
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Grid>
@@ -92,15 +94,15 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <CheckBox IsChecked="{Binding Dungeon00}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon00}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon00,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Snowcloak"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="1">
-                        <CheckBox IsChecked="{Binding Dungeon01}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon01}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon01,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete  Sashtasha (Hard)"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="2">
-                        <CheckBox IsChecked="{Binding Dungeon02}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon02}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon02,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete The Sunken Temple of Qarn (Hard)"/>
                     </StackPanel>
 
@@ -108,15 +110,15 @@
                     <TextBlock Margin="0,5,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.ColumnSpan="2" Text="Speak to Ardashir (Southern Thanalan)"/>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="4">
-                        <CheckBox IsChecked="{Binding Dungeon03}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon03}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon03,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Keeper of the Lake"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="5">
-                        <CheckBox IsChecked="{Binding Dungeon04}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center"  IsChecked="{Binding Dungeon04}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon04,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Wanderer's Palace (Hard)"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="6">
-                        <CheckBox IsChecked="{Binding Dungeon05}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon05}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon05,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Amdapor Keep"/>
                     </StackPanel>
 
@@ -124,19 +126,19 @@
                     <TextBlock Margin="0,5,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="7" Text="Speak to Ardashir (South Shroud)"/>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="8">
-                        <CheckBox IsChecked="{Binding Dungeon06}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon06}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon06,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Dusk Vigil"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="9">
-                        <CheckBox IsChecked="{Binding Dungeon07}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon07}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon07,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Sohm Al"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="10">
-                        <CheckBox IsChecked="{Binding Dungeon08}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon08}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon08,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete The Aery"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="11">
-                        <CheckBox IsChecked="{Binding Dungeon09}" Margin="0,0,5,0"/>
+                        <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon09}" Margin="0,0,5,0"/>
                         <TextBlock TextDecorations="{Binding Path=Dungeon09,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete The Vault"/>
                     </StackPanel>
                 </Grid>

@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Margin="5,0,0,0">
+    <Grid Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -50,15 +50,15 @@
                 <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Text="Complete the following dungeons:"/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="10,0,0,0">
-                    <CheckBox IsChecked="{Binding DungeonBool0}" Margin="0,0,10,0"/>
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool0}" Margin="0,0,10,0"/>
                     <TextBlock TextDecorations="{Binding Path=DungeonBool0,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Sohm Al (Hard)"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="10,0,0,0">
-                    <CheckBox IsChecked="{Binding DungeonBool1}" Margin="0,0,10,0"/>
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool1}" Margin="0,0,10,0"/>
                     <TextBlock TextDecorations="{Binding Path=DungeonBool1,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="The Great Gubal Library (Hard)"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="10,0,0,0">
-                    <CheckBox IsChecked="{Binding DungeonBool2}" Margin="0,0,10,0"/>
+                    <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool2}" Margin="0,0,10,0"/>
                     <TextBlock TextDecorations="{Binding Path=DungeonBool2,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="The Lost City of Amdapor (Hard)"/>
                 </StackPanel>
                 
@@ -130,7 +130,7 @@
                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="5" Margin="0,0,10,0" Text="Remaining Seals:"/>
 
                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Margin="0,0,10,0" Foreground="White" Text="Pneumite"/>
-                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="1" Grid.Column="1" Margin="0,0,10,0" HorizontalAlignment="Center" Text="{Binding CurrentPneumite}" MinWidth="40"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="1" Grid.Column="1" Margin="0,0,10,0" HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding CurrentPneumite}" MinWidth="40"/>
                             <StackPanel Grid.Row="1" Grid.Column="2">
                                 <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="1"/>
                             </StackPanel>
@@ -178,7 +178,7 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Style="{StaticResource LeftTextBlock}" Margin="0,0,10,0" Text="Light"/>
-                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Column="1" Text="{Binding Light}" MinWidth="40" Margin="0,0,10,0"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Column="1" Text="{Binding Light}" TextAlignment="Center" MinWidth="40" Margin="0,0,10,0"/>
                             
                             <Button Style="{StaticResource incrementButton}" Grid.Column="2" Content="Vague" Command="{Binding IncrementButton}" CommandParameter="8"/>
                             <Button Style="{StaticResource incrementButton}" Grid.Column="3" Content="Meager " Command="{Binding IncrementButton}" CommandParameter="16"/>

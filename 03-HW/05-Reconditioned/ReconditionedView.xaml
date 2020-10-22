@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Margin="5,0,0,0">
+    <Grid Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -183,8 +183,8 @@
                         <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MaxSands}"/>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="3" Grid.ColumnSpan="4" Style="{StaticResource LeftTextBlock}"  HorizontalAlignment="Center" Text="Remaining Poetics Cost"/>
-                    <StackPanel Grid.Row="4" Grid.ColumnSpan="4" HorizontalAlignment="Center"  Orientation="Horizontal">
+                    <TextBlock Grid.Row="3" Grid.ColumnSpan="5" Style="{StaticResource LeftTextBlock}"  HorizontalAlignment="Center" Text="Remaining Poetics Cost:"/>
+                    <StackPanel Grid.Row="4" Grid.ColumnSpan="5" HorizontalAlignment="Center"  Orientation="Horizontal">
                         <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MinPoetics, StringFormat='{}{0:N0}'}"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="-"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding MaxPoetics, StringFormat='{}{0:N0}'}"/>

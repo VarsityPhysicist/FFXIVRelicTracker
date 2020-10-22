@@ -28,6 +28,8 @@
             <Border HorizontalAlignment="Center">
                 <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
             </Border>
+            <TextBlock Margin="20,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding Name}"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Stage "/>
         </StackPanel>
         <ScrollViewer Padding="0,0,10,0" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Grid>
@@ -61,7 +63,7 @@
                 <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="One crystal of each type below is required to receive an Animated weapon"/>
 
                 <TextBlock Grid.Row="5" Grid.Column="0"/>
-                <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Acquire specific Luminous Crystals from the areas as follows:"/>
+                <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Acquire specific Luminous Crystals areas as follows:"/>
 
                 <Grid Grid.Row="7">
                     <Grid.ColumnDefinitions>
@@ -81,8 +83,8 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Zone:"/>
-                    <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="Crystal:"/>
+                    <TextBlock Grid.Row="0" Margin="5,0,0,0" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="Zone:"/>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Crystal:"/>
                     <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource LeftTextBlock}" Text="Count:"/>
 
                     <Border Grid.Row="1" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
@@ -92,60 +94,60 @@
                     <Border Grid.Row="5" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
                     <Border Grid.Row="6" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
 
-                    <TextBlock Grid.Row="1" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="The Sea of Clouds"/>
-                    <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Wind Crystal"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="The Sea of Clouds"/>
+                    <TextBlock Grid.Row="1" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Wind Crystal"/>
                     <StackPanel Grid.Row="1" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
-                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding WindCount}"/>
+                        <TextBlock MinWidth="30" Style="{StaticResource BaseTextBlock}" Text="{Binding WindCount}"/>
                         <StackPanel>
                             <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="WindCount"/>
                             <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="WindCount"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="2" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Azys Lla"/>
-                    <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Fire Crystal"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="Azys Lla"/>
+                    <TextBlock Grid.Row="2" Margin="5,0,0,0"  Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Fire Crystal"/>
                     <StackPanel Grid.Row="2" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
-                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding FireCount}"/>
+                        <TextBlock MinWidth="30" Style="{StaticResource BaseTextBlock}" Text="{Binding FireCount}"/>
                         <StackPanel>
                             <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="FireCount"/>
                             <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="FireCount"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="3" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="The Churning Mists"/>
-                    <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Lightning Crystal"/>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="The Churning Mists"/>
+                    <TextBlock Grid.Row="3" Margin="5,0,0,0"  Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Lightning Crystal"/>
                     <StackPanel Grid.Row="3" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
-                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding LightningCount}"/>
+                        <TextBlock MinWidth="30" Style="{StaticResource BaseTextBlock}" Text="{Binding LightningCount}"/>
                         <StackPanel>
                             <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="LightningCount"/>
                             <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="LightningCount"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="4" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Coerthas Western Highlands"/>
-                    <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Ice Crystal"/>
+                    <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="Coerthas Western Highlands"/>
+                    <TextBlock Grid.Row="4" Margin="5,0,0,0"  Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Ice Crystal"/>
                     <StackPanel Grid.Row="4" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
-                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding IceCount}"/>
+                        <TextBlock MinWidth="30" Style="{StaticResource BaseTextBlock}" Text="{Binding IceCount}"/>
                         <StackPanel>
                             <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="IceCount"/>
                             <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="IceCount"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="5" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="The Dravanian Forelands"/>
-                    <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Earth Crystal"/>
+                    <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="The Dravanian Forelands"/>
+                    <TextBlock Grid.Row="5" Margin="5,0,0,0"  Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Earth Crystal"/>
                     <StackPanel Grid.Row="5" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
-                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding EarthCount}"/>
+                        <TextBlock MinWidth="30" Style="{StaticResource BaseTextBlock}" Text="{Binding EarthCount}"/>
                         <StackPanel>
                             <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="EarthCount"/>
                             <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="EarthCount"/>
                         </StackPanel>
                     </StackPanel>
 
-                    <TextBlock Grid.Row="6" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="The Dravanian Hinterlands"/>
-                    <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Water Crystal"/>
+                    <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="The Dravanian Hinterlands"/>
+                    <TextBlock Grid.Row="6" Margin="5,0,0,0"  Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Water Crystal"/>
                     <StackPanel Grid.Row="6" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
-                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding WaterCount}"/>
+                        <TextBlock MinWidth="30" Style="{StaticResource BaseTextBlock}" Text="{Binding WaterCount}"/>
                         <StackPanel>
                             <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="WaterCount"/>
                             <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="WaterCount"/>

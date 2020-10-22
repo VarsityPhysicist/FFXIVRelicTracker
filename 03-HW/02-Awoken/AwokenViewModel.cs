@@ -78,6 +78,7 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
                         false,
                         false
                     };
+                    RecheckBools();
                 }
                 awokenModel.SelectedJob = value;
                 OnPropertyChanged(nameof(SelectedJob));
@@ -123,7 +124,7 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
             //Check if saving+loading does not set this as expected
             get
             {
-                if (SelectedJob == null | SelectedJob == "") { return "Weapon Awoken"; }
+                if (SelectedJob == null | SelectedJob == "") { return "Awoken Weapon"; }
                 else { return HWInfo.ReturnAwokenWeaponName(SelectedJob); }
             }
         }
@@ -152,7 +153,7 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
             set
             {
                 awokenModel.DungeonBools = value;
-                OnPropertyChanged(nameof(DungeonBools));
+                RecheckBools();
             }
         }
 
@@ -186,7 +187,10 @@ namespace FFXIVRelicTracker._03_HW._02_Awoken
                     DungeonBools[index] = false;
                 }
             }
-
+            RecheckBools();
+        }
+        private void RecheckBools()
+        {
             OnPropertyChanged(nameof(Dungeon00));
             OnPropertyChanged(nameof(Dungeon01));
             OnPropertyChanged(nameof(Dungeon02));

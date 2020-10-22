@@ -113,6 +113,14 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
             }
             OnPropertyChanged(nameof(AvailableJobs));
             OnPropertyChanged(nameof(RemainingCrystals));
+
+            OnPropertyChanged(nameof(WindCount));
+            OnPropertyChanged(nameof(FireCount));
+            OnPropertyChanged(nameof(LightningCount));
+            OnPropertyChanged(nameof(IceCount));
+            OnPropertyChanged(nameof(EarthCount));
+            OnPropertyChanged(nameof(WaterCount));
+
         }
         #endregion
 
@@ -182,19 +190,29 @@ namespace FFXIVRelicTracker._03_HW._01_Animated
 
             string sum = (string)param;
 
-            Type classType = typeof(AnimatedView);
+            int addedValue;
+            if (add) { addedValue = 1; }
+            else { addedValue = -1; }
 
-            PropertyInfo CommandTarget = classType.GetProperty(sum);
-
-            int initialSum = (int)CommandTarget.GetValue(this);
-
-            switch (add)
+            switch (sum)
             {
-                case true:
-                    CommandTarget.SetValue(this, (int)CommandTarget.GetValue(this) + 1);
+                case "WindCount":
+                    WindCount += addedValue;
                     break;
-                case false:
-                    CommandTarget.SetValue(this, (int)CommandTarget.GetValue(this) - 1);
+                case "FireCount":
+                    FireCount += addedValue;
+                    break;
+                case "LightningCount":
+                    LightningCount += addedValue;
+                    break;
+                case "IceCount":
+                    IceCount += addedValue;
+                    break;
+                case "EarthCount":
+                    EarthCount += addedValue;
+                    break;
+                case "WaterCount":
+                    WaterCount += addedValue;
                     break;
             }
         }

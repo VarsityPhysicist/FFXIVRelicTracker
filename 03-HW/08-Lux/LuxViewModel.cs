@@ -151,7 +151,7 @@ namespace FFXIVRelicTracker._03_HW._08_Lux
             get
             {
                 if (AvailableJobs == null) { LoadAvailableJobs(); }
-                return AvailableJobs.Count - Ink;
+                return Math.Max(0,AvailableJobs.Count - Ink);
             }
         }
 

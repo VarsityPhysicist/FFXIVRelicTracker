@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Margin="5,0,0,0">
+    <Grid Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -50,10 +50,9 @@
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="With your "/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding SharpenedWeapon}"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" equipped, complete the following trials"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" equipped, complete the following trials:"/>
                 </StackPanel>
                 
-                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Text=""/>
 
                 <Border Grid.Row="3" Margin="10,0,0,0" Style="{StaticResource GoldBorder}">
                     <Grid>
@@ -64,24 +63,24 @@
                         </Grid.RowDefinitions>
                         
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            <CheckBox IsChecked="{Binding DungeonBool00}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool00}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool00,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="Bowl of Embers (Hard)"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="1">
-                            <CheckBox IsChecked="{Binding DungeonBool01}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool01}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool01,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="The Howling Eye (Hard)"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="2">
-                            <CheckBox IsChecked="{Binding DungeonBool02}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool02}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool02,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="The Navel (Hard)"/>
                         </StackPanel>
                     </Grid>
                 </Border>
 
-                <Border Grid.Row="4" Margin="10,0,0,0" Style="{StaticResource GoldBorder}">
+                <Border Grid.Row="4" Margin="10,-2,0,0" Style="{StaticResource GoldBorder}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -91,30 +90,30 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            <CheckBox IsChecked="{Binding DungeonBool03}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool03}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool03,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="Thornmarch (Hard)"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="1">
-                            <CheckBox IsChecked="{Binding DungeonBool04}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool04}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool04,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="The Whorleater (Hard)"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="2">
-                            <CheckBox IsChecked="{Binding DungeonBool05}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool05}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool05,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="The Striking Tree (Hard)"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="3">
-                            <CheckBox IsChecked="{Binding DungeonBool06}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool06}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool06,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="Akh Afah Amphitheatre (Hard)"/>
                         </StackPanel>
                     </Grid>
                 </Border>
 
-                <Border Grid.Row="5" Margin="10,0,0,0" Style="{StaticResource GoldBorder}">
+                <Border Grid.Row="5" Margin="10,-2,0,0" Style="{StaticResource GoldBorder}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -122,19 +121,19 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            <CheckBox IsChecked="{Binding DungeonBool07}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool07}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool07,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="Thok ask Thok (Hard)"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="1">
-                            <CheckBox IsChecked="{Binding DungeonBool08}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool08}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool08,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="The Limitless Blue (Hard)"/>
                         </StackPanel>
                     </Grid>
                 </Border>
                 
-                <Border Grid.Row="6" Margin="10,0,0,0" Style="{StaticResource GoldBorder}">
+                <Border Grid.Row="6" Margin="10,-2,0,0" Style="{StaticResource GoldBorder}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -143,17 +142,17 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
-                            <CheckBox IsChecked="{Binding DungeonBool09}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool09}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool09,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="Containment Bay S1T7"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="1">
-                            <CheckBox IsChecked="{Binding DungeonBool10}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool10}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool10,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="Containment Bay P1T6"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Grid.Row="2">
-                            <CheckBox IsChecked="{Binding DungeonBool11}" Margin="0,0,10,0"/>
+                            <CheckBox VerticalAlignment="Center" IsChecked="{Binding DungeonBool11}" Margin="0,0,10,0"/>
                             <TextBlock TextDecorations="{Binding Path=DungeonBool11,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" 
                                    Text="Containment Bay Z1T9"/>
                         </StackPanel>
@@ -165,7 +164,7 @@
                 <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="7" Text=""/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="8">
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="After completing all 12 trials, purchase a "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="After completing all 12 trials, purchase an "/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Archaic Enchanted Ink"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text=" for 500 Poetics"/>
                 </StackPanel>
@@ -184,12 +183,12 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" Text="Current:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,0" Text="Current:"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="3" Margin="0,0,10,0" Text="Total Remaining:"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="4" Margin="0,0,10,0" Text="Remaining Poetics:"/>
 
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Margin="0,0,10,0" Foreground="White" Text="Archaic Enchanted Ink"/>
-                    <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center" Text="{Binding Ink}" MinWidth="40"/>
+                    <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" HorizontalAlignment="Center" TextAlignment="Center" Text="{Binding Ink}" MinWidth="40"/>
                     <StackPanel Grid.Row="1" Grid.Column="2">
                         <Button Style="{StaticResource incrementButton}" Content="+" Margin="0,0,10,0" Command="{Binding IncrementButton}" CommandParameter="1"/>
                     </StackPanel>

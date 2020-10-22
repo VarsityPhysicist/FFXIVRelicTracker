@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Margin="5,0,0,0">
+    <Grid Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -85,16 +85,16 @@
                         <ColumnDefinition Width="auto"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="1" Margin="0,0,10,0" Text="Current:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Margin="0,0,0,0" Text="Current:"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="3" Margin="0,0,10,0" Text="Total Remaining:"/>
 
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Margin="0,0,10,0" Foreground="White" Text="Singing Cluster"/>
-                    <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="1" Grid.Column="1" Text="{Binding CurrentCluster}" MinWidth="40"/>
-                    <StackPanel Grid.Row="1" Grid.Column="2">
+                    <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="1" Grid.Column="1" TextAlignment="Center" Text="{Binding CurrentCluster}" MinWidth="40"/>
+                    <StackPanel Grid.Row="1" Grid.Column="2" Margin="0,0,10,0">
                         <Button Style="{StaticResource incrementButton}" Content="+1" Command="{Binding IncrementButton}" CommandParameter="1"/>
                         <Button Style="{StaticResource incrementButton}" Content="+18" Command="{Binding IncrementButton}" CommandParameter="18"/>
                     </StackPanel>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" Text="{Binding RemainingCluster, StringFormat='{}{0:N0}'}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding RemainingCluster, StringFormat='{}{0:N0}'}"/>
                 </Grid>
             </Grid>
         </ScrollViewer>

@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -28,6 +28,8 @@
             <Border HorizontalAlignment="Center">
                 <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
             </Border>
+            <TextBlock Margin="20,0,0,0" Style="{StaticResource LeftTextBlock}" Text="{Binding Name}"/>
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Stage "/>
         </StackPanel>
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Grid>
@@ -78,13 +80,11 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="20"/>
                         <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="10"/>
                         <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border Style="{StaticResource GoldBorder}" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5">
+                    <Border Style="{StaticResource GoldBorder}" Grid.Row="0" Grid.Column="1" Grid.RowSpan="5" Margin="90,0,0,0">
                         <Grid Margin="5,0,0,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
@@ -118,14 +118,14 @@
                             <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="5" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Seeds"/>
 
                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" Margin="0,0,5,0" Text="Remaining:"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="3" MinWidth="30" Text="{Binding NeededBone}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="3" MinWidth="30" Text="{Binding NeededShell}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="3" MinWidth="30" Text="{Binding NeededOre}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="3" MinWidth="30" Text="{Binding NeededSeeds}"/>
+                            <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Row="2" Grid.Column="3" MinWidth="30" Text="{Binding NeededBone}"/>
+                            <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Row="3" Grid.Column="3" MinWidth="30" Text="{Binding NeededShell}"/>
+                            <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Row="4" Grid.Column="3" MinWidth="30" Text="{Binding NeededOre}"/>
+                            <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Row="5" Grid.Column="3" MinWidth="30" Text="{Binding NeededSeeds}"/>
                         </Grid>
                     </Border>
 
-                    <Border Style="{StaticResource GoldBorder}" Grid.Row="0" Grid.Column="4" Grid.RowSpan="5">
+                    <Border Style="{StaticResource GoldBorder}" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5">
                         <Grid Margin="5,0,0,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="auto"/>
@@ -159,10 +159,10 @@
                             <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="5" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Kingcake"/>
 
                             <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" Margin="0,0,5,0" Text="Remaining:"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="3" MinWidth="30" Text="{Binding NeededFrancesca}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="3" MinWidth="30" Text="{Binding NeededMirror}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="3" MinWidth="30" Text="{Binding NeededArrow}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="3" MinWidth="30" Text="{Binding NeededKingcake}"/>
+                            <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Row="2" Grid.Column="3" MinWidth="30" Text="{Binding NeededFrancesca}"/>
+                            <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Row="3" Grid.Column="3" MinWidth="30" Text="{Binding NeededMirror}"/>
+                            <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Row="4" Grid.Column="3" MinWidth="30" Text="{Binding NeededArrow}"/>
+                            <TextBlock Style="{StaticResource BaseTextBlock}" Grid.Row="5" Grid.Column="3" MinWidth="30" Text="{Binding NeededKingcake}"/>
                         </Grid>
                     </Border>
                         
@@ -250,7 +250,7 @@
                                Text="Note: Crafted items may be purchased for 5000 GC seal each, or purchased from the Marketboard"/>
                 </Grid>
                 <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2" Grid.Row="5"/>
-                <Grid Grid.Row="6" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                <Grid Grid.Row="6" Grid.ColumnSpan="3" Margin="10,0,0,0">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -261,17 +261,17 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
-                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="0" Margin="-10,0,0,0" Grid.ColumnSpan="5" Text="Unidentifiable Items are acquired as follows:"/>
 
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="0" Margin="0,0,5,0" Text="Unidentifiable Item:"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0" Text="Poetics:"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="2" Margin="0,0,5,0" Text="Beast Tribe Token:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="2" Margin="10,0,5,0" Text="Beast Tribe Token:"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" Margin="0,0,5,0" Text="Precision Alexander Gordias Items:"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="4" Margin="0,0,5,0" Text="Allied Seals:"/>
 
@@ -285,10 +285,10 @@
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="1" Text="150 Poetics"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="1" Text="150 Poetics"/>
 
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="2" Margin="0,0,10,0" Text="3 Amalj'aa Daily Tokens"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="2" Margin="0,0,10,0" Text="3 Sahagin Daily Tokens"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="2" Margin="0,0,10,0" Text="3 Kobold Daily Tokens"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="2" Margin="0,0,10,0" Text="3 Sylph Daily Tokens"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="2" Margin="10,0,10,0" Text="3 Amalj'aa Daily Tokens"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="2" Margin="10,0,10,0" Text="3 Sahagin Daily Tokens"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="2" Margin="10,0,10,0" Text="3 Kobold Daily Tokens"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="2" Margin="10,0,10,0" Text="3 Sylph Daily Tokens"/>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Margin="0,0,10,0">
                         <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Precision Gordian Bolt"/>

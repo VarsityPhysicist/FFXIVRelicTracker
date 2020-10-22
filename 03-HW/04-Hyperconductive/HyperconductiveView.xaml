@@ -14,7 +14,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid>
+    <Grid Margin="10,0,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition/>
@@ -34,6 +34,7 @@
         <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -61,8 +62,10 @@
 
                 <TextBlock Style="{StaticResource LeftTextBlock}" Margin="10,0,0,0" Grid.Row="3" Text="Weekly quest 'The Gift of the Archmagus'"/>
                 <TextBlock Style="{StaticResource LeftTextBlock}" Margin="10,0,0,0" Grid.Row="4" Text="Purchased with 350 Poetics"/>
+                
+                <TextBlock Style="{StaticResource LeftTextBlock}" Margin="10,0,0,0" Grid.Row="5" Text=""/>
 
-                <Grid Grid.Row="5">
+                <Grid Grid.Row="6">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -78,14 +81,14 @@
                         <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Aether Oil"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Count:"/>
                     </StackPanel>
-                    <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="0" Grid.Column="1" Text="{Binding OilCount}" MinWidth="20"/>
+                    <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="0" Grid.Column="1" TextAlignment="Center" Text="{Binding OilCount}" MinWidth="30"/>
                     <Button Style="{StaticResource incrementButton}" Grid.Row="0" Grid.Column="2" Content="+" Command="{Binding IncrementButton}"/>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,10,0">
                         <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Aether Oil"/>
                         <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Remaining:"/>
                     </StackPanel>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" Text="{Binding NeededOil}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding NeededOil}"/>
 
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Text="Poetics Cost:"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="1" Text="{Binding Poetics, StringFormat='{}{0:N0}'}"/>

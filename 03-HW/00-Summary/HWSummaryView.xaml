@@ -15,7 +15,7 @@
     </UserControl.Resources>
 
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-        <Grid>
+        <Grid Margin="10,0,0,0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="auto"/>
                 <ColumnDefinition Width="auto"/>
@@ -48,22 +48,22 @@
             <StackPanel Orientation="Horizontal" Grid.ColumnSpan="20">
                 <TextBlock Style="{StaticResource BaseTextBlock}" Text="Selected Character: "/>
                 <TextBlock Style="{StaticResource BaseTextBlock}" Text="{Binding SelectedCharacter}"/>
-                <TextBlock Style="{StaticResource BaseTextBlock}" Text=" HW Progress"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text=" HW Summary"/>
             </StackPanel>
 
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="PLD" Grid.Row="1"   Grid.Column="01"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WAR" Grid.Row="1"   Grid.Column="02"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRK" Grid.Row="1"   Grid.Column="03"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WHM" Grid.Row="1"   Grid.Column="04"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SCH" Grid.Row="1"   Grid.Column="05"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="AST" Grid.Row="1"   Grid.Column="06"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MNK" Grid.Row="1"   Grid.Column="07"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRG" Grid.Row="1"   Grid.Column="08"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="NIN" Grid.Row="1"   Grid.Column="09"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BRD" Grid.Row="1"   Grid.Column="10"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MCH" Grid.Row="1"   Grid.Column="11"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BLM" Grid.Row="1"   Grid.Column="11"/>
-            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SMN" Grid.Row="1"   Grid.Column="11"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="PLD" Grid.Row="1" Grid.Column="01"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WAR" Grid.Row="1" Grid.Column="02"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRK" Grid.Row="1" Grid.Column="03"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WHM" Grid.Row="1" Grid.Column="04"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SCH" Grid.Row="1" Grid.Column="05"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="AST" Grid.Row="1" Grid.Column="06"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MNK" Grid.Row="1" Grid.Column="07"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRG" Grid.Row="1" Grid.Column="08"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="NIN" Grid.Row="1" Grid.Column="09"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BRD" Grid.Row="1" Grid.Column="10"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MCH" Grid.Row="1" Grid.Column="11"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BLM" Grid.Row="1" Grid.Column="12"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SMN" Grid.Row="1" Grid.Column="13"/>
 
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="Animated"  Grid.Row="2" Grid.Column="0"/>
             <TextBlock Style="{StaticResource BaseTextBlock}" Text="Awoken"  Grid.Row="3" Grid.Column="0"/>

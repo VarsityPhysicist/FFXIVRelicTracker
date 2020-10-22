@@ -95,10 +95,10 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
         public int UnidentifiableOre { get { if (animaModel.UnidentifiableOre < 0) { UnidentifiableOre = 0; } return animaModel.UnidentifiableOre; } set { if (value >= 0) { animaModel.UnidentifiableOre = value; } RecalcOres(); }}
         public int UnidentifiableSeeds { get { if (animaModel.UnidentifiableSeeds < 0) { UnidentifiableSeeds = 0; } return animaModel.UnidentifiableSeeds; } set { if (value >= 0) { animaModel.UnidentifiableSeeds = value; } RecalcSeeds(); }}
         
-        public int NeededBone { get { if (AvailableJobs != null) { return AvailableJobs.Count * 10 - UnidentifiableBone; } else { return 0; } } }
-        public int NeededShell{ get { if (AvailableJobs != null) { return AvailableJobs.Count * 10 - UnidentifiableShell; } else { return 0; } } }
-        public int NeededOre { get { if (AvailableJobs != null) { return AvailableJobs.Count * 10 - UnidentifiableOre; } else { return 0; } } }
-        public int NeededSeeds { get { if (AvailableJobs != null) { return AvailableJobs.Count * 10 - UnidentifiableSeeds; } else { return 0; } } }
+        public int NeededBone { get { if (AvailableJobs == null) { LoadAvailableJobs(); } { return Math.Max(0,AvailableJobs.Count * 10 - UnidentifiableBone); } } }
+        public int NeededShell { get { if (AvailableJobs == null) { LoadAvailableJobs(); } { return Math.Max(0,AvailableJobs.Count * 10 - UnidentifiableShell); } } }
+        public int NeededOre { get { if (AvailableJobs == null) { LoadAvailableJobs(); } { return Math.Max(0,AvailableJobs.Count * 10 - UnidentifiableOre); } } }
+        public int NeededSeeds { get { if (AvailableJobs == null) { LoadAvailableJobs(); } { return Math.Max(0,AvailableJobs.Count * 10 - UnidentifiableSeeds); } } }
 
         public int BonePoetics { get { return NeededBone * 150; } }
         public int BoneTokens { get { return NeededBone * 6; } }
@@ -119,10 +119,10 @@ namespace FFXIVRelicTracker._03_HW._03_Anima
         public int Arrow { get { if (animaModel.Arrow < 0) { Arrow = 0; } return animaModel.Arrow; } set { if (value >= 0) { animaModel.Arrow = value; } RecalcArrow(); } }
         public int Kingcake { get { if (animaModel.Kingcake < 0) { Kingcake = 0; } return animaModel.Kingcake; } set { if (value >= 0) { animaModel.Kingcake = value; } RecalcKingcake(); } }
 
-        public int NeededFrancesca { get { if (AvailableJobs != null) { return Math.Max(0, AvailableJobs.Count * 4 - Francesca); } else { return 0; } } }
-        public int NeededMirror { get { if (AvailableJobs != null) { return Math.Max(0, AvailableJobs.Count * 4 - Mirror); } else { return 0; } } }
-        public int NeededArrow { get { if (AvailableJobs != null) { return Math.Max(0, AvailableJobs.Count * 4 - Arrow); } else { return 0; } } }
-        public int NeededKingcake { get { if (AvailableJobs != null) { return Math.Max(0, AvailableJobs.Count * 4 - Kingcake); } else { return 0; } } }
+        public int NeededFrancesca { get { if (AvailableJobs == null) { LoadAvailableJobs(); } { return Math.Max(0, AvailableJobs.Count * 4 - Francesca); } } }
+        public int NeededMirror { get { if (AvailableJobs == null) { LoadAvailableJobs(); } { return Math.Max(0, AvailableJobs.Count * 4 - Mirror); } } }
+        public int NeededArrow { get { if (AvailableJobs == null) { LoadAvailableJobs(); } { return Math.Max(0, AvailableJobs.Count * 4 - Arrow); } } }
+        public int NeededKingcake { get { if (AvailableJobs == null) { LoadAvailableJobs(); } { return Math.Max(0, AvailableJobs.Count * 4 - Kingcake); } } }
 
         public int FrancescaSeals { get { return NeededFrancesca * 5000; } }
         public int MirrorSeals { get { return NeededMirror * 5000; } }

@@ -146,7 +146,7 @@ namespace FFXIVRelicTracker._03_HW._05_Reconditioned
                 if (value < 0) { reconditionedModel.CurrentPoints = 0; }
                 else if (value > 240) { reconditionedModel.CurrentPoints = 240; }
                 else { reconditionedModel.CurrentPoints = value; }
-                OnPropertyChanged(nameof(CurrentPoints));
+                Recalculate();
             }
         }
 
