@@ -9,6 +9,9 @@ Currently the following expansions are included in this: ARR, ShB, Skysteel Tool
 
 The order of planned expansions to be added are: SB - if a new stage for ShB drops then that will get completed first
 
+All of the information I've put together here is from other community sources, I would like to credit the people contributing to and maintaining 
+    GamerEscape (https://ffxiv.gamerescape.com/wiki/Main_Page) and the FFXIV Wiki (https://ffxiv.consolegameswiki.com/wiki/FF14_Wiki)
+
 To use the application, download the files and run FFXIVRelicTracker.exe
   
   The main window can be dragged around from the top bar and can be expanded or shrunk by clicking and dragging from the bottom right corner.
