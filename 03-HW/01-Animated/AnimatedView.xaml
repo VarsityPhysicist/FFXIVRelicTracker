@@ -1,0 +1,170 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._03_HW._01_Animated.AnimatedView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._03_HW._01_Animated"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/03-HWDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="10,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=SelectedJob}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
+            </Border>
+        </StackPanel>
+        <ScrollViewer Padding="0,0,10,0" Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}"/>
+
+                <TextBlock Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Quest: 'Soul Without Life' | Started by: Ardashir (Azys Lla)"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Speak with Syndony in Mor Dhona and begin farming HW FATEs for Luminous Crystals"/>
+                <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="To receive a Luminous Crystal, a FATE must be completed with a gold rating"/>
+                <TextBlock Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="One crystal of each type below is required to receive an Animated weapon"/>
+
+                <TextBlock Grid.Row="5" Grid.Column="0"/>
+                <TextBlock Grid.Row="6" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Acquire specific Luminous Crystals from the areas as follows:"/>
+
+                <Grid Grid.Row="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Zone:"/>
+                    <TextBlock Grid.Row="0" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Text="Crystal:"/>
+                    <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource LeftTextBlock}" Text="Count:"/>
+
+                    <Border Grid.Row="1" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
+                    <Border Grid.Row="2" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
+                    <Border Grid.Row="3" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
+                    <Border Grid.Row="4" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
+                    <Border Grid.Row="5" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
+                    <Border Grid.Row="6" Grid.ColumnSpan="6" Style="{StaticResource GoldBorder}"/>
+
+                    <TextBlock Grid.Row="1" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="The Sea of Clouds"/>
+                    <TextBlock Grid.Row="1" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Wind Crystal"/>
+                    <StackPanel Grid.Row="1" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
+                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding WindCount}"/>
+                        <StackPanel>
+                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="WindCount"/>
+                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="WindCount"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="2" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Azys Lla"/>
+                    <TextBlock Grid.Row="2" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Fire Crystal"/>
+                    <StackPanel Grid.Row="2" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
+                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding FireCount}"/>
+                        <StackPanel>
+                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="FireCount"/>
+                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="FireCount"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="3" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="The Churning Mists"/>
+                    <TextBlock Grid.Row="3" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Lightning Crystal"/>
+                    <StackPanel Grid.Row="3" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
+                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding LightningCount}"/>
+                        <StackPanel>
+                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="LightningCount"/>
+                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="LightningCount"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="4" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Coerthas Western Highlands"/>
+                    <TextBlock Grid.Row="4" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Ice Crystal"/>
+                    <StackPanel Grid.Row="4" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
+                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding IceCount}"/>
+                        <StackPanel>
+                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="IceCount"/>
+                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="IceCount"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="5" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="The Dravanian Forelands"/>
+                    <TextBlock Grid.Row="5" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Earth Crystal"/>
+                    <StackPanel Grid.Row="5" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
+                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding EarthCount}"/>
+                        <StackPanel>
+                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="EarthCount"/>
+                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="EarthCount"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <TextBlock Grid.Row="6" Margin="5,0,0,0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="The Dravanian Hinterlands"/>
+                    <TextBlock Grid.Row="6" Grid.Column="2" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Luminous Water Crystal"/>
+                    <StackPanel Grid.Row="6" Margin="0,2,0,2" Grid.Column="4" Orientation="Horizontal">
+                        <TextBlock MinWidth="30" Style="{StaticResource LeftTextBlock}" Text="{Binding WaterCount}"/>
+                        <StackPanel>
+                            <Button Style="{StaticResource incrementButton}" Content="+" Command="{Binding IncrementButton}" CommandParameter="WaterCount"/>
+                            <Button Style="{StaticResource incrementButton}" Content="-" Command="{Binding DecrementButton}" CommandParameter="WaterCount"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                
+                
+                <TextBlock Grid.Row="14" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                <StackPanel Grid.Row="15" Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining Luminous Crystals of each type to complete all Animated weapons:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding RemainingCrystals}"/>
+                </StackPanel>
+
+
+
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

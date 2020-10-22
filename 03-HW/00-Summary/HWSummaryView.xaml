@@ -1,0 +1,192 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._03_HW._00_Summary.HWSummaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._03_HW._00_Summary"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/03-HWDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.ColumnSpan="20">
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text="Selected Character: "/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text="{Binding SelectedCharacter}"/>
+                <TextBlock Style="{StaticResource BaseTextBlock}" Text=" HW Progress"/>
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="PLD" Grid.Row="1"   Grid.Column="01"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WAR" Grid.Row="1"   Grid.Column="02"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRK" Grid.Row="1"   Grid.Column="03"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="WHM" Grid.Row="1"   Grid.Column="04"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SCH" Grid.Row="1"   Grid.Column="05"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="AST" Grid.Row="1"   Grid.Column="06"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MNK" Grid.Row="1"   Grid.Column="07"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="DRG" Grid.Row="1"   Grid.Column="08"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="NIN" Grid.Row="1"   Grid.Column="09"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BRD" Grid.Row="1"   Grid.Column="10"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="MCH" Grid.Row="1"   Grid.Column="11"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="BLM" Grid.Row="1"   Grid.Column="11"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="SMN" Grid.Row="1"   Grid.Column="11"/>
+
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Animated"  Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Awoken"  Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Anima"  Grid.Row="4" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Hyperconductive"  Grid.Row="5" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Reconditioned"  Grid.Row="6" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Sharpened"  Grid.Row="7" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Complete"  Grid.Row="8" Grid.Column="0"/>
+            <TextBlock Style="{StaticResource BaseTextBlock}" Text="Lux"  Grid.Row="9" Grid.Column="0"/>
+
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="01" Content="{Binding Path=PLD.Animated.Progress}" Tag="{Binding PLD.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="02" Content="{Binding Path=WAR.Animated.Progress}" Tag="{Binding WAR.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="03" Content="{Binding Path=DRK.Animated.Progress}" Tag="{Binding DRK.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="04" Content="{Binding Path=WHM.Animated.Progress}" Tag="{Binding WHM.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="05" Content="{Binding Path=SCH.Animated.Progress}" Tag="{Binding SCH.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="06" Content="{Binding Path=AST.Animated.Progress}" Tag="{Binding AST.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="07" Content="{Binding Path=MNK.Animated.Progress}" Tag="{Binding MNK.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="08" Content="{Binding Path=DRG.Animated.Progress}" Tag="{Binding DRG.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="09" Content="{Binding Path=NIN.Animated.Progress}" Tag="{Binding NIN.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="10" Content="{Binding Path=BRD.Animated.Progress}" Tag="{Binding BRD.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="11" Content="{Binding Path=MCH.Animated.Progress}" Tag="{Binding MCH.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="12" Content="{Binding Path=BLM.Animated.Progress}" Tag="{Binding BLM.Animated}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="2" Grid.Column="13" Content="{Binding Path=SMN.Animated.Progress}" Tag="{Binding SMN.Animated}" />
+
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="01" Content="{Binding Path=PLD.Awoken.Progress}" Tag="{Binding PLD.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="02" Content="{Binding Path=WAR.Awoken.Progress}" Tag="{Binding WAR.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="03" Content="{Binding Path=DRK.Awoken.Progress}" Tag="{Binding DRK.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="04" Content="{Binding Path=WHM.Awoken.Progress}" Tag="{Binding WHM.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="05" Content="{Binding Path=SCH.Awoken.Progress}" Tag="{Binding SCH.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="06" Content="{Binding Path=AST.Awoken.Progress}" Tag="{Binding AST.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="07" Content="{Binding Path=MNK.Awoken.Progress}" Tag="{Binding MNK.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="08" Content="{Binding Path=DRG.Awoken.Progress}" Tag="{Binding DRG.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="09" Content="{Binding Path=NIN.Awoken.Progress}" Tag="{Binding NIN.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="10" Content="{Binding Path=BRD.Awoken.Progress}" Tag="{Binding BRD.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="11" Content="{Binding Path=MCH.Awoken.Progress}" Tag="{Binding MCH.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="12" Content="{Binding Path=BLM.Awoken.Progress}" Tag="{Binding BLM.Awoken}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="3" Grid.Column="13" Content="{Binding Path=SMN.Awoken.Progress}" Tag="{Binding SMN.Awoken}" />
+
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="01" Content="{Binding Path=PLD.Anima.Progress}" Tag="{Binding PLD.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="02" Content="{Binding Path=WAR.Anima.Progress}" Tag="{Binding WAR.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="03" Content="{Binding Path=DRK.Anima.Progress}" Tag="{Binding DRK.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="04" Content="{Binding Path=WHM.Anima.Progress}" Tag="{Binding WHM.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="05" Content="{Binding Path=SCH.Anima.Progress}" Tag="{Binding SCH.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="06" Content="{Binding Path=AST.Anima.Progress}" Tag="{Binding AST.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="07" Content="{Binding Path=MNK.Anima.Progress}" Tag="{Binding MNK.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="08" Content="{Binding Path=DRG.Anima.Progress}" Tag="{Binding DRG.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="09" Content="{Binding Path=NIN.Anima.Progress}" Tag="{Binding NIN.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="10" Content="{Binding Path=BRD.Anima.Progress}" Tag="{Binding BRD.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="11" Content="{Binding Path=MCH.Anima.Progress}" Tag="{Binding MCH.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="12" Content="{Binding Path=BLM.Anima.Progress}" Tag="{Binding BLM.Anima}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="4" Grid.Column="13" Content="{Binding Path=SMN.Anima.Progress}" Tag="{Binding SMN.Anima}" />
+
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="01" Content="{Binding Path=PLD.Hyperconductive.Progress}" Tag="{Binding PLD.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="02" Content="{Binding Path=WAR.Hyperconductive.Progress}" Tag="{Binding WAR.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="03" Content="{Binding Path=DRK.Hyperconductive.Progress}" Tag="{Binding DRK.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="04" Content="{Binding Path=WHM.Hyperconductive.Progress}" Tag="{Binding WHM.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="05" Content="{Binding Path=SCH.Hyperconductive.Progress}" Tag="{Binding SCH.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="06" Content="{Binding Path=AST.Hyperconductive.Progress}" Tag="{Binding AST.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="07" Content="{Binding Path=MNK.Hyperconductive.Progress}" Tag="{Binding MNK.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="08" Content="{Binding Path=DRG.Hyperconductive.Progress}" Tag="{Binding DRG.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="09" Content="{Binding Path=NIN.Hyperconductive.Progress}" Tag="{Binding NIN.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="10" Content="{Binding Path=BRD.Hyperconductive.Progress}" Tag="{Binding BRD.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="11" Content="{Binding Path=MCH.Hyperconductive.Progress}" Tag="{Binding MCH.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="12" Content="{Binding Path=BLM.Hyperconductive.Progress}" Tag="{Binding BLM.Hyperconductive}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="5" Grid.Column="13" Content="{Binding Path=SMN.Hyperconductive.Progress}" Tag="{Binding SMN.Hyperconductive}" />
+
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="01" Content="{Binding Path=PLD.Reconditioned.Progress}" Tag="{Binding PLD.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="02" Content="{Binding Path=WAR.Reconditioned.Progress}" Tag="{Binding WAR.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="03" Content="{Binding Path=DRK.Reconditioned.Progress}" Tag="{Binding DRK.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="04" Content="{Binding Path=WHM.Reconditioned.Progress}" Tag="{Binding WHM.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="05" Content="{Binding Path=SCH.Reconditioned.Progress}" Tag="{Binding SCH.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="06" Content="{Binding Path=AST.Reconditioned.Progress}" Tag="{Binding AST.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="07" Content="{Binding Path=MNK.Reconditioned.Progress}" Tag="{Binding MNK.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="08" Content="{Binding Path=DRG.Reconditioned.Progress}" Tag="{Binding DRG.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="09" Content="{Binding Path=NIN.Reconditioned.Progress}" Tag="{Binding NIN.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="10" Content="{Binding Path=BRD.Reconditioned.Progress}" Tag="{Binding BRD.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="11" Content="{Binding Path=MCH.Reconditioned.Progress}" Tag="{Binding MCH.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="12" Content="{Binding Path=BLM.Reconditioned.Progress}" Tag="{Binding BLM.Reconditioned}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="6" Grid.Column="13" Content="{Binding Path=SMN.Reconditioned.Progress}" Tag="{Binding SMN.Reconditioned}" />
+
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="01" Content="{Binding Path=PLD.Sharpened.Progress}" Tag="{Binding PLD.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="02" Content="{Binding Path=WAR.Sharpened.Progress}" Tag="{Binding WAR.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="03" Content="{Binding Path=DRK.Sharpened.Progress}" Tag="{Binding DRK.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="04" Content="{Binding Path=WHM.Sharpened.Progress}" Tag="{Binding WHM.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="05" Content="{Binding Path=SCH.Sharpened.Progress}" Tag="{Binding SCH.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="06" Content="{Binding Path=AST.Sharpened.Progress}" Tag="{Binding AST.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="07" Content="{Binding Path=MNK.Sharpened.Progress}" Tag="{Binding MNK.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="08" Content="{Binding Path=DRG.Sharpened.Progress}" Tag="{Binding DRG.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="09" Content="{Binding Path=NIN.Sharpened.Progress}" Tag="{Binding NIN.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="10" Content="{Binding Path=BRD.Sharpened.Progress}" Tag="{Binding BRD.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="11" Content="{Binding Path=MCH.Sharpened.Progress}" Tag="{Binding MCH.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="12" Content="{Binding Path=BLM.Sharpened.Progress}" Tag="{Binding BLM.Sharpened}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="7" Grid.Column="13" Content="{Binding Path=SMN.Sharpened.Progress}" Tag="{Binding SMN.Sharpened}" />
+
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="01" Content="{Binding Path=PLD.Complete.Progress}" Tag="{Binding PLD.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="02" Content="{Binding Path=WAR.Complete.Progress}" Tag="{Binding WAR.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="03" Content="{Binding Path=DRK.Complete.Progress}" Tag="{Binding DRK.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="04" Content="{Binding Path=WHM.Complete.Progress}" Tag="{Binding WHM.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="05" Content="{Binding Path=SCH.Complete.Progress}" Tag="{Binding SCH.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="06" Content="{Binding Path=AST.Complete.Progress}" Tag="{Binding AST.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="07" Content="{Binding Path=MNK.Complete.Progress}" Tag="{Binding MNK.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="08" Content="{Binding Path=DRG.Complete.Progress}" Tag="{Binding DRG.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="09" Content="{Binding Path=NIN.Complete.Progress}" Tag="{Binding NIN.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="10" Content="{Binding Path=BRD.Complete.Progress}" Tag="{Binding BRD.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="11" Content="{Binding Path=MCH.Complete.Progress}" Tag="{Binding MCH.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="12" Content="{Binding Path=BLM.Complete.Progress}" Tag="{Binding BLM.Complete}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="8" Grid.Column="13" Content="{Binding Path=SMN.Complete.Progress}" Tag="{Binding SMN.Complete}" />
+
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="01" Content="{Binding Path=PLD.Lux.Progress}" Tag="{Binding PLD.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="02" Content="{Binding Path=WAR.Lux.Progress}" Tag="{Binding WAR.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="03" Content="{Binding Path=DRK.Lux.Progress}" Tag="{Binding DRK.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="04" Content="{Binding Path=WHM.Lux.Progress}" Tag="{Binding WHM.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="05" Content="{Binding Path=SCH.Lux.Progress}" Tag="{Binding SCH.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="06" Content="{Binding Path=AST.Lux.Progress}" Tag="{Binding AST.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="07" Content="{Binding Path=MNK.Lux.Progress}" Tag="{Binding MNK.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="08" Content="{Binding Path=DRG.Lux.Progress}" Tag="{Binding DRG.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="09" Content="{Binding Path=NIN.Lux.Progress}" Tag="{Binding NIN.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="10" Content="{Binding Path=BRD.Lux.Progress}" Tag="{Binding BRD.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="11" Content="{Binding Path=MCH.Lux.Progress}" Tag="{Binding MCH.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="12" Content="{Binding Path=BLM.Lux.Progress}" Tag="{Binding BLM.Lux}" />
+            <Button Style="{StaticResource HWSummaryButton}" Grid.Row="9" Grid.Column="13" Content="{Binding Path=SMN.Lux.Progress}" Tag="{Binding SMN.Lux}" />
+
+        </Grid>
+    </ScrollViewer>
+
+</UserControl>

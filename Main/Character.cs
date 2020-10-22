@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker._05_ShB.Main;
+﻿using FFXIVRelicTracker._03_HW.Main;
+using FFXIVRelicTracker._05_ShB.Main;
 using FFXIVRelicTracker._05_Skysteel.Main;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
@@ -18,6 +19,7 @@ namespace FFXIVRelicTracker.Models
         private ArrModel arrProgress;
         private ShBModel shbModel;
         private SkysteelModel skysteelModel;
+        private HWModel hwModel;
 
         #region Properties
 
@@ -56,7 +58,19 @@ namespace FFXIVRelicTracker.Models
                     OnPropertyChanged(nameof(ArrProgress));
                 }
             }
-        }       
+        }
+        public HWModel HWModel
+        {
+            get { return hwModel; }
+            set
+            {
+                if (value != null)
+                {
+                    hwModel = value;
+                    OnPropertyChanged(nameof(HWModel));
+                }
+            }
+        }
         public ShBModel ShBModel
         {
             get { return shbModel; }
@@ -90,6 +104,7 @@ namespace FFXIVRelicTracker.Models
             ArrProgress = new ArrModel();
             ShBModel = new ShBModel();
             SkysteelModel = new SkysteelModel();
+            HWModel = new HWModel();
         }
 
         public Character(string name, string server )
@@ -98,6 +113,7 @@ namespace FFXIVRelicTracker.Models
             Server = server;
             ArrProgress = new ArrModel();
             ShBModel = new ShBModel();
+            HWModel = new HWModel();
             SkysteelModel = new SkysteelModel();
         }
 

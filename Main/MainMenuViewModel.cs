@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker._05_ShB.ShBHelpers;
+﻿using FFXIVRelicTracker._03_HW.HWHelpers;
+using FFXIVRelicTracker._05_ShB.ShBHelpers;
 using FFXIVRelicTracker._05_Skysteel.Skysteel_Helpers;
 using FFXIVRelicTracker.ARR.ArrHelpers;
 using FFXIVRelicTracker.Models;
@@ -47,6 +48,7 @@ namespace FFXIVRelicTracker.ViewModels
                 if (value != null)
                 {
                     ConfigureARRLists();
+                    ConfigureHWLists();
                     ConfigureShBLists();
                     ConfigureSkysteelLists();
                 }
@@ -122,7 +124,44 @@ namespace FFXIVRelicTracker.ViewModels
                 job.StageList = arrProgresses;
             }
         }
+        private void ConfigureHWLists()
+        {
+            List<HWJob> hwStages = new List<HWJob>()
+            {
+                selectedCharacter.HWModel.PLD,
+                selectedCharacter.HWModel.WAR,
+                selectedCharacter.HWModel.DRK,
+                selectedCharacter.HWModel.WHM,
+                selectedCharacter.HWModel.SCH,
+                selectedCharacter.HWModel.AST,
+                selectedCharacter.HWModel.MNK,
+                selectedCharacter.HWModel.DRG,
+                selectedCharacter.HWModel.NIN,
+                selectedCharacter.HWModel.BRD,
+                selectedCharacter.HWModel.MCH,
+                selectedCharacter.HWModel.BLM,
+                selectedCharacter.HWModel.SMN,
+            };
 
+            selectedCharacter.HWModel.HWJobList = hwStages;
+
+            foreach (HWJob job in selectedCharacter.HWModel.HWJobList)
+            {
+                List<HWProgress> hwProgresses = new List<HWProgress>()
+                {
+                    job.Animated,
+                    job.Awoken,
+                    job.Anima,
+                    job.Hyperconductive,
+                    job.Reconditioned,
+                    job.Sharpened,
+                    job.Complete,
+                    job.Lux
+                };
+                job.StageList = hwProgresses;
+                job.CheckObject();
+            }
+        }
         private void ConfigureShBLists()
         {
             List<ShBJob> shbStages = new List<ShBJob>()
@@ -150,13 +189,13 @@ namespace FFXIVRelicTracker.ViewModels
 
             foreach (ShBJob job in selectedCharacter.ShBModel.ShbJobList)
             {
-                List<ShBProgress> arrProgresses = new List<ShBProgress>()
+                List<ShBProgress> shbProgresses = new List<ShBProgress>()
                 {
                     job.Resistance,
                     job.AugmentedResistance,
                     job.Recollection
                 };
-                job.StageList = arrProgresses;
+                job.StageList = shbProgresses;
                 job.CheckObject();
             }
         }
@@ -182,7 +221,7 @@ namespace FFXIVRelicTracker.ViewModels
 
             foreach (SkysteelJob job in selectedCharacter.SkysteelModel.SkysteelJobList)
             {
-                List<SkysteelProgress> arrProgresses = new List<SkysteelProgress>()
+                List<SkysteelProgress> skysteelProgresses = new List<SkysteelProgress>()
                 {
                     job.BaseTool,
                     job.BasePlus1,
@@ -190,7 +229,7 @@ namespace FFXIVRelicTracker.ViewModels
                     job.AugmentedDragonsung,
                     job.Skysung
                 };
-                job.StageList = arrProgresses;
+                job.StageList = skysteelProgresses;
                 job.CheckObject();
             }
         }

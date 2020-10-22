@@ -1,0 +1,63 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FFXIVRelicTracker.Helpers.ResourceDictionaries"
+                    xmlns:summary="clr-namespace:FFXIVRelicTracker._03_HW._00_Summary"
+                    xmlns:animated="clr-namespace:FFXIVRelicTracker._03_HW._01_Animated"
+                    xmlns:awoken="clr-namespace:FFXIVRelicTracker._03_HW._02_Awoken"
+                    xmlns:anima="clr-namespace:FFXIVRelicTracker._03_HW._03_Anima"
+                    xmlns:hyperconductive="clr-namespace:FFXIVRelicTracker._03_HW._04_Hyperconductive"
+                    xmlns:reconditioned="clr-namespace:FFXIVRelicTracker._03_HW._05_Reconditioned"
+                    xmlns:sharpened="clr-namespace:FFXIVRelicTracker._03_HW._06_Sharpened"
+                    xmlns:complete="clr-namespace:FFXIVRelicTracker._03_HW._07_Complete"
+                    xmlns:lux="clr-namespace:FFXIVRelicTracker._03_HW._08_Lux"
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate DataType="{x:Type summary:HWSummaryViewModel}">
+        <summary:HWSummaryView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type animated:AnimatedViewModel}">
+        <animated:AnimatedView />
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type awoken:AwokenViewModel}">
+        <awoken:AwokenView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type anima:AnimaViewModel}">
+        <anima:AnimaView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type hyperconductive:HyperconduvtiveViewModel}">
+        <hyperconductive:HyperconductiveView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type reconditioned:ReconditionedViewModel}">
+        <reconditioned:ReconditionedView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type sharpened:SharpenedViewModel}">
+        <sharpened:SharpenedView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type complete:CompleteViewModel}">
+        <complete:CompleteView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type lux:LuxViewModel}">
+        <lux:LuxView/>
+    </DataTemplate>
+
+
+
+    <Style BasedOn="{StaticResource FFXIVButton }" x:Key="HWSummaryButton" TargetType="Button">
+        <Setter Property="HorizontalAlignment"  Value="Center"/>
+        <Setter Property="VerticalAlignment"    Value="Center"/>
+        <Setter Property="Margin"  Value="5"/>
+        <Setter Property="Command"  Value="{Binding HWButton}" />
+        <Setter Property="MinWidth" Value="90"/>
+        <Setter Property="CommandParameter">
+            <Setter.Value>
+                    <Binding    Path="Tag" RelativeSource="{RelativeSource Self}"/>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

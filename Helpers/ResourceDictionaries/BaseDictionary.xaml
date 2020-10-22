@@ -33,6 +33,8 @@
         </Setter>
     </Style>
 
+
+
     <Style x:Key="GoldBorder" TargetType="Border">
         <Setter Property="BorderBrush" Value="#a27e4e"/>
         <Setter Property="CornerRadius" Value="5"/>
@@ -198,6 +200,7 @@
         </Setter>
     </Style>
 
+  
     <Style x:Key="RadioButtonStyle" TargetType="local:DataBoundRadioButton">
         <Setter Property="Foreground" Value="#a0a0a0"/>
     </Style>

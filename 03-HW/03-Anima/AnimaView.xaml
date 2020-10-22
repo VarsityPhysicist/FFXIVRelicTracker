@@ -1,0 +1,323 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._03_HW._03_Anima.AnimaView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._03_HW._03_Anima"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-SkysteelDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=SelectedJob}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=SelectedJob}"/>
+            </Border>
+        </StackPanel>
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Text="Quest: 'Coming into Its Own' | Ardashir (Azy Lla)"/>
+                
+                <Border Margin="0,5,0,5" Style="{StaticResource GoldBorder}" Grid.Column="1" Grid.RowSpan="2">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <StackPanel Grid.Row="0" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining cost of Unidentifiables: "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding Poetics, StringFormat='{}{0:N0}'}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Poetics or "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding Tokens, StringFormat='{}{0:N0}'}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" Vanu Vanu | Vath Tokens"/>
+                        </StackPanel>
+                        <StackPanel Grid.Row="1" Orientation="Horizontal">
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Remaining cost of Crafted Materials: "/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text="{Binding Seals, StringFormat='{}{0:N0}'}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Text=" GC Seals"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2" Grid.Row="1"/>
+                <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Style="{StaticResource GoldBorder}" Grid.Row="0" Grid.Column="2" Grid.RowSpan="5">
+                        <Grid Margin="5,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="0" Margin="0,0,5,0" Text="Unidentifiable Item:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="0" Foreground="White" Text="Unidentifiable Bone"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="0" Foreground="White" Text="Unidentifiable Shell"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="0" Foreground="White" Text="Unidentifiable Ore"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="0" Foreground="White" Text="Unidentifiable Seeds"/>
+
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0" Text="Count:"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="2" Grid.Column="1" MinWidth="30" Text="{Binding UnidentifiableBone}"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="3" Grid.Column="1" MinWidth="30" Text="{Binding UnidentifiableShell}"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="4" Grid.Column="1" MinWidth="30" Text="{Binding UnidentifiableOre}"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="5" Grid.Column="1" MinWidth="30" Text="{Binding UnidentifiableSeeds}"/>
+
+                            <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="2" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Bone"/>
+                            <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="3" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Shell"/>
+                            <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="4" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Ore"/>
+                            <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="5" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Seeds"/>
+
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" Margin="0,0,5,0" Text="Remaining:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="3" MinWidth="30" Text="{Binding NeededBone}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="3" MinWidth="30" Text="{Binding NeededShell}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="3" MinWidth="30" Text="{Binding NeededOre}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="3" MinWidth="30" Text="{Binding NeededSeeds}"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Style="{StaticResource GoldBorder}" Grid.Row="0" Grid.Column="4" Grid.RowSpan="5">
+                        <Grid Margin="5,0,0,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="auto"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="0" Margin="0,0,5,0" Text="Crafted Item:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="0" Foreground="White" Text="Admantite Francesca"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="0" Foreground="White" Text="Titanium Alloy Mirror"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="0" Foreground="White" Text="Dispelling Arrow"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="0" Foreground="White" Text="Kingcake"/>
+
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0" Text="Count:"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="2" Grid.Column="1" MinWidth="30" Text="{Binding Francesca}"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="3" Grid.Column="1" MinWidth="30" Text="{Binding Mirror}"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="4" Grid.Column="1" MinWidth="30" Text="{Binding Arrow}"/>
+                            <TextBox Style="{StaticResource BaseTextBox}" Grid.Row="5" Grid.Column="1" MinWidth="30" Text="{Binding Kingcake}"/>
+
+                            <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="2" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Francesca"/>
+                            <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="3" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Mirror"/>
+                            <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="4" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Arrow"/>
+                            <Button Style="{StaticResource incrementButton}" Margin="0,0,5,0" Grid.Row="5" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Kingcake"/>
+
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" Margin="0,0,5,0" Text="Remaining:"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="3" MinWidth="30" Text="{Binding NeededFrancesca}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="3" MinWidth="30" Text="{Binding NeededMirror}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="3" MinWidth="30" Text="{Binding NeededArrow}"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="3" MinWidth="30" Text="{Binding NeededKingcake}"/>
+                        </Grid>
+                    </Border>
+                        
+                    
+                    <TextBlock Margin="-10,0,0,0" Style="{StaticResource LeftTextBlock}" Grid.Row="0" Text="Acquire the following materials for Gerolt:"/>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Enchanted Rubber"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Fast-drying Carboncoat"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Divine Water"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Fast-acting Allagan Catalyst"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 1"/>
+                    </StackPanel>
+                </Grid>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2" Grid.Row="3"/>
+                <Grid Grid.Row="4" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Margin="-10,0,0,0"
+                               Text="Materials for Gerolt are acquired by trading the following items to Cristiana (Mor Dhona)"/>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="0" Text="Material:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" Text="Unidentifiable Item:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="2" Text="Crafted Item:"/>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="0" Foreground="White" Text="Enchanted Rubber"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="0" Foreground="White" Text="Fast-Drying Carboncoat"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="0" Foreground="White" Text="Divine Water"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="0" Foreground="White" Text="Fast-acting Allagan Catalyst"/>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Unidentifiable Bone"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Unidentifiable Shell"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Unidentifiable Ore"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 10"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="1">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Unidentifiable Seeds"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 10"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Adamantite Francesca"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 4"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="2">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Titanium Alloy Mirror"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 4"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="2">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Dispelling Arrow"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 4"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="2">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Kingcake"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 4"/>
+                    </StackPanel>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6" Grid.ColumnSpan="5" Margin="10,0,0,0"
+                               Text="Note: Crafted items may be purchased for 5000 GC seal each, or purchased from the Marketboard"/>
+                </Grid>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2" Grid.Row="5"/>
+                <Grid Grid.Row="6" Grid.ColumnSpan="2" Margin="10,0,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="0" Grid.Column="0" Margin="-10,0,0,0" Grid.ColumnSpan="5" Text="Unidentifiable Items are acquired as follows:"/>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="0" Margin="0,0,5,0" Text="Unidentifiable Item:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="1" Margin="0,0,5,0" Text="Poetics:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="2" Margin="0,0,5,0" Text="Beast Tribe Token:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="3" Margin="0,0,5,0" Text="Precision Alexander Gordias Items:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="1" Grid.Column="4" Margin="0,0,5,0" Text="Allied Seals:"/>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="0" Margin="0,0,5,0" Foreground="White" Text="Unidentifiable Bone"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="0" Margin="0,0,5,0" Foreground="White" Text="Unidentifiable Shell"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="0" Margin="0,0,5,0" Foreground="White" Text="Unidentifiable Ore"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="0" Margin="0,0,5,0" Foreground="White" Text="Unidentifiable Seeds"/>
+                    
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="1" Text="150 Poetics"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="1" Text="150 Poetics"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="1" Text="150 Poetics"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="1" Text="150 Poetics"/>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="2" Margin="0,0,10,0" Text="3 Amalj'aa Daily Tokens"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="2" Margin="0,0,10,0" Text="3 Sahagin Daily Tokens"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="2" Margin="0,0,10,0" Text="3 Kobold Daily Tokens"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="2" Margin="0,0,10,0" Text="3 Sylph Daily Tokens"/>
+
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.Column="3" Margin="0,0,10,0">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Precision Gordian Bolt"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 3 (The Fist of the Father)"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Grid.Column="3" Margin="0,0,10,0">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Precision Gordian Lens"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 3 (The Cuff of the Father)"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="3" Margin="0,0,10,0">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Precision Gordian Spring"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 3 (The Arm of the Father)"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="5" Grid.Column="3" Margin="0,0,10,0">
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Precision Gordian Shaft"/>
+                        <TextBlock Style="{StaticResource LeftTextBlock}" Text=" x 3 (The Burden of the Father)"/>
+                    </StackPanel>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="2" Grid.Column="4" Text="300 Seals"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Grid.Column="4" Text="N/A"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="4" Grid.Column="4" Text="N/A"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Grid.Column="4" Text="300 Seals"/>
+
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="6" Grid.ColumnSpan="5" Margin="10,0,0,0"
+                               Text="Note: instead of 3 ARR beast tribe tokens, items may be purchased with 6 Vanu Vanu | Vath tokens, or 18 Moogle tokens"/>
+
+                </Grid>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.ColumnSpan="2" Grid.Row="7"/>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
