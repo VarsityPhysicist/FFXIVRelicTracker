@@ -118,6 +118,7 @@ namespace FFXIVRelicTracker._03_HW._05_Reconditioned
             {
                 if (value < 0) { reconditionedModel.CurrentSand = 0; }
                 else { reconditionedModel.CurrentSand = value; }
+                Recalculate();
             }
         }
         public int CurrentUmbrite
@@ -131,6 +132,7 @@ namespace FFXIVRelicTracker._03_HW._05_Reconditioned
             {
                 if (value < 0) { reconditionedModel.CurrentUmbrite = 0; }
                 else { reconditionedModel.CurrentUmbrite = value; }
+                Recalculate();
             }
         }
         public int CurrentPoints 

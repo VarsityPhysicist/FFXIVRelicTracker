@@ -74,6 +74,43 @@ To use the application, download the files and run FFXIVRelicTracker.exe
             This stage is similar to the Nexus stage, except instead of collecting 2000 light at onces, you collect
               40 light 12 times
 
+
+    HW Progression:
+        Animated Tab:
+            Tracks luminous crystals. Completing a job subtracts 1 crystal of each type
+        
+        Awoken Tab:
+            Tracks dungeon completion for Awoken stage. Toggling checkboxes out of order completes/incompletes other groups of dungeons as necessary
+            Switching jobs resets the checkboxes
+
+        Anima Tab:
+            Tracks gathering various items for this stage. Completing a job subtracts 10 unidentifiable materials of each type, and 4 of other types
+
+        Hyperconductive Tab:
+            Track Aether Oils for hyperconductive stage. Completing a job subtracts 1 Aether Oil
+
+        Reconditioned Tab:
+            Tracks treated crystal sand allocation and umbrite & crystal sand needed. 
+            Switching jobs resets treated crystal sand
+            Completing jobs does not automatically reduce umbrite & crystal sand tracked, since this is variable. You can type into the box for these to change them if needed
+            It isn't listed, but the easiest way (IMO) for gatherer's / crafter's to get Crystal Sand is by trading the blue scrip tokens
+
+        Sharpened Tab:
+            Tracks Singing Clusters needed
+            Completing a job subtracts 50 clusters from the count
+
+        Complete Tab:
+            Tracks completing dungeons, Pneumite needed, and Aetheric Density needed
+            Completing a job and switching jobs resets the dungeon checkboxes and sets the aetheric density count to 0
+            Completing a job subtracts 15 from the pneumite count
+
+        Lux Tab:
+            Tracks dungeon completion and Archaic Enchanted Ink needed
+            Switching jobs resets checkboxes
+            Toggling checkboxes out of order completes/incompletes other groups of dungeons as necessary
+            Completing a job subtracts 1 Archaic Enchanted Ink from the count
+
+
     ShB Progression:
         Summary Tab:
             This functions the same as the ARR summary stage, progress class completion of a Relic Weapon by clicking the corresponding button in the table

@@ -156,7 +156,7 @@
                     <TextBlock Grid.Row="0" Grid.Column="4" Style="{StaticResource LeftTextBlock}" Margin="0,0,5,0" Text="Total Remaining "/>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Umbrite"/>
-                    <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentUmbrite}"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource BaseTextBox}" MinWidth="40" HorizontalAlignment="Center" Text="{Binding CurrentUmbrite}"/>
                     <Button Style="{StaticResource incrementButton}" Grid.Row="1" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Umbrite" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center"  Orientation="Horizontal">
                         <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentMinUmbrite}"/>
@@ -170,7 +170,7 @@
                     </StackPanel>
 
                     <TextBlock Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Crystal Sand "/>
-                    <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentSand}"/>
+                    <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource BaseTextBox}" MinWidth="40"  HorizontalAlignment="Center" Text="{Binding CurrentSand}"/>
                     <Button Style="{StaticResource incrementButton}" Grid.Row="2" Grid.Column="2" Content="+" Command="{Binding IncrementButton}" CommandParameter="Sand" Height="auto" Width="auto" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                     <StackPanel Grid.Row="2" Grid.Column="3" HorizontalAlignment="Center"  Orientation="Horizontal">
                         <TextBlock Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center" Text="{Binding CurrentMinSand}"/>

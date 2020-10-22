@@ -177,7 +177,7 @@
                                 <ColumnDefinition Width="auto"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock Style="{StaticResource LeftTextBlock}" Margin="0,0,10,0" Text="Light"/>
+                            <TextBlock Style="{StaticResource LeftTextBlock}" Margin="0,0,10,0" Text="Aetheric Density"/>
                             <TextBox Style="{StaticResource BaseTextBox}" Grid.Column="1" Text="{Binding Light}" TextAlignment="Center" MinWidth="40" Margin="0,0,10,0"/>
                             
                             <Button Style="{StaticResource incrementButton}" Grid.Column="2" Content="Vague" Command="{Binding IncrementButton}" CommandParameter="8"/>
