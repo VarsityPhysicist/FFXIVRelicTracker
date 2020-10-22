@@ -90,9 +90,51 @@ namespace FFXIVRelicTracker._05_ShB._02_AugmentedResistance
         }
 
         public int MemoryNeeded { get { if (AvailableJobs != null) { return AvailableJobs.Count*20; } else { return 0; }; } }
-        public int HarrowingCount { get { return augmentedResistanceModel.HarrowingCount; } set { if (value >= 0) { augmentedResistanceModel.HarrowingCount = value; OnPropertyChanged(nameof(HarrowingCount)); } } }
-        public int TorturedCount { get { return augmentedResistanceModel.TorturedCount; } set { if (value >= 0) { augmentedResistanceModel.TorturedCount = value; OnPropertyChanged(nameof(TorturedCount)); } } }
-        public int SorrowfulCount { get { return augmentedResistanceModel.SorrowfulCount; } set { if (value >= 0) { augmentedResistanceModel.SorrowfulCount = value; OnPropertyChanged(nameof(SorrowfulCount)); } } }
+        public int HarrowingCount
+        {
+            get
+            {
+                if (augmentedResistanceModel.HarrowingCount < 0) { HarrowingCount = 0; }
+                return augmentedResistanceModel.HarrowingCount;
+            }
+            set
+            {
+                if (value < 0) { augmentedResistanceModel.HarrowingCount = 0; }
+                else { augmentedResistanceModel.HarrowingCount = value; }
+                OnPropertyChanged(nameof(HarrowingCount));
+
+            }
+        }
+        public int TorturedCount
+        {
+            get
+            {
+                if (augmentedResistanceModel.TorturedCount < 0) { TorturedCount = 0; }
+                return augmentedResistanceModel.TorturedCount;
+            }
+            set
+            {
+                if (value < 0) { augmentedResistanceModel.TorturedCount = 0; }
+                else { augmentedResistanceModel.TorturedCount = value; }
+                OnPropertyChanged(nameof(TorturedCount));
+
+            }
+        }
+        public int SorrowfulCount
+        {
+            get
+            {
+                if (augmentedResistanceModel.SorrowfulCount < 0) { SorrowfulCount = 0; }
+                return augmentedResistanceModel.SorrowfulCount;
+            }
+            set
+            {
+                if (value < 0) { augmentedResistanceModel.SorrowfulCount = 0; }
+                else { augmentedResistanceModel.SorrowfulCount = value; }
+                OnPropertyChanged(nameof(SorrowfulCount));
+
+            }
+        }
 
         #endregion
 

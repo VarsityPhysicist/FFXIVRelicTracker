@@ -84,9 +84,29 @@ namespace FFXIVRelicTracker._05_ShB._03_Recollection
                 OnPropertyChanged(nameof(AvailableJobs));
             }
         }
-        public int MemoryCount { get { return recollectionModel.MemoryCount; } set { if (value >= 0) { recollectionModel.MemoryCount = value; OnPropertyChanged(nameof(MemoryCount)); } } }
+        public int MemoryCount 
+        { 
+            get 
+            { 
+                if(recollectionModel.MemoryCount < 0) { MemoryCount = 0; }
+                return recollectionModel.MemoryCount; 
+            } 
+            set 
+            {
+                if (value < 0) { recollectionModel.MemoryCount = 0; }
+                else { recollectionModel.MemoryCount = value; }
+                OnPropertyChanged(nameof(MemoryCount)); 
+            } 
+        }
 
-        public int MemoryNeeded { get { if (AvailableJobs != null) { return AvailableJobs.Count * 6; } else { return 0; }; } }
+        public int MemoryNeeded 
+        { 
+            get 
+            { 
+                if (AvailableJobs == null) { LoadAvailableJobs(); } 
+                return AvailableJobs.Count * 6;
+            } 
+        }
 
         #endregion
 

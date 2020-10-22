@@ -77,7 +77,11 @@ namespace FFXIVRelicTracker._05_ShB._01_Resistance
         }
         public int CurrentScalepowder
         {
-            get { return resistanceModel.CurrentScalepowder; }
+            get 
+            {
+                if (resistanceModel.CurrentScalepowder < 0) { CurrentScalepowder = 0; }
+                return resistanceModel.CurrentScalepowder; 
+            }
             set
             {
                 if(value>=0 & value < 70)
@@ -88,8 +92,8 @@ namespace FFXIVRelicTracker._05_ShB._01_Resistance
                 }
             }
         }
-        public int NeededScalepowder { get { if (AvailableJobs == null) { LoadAvailableJobs(); } return (Math.Min(16, AvailableJobs.Count)) * 4; } }
-        public int ScalepowderCost { get { return ((NeededScalepowder-CurrentScalepowder) * 250); } }
+        public int NeededScalepowder { get { if (AvailableJobs == null) { LoadAvailableJobs(); } return Math.Min(16, AvailableJobs.Count) * 4; } }
+        public int ScalepowderCost => (NeededScalepowder - CurrentScalepowder) * 250;
 
         public ObservableCollection<string> AvailableJobs
         {
