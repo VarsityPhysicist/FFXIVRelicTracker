@@ -106,7 +106,7 @@ namespace FFXIVRelicTracker._03_HW._04_Hyperconductive
         }
         public int NeededOil { get { if (AvailableJobs == null) { LoadAvailableJobs(); }  return Math.Max(0,AvailableJobs.Count * 5 - OilCount); } }
         public int Poetics { get { return NeededOil * 350; } }
-        public string QuestName { get { if (AvailableJobs != null) { if (AvailableJobs.Count == 13) { return "Finding Your Voice"; } else { return "Soul Without Life"; } } else { return "Finding Your Voice"; } } }
+        public string QuestName { get { if (AvailableJobs != null) { if (AvailableJobs.Count != 13) { return "Finding Your Voice"; } else { return "Soul Without Life"; } } else { return "Finding Your Voice"; } } }
         #endregion
 
         #region Methods
