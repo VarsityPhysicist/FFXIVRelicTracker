@@ -27,7 +27,7 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" Grid.ColumnSpan="20">
+            <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                 <TextBlock Style="{StaticResource BaseTextBlock}" Text="Selected Character: "/>
                 <TextBlock Style="{StaticResource BaseTextBlock}" Text="{Binding SelectedCharacter}"/>
 
