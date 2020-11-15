@@ -1167,7 +1167,7 @@ namespace FFXIVRelicTracker.ARR.Animus
 
             ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentAnimus)];
 
-            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Animus,true);
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob.Animus,true);
 
 
             LoadAvailableJobs();

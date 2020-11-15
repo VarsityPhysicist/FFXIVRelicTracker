@@ -24,7 +24,7 @@
             </Grid.RowDefinitions>
             <StackPanel  Orientation="Horizontal">
             <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Display Relic information for:"/>
-                <ComboBox   x:Name="ArrRelicJob" 
+                <ComboBox   x:Name="ArrRelicJob" Style="{StaticResource FFXIVComboBox}"
                                                 ItemsSource="{Binding   Path=AvailableRelicJobs}" 
                                                 SelectedIndex="{Binding Path=RelicIndex}"
                                                 SelectedItem="{Binding Path=CurrentRelic}"

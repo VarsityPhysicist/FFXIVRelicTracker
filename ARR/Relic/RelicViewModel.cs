@@ -315,7 +315,7 @@ namespace FFXIVRelicTracker.ARR.Relic
         {
             ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentRelic)];
 
-            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Relic, true);
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob.Relic, true);
 
             AvailableRelicJobs.Remove(CurrentRelic);
         }

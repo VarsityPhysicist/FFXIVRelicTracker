@@ -256,7 +256,7 @@ namespace FFXIVRelicTracker.ARR.Braves
 
             ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentBraves)];
 
-            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Braves,true);
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob.Braves,true);
 
 
 

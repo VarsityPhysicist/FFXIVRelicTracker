@@ -25,22 +25,28 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
 
 
         public ArrJobs(string name)
-            :this()
         {
-                     
             this.Name = name;
 
+            relic = new ArrProgress("Relic",name);
+            zenith = new ArrProgress("Zenith", name);
+            atma = new ArrProgress("Atma", name);
+            animus = new ArrProgress("Animus", name);
+            novus = new ArrProgress("Novus", name);
+            nexus = new ArrProgress("Nexus", name);
+            braves = new ArrProgress("Braves", name);
+            zeta = new ArrProgress("Zeta", name);
         }
         public List<ArrProgress> StageList = new List<ArrProgress>();
 
-        private ArrProgress relic = new ArrProgress();
-        private ArrProgress zenith = new ArrProgress();
-        private ArrProgress atma = new ArrProgress();
-        private ArrProgress animus = new ArrProgress();
-        private ArrProgress novus = new ArrProgress();
-        private ArrProgress nexus = new ArrProgress();
-        private ArrProgress braves = new ArrProgress();
-        private ArrProgress zeta = new ArrProgress();
+        private ArrProgress relic;
+        private ArrProgress zenith;
+        private ArrProgress atma;
+        private ArrProgress animus;
+        private ArrProgress novus;
+        private ArrProgress nexus;
+        private ArrProgress braves;
+        private ArrProgress zeta;
 
         public ArrProgress Relic
         {

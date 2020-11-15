@@ -56,6 +56,13 @@ namespace FFXIVRelicTracker._05_Skysteel._00_Summary
                 OnPropertyChanged(nameof(SelectedCharacter));
             }
         }
+        public string SummaryLayout
+        {
+            get { return selectedCharacter.SkysteelLayout; }
+            set { selectedCharacter.SkysteelLayout = value; OnPropertyChanged(nameof(SummaryLayout)); }
+        }
+        public List<string> Summaries { get { return new List<string> { "Horizontal", "Vertical" }; } }
+
         #region Expose Jobs to VM
         public SkysteelJob CRP{ get { return SelectedCharacter.SkysteelModel.CRP; } }
         public SkysteelJob BSM{ get { return SelectedCharacter.SkysteelModel.BSM; } }
@@ -79,29 +86,29 @@ namespace FFXIVRelicTracker._05_Skysteel._00_Summary
         #endregion
 
         #region Commands
-        private ICommand _SkysteelButton;
-        public ICommand ShBButton
+        private ICommand _SummaryClick;
+        public ICommand SummaryClick
         {
             get
             {
-                if (_SkysteelButton == null)
+                if (_SummaryClick == null)
                 {
-                    _SkysteelButton = new RelayCommand(
+                    _SummaryClick = new RelayCommand(
                         param => this.SkysteelCommand(param),
                         param => this.SkysteelCan()
                         );
                 }
-                return _SkysteelButton;
+                return _SummaryClick;
             }
         }
 
         private bool SkysteelCan() { return true; }
         private void SkysteelCommand(object param)
         {
-            object[] values = (object[])param;
+            //object[] values = (object[])param;
 
             //ShBJob tempJob = (ShBJob)values[0];
-            SkysteelProgress tempProgress = (SkysteelProgress)values[0];
+            SkysteelProgress tempProgress = (SkysteelProgress)param;
 
             SkysteelInfo.ProgressClass(selectedCharacter, tempProgress);
 

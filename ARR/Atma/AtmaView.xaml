@@ -42,10 +42,10 @@
 
                 <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Atma are acquired from completing ARR FATE's with a Zenith weapon equipped"/>
                 <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="Any job may be used to acquire Atma"/>
-                <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="After collecting 1 of each atma below, speak with Jalzahn to receive an Atma weapon"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" TextWrapping="Wrap"     Text="After collecting 1 of each Atma below, speak with Jalzahn to receive an Atma weapon"/>
                 <TextBlock/>
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Total of each Atma required for all remaining jobs:"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Total of each Atma required for all remaining jobs: "/>
                     <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding Path=NeededAtmas}"/>
                 </StackPanel>
                 <TextBlock/>

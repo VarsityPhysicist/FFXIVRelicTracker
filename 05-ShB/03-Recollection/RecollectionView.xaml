@@ -22,7 +22,7 @@
         
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-            <ComboBox Margin="5,0,0,0"
+            <ComboBox Style="{StaticResource FFXIVComboBox}" Margin="5,0,0,0"
                                                 ItemsSource="{Binding   Path=AvailableJobs}" 
                                                 SelectedItem="{Binding Path=CurrentRecollection}"
                                     />
@@ -53,6 +53,7 @@
                     Text="Quest: 'The Will to Resist' | Started by: Zlatan (Gangos)" />
                 <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,0,0,0">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Collect 6 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Bitter Memory of the Dying"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text=" from one of the following sources:"/>
                 </StackPanel>
 

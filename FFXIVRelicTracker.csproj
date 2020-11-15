@@ -100,4 +100,15 @@
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="04-SB\00-Summary\" />
+    <Folder Include="04-SB\01-Antiquated\" />
+    <Folder Include="04-SB\02-Anemos\" />
+    <Folder Include="04-SB\03-Elemental\" />
+    <Folder Include="04-SB\04-Pyros\" />
+    <Folder Include="04-SB\05-Eureka\" />
+    <Folder Include="04-SB\06-Physeos\" />
+    <Folder Include="04-SB\SBHelpers\" />
+  </ItemGroup>
+
 </Project>

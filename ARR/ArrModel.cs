@@ -51,6 +51,7 @@ namespace FFXIVRelicTracker.Models
             }
         }
 
+
         #region Stage Models
         public RelicModel RelicModel
         {

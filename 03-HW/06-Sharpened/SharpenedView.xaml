@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-            <ComboBox Margin="5,0,0,0"
+            <ComboBox Style="{StaticResource FFXIVComboBox}" Margin="5,0,0,0"
                                                 ItemsSource="{Binding   Path=AvailableJobs}" 
                                                 SelectedItem="{Binding Path=SelectedJob}"
                                     />
@@ -55,16 +55,16 @@
                 <StackPanel Orientation="Horizontal" Grid.Row="2">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="1 "/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Singing Cluster"/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is awarded by the waily quest 'Cut from a Different Cloth', started by Angelet (Idyllshire)"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" is awarded by the daily quest 'Cut from a Different Cloth', started by Angelet (Idyllshire)"/>
                 </StackPanel>
-                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Margin="10,0,0,0" Text="Quest objective is to complete a Daily Roulette: Level 50/60/70 Dungeons"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="3" Margin="10,0,0,0" Text="Quest objective is to complete Daily Roulette: Level 50/60/70 Dungeons"/>
 
                 <StackPanel Orientation="Horizontal" Grid.Row="4">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="18 "/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Singing Clusters"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text=" are awarded by the weekly quest 'Seeking Inspiration', started by Amphelice (Idyllshire)"/>
                 </StackPanel>
-                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Margin="10,0,0,0" Text="Quest objective is to complete a Daily Roulette: Leveling three times"/>
+                <TextBlock Style="{StaticResource LeftTextBlock}" Grid.Row="5" Margin="10,0,0,0" Text="Quest objective is to complete Daily Roulette: Leveling three times"/>
                 
                 <StackPanel Orientation="Horizontal" Grid.Row="6">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Singing Clusters"/>

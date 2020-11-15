@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-            <ComboBox Margin="5,0,0,0"
+            <ComboBox Style="{StaticResource FFXIVComboBox}" Margin="5,0,0,0"
                                                 ItemsSource="{Binding   Path=AvailableJobs}" 
                                                 SelectedItem="{Binding Path=SelectedJob}"
                                     />
@@ -55,7 +55,7 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="Quest: 'Toughening Up' | Started by: Ardashir {Azys Lla}"/>
+                <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="Quest: 'Toughening Up' | Started by: Ardashir (Azys Lla)"/>
                 
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Complete the following dungeons with your "/>

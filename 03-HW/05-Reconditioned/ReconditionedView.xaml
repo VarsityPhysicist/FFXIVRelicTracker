@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-            <ComboBox Margin="5,0,0,0"
+            <ComboBox Style="{StaticResource FFXIVComboBox}" Margin="5,0,0,0"
                                                 ItemsSource="{Binding   Path=AvailableJobs}" 
                                                 SelectedItem="{Binding Path=SelectedJob}"
                                     />

@@ -22,7 +22,7 @@
 
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-            <ComboBox Margin="5,0,0,0"
+            <ComboBox Style="{StaticResource FFXIVComboBox}" Margin="5,0,0,0"
                                                 ItemsSource="{Binding   Path=AvailableJobs}" 
                                                 SelectedItem="{Binding Path=CurrentResistance}"
                                     />
@@ -48,7 +48,7 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
-                    Text="The first Resistance weapon is received upon completion of a quest chain starting with:'"
+                    Text="The first Resistance weapon is received upon completion of a quest chain starting with:"
                     TextDecorations="{Binding Path=CompletedFirstResistance, Converter={StaticResource ConvertToStrikethrough}}" />
                 <TextBlock Margin="10,0,0,0" Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text="Quest: 'Hail to the Queen' | Started by: Keiten (Kugane)"
                     TextDecorations="{Binding Path=CompletedFirstResistance, Converter={StaticResource ConvertToStrikethrough}}" />

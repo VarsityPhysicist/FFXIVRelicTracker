@@ -43,7 +43,7 @@
 
             <StackPanel Grid.Row="0" Grid.ColumnSpan="4" Orientation="Horizontal">
                 <TextBlock Style="{StaticResource LeftTextBlock}"  Text="Active Zodiac Braves:"/>
-                <ComboBox   x:Name="ArrRelicJob"
+                <ComboBox  Style="{StaticResource FFXIVComboBox}"  x:Name="ArrRelicJob"
                                                 ItemsSource="{Binding   Path=AvailableZetaJobs}" 
                                                 SelectedItem="{Binding Path=CurrentZeta}"
                                     />

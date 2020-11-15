@@ -58,6 +58,13 @@ namespace FFXIVRelicTracker._05_ShB._00_Summary
                 OnPropertyChanged(nameof(SelectedCharacter));
             }
         }
+        public string SummaryLayout
+        {
+            get { return selectedCharacter.ShBLayout; }
+            set { selectedCharacter.ShBLayout = value; OnPropertyChanged(nameof(SummaryLayout)); }
+        }
+        public List<string> Summaries { get { return new List<string> { "Horizontal", "Vertical" }; } }
+
         #region Expose Job Objects to VM
         public ShBJob PLD { get { return SelectedCharacter.ShBModel.PLD; } }
         public ShBJob WAR { get { return SelectedCharacter.ShBModel.WAR; } }
@@ -87,29 +94,29 @@ namespace FFXIVRelicTracker._05_ShB._00_Summary
         #endregion
 
         #region Commands
-        private ICommand _ShBButton;
-        public ICommand ShBButton
+        private ICommand _SummaryClick;
+        public ICommand SummaryClick
         {
             get
             {
-                if (_ShBButton == null)
+                if (_SummaryClick == null)
                 {
-                    _ShBButton = new RelayCommand(
+                    _SummaryClick = new RelayCommand(
                         param => this.ShBCommand(param),
                         param => this.ShBCan()
                         );
                 }
-                return _ShBButton;
+                return _SummaryClick;
             }
         }
 
         private bool ShBCan() { return true; }
         private void ShBCommand(object param)
         {
-            object[] values = (object[])param;
+            //object[] values = (object[])param;
 
             //ShBJob tempJob = (ShBJob)values[0];
-            ShBProgress tempProgress = (ShBProgress)values[0];
+            ShBProgress tempProgress = (ShBProgress)param;
 
             ShBStageCompleter.ProgressClass(selectedCharacter,tempProgress);
 

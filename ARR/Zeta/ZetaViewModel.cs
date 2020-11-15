@@ -338,7 +338,7 @@ namespace FFXIVRelicTracker.ARR.Zeta
 
             ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentZeta)];
 
-            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Zeta, true);
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob.Zeta, true);
 
             ResetBools();
             LoadAvailableJobs();

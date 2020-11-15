@@ -204,7 +204,7 @@ namespace FFXIVRelicTracker.ARR.Nexus
 
             ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentNexus)];
 
-            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Nexus, true);
+            ArrStageCompleter.ProgressClass(selectedCharacter,  tempJob.Nexus, true);
 
             CurrentLight = 0;
             LoadAvailableJobs();

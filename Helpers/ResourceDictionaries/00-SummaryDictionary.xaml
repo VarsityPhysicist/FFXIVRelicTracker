@@ -1,0 +1,109 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:FFXIVRelicTracker.Helpers.ResourceDictionaries">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/BaseDictionary.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="RotatedSummaryGrid" TargetType="Grid">
+        <Setter Property="TextOptions.TextFormattingMode" Value="Display" />
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=LayoutDirection, Path=SelectedIndex}" Value="0">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <RotateTransform Angle="0" />
+                            <ScaleTransform ScaleX="1" ScaleY="1" />
+                            <MatrixTransform Matrix="1, 0, 0, 1, 0, 0" />
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=LayoutDirection, Path=SelectedIndex}" Value="1">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <RotateTransform Angle="-90" />
+                            <ScaleTransform ScaleX="1" ScaleY="-1" />
+                            <MatrixTransform Matrix="1, 0, 0, 1, 0, 0" />
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RotateSummaryButton" TargetType="Button" BasedOn="{StaticResource SummaryButton}">
+        <Setter Property="Command"  Value="{Binding SummaryClick}" />
+        <Setter Property="CommandParameter">
+            <Setter.Value>
+                <Binding    Path="Tag" RelativeSource="{RelativeSource Self}"/>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=LayoutDirection, Path=SelectedIndex}" Value="0">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="0"/>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=LayoutDirection, Path=SelectedIndex}" Value="1">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <RotateTransform Angle="-90"/>
+                            <MatrixTransform Matrix="1, 0, 0, -1, 0, 0" />
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RotateTextBlock" TargetType="TextBlock" BasedOn="{StaticResource LeftTextBlock}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=LayoutDirection, Path=SelectedIndex}" Value="0">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="0"/>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=LayoutDirection, Path=SelectedIndex}" Value="1">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <RotateTransform Angle="-90"/>
+                            <MatrixTransform Matrix="1, 0, 0, -1, 0, 0" />
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RotateComboBox" TargetType="ComboBox" BasedOn="{StaticResource FFXIVComboBox}">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=LayoutDirection, Path=SelectedIndex}" Value="0">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="0"/>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding ElementName=LayoutDirection, Path=SelectedIndex}" Value="1">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <RotateTransform Angle="-90"/>
+                            <MatrixTransform Matrix="1, 0, 0, -1, 0, 0" />
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

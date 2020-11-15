@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker.Models.Helpers;
+﻿using FFXIVRelicTracker.Helpers;
+using FFXIVRelicTracker.Models.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,29 +8,30 @@ using System.Xml.Serialization;
 namespace FFXIVRelicTracker.ARR.ArrHelpers
 {
     
-    public class ArrProgress :ObservableObject
+    public class ArrProgress : BaseProgressClass
     {
         
         public ArrProgress()
         {
             Progress = States.NA;
         }
-        public ArrProgress(string name)
+        public ArrProgress(string name, string Job)
             :this()
         {
             this.Name = name;
+            this.Job = Job;
         }
-        private States progress;
-        public States Progress
+
+        public ArrProgress(ArrProgress arrProgress, string name, string Job)
         {
-            get { return progress; }
-            set
-            {
-                progress = value;
-                OnPropertyChanged(nameof(Progress));
-            }
+            this.Name = name;
+            this.Progress = arrProgress.Progress;
+            this.Job = Job;
         }
+
         private string name;
+        private string job;
+
         public string Name
         {
             get { return name; }
@@ -39,11 +41,14 @@ namespace FFXIVRelicTracker.ARR.ArrHelpers
                 OnPropertyChanged(nameof(Name));
             }
         }
-        public enum States
+        public string Job
         {
-            NA,
-            Initiated,
-            Completed
+            get { return job; }
+            set
+            {
+                job = value;
+                OnPropertyChanged(nameof(Job));
+            }
         }
     }
 }

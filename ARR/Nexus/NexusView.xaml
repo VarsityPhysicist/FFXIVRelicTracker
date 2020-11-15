@@ -37,7 +37,7 @@
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0" Grid.ColumnSpan="3" Orientation="Horizontal">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-                    <ComboBox   x:Name="ArrNovusJob"
+                    <ComboBox Style="{StaticResource FFXIVComboBox}"   x:Name="ArrNovusJob"
                                                 ItemsSource="{Binding   Path=AvailableNexusJobs}" 
                                                 SelectedItem="{Binding Path=CurrentNexus}"
                                     />

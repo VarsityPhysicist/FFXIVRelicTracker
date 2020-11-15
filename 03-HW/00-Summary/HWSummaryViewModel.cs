@@ -58,6 +58,13 @@ namespace FFXIVRelicTracker._03_HW._00_Summary
                 OnPropertyChanged(nameof(SelectedCharacter));
             }
         }
+        public string SummaryLayout
+        {
+            get { return selectedCharacter.HWLayout; }
+            set { selectedCharacter.HWLayout = value; OnPropertyChanged(nameof(SummaryLayout)); }
+        }
+        public List<string> Summaries { get { return new List<string> { "Horizontal", "Vertical" }; } }
+
         #region Expose Job Objects to VM
         public HWJob PLD { get { return SelectedCharacter.HWModel.PLD; } }
         public HWJob WAR { get { return SelectedCharacter.HWModel.WAR; } }
@@ -83,19 +90,19 @@ namespace FFXIVRelicTracker._03_HW._00_Summary
         #endregion
 
         #region Commands
-        private ICommand _HWButton;
-        public ICommand HWButton
+        private ICommand _SummaryClick;
+        public ICommand SummaryClick
         {
             get
             {
-                if (_HWButton == null)
+                if (_SummaryClick == null)
                 {
-                    _HWButton = new RelayCommand(
+                    _SummaryClick = new RelayCommand(
                         param => this.HWCommand(param),
                         param => this.HWCan()
                         );
                 }
-                return _HWButton;
+                return _SummaryClick;
             }
         }
 

@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-            <ComboBox Margin="5,0,0,0"
+            <ComboBox Style="{StaticResource FFXIVComboBox}" Margin="5,0,0,0"
                                                 ItemsSource="{Binding   Path=AvailableJobs}" 
                                                 SelectedItem="{Binding Path=SelectedJob}"
                                     />
@@ -49,7 +49,7 @@
 
                 <StackPanel Orientation="Horizontal" Grid.Row="1">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="With your "/>
-                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding SharpenedWeapon}"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="MediumPurple" Text="{Binding CompleteWeapon}"/>
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text=" equipped, complete the following trials:"/>
                 </StackPanel>
                 

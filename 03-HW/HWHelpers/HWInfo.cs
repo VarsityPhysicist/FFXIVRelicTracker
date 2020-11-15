@@ -40,25 +40,25 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
 
         #region Methods
         #region CompleteStages
-        public static void ProgressClass(Character character, HWProgress skysteelProgress, bool CompleteBool = false)
+        public static void ProgressClass(Character character, HWProgress hwProgress, bool CompleteBool = false)
         {
-            int StageIndex = HWInfo.StageListString.IndexOf(skysteelProgress.Name);
-            int JobIndex = HWInfo.JobListString.IndexOf(skysteelProgress.Job);
+            int StageIndex = HWInfo.StageListString.IndexOf(hwProgress.Name);
+            int JobIndex = HWInfo.JobListString.IndexOf(hwProgress.Job);
 
             HWJob tempJob = character.HWModel.HWJobList[JobIndex];
 
-            if (skysteelProgress.Progress == HWProgress.States.NA)
+            if (hwProgress.Progress == HWProgress.States.NA)
             {
                 CompletePreviousStages(tempJob, StageIndex);
             }
-            else if (skysteelProgress.Progress == HWProgress.States.Completed)
+            else if (hwProgress.Progress == HWProgress.States.Completed)
             {
                 InCompleteFollowingStages(tempJob, StageIndex);
                 return;
             }
-            if (skysteelProgress.Progress == HWProgress.States.Initiated | CompleteBool)
+            if (hwProgress.Progress == HWProgress.States.Initiated | CompleteBool)
             {
-                skysteelProgress.Progress = HWProgress.States.Completed;
+                hwProgress.Progress = HWProgress.States.Completed;
             }
             else
             {
@@ -66,11 +66,11 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
                 switch (StageIndex)
                 {
                     default:
-                        skysteelProgress.Progress = HWProgress.States.Completed;
+                        hwProgress.Progress = HWProgress.States.Completed;
                         break;
                         //case 1:
                         //case 2:
-                        //    skysteelProgress.Progress++;
+                        //    hwProgress.Progress++;
                         //    break;
                 }
             }

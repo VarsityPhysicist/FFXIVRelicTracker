@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0" Orientation="Horizontal">
             <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
-            <ComboBox   x:Name="ArrAnimusJob"
+            <ComboBox   x:Name="ArrAnimusJob" Style="{StaticResource FFXIVComboBox}"
                                                 ItemsSource="{Binding   Path=AvailableAnimusJobs}" 
                                                 SelectedItem="{Binding Path=CurrentAnimus}"
                                     />
@@ -108,7 +108,7 @@
                 </Grid>
                 <StackPanel Grid.Row="4" Orientation="Horizontal">
                     <TextBlock Style="{StaticResource LeftTextBlock}" Text="Selected Book"/>
-                    <ComboBox ItemsSource="{Binding Path=AnimusBooks}"
+                    <ComboBox Style="{StaticResource FFXIVComboBox}" ItemsSource="{Binding Path=AnimusBooks}"
                                                   SelectedItem="{Binding CurrentBook, Mode=TwoWay}"
                                                   SelectedIndex="{Binding BookSelection}"/>
 

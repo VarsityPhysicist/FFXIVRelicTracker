@@ -801,6 +801,7 @@ namespace FFXIVRelicTracker.ARR.Novus
 
         public void LoadAvailableJobs()
         {
+            if (CurrentNovus == "") { ResetCounts(); }
             if (AvailableNovusJobs == null) { AvailableNovusJobs = new ObservableCollection<string>(); }
             foreach (ArrJobs job in ArrWeapon.JobList)
             {
@@ -922,13 +923,13 @@ namespace FFXIVRelicTracker.ARR.Novus
 
             ArrJobs tempJob = ArrWeapon.JobList[ArrInfo.JobListString.IndexOf(CurrentNovus)];
 
-            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob, tempJob.Novus, true);
+            ArrStageCompleter.ProgressClass(selectedCharacter, tempJob.Novus, true);
 
-            int subtractAlexandrite = 75;
-            subtractAlexandrite -= MateriaShieldSum + MateriaSwordSum + MateriaSum;
+            //int subtractAlexandrite = 75;
+            //subtractAlexandrite -= MateriaShieldSum + MateriaSwordSum + MateriaSum;
 
-            if (subtractAlexandrite >= AlexandriteCount) { AlexandriteCount = 0; }
-            else { AlexandriteCount -= subtractAlexandrite; }
+            //if (subtractAlexandrite >= AlexandriteCount) { AlexandriteCount = 0; }
+            //else { AlexandriteCount -= subtractAlexandrite; }
 
             ResetCounts();
             LoadAvailableJobs();

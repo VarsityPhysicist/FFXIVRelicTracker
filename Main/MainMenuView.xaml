@@ -19,7 +19,7 @@
     <StackPanel Margin="10" >
         <StackPanel Orientation="Horizontal">
             <TextBlock Style="{StaticResource BaseTextBlock}" VerticalAlignment="Center" Text="Selected Character:" Margin="0,0,10,0"/>
-            <ComboBox  VerticalAlignment="Center" MinWidth="250"  Width="auto"   x:Name="charactersCB"   
+            <ComboBox Style="{StaticResource FFXIVComboBox}"  VerticalAlignment="Center" MinWidth="250"  Width="auto"   x:Name="charactersCB"   
                                         ItemsSource="{Binding CharacterList, Mode=TwoWay}"    
                                         SelectedItem="{Binding SelectedCharacter}"
                                         />
