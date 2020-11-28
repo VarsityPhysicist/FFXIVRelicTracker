@@ -99,7 +99,7 @@
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="1">
                         <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon01}" Margin="0,0,5,0"/>
-                        <TextBlock TextDecorations="{Binding Path=Dungeon01,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Sashtasha (Hard)"/>
+                        <TextBlock TextDecorations="{Binding Path=Dungeon01,  Converter={StaticResource ConvertToStrikethrough}}" Style="{StaticResource LeftTextBlock}" Text="Complete Sastasha (Hard)"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Grid.Row="2">
                         <CheckBox VerticalAlignment="Center" IsChecked="{Binding Dungeon02}" Margin="0,0,5,0"/>
