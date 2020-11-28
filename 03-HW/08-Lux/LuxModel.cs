@@ -12,7 +12,7 @@ namespace FFXIVRelicTracker._03_HW._08_Lux
         {
         }
 
-        public ObservableCollection<bool> DungeonBools { get; internal set; }
-        public int Ink { get; internal set; }
+        public ObservableCollection<bool> DungeonBools { get;  set; }
+        public int Ink { get;  set; }
     }
 }

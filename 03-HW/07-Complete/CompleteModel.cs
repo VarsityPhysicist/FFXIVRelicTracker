@@ -12,8 +12,8 @@ namespace FFXIVRelicTracker._03_HW._07_Complete
         {
         }
 
-        public ObservableCollection<bool> DungeonBools { get; internal set; }
-        public int Light { get; internal set; }
-        public int CurrentPneumite { get; internal set; }
+        public ObservableCollection<bool> DungeonBools { get;  set; }
+        public int Light { get; set; }
+        public int CurrentPneumite { get; set; }
     }
 }
