@@ -112,9 +112,9 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <TextBlock Grid.Row="0" Style="{StaticResource LeftTextBlock}" Text="Collectability:"/>
-                        <TextBlock Grid.Row="1" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="3000-3799"/>
-                        <TextBlock Grid.Row="2" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="3800-4599"/>
-                        <TextBlock Grid.Row="3" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="4600+"/>
+                        <TextBlock Grid.Row="1" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="2000-2999"/>
+                        <TextBlock Grid.Row="2" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="3000-3999"/>
+                        <TextBlock Grid.Row="3" Style="{StaticResource LeftTextBlock}" HorizontalAlignment="Center"  Text="4000+"/>
 
                         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                             <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="{Binding TradedMat}"/>
