@@ -88,7 +88,7 @@
                                        TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
                             <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding   Path=RelicClassWeapon}"
                                        TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
-                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text=" and meld three "
+                            <TextBlock Style="{StaticResource LeftTextBlock}"  Text=" and meld two "
                                        TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>
                             <TextBlock Style="{StaticResource LeftTextBlock}"  Text="{Binding  Path=RelicMateria}"
                                        TextDecorations="{Binding Stage2Complete,  Converter={StaticResource ConvertToStrikethrough}}"/>

@@ -67,8 +67,12 @@ namespace FFXIVRelicTracker._03_HW.HWHelpers
         {
             for (int i = 0; i < stageIndex; i++)
             {
-                tempStage.StageList[i].Progress = HWProgress.States.Completed;
-                SelectStage(character, i);
+                if (tempStage.StageList[i].Progress != HWProgress.States.Completed)
+                {
+                    tempStage.StageList[i].Progress = HWProgress.States.Completed;
+                    SelectStage(character, i);
+                }
+                
             }
         }
         #endregion
