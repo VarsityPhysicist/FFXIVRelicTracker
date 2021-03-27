@@ -3,7 +3,7 @@ This is a project for tracking Relic weapon progression in FFXIV. Each expansion
 
 Current release is here: https://github.com/VarsityPhysicist/FFXIVRelicTracker/releases
 
-This is my first programming project and I didn't look into basing it on any specific version of Microsoft's .NET Core runtime, so unfortunately the latest version is required - you can download it here:https://dotnet.microsoft.com/download
+This is my first programming project and I didn't look into basing it on any specific version of Microsoft's .NET Core runtime, so the version required if .NET Core 3.1 - you can download it here:https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.405-windows-x64-installer
 
 Currently the following expansions are included in this: ARR, ShB, Skysteel Tools
 
