@@ -54,7 +54,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="FFXIVRelicTracker "/>
                                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="FFXIVRelicTracker "/>
-                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="v5.55.0.0"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="v5.55.0.1"/>
                                     </StackPanel>
                                     <TextBlock Grid.Column="1"/>
                                     <Button  Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"  Command="ApplicationCommands.Close" Content="Close Window" />

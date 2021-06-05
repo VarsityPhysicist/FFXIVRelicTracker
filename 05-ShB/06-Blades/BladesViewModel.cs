@@ -95,7 +95,7 @@ namespace FFXIVRelicTracker._05_ShB._06_Blades
             set
             {
                 if (value < 0) { bladesModel.Compact1 = 0; }
-                else if (value > 17) { bladesModel.Compact1 = 18; }
+                else if (value > 29) { bladesModel.Compact1 = 30; }
                 else { bladesModel.Compact1 = value; }
                 OnPropertyChanged(nameof(Compact1));
             }
@@ -110,7 +110,7 @@ namespace FFXIVRelicTracker._05_ShB._06_Blades
             set
             {
                 if (value < 0) { bladesModel.Compact2 = 0; }
-                else if (value > 17) { bladesModel.Compact2 = 18; }
+                else if (value > 29) { bladesModel.Compact2 = 30; }
                 else { bladesModel.Compact2 = value; }
                 OnPropertyChanged(nameof(Compact2));
             }
@@ -126,7 +126,7 @@ namespace FFXIVRelicTracker._05_ShB._06_Blades
             set
             {
                 if (value < 0) { bladesModel.Book1 = 0; }
-                else if (value > 17) { bladesModel.Book1 = 18; }
+                else if (value > 29) { bladesModel.Book1 = 30; }
                 else { bladesModel.Book1 = value; }
                 OnPropertyChanged(nameof(Book1));
             }
@@ -141,7 +141,7 @@ namespace FFXIVRelicTracker._05_ShB._06_Blades
             set
             {
                 if (value < 0) { bladesModel.Book2 = 0; }
-                else if (value > 17) { bladesModel.Book2 = 18; }
+                else if (value > 29) { bladesModel.Book2 = 30; }
                 else { bladesModel.Book2 = value; }
                 OnPropertyChanged(nameof(Book2));
             }
@@ -157,7 +157,7 @@ namespace FFXIVRelicTracker._05_ShB._06_Blades
             set
             {
                 if (value < 0) { bladesModel.Memory1 = 0; }
-                else if (value > 17) { bladesModel.Memory1 = 18; }
+                else if (value > 29) { bladesModel.Memory1 = 30; }
                 else { bladesModel.Memory1 = value; }
                 OnPropertyChanged(nameof(Memory1));
             }
@@ -172,7 +172,7 @@ namespace FFXIVRelicTracker._05_ShB._06_Blades
             set
             {
                 if (value < 0) { bladesModel.Memory2 = 0; }
-                else if (value > 17) { bladesModel.Memory2 = 18; }
+                else if (value > 29) { bladesModel.Memory2 = 30; }
                 else { bladesModel.Memory2 = value; }
                 OnPropertyChanged(nameof(Memory2));
             }

@@ -77,8 +77,8 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
                             <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Compact Axle" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding PurpleCount}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Purple"/>
+                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding Compact1}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Compact1"/>
                             <TextBlock Margin="5,0,0,0" Grid.Column="3" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="/30" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
                         </StackPanel>
                         <TextBlock Grid.Row="1" Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Text="-1 dropped per skirmish in Zadnor Zone 1" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
@@ -93,8 +93,8 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
                             <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Compact Spring" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding PurpleCount}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Purple"/>
+                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding Compact2}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Compact2"/>
                             <TextBlock Margin="5,0,0,0" Grid.Column="3" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="/30" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
                         </StackPanel>
                         <TextBlock Grid.Row="1" Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Text="-2 dropped per CE in Zadnor Zone 1" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
@@ -121,8 +121,8 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
                             <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="A Day in the Life: Battles for the Realm" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding PurpleCount}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Purple"/>
+                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding Book1}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Book1"/>
                             <TextBlock Margin="5,0,0,0" Grid.Column="3" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="/30" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
                         </StackPanel>
                         <TextBlock Grid.Row="1" Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Text="-1 dropped per skirmish in Zadnor Zone 2" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
@@ -137,8 +137,8 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
                             <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="A Day in the Life: Beyond the Rift" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding PurpleCount}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Purple"/>
+                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding Book2}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Book2"/>
                             <TextBlock Margin="5,0,0,0" Grid.Column="3" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="/30" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
                         </StackPanel>
                         <TextBlock Grid.Row="1" Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Text="-2 dropped per CE in Zadnor Zone 2" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
@@ -165,8 +165,8 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
                             <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Bleak Memory of the Dying" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding PurpleCount}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Purple"/>
+                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding Memory1}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Memory1"/>
                             <TextBlock Margin="5,0,0,0" Grid.Column="3" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="/30" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
                         </StackPanel>
                         <TextBlock Grid.Row="1" Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Text="-1 dropped per skirmish in Zadnor Zone 3" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
@@ -181,8 +181,8 @@
                         </Grid.RowDefinitions>
                         <StackPanel Orientation="Horizontal" Grid.Row="0">
                             <TextBlock Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Lurid Memory of the Dying" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding PurpleCount}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
-                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Purple"/>
+                            <TextBox Margin="5,0,0,0" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding Memory2}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                            <Button Grid.Row="0" Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Memory2"/>
                             <TextBlock Margin="5,0,0,0" Grid.Column="3" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="/30" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
                         </StackPanel>
                         <TextBlock Grid.Row="1" Margin="10,0,0,0" Style="{StaticResource LeftTextBlock}" Text="-2 dropped per CE in Zadnor Zone 3" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
