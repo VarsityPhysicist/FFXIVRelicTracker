@@ -33,7 +33,10 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
         {
            "Resistance",
            "AugmentedResistance",
-           "Recollection"
+           "Recollection",
+           "LawsOrder",
+           "AugmentedLawsOrder",
+           "Blades"
         };
 
         #region Methods

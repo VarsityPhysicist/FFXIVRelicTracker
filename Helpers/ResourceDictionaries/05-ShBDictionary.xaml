@@ -4,6 +4,9 @@
                     xmlns:resistance="clr-namespace:FFXIVRelicTracker._05_ShB._01_Resistance"
                     xmlns:augmentedResistance="clr-namespace:FFXIVRelicTracker._05_ShB._02_AugmentedResistance"
                     xmlns:recollection="clr-namespace:FFXIVRelicTracker._05_ShB._03_Recollection"
+                    xmlns:lawsOrder="clr-namespace:FFXIVRelicTracker._05_ShB._04_LawsOrder"
+                    xmlns:augmentedLawsORder="clr-namespace:FFXIVRelicTracker._05_ShB._05_AugmentedLawsOrder"
+                    xmlns:blades="clr-namespace:FFXIVRelicTracker._05_ShB._06_Blades"
                     
                     >
 
@@ -24,6 +27,15 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type recollection:RecollectionViewModel}">
         <recollection:RecollectionView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type lawsOrder:LawsOrderViewModel}">
+        <lawsOrder:LawsOrderView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type augmentedLawsORder:AugmentedLawsOrderViewModel}">
+        <augmentedLawsORder:AugmentedLawsOrderView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type blades:BladesViewModel}">
+        <blades:BladesView/>
     </DataTemplate>
 
 

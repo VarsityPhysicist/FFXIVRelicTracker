@@ -43,6 +43,15 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
                     case 2:
                         shbProgress.Progress = ShBProgress.States.Completed;
                         break;
+                    case 3:
+                        shbProgress.Progress = ShBProgress.States.Completed;
+                        break;
+                    case 4:
+                        shbProgress.Progress = ShBProgress.States.Completed;
+                        break;
+                    case 5:
+                        shbProgress.Progress = ShBProgress.States.Completed;
+                        break;
                     default:
                         shbProgress.Progress++;
                         break;
@@ -93,6 +102,15 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
                 case 2:
                     DecreaseBitterMemoryCount(character);
                     break;
+                case 3:
+                    DecreaseLoathsomeMemoryCount(character);
+                    break;
+                case 4:
+                    DecreaseArtifactCount(character);
+                    break;
+                case 5:
+                    DecreaseEmotionCount(character);
+                    break;
                 default:
                     break;
             }
@@ -125,6 +143,27 @@ namespace FFXIVRelicTracker._05_ShB.ShBHelpers
 
             if (character.ShBModel.RecollectionModel.MemoryCount <= 6) { character.ShBModel.RecollectionModel.MemoryCount = 0; }
             else { character.ShBModel.RecollectionModel.MemoryCount -= 6; }
+        }
+        private static void DecreaseLoathsomeMemoryCount(Character character)
+        {
+            //Decrease Count of Memory items outside of AugmentedResistance model so that changes to progress that occur outside of AugmentedResistance view still impact Memory Counts
+
+            if (character.ShBModel.LawsOrderModel.MemoryCount <= 6) { character.ShBModel.LawsOrderModel.MemoryCount = 0; }
+            else { character.ShBModel.LawsOrderModel.MemoryCount -= 15; }
+        }
+        private static void DecreaseArtifactCount(Character character)
+        {
+            //Decrease Count of Memory items outside of AugmentedResistance model so that changes to progress that occur outside of AugmentedResistance view still impact Memory Counts
+
+            if (character.ShBModel.AugmentedLawsOrderModel.ArtifactCount <= 15) { character.ShBModel.AugmentedLawsOrderModel.ArtifactCount = 0; }
+            else { character.ShBModel.AugmentedLawsOrderModel.ArtifactCount -= 15; }
+        }
+        private static void DecreaseEmotionCount(Character character)
+        {
+            //Decrease Count of Memory items outside of AugmentedResistance model so that changes to progress that occur outside of AugmentedResistance view still impact Memory Counts
+
+            if (character.ShBModel.BladesModel.EmotionCount <= 15) { character.ShBModel.BladesModel.EmotionCount = 0; }
+            else { character.ShBModel.BladesModel.EmotionCount -= 15; }
         }
     }
 }

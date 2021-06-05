@@ -12,6 +12,9 @@ using FFXIVRelicTracker._05_ShB._00_Summary;
 using FFXIVRelicTracker._05_ShB._01_Resistance;
 using FFXIVRelicTracker._05_ShB._02_AugmentedResistance;
 using FFXIVRelicTracker._05_ShB._03_Recollection;
+using FFXIVRelicTracker._05_ShB._05_AugmentedLawsOrder;
+using FFXIVRelicTracker._05_ShB._04_LawsOrder;
+using FFXIVRelicTracker._05_ShB._06_Blades;
 
 namespace FFXIVRelicTracker._05_ShB.Main
 {
@@ -38,6 +41,9 @@ namespace FFXIVRelicTracker._05_ShB.Main
             PageViewModels.Add(new ResistanceViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new AugmentedResistanceViewModel(Event.EventInstance.EventAggregator));
             PageViewModels.Add(new RecollectionViewModel(Event.EventInstance.EventAggregator));
+            PageViewModels.Add(new LawsOrderViewModel(Event.EventInstance.EventAggregator));
+            PageViewModels.Add(new AugmentedLawsOrderViewModel(Event.EventInstance.EventAggregator));
+            PageViewModels.Add(new BladesViewModel(Event.EventInstance.EventAggregator));
 
             CurrentPageViewModel = PageViewModels[0];
 

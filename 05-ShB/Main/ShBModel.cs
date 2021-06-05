@@ -1,6 +1,9 @@
 ﻿using FFXIVRelicTracker._05_ShB._01_Resistance;
 using FFXIVRelicTracker._05_ShB._02_AugmentedResistance;
 using FFXIVRelicTracker._05_ShB._03_Recollection;
+using FFXIVRelicTracker._05_ShB._04_LawsOrder;
+using FFXIVRelicTracker._05_ShB._05_AugmentedLawsOrder;
+using FFXIVRelicTracker._05_ShB._06_Blades;
 using FFXIVRelicTracker._05_ShB.ShBHelpers;
 using FFXIVRelicTracker.Models.Helpers;
 using System;
@@ -36,6 +39,9 @@ namespace FFXIVRelicTracker._05_ShB.Main
         private ResistanceModel resistanceModel = new ResistanceModel();
         private AugmentedResistanceModel augmentedResistanceModel = new AugmentedResistanceModel();
         private RecollectionModel recollectionModel = new RecollectionModel();
+        private LawsOrderModel lawsOrderModel = new LawsOrderModel();
+        private AugmentedLawsOrderModel augmentedLawsOrderModel = new AugmentedLawsOrderModel();
+        private BladesModel bladesModel = new BladesModel();
 
         #endregion
 
@@ -69,6 +75,9 @@ namespace FFXIVRelicTracker._05_ShB.Main
         public ResistanceModel ResistanceModel { get { return resistanceModel; } set { resistanceModel = value; OnPropertyChanged(nameof(ResistanceModel)); } }
         public AugmentedResistanceModel AugmentedResistanceModel { get { return augmentedResistanceModel; } set { augmentedResistanceModel = value; OnPropertyChanged(nameof(AugmentedResistanceModel)); } }
         public RecollectionModel RecollectionModel { get { return recollectionModel; } set { recollectionModel = value; OnPropertyChanged(nameof(RecollectionModel)); } }
+        public LawsOrderModel LawsOrderModel { get { return lawsOrderModel; } set { lawsOrderModel = value; OnPropertyChanged(nameof(LawsOrderModel)); } }
+        public AugmentedLawsOrderModel AugmentedLawsOrderModel { get { return augmentedLawsOrderModel; } set { augmentedLawsOrderModel = value; OnPropertyChanged(nameof(AugmentedLawsOrderModel)); } }
+        public BladesModel BladesModel { get { return bladesModel; } set { bladesModel = value; OnPropertyChanged(nameof(BladesModel)); } }
         #endregion
 
     }

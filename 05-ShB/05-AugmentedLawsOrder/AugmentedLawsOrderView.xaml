@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._05_ShB._05_AugmentedLawsOrder.AugmentedLawsOrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._05_ShB._05_AugmentedLawsOrder"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-ShBDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="10,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Style="{StaticResource FFXIVComboBox}" Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=CurrentAugmentedLawsOrder}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentAugmentedLawsOrder}"/>
+            </Border>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" 
+                    Text="The following quest is only completed once before augmenting the first Law's Order weapon" />
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="1" Grid.Column="0" Style="{StaticResource LeftTextBlock}"  TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" 
+                    Text="Quest: 'The Resistance Remembers' | Started by: Gerolt (Gangos)" />
+
+                <TextBlock Margin="10,0,0,0" Grid.Row="2" Style="{StaticResource LeftTextBlock}"  TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" 
+                           Text="Collect 18 of the following items:"/>
+                
+
+                <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="10,0,0,0">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Haunting Memory of the Dying" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" (dropped upon completion of Heavensward Alliance Raids)" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="10,0,0,0">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Vexatious Memory of the Dying" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" (dropped upon completion of Stormblood Alliance Raids)" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                </StackPanel>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="5" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                <Grid Grid.Row="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Haunting Memory of the Dying:" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                    <TextBox Margin="5,0,0,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding PurpleCount}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                    <Button Grid.Row="0" Grid.Column="2"  Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Purple"/>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="/18" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                </Grid>
+                <Grid Grid.Row="7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Vexatious Memory of the Dying:" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                    <TextBox Margin="5,0,0,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding YellowCount}" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                    <Button Grid.Row="0" Grid.Column="2"  Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}" CommandParameter="Yellow"/>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="/18" TextDecorations="{Binding CompletedOnce,  Converter={StaticResource ConvertToStrikethrough}}" />
+                </Grid>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="8" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="9" Grid.Column="0" Style="{StaticResource LeftTextBlock}"
+                    Text="The following quest is completed to augment each Law's Order weapon" />
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="10" Grid.Column="0" Style="{StaticResource LeftTextBlock}"
+                    Text="Quest: 'The Resistance Remembers' | Started by: Zlatan (Gangos)" />
+
+                <StackPanel Orientation="Horizontal" Grid.Row="11" Margin="10,0,0,0">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Collect 15 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Timeworn Artifacts"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" from one of the following sources:"/>
+                </StackPanel>
+
+                <TextBlock Margin="20,0,0,0" Grid.Row="12" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="-Complete Delubrum Reginae (guaranteed)"/>
+                <TextBlock Margin="20,0,0,0" Grid.Row="13" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="-Complete 10 floors in the Palace of the Dead (chance)"/>
+                
+                <Grid Grid.Row="14">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Timeworn Artifact:"/>
+                    <TextBox Margin="5,0,0,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding ArtifactCount}"/>
+                    <Button Grid.Row="0" Grid.Column="2"  Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}"/>
+                </Grid>
+                <Grid Grid.Row="15">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="10,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Timeworn Artifact"/>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text=" remaining:"/>
+                    </StackPanel>
+                    <TextBlock Margin="10,0,0,0" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="{Binding ArtifactNeeded}"/>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

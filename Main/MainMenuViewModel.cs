@@ -193,7 +193,10 @@ namespace FFXIVRelicTracker.ViewModels
                 {
                     job.Resistance,
                     job.AugmentedResistance,
-                    job.Recollection
+                    job.Recollection,
+                    job.LawsOrder,
+                    job.AugmentedLawsOrder,
+                    job.Blades
                 };
                 job.StageList = shbProgresses;
                 job.CheckObject();
@@ -381,7 +384,7 @@ namespace FFXIVRelicTracker.ViewModels
 
         private bool CanSave()
         {
-            return true;
+            return CharacterList.Count>0;
         }
         private void SaveObject()
         {

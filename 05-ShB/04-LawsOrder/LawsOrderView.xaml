@@ -1,0 +1,109 @@
+﻿<UserControl x:Class="FFXIVRelicTracker._05_ShB._04_LawsOrder.LawsOrderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FFXIVRelicTracker._05_ShB._04_LawsOrder"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/FFXIVRelicTracker;component/Helpers/ResourceDictionaries/05-ShBDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid Margin="10,0,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <TextBlock Style="{StaticResource LeftTextBlock}" Text="Active Job:"/>
+            <ComboBox Style="{StaticResource FFXIVComboBox}" Margin="5,0,0,0"
+                                                ItemsSource="{Binding   Path=AvailableJobs}" 
+                                                SelectedItem="{Binding Path=CurrentLawsOrder}"
+                                    />
+            <Border HorizontalAlignment="Center">
+                <Button Style="{StaticResource FFXIVButton}" Content="Mark as completed" Command="{Binding CompleteButton}" CommandParameter="{Binding Path=CurrentLawsOrder}"/>
+            </Border>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" >
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="0" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                    Text="Quest: 'Change of Arms' | Started by: Zlatan (Gangos)" />
+                <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="10,0,0,0">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="Collect 15 "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Loathsome Memory of the Dying"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" from one of the following sources:"/>
+                </StackPanel>
+
+                <TextBlock Margin="20,0,0,0" Grid.Row="2" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="-Complete Castrum Lacus Litore (Rewards 5)"/>
+
+                <TextBlock Margin="20,0,0,0" Grid.Row="3" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="-Complete any ARR Alliance raid (Rewards 1)"/>
+
+                <TextBlock Margin="30,0,0,0" Grid.Row="4" Grid.Column="0" Style="{StaticResource LeftTextBlock}" 
+                           Text="Complete CE's in Bozjan Southern Front (Chance reward 1)"/>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="5" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                <StackPanel Orientation="Horizontal" Margin="10,0,0,0" Grid.Row="6">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="For a "/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Bitter Memory of the Dying"/>
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text=" to drop, the quest 'Change of Arms' Must be active"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" Margin="15,0,0,0" Grid.Row="7">
+                    <TextBlock Style="{StaticResource LeftTextBlock}" Text="and an augmented resistance weapon must be in inventory or equipped"/>
+
+                </StackPanel>
+
+                <TextBlock Margin="0,0,0,0" Grid.Row="8" Grid.Column="0" Style="{StaticResource LeftTextBlock}" Text=""/>
+
+                <Grid Grid.Row="9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="10,0,0,0" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Loathsome Memory of the Dying:"/>
+                    <TextBox Margin="5,0,0,0" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Style="{StaticResource BaseTextBox}" MinWidth="25"  Text="{Binding MemoryCount}"/>
+                    <Button Grid.Row="0" Grid.Column="2"  Style="{StaticResource incrementButton}" Content="+" Command="{Binding MemoryButton}"/>
+                </Grid>
+                <Grid Grid.Row="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Margin="10,0,0,0" Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Foreground="White" Text="Loathsome Memory of the Dying"/>
+                        <TextBlock Grid.Column="0" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text=" remaining:"/>
+                    </StackPanel>
+                    <TextBlock Margin="10,0,0,0" Grid.Column="1" HorizontalAlignment="Left" Style="{StaticResource LeftTextBlock}" Text="{Binding MemoryNeeded}"/>
+                </Grid>
+
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
+
