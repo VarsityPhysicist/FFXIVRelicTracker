@@ -50,14 +50,18 @@
                                         <ColumnDefinition Width="auto"/>
                                         <ColumnDefinition/>
                                         <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
+                                        <ColumnDefinition Width="auto"/>
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Orientation="Horizontal">
                                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="FFXIVRelicTracker "/>
                                         <TextBlock Style="{StaticResource LeftTextBlock}" Text="FFXIVRelicTracker "/>
-                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="v5.55.0.1"/>
+                                        <TextBlock Style="{StaticResource LeftTextBlock}" Text="v5.55.0.2"/>
                                     </StackPanel>
                                     <TextBlock Grid.Column="1"/>
-                                    <Button  Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"  Command="ApplicationCommands.Close" Content="Close Window" />
+                                    <Button  Grid.Column="2" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"  Command="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=Window, AncestorLevel=1},Path=MinimizeCommandHandler}" Content="_" />
+                                    <Button  Grid.Column="3" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"  Command="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=Window, AncestorLevel=1},Path=ResizeCommandHandler}" Content="▢" />
+                                    <Button  Grid.Column="4" HorizontalAlignment="Right" Style="{StaticResource FFXIVButton}"  Command="ApplicationCommands.Close" Content="X" />
                                 </Grid>
                             </Border>
 

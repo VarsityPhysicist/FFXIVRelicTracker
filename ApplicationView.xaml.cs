@@ -1,4 +1,5 @@
-﻿using FFXIVRelicTracker.Models.Helpers;
+﻿using FFXIVRelicTracker.Models;
+using FFXIVRelicTracker.Models.Helpers;
 using FFXIVRelicTracker.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,38 @@ namespace FFXIVRelicTracker
         {
             this.Close();
         }
+
+
+        private ICommand _MinimizeCommand;
+        public ICommand MinimizeCommandHandler
+        {
+            get
+            {
+                if (_MinimizeCommand == null)
+                {
+                    _MinimizeCommand = new RelayCommand(p => this.WindowState = WindowState.Minimized);
+                }
+                return _MinimizeCommand;
+            }
+        }
+        private ICommand _ResizeCommand;
+        public ICommand ResizeCommandHandler
+        {
+            get
+            {
+                if (_ResizeCommand == null)
+                {
+                    _ResizeCommand = new RelayCommand(p => ResizeMethod());
+                }
+                return _ResizeCommand;
+            }
+        }
+        private void ResizeMethod()
+        {
+            if (this.WindowState == WindowState.Maximized) this.WindowState = WindowState.Normal;
+            else this.WindowState = WindowState.Maximized;
+        }
+
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
